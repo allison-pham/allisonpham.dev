@@ -14,7 +14,7 @@ export default function ExperiencesPage() {
                   <h3 className="text-xl font-semibold text-purple-300">Lead Systems Engineer</h3>
                   {/* <span className="text-sm text-gray-400 mt-1 sm:mt-0">Date</span> */}
                 </div>
-                <p className="text-gray-300 font-medium mb-2">NASA L'SPACE Program</p>
+                <p className="text-gray-300 font-medium mb-2">NASA L&apos;SPACE Program</p>
                 {/* <p className="text-gray-300 font-medium mb-2">NASA L'SPACE Program • Location</p> */}
                 <p className="text-gray-300 mb-3 leading-relaxed">
                   Product development and system-level projects for <b>space communication</b>.

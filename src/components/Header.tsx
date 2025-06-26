@@ -12,7 +12,7 @@ const navItems = [
 
 export default function Header() {
   return (
-    <header className="w-full py-6 px-4 sm:px-8 flex flex-col sm:flex-row items-start sm:items-center justify-between text-lg font-mono text-white gap-4 sm:gap-0">
+    <header className="fixed top-0 left-0 right-0 z-50 w-full py-6 px-4 sm:px-8 flex flex-col sm:flex-row items-start sm:items-center justify-between text-lg font-mono text-white gap-4 sm:gap-0 bg-[#25242C] backdrop-blur-sm border-b border-gray-800/50">
       <div className="text-lg font-light">Allison Pham</div>
       <nav className="flex flex-wrap gap-4 sm:gap-6">
         {navItems.map(({ href, label }) => (
@@ -23,8 +23,6 @@ export default function Header() {
           >
             <span style={{ color: '#B6A8F9' }}>#</span>
             <span className="group-hover:text-purple-400">{label}</span>
-            {/* <span className="text-purple-400">#</span>
-            <span className="group-hover:text-purple-300">{label}</span> */}
           </Link>
         ))}
       </nav>
