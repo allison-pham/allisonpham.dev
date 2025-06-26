@@ -6,12 +6,6 @@ export default function NotFound() {
         <p className="text-lg mb-6 text-gray-400">
           Sorry, the page you&apos;re looking for doesn&apos;t exist.
         </p>
-        <a
-          href="/"
-          className="border px-6 py-3 rounded-md hover:bg-white hover:text-black transition"
-        >
-          Return Home
-        </a>
       </div>
     </main>
   );
