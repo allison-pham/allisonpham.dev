@@ -44,7 +44,6 @@ export default function AboutPage() {
 
         <div className="mt-8">
           <h2 className="text-2xl font-semibold mb-4 text-white">Skills & Tech Stack</h2>
-          {/* Languages */}
           <div className="mb-6">
             <h3 className="text-lg font-medium mb-3 text-purple-300">Languages</h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -56,7 +55,6 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Frameworks */}
           <div className="mb-6">
             <h3 className="text-lg font-medium mb-3 text-purple-300">Frameworks</h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -67,7 +65,6 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Libraries */}
           <div className="mb-6">
             <h3 className="text-lg font-medium mb-3 text-purple-300">Libraries</h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -78,13 +75,13 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Design */}
           <div className="mb-6">
             <h3 className="text-lg font-medium mb-3 text-purple-300">Design</h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
               <SkillTag>Figma</SkillTag>
               <SkillTag>Sketch</SkillTag>
               <SkillTag>Canva</SkillTag>
+              <SkillTag>Adobe</SkillTag>
             </div>
           </div>
         </div>
