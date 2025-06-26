@@ -10,8 +10,8 @@ const firaCode = Fira_Code({
 });
 
 export const metadata = {
-  title: 'Your Site',
-  description: 'Portfolio with Fira Code',
+  title: 'MyName',
+  description: 'Personal portfolio website',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
