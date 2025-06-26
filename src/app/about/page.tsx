@@ -21,22 +21,22 @@ export default function AboutPage() {
           <h2 className="text-2xl font-semibold mb-4 text-white">What I Do</h2>
           <ul className="space-y-3">
             <li className="flex items-start gap-3">
-              <span className="text-purple-400 mt-1">//</span>
+              <span className="text-purple-400 mt-1">{"//"}</span>
               <span>Developing enhanced <b>design systems</b> to strengthen optimization and productivity</span>
             </li>
 
             <li className="flex items-start gap-3">
-              <span className="text-purple-400 mt-1">//</span>
+              <span className="text-purple-400 mt-1">{"//"}</span>
               <span>Designing impactful user interfaces (UI) in combination with <b>gamification</b></span>
             </li>
 
             <li className="flex items-start gap-3">
-              <span className="text-purple-400 mt-1">//</span>
+              <span className="text-purple-400 mt-1">{"//"}</span>
               <span>Optimizing for better <b>efficiency and speed</b> with an emphasis on user experience (UX)</span>
             </li>
 
             <li className="flex items-start gap-3">
-              <span className="text-purple-400 mt-1">//</span>
+              <span className="text-purple-400 mt-1">{"//"}</span>
               <span>Building <b>scalable applications</b> and exploring emerging tech</span>
             </li>
           </ul>

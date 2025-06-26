@@ -16,8 +16,8 @@ export default function Footer() {
 
         <div className="justify-self-start translate-x-4 sm:translate-x-6 md:translate-x-8 text-left">
           <p className="font-bold">Ongoing Projects</p>
-          <p className="text-gray-300">/ Exploring the brain</p>
-          <p className="text-gray-300">/ Advocacy via policy</p>
+          <p className="text-gray-300">{"//"} Exploring the brain</p>
+          <p className="text-gray-300">{"//"} Advocacy via policy</p>
         </div>
       </div>
 
