@@ -13,7 +13,7 @@ const navItems = [
 export default function Header() {
   return (
     <header className="w-full py-6 px-4 sm:px-8 flex flex-col sm:flex-row items-start sm:items-center justify-between text-lg font-mono text-white gap-4 sm:gap-0">
-      <div className="text-lg font-light">MyName</div>
+      <div className="text-lg font-light">Allison Pham</div>
       <nav className="flex flex-wrap gap-4 sm:gap-6">
         {navItems.map(({ href, label }) => (
           <Link

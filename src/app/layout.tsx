@@ -10,7 +10,7 @@ const firaCode = Fira_Code({
 });
 
 export const metadata = {
-  title: 'MyName',
+  title: 'Allison Pham',
   description: 'Personal portfolio website',
 };
 
