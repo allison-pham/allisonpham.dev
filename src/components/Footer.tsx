@@ -22,7 +22,7 @@ export default function Footer() {
       </div>
 
       <p className="text-center mt-5 text-gray-400">
-        © Allison Pham {currentYear}. Made with ❤️ and 🍵
+        © {currentYear} Allison Pham. Made with ❤️ and 🍵
       </p>
     </footer>
   );
