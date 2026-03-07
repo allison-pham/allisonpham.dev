@@ -5,9 +5,9 @@ export default function HomePage() {
       <p className="text-gray-300 mb-6 max-w-md">
         Developing and designing to build innovative solutions.
       </p>
-      <button className="border px-4 py-2 rounded-md text-sm hover:bg-white hover:text-black transition">
+      {/* <button className="border px-4 py-2 rounded-md text-sm hover:bg-white hover:text-black transition">
         Explore
-      </button>
+      </button> */}
     </main>
   );
 }

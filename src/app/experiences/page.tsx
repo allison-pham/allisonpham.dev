@@ -6,15 +6,22 @@ export default function ExperiencesPage() {
         
         <div className="space-y-12">
           <section>
-            <h2 className="text-2xl font-semibold mb-6 text-white">Computer Science & Engineering</h2>
+            <h2 className="text-2xl font-semibold mb-6 text-white">CS, Engineering, Product</h2>
             <div className="space-y-8">
 
               <div className="border-l-2 border-purple-400 pl-6">
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
-                  <h3 className="text-xl font-semibold text-purple-300">Lead Systems Engineer</h3>
+                  <h3 className="text-xl font-semibold text-purple-300">Design & Research (Autonomous Traversal)</h3>
+                </div>
+                <p className="text-gray-300 font-medium mb-2">NASA</p>
+              </div>
+
+              <div className="border-l-2 border-purple-400 pl-6">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
+                  <h3 className="text-xl font-semibold text-purple-300">Lead Systems Engineer (L'SPACE)</h3>
                   {/* <span className="text-sm text-gray-400 mt-1 sm:mt-0">Date</span> */}
                 </div>
-                <p className="text-gray-300 font-medium mb-2">NASA L'SPACE Program</p>
+                <p className="text-gray-300 font-medium mb-2">NASA</p>
                 {/* <p className="text-gray-300 font-medium mb-2">NASA L'SPACE Program • Location</p> */}
                 <p className="text-gray-300 mb-3 leading-relaxed">
                   Product development and system-level projects for <b>space communication</b>.
@@ -47,8 +54,17 @@ export default function ExperiencesPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold mb-6 text-white">Organization Involvement (Current)</h2>
+            <h2 className="text-2xl font-semibold mb-6 text-white">Orgs (Current)</h2>
             <div className="space-y-6">
+              <div className="flex items-start gap-3">
+                <span className="text-purple-400 mt-1">{"//"}</span>
+                <div>
+                  <p className="text-gray-300">
+                    <b className="text-purple-300">Campus Leader</b> - Notion
+                  </p>
+                </div>
+              </div>
+
               <div className="flex items-start gap-3">
                 <span className="text-purple-400 mt-1">{"//"}</span>
                 <div>
@@ -90,6 +106,15 @@ export default function ExperiencesPage() {
                 <span className="text-purple-400 mt-1">{"//"}</span>
                 <div>
                   <p className="text-gray-300">
+                    <b className="text-purple-300">Director of Events & Community Management (CM)</b> - Cosmic-us
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3">
+                <span className="text-purple-400 mt-1">{"//"}</span>
+                <div>
+                  <p className="text-gray-300">
                     <b className="text-purple-300">Committee</b> - Associated Students of UC Riverside (ASUCR)
                   </p>
                 </div>
@@ -98,7 +123,7 @@ export default function ExperiencesPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold mb-6 text-white">Organization Involvement (Previous)</h2>
+            <h2 className="text-2xl font-semibold mb-6 text-white">Orgs (Previous)</h2>
             <div className="space-y-6">
 
               <div className="flex items-start gap-3">
