@@ -43,14 +43,18 @@ export default function AboutPage() {
         </div>
 
         <div className="mt-8">
-          <h2 className="text-2xl font-semibold mb-4 text-white">Skills & Tech Stack</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-white">Technical Skills</h2>
           <div className="mb-6">
             <h3 className="text-lg font-medium mb-3 text-purple-300">Languages</h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
               <SkillTag>C++</SkillTag>
               <SkillTag>Python</SkillTag>
               <SkillTag>Java</SkillTag>
+              <SkillTag>TypeScript</SkillTag>
               <SkillTag>JavaScript</SkillTag>
+              <SkillTag>C</SkillTag>
+              <SkillTag>SQL</SkillTag>
+              <SkillTag>Swift</SkillTag>        
               <SkillTag>HTML/CSS</SkillTag>
             </div>
           </div>
@@ -58,20 +62,49 @@ export default function AboutPage() {
           <div className="mb-6">
             <h3 className="text-lg font-medium mb-3 text-purple-300">Frameworks</h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-              <SkillTag>React</SkillTag>
               <SkillTag>Next.js</SkillTag>
+              <SkillTag>React</SkillTag>
               <SkillTag>Vue.js</SkillTag>
               <SkillTag>Tailwind CSS</SkillTag>
+              <SkillTag>Spring Boot</SkillTag>
+              <SkillTag>SwifUI</SkillTag>
+            </div>
+          </div>
+
+          <div className="mb-6">
+            <h3 className="text-lg font-medium mb-3 text-purple-300">Developer Tools</h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              <SkillTag>Docker</SkillTag>
+              <SkillTag>AWS</SkillTag>
+              <SkillTag>Google Cloud</SkillTag>
+              <SkillTag>Firebase</SkillTag>
             </div>
           </div>
 
           <div className="mb-6">
             <h3 className="text-lg font-medium mb-3 text-purple-300">Libraries</h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              <SkillTag>PyTorch</SkillTag>
+              <SkillTag>TensorFlow</SkillTag>
               <SkillTag>scikit-learn</SkillTag>
-              <SkillTag>pandas</SkillTag>
               <SkillTag>NumPy</SkillTag>
+              <SkillTag>pandas</SkillTag>
               <SkillTag>Matplotlib</SkillTag>
+              <SkillTag>Three.js</SkillTag>
+            </div>
+          </div>
+
+          <div className="mb-6">
+            <h3 className="text-lg font-medium mb-3 text-purple-300">Hardware / CAD</h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              <SkillTag>MATLAB</SkillTag>
+              <SkillTag>SPICE</SkillTag>
+              <SkillTag>Verilog</SkillTag>
+              <SkillTag>FPGA Tools</SkillTag>
+              <SkillTag>Arduino</SkillTag>
+              <SkillTag>Altium</SkillTag>
+              <SkillTag>Autodesk</SkillTag>
+              <SkillTag>Qt</SkillTag>
             </div>
           </div>
 
@@ -79,7 +112,8 @@ export default function AboutPage() {
             <h3 className="text-lg font-medium mb-3 text-purple-300">Design</h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
               <SkillTag>Figma</SkillTag>
-              <SkillTag>Sketch</SkillTag>
+              <SkillTag>Framer</SkillTag>
+              <SkillTag>Spline</SkillTag>
               <SkillTag>Canva</SkillTag>
               <SkillTag>Adobe</SkillTag>
             </div>
