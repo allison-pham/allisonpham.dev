@@ -19,7 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={firaCode.variable}>
       <body className="flex flex-col min-h-screen bg-[#25242C] text-white font-mono">
         <Header />
-        <main className="flex-grow">{children}</main>
+        <main className="flex-grow pt-24 sm:pt-24">{children}</main>
         <Footer />
       </body>
     </html>
