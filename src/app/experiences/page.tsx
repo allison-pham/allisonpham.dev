@@ -11,14 +11,14 @@ export default function ExperiencesPage() {
 
               <div className="border-l-2 border-purple-400 pl-6">
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
-                  <h3 className="text-xl font-semibold text-purple-300">Design & Research (Autonomous Traversal)</h3>
+                  <h3 className="text-xl font-semibold text-purple-300">Design &apos; Research (Autonomous Traversal)</h3>
                 </div>
                 <p className="text-gray-300 font-medium mb-2">NASA</p>
               </div>
 
               <div className="border-l-2 border-purple-400 pl-6">
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
-                  <h3 className="text-xl font-semibold text-purple-300">Lead Systems Engineer (L'SPACE)</h3>
+                  <h3 className="text-xl font-semibold text-purple-300">Lead Systems Engineer (L&apos;SPACE))</h3>
                   {/* <span className="text-sm text-gray-400 mt-1 sm:mt-0">Date</span> */}
                 </div>
                 <p className="text-gray-300 font-medium mb-2">NASA</p>
@@ -33,7 +33,7 @@ export default function ExperiencesPage() {
 
               <div className="border-l-2 border-purple-400 pl-6">
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-2">
-                  <h3 className="text-xl font-semibold text-purple-300">Research & Development Software Engineer Intern</h3>
+                  <h3 className="text-xl font-semibold text-purple-300">Research &apos; Development Software Engineer Intern</h3>
                 </div>
                 <p className="text-gray-300 font-medium mb-2">Nucleo</p>
                 <p className="text-gray-300 mb-3 leading-relaxed">
@@ -106,7 +106,7 @@ export default function ExperiencesPage() {
                 <span className="text-purple-400 mt-1">{"//"}</span>
                 <div>
                   <p className="text-gray-300">
-                    <b className="text-purple-300">Director of Events & Community Management (CM)</b> - Cosmic-us
+                    <b className="text-purple-300">Director of Events &apos; Community Management (CM)</b> - Cosmic-us
                   </p>
                 </div>
               </div>
@@ -148,7 +148,7 @@ export default function ExperiencesPage() {
                 <span className="text-purple-400 mt-1">{"//"}</span>
                 <div>
                   <p className="text-gray-300">
-                    <b className="text-purple-300">Operations & UI/UX Lead</b> - Citrus Hack
+                    <b className="text-purple-300">Operations &apos; UI/UX Lead</b> - Citrus Hack
                   </p>
                 </div>
               </div>
@@ -166,7 +166,7 @@ export default function ExperiencesPage() {
                 <span className="text-purple-400 mt-1">{"//"}</span>
                 <div>
                   <p className="text-gray-300">
-                    <b className="text-purple-300">Project & Workshop Coordinator</b> - Gamespawn
+                    <b className="text-purple-300">Project &apos; Workshop Coordinator</b> - Gamespawn
                   </p>
                 </div>
               </div>
