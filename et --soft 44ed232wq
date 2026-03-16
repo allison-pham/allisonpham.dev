@@ -1,0 +1,148 @@
+[33mcd58666[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mv7.0[m[33m, [m[1;31morigin/v7.0[m[33m)[m Add lib
+[33m0140584[m Fix with updated pnpm lockfile
+[33mbcb78ee[m Revamp personal website
+[33m44ed232[m Merge branch 'main' of https://github.com/allison-pham/allisonpham.dev into v6.0
+[33m2faa453[m Adjust for deployment
+[33mb6a22f0[m Merge pull request #77 from allison-pham/v6.0
+[33mb3c5408[m Merge branch 'main' into v6.0
+[33m14e830d[m Adjust experiences,  add back projects
+[33m72a7a2a[m Update README.md
+[33m24beea2[m Merge pull request #76 from allison-pham/landing
+[33me11f948[m Remove button, update footer
+[33md57e5da[m[33m ([m[1;33mtag: [m[1;33mv6.0[m[33m, [m[1;33mtag: [m[1;33mv5.0[m[33m)[m Merge pull request #75 from allison-pham/blog
+[33mad11498[m Update nav bar
+[33maaecb6e[m Update README.md
+[33mac435e4[m Merge pull request #74 from allison-pham/projects-page
+[33mc02834b[m Add sticky header
+[33m3f21309[m Modify format
+[33m1bb9d1c[m Projects page with project card component
+[33mcd7fb76[m[33m ([m[1;32mmain[m[33m)[m Clean up code
+[33m1395a54[m Add 404 error page and set up blog page
+[33m856d798[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Clean up more
+[33m53ed7bb[m Adjust format
+[33m51c6c21[m Add about page
+[33m9cb0b58[m Add skill tag component
+[33me92f594[m Clean up code
+[33m358f0a4[m Make responsive
+[33mbe7c415[m Clean up files
+[33mca17043[m Add header component
+[33mafef637[m Add footer component
+[33m4f47ea7[m Modify home and experiences with up-to-date information
+[33m2f1e6cc[m Adjust experiences section
+[33m3b4f3a5[m Update project descriptions
+[33me77878c[m Add all projects
+[33m961f21d[m Set up config to handle routing
+[33m8e9ec97[m Modify import
+[33m1fd7e8b[m Update with profile picture, add rest of experiences, and modify project page layout
+[33mb74ef49[m Fix spelling
+[33m6a0ecf4[m Adjust social link routing
+[33m0cb8e1e[m Add footer, adjust footer routing, and make small modification to home page
+[33m286c29f[m Adjust header
+[33md965668[m Add remaining files
+[33m588c37a[m Add projects page
+[33maa7c358[m Add experiences section
+[33m05863f8[m Add about section
+[33m43fb5be[m Add new home page
+[33m500b1ba[m Add initialized project for new version
+[33m6dddb08[m Merge pull request #53 from allison-pham/version-3
+[33mcf39c32[m[33m ([m[1;33mtag: [m[1;33mv3.0[m[33m)[m Update with calendar files
+[33m1aa885c[m Add files to version 3
+[33m9e63c3a[m Merge pull request #52 from imallison/home
+[33mb20acac[m Update README.md
+[33m36ecbea[m Merge pull request #51 from imallison/home
+[33m708d617[m Update README.md
+[33mb8f6f1a[m Merge pull request #50 from imallison/home
+[33mbfb2d80[m Update README.md
+[33mb9305b6[m Merge pull request #49 from imallison/home
+[33m7424514[m Add all experiences
+[33md6881d6[m Merge pull request #48 from imallison/home
+[33m90b992e[m Back up files and update typing effect
+[33maf781fc[m Merge pull request #47 from imallison/home
+[33m2d7dae4[m Adjust typing speed and erasing speed
+[33mbda65b9[m Merge pull request #46 from imallison/home
+[33m7bde113[m Update typing speed, erasing speed, and delay between words
+[33m1879389[m Merge pull request #45 from imallison/home
+[33mcabdb84[m Update typing effect format for words, typing speed, and erasing speed
+[33m3a57059[m Merge pull request #44 from imallison/home
+[33m5533ab6[m Add to typing effect
+[33ma3871e0[m Merge pull request #43 from imallison/home
+[33m624a2d4[m Adjust/update  3D design, about section, and footer
+[33m3daff3f[m Merge pull request #42 from imallison/home
+[33m72437d1[m Add footer
+[33md96565a[m Merge pull request #41 from imallison/home
+[33mf920346[m Adjust 3D design
+[33m50d5945[m Merge pull request #40 from imallison/home
+[33mb1708bc[m Adjust format
+[33mccb1f1b[m Merge pull request #39 from imallison/home
+[33m3bdb0ce[m Adjust title and top page
+[33m12a9059[m Merge pull request #38 from imallison/home
+[33m4a1984f[m Add about, my workspace, and portfolio
+[33m6b66da5[m Merge pull request #37 from imallison/home
+[33md56e783[m Adjust format of pathway boxes
+[33m5b27a00[m Merge pull request #36 from imallison/home
+[33mb3d56c4[m Additional adjustments
+[33m30a36e7[m Merge pull request #35 from imallison/home
+[33m7b718f0[m Add pathways and adjust formatting
+[33m26c7285[m Merge pull request #34 from imallison/home
+[33m31017ac[m Add image
+[33mba00137[m Merge pull request #33 from imallison/home
+[33m7490edc[m Merge branch 'main' of https://github.com/allison-pham/allison-pham.github.io into home
+[33m4823971[m Add images and layout
+[33mf980ba2[m Merge pull request #32 from imallison/home
+[33me5054dc[m Merge branch 'main' into home
+[33m75510ba[m Add interactive room
+[33mfaf837e[m Update README.md
+[33m7ba73bd[m Update about.html
+[33mf9149ad[m Update about.html
+[33mc097832[m Update README.md
+[33me18a124[m Update README.md
+[33m32a7d9a[m Merge pull request #31 from imallison/home
+[33m31b62a7[m Add rectangle overlay and center
+[33m1e208d1[m Update README.md
+[33m10d69fa[m Merge pull request #30 from imallison/website
+[33mf78a551[m Change background
+[33mcafc070[m Merge pull request #29 from imallison/website
+[33m88f37b9[m Archive original style file
+[33mfbf106d[m Merge branch 'main' of https://github.com/allison-pham/allison-pham.github.io into website
+[33m96dd957[m Merge pull request #28 from allison-pham/website
+[33m0890c93[m Merge branch 'main' of https://github.com/allison-pham/allison-pham.github.io into website
+[33m14db462[m Layout files
+[33m87c229f[m Merge pull request #27 from allison-pham/website
+[33m8fe6f1c[m Minor updates
+[33m5a755cf[m Merge pull request #26 from allison-pham/website
+[33m235ff48[m Add navigation bar on all pages and footers
+[33ma969c07[m Merge pull request #25 from allison-pham/website
+[33m4d19dbb[m Add navigation bar for about.html
+[33me52a7e5[m Merge pull request #24 from allison-pham/website
+[33m540e6fd[m Update index.html with scroll
+[33m605471c[m Merge pull request #23 from allison-pham/allison/layout
+[33md5f58ec[m Add more layouts
+[33m0240484[m Merge pull request #20 from allison-pham/allison/layout
+[33m31b9a8e[m Make adjustments to about
+[33m55ea098[m Merge pull request #19 from allison-pham/allison/layout
+[33m09234bf[m Update about page with bio
+[33mabcc3ff[m Merge pull request #18 from allison-pham/allison/layout
+[33m0781ed8[m Move files to src folder
+[33m4838432[m Merge pull request #17 from allison-pham/allison/layout
+[33m953ebdb[m Create skills page
+[33m126ef1f[m Merge pull request #16 from allison-pham/allison/layout
+[33m8f24bfb[m Create projects page
+[33ma5253f5[m Merge pull request #14 from allison-pham/allison/layout
+[33mbb09622[m Create separate page for about me
+[33m7742c1b[m Merge pull request #13 from allison-pham/allison/layout
+[33m1a12c40[m Update layout
+[33mad3d16a[m Merge pull request #12 from allison-pham/allison/layout
+[33m49a37ee[m Small changes
+[33m3cfc573[m Created blog
+[33m62b4976[m Merge pull request #8 from allison-pham/allison/layout
+[33ma537a0b[m Move files to mainfolder
+[33m3133cad[m Merge pull request #7 from allison-pham/allison/layout
+[33m52b3288[m Adjust files
+[33m5d11084[m Merge pull request #6 from allison-pham/allison/layout
+[33me89e054[m Add layout
+[33m1532758[m Update README.md
+[33m5452b05[m Merge pull request #2 from allison-pham/allison/website
+[33m434de89[m Add projects
+[33m20ab670[m Merge pull request #1 from allison-pham/allison/website
+[33mb3a212b[m Add all layouts
+[33m10e561f[m Initial commit
