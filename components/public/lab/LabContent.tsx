@@ -199,7 +199,7 @@ export function LabContent() {
   }, [])
 
   return (
-    <section className="px-4 sm:px-6 pt-28 pb-20">
+    <section className="px-4 sm:px-6 pt-16 sm:pt-20 pb-8 sm:pb-12">
       <div className="mx-auto max-w-7xl">
         {/* Hero */}
         <div className={cn("mb-12 sm:mb-16 space-y-4 opacity-0", isVisible && "animate-fade-in-up")}>
