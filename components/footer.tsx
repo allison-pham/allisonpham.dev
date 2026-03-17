@@ -7,9 +7,9 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer id="connect" className="border-t border-border/30 px-4 sm:px-6 py-20 sm:py-28">
+    <footer id="connect" className="border-t border-border/30 px-4 sm:px-6 py-8 sm:py-12">
       <div className="mx-auto max-w-7xl">
-        <div className="mt-16 sm:mt-20 flex flex-col items-center justify-between gap-6 border-t border-border/30 pt-8 sm:pt-10 sm:flex-row animate-fade-in stagger-4">
+        <div className="mt-4 sm:mt-6 flex flex-col items-center justify-between gap-6 border-t border-border/30 pt-8 sm:pt-10 sm:flex-row animate-fade-in stagger-4">
           <div className="flex items-center gap-2.5 font-mono text-xs text-muted-foreground">
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
