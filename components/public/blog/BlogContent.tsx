@@ -4,8 +4,8 @@ import { useEffect, useState, useRef } from "react"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 import { ArrowLeft, Calendar, Clock, Bookmark, Twitter, Linkedin, Link2, ChevronUp } from "lucide-react"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/Avatar"
-import { Button } from "@/components/ui/Button"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Button } from "@/components/ui/button"
 import { BlogPost, getRelatedPosts } from "@/lib/blog-data"
 
 interface BlogPostContentProps {

@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react"
 import { cn } from "@/lib/utils"
 import { Github, Star, GitFork, ExternalLink, Sparkles, Search, Filter } from "lucide-react"
-import { Input } from "@/components/ui/Input"
+import { Input } from "@/components/ui/input"
 
 const projects = [
   {

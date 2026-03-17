@@ -5,8 +5,8 @@ import type React from "react"
 import { useState, useEffect, useRef } from "react"
 import { cn } from "@/lib/utils"
 import { Mail, Rss, Search, Tag, TrendingUp } from "lucide-react"
-import { Input } from "@/components/ui/Input"
-import { Button } from "@/components/ui/Button"
+import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button"
 
 const categories = [
   { name: "All Posts", count: 0, slug: "all" },
