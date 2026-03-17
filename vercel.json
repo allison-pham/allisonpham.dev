@@ -1,3 +1,10 @@
 {
-  "buildCommand": "pnpm run build"
+  "buildCommand": "pnpm run build",
+
+  "routes": [
+    {
+      "src": "/.well-known/discord",
+      "dest": "/.well-known/discord"
+    }
+  ]
 }
