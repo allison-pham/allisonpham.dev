@@ -4,6 +4,7 @@ import { CollectionsIntro } from "@/components/public/collections/CollectionsInt
 import { InspirationBoard } from "@/components/public/collections/InspirationBoard"
 import { PassionGrowth } from "@/components/public/collections/PassionGrowth"
 import { PhotoDumps } from "@/components/public/collections/PhotoDumps"
+import { SideQuests } from "@/components/public/collections/SideQuests"
 
 export default function Loading() {
   return (
@@ -14,6 +15,7 @@ export default function Loading() {
             <InspirationBoard />
             <PassionGrowth />
             <PhotoDumps />
+            <SideQuests />
         </>
   )
 }
