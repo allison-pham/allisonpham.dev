@@ -11,9 +11,9 @@ const nowData = {
   focus: {
     title: "Main Focus",
     items: [
-      { label: "Building", text: "ML models" },
+      // { label: "Building", text: "ML models" },
       { label: "Learning", text: "System design, Linux, & cloud computing" },
-      { label: "Ongoing", text: "Campus Leader @ Notion" },
+      // { label: "Ongoing", text: "Campus Leader @ Notion" },
     ],
   },
 
@@ -26,7 +26,7 @@ const nowData = {
   ],
 
   building: [
-    "Knowledge management system",
+    "Machine learning model",
   ],
 }
 
@@ -44,7 +44,7 @@ export function Now() {
   }, [])
 
   return (
-    <section ref={sectionRef} id="now" className="px-4 sm:px-6 py-16 sm:py-20">
+    <section ref={sectionRef} id="now" className="px-4 sm:px-6 pt-16 sm:pt-20 pb-8 sm:pb-12">
       <div className="mx-auto max-w-7xl">
         {/* Header */}
         <div className={cn("flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 opacity-0", isVisible && "animate-fade-in-up")}>

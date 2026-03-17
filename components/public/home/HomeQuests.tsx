@@ -2,29 +2,36 @@
 
 import { useEffect, useRef, useState } from "react"
 import { cn } from "@/lib/utils"
-import { Eye, Share2, Hammer, BookOpen } from "lucide-react"
+import { Briefcase, Laptop, Satellite } from "lucide-react"
 
 const values = [
   {
-    icon: Eye,
-    title: "Project Sightings",
+    icon: Satellite,
+    title: "Researching autonomous traversal for space exploration",
+    description:
+      "Leading @ NASA program",
+  },
+
+  {
+    icon: Laptop,
+    title: "Project sightings - machine learning & HCI",
     description:
       "Building systems from the ground up, tinkering with new ideas",
   },
 
   {
-    icon: Share2,
-    title: "Org Impact",
+    icon: Briefcase,
+    title: "Leading orgs across campus & internationally",
     description:
-      "Leading at campus & international organizations, innovating in technical & professional dev",
+      "Currently: President @ ACM at UCR, Director @ Citrus & Cutie Hack, etc.",
   },
 
-  {
-    icon: Hammer,
-    title: "Misc.",
-    description:
-      "Avid polymath & hobbyist, currently learning about design in the context of space",
-  },
+  // {
+  //   icon: Hammer,
+  //   title: "Misc.",
+  //   description:
+  //     "Avid polymath & hobbyist, currently buildling & designing in the context of space",
+  // },
 ]
 
 export function CurrentQuests() {
@@ -43,7 +50,7 @@ export function CurrentQuests() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="border-t border-border/30 px-4 sm:px-6 py-20 sm:py-28">
+    <section ref={sectionRef} className="border-t border-border/30 px-4 sm:px-6 pt-16 sm:pt-20 pb-8 sm:pb-12\">
       <div className="mx-auto max-w-7xl">
         <div className={cn("mb-10 sm:mb-14 space-y-3 opacity-0", isVisible && "animate-fade-in-up")}>
           <p className="font-mono text-xs tracking-[0.25em] sm:tracking-[0.35em] text-primary">missions;</p>

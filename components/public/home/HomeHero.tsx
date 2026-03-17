@@ -63,8 +63,32 @@ export function HeroSection() {
             </p>
 
             <p className="m-0 max-w-lg text-base sm:text-lg leading-relaxed text-muted-foreground">
-              ✦ Campus Leader @ Notion & Leading ACM + Hackathons
+              ✦ Campus Leader @{" "}
+              <a
+                href="https://notion.so"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline decoration-wavy decoration-current/45 underline-offset-3 transition-colors hover:decoration-current/80"
+              >
+                Notion
+              </a>{" "}
+
+              & Leading{" "}
+              <a
+                href="https://acm.cs.ucr.edu"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline decoration-wavy decoration-current/45 underline-offset-3 transition-colors hover:decoration-current/80"
+              >
+                ACM
+              </a>{" "}
+              
+              + Hackathons
             </p>
+
+            {/* <p className="m-0 max-w-lg text-base sm:text-lg leading-relaxed text-muted-foreground">
+              ✦ Campus Leader @ Notion & Leading ACM + Hackathons
+            </p> */}
 
             <p className="m-0 max-w-lg text-base sm:text-lg leading-relaxed text-muted-foreground">
               ✦ Researching autonomous traversal & HCI in space

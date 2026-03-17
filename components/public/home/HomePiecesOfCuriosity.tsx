@@ -11,7 +11,7 @@ const curiosityTopics = [
     label: "Overview",
     title: "My Curiosities",
     tags: ["exploration", "growth", "learning"],
-    description: "A collection of my core focus areas that I'm exploring, learning abbout, and building.",
+    description: "A collection of my core focus areas that I'm exploring, learning about, and building.",
     history: "Began documenting my curiosities as a way to track growth and connect ideas cohesively.",
     futureProjects: "Building systems that bridge across multiple fields for impact.",
   },
@@ -82,7 +82,7 @@ export function PiecesOfCuriosity() {
   const currentTopic = curiosityTopics.find((t) => t.id === activeTopic) || curiosityTopics[0]
 
   return (
-    <section ref={sectionRef} id="curiosity" className="px-4 sm:px-6 py-20 sm:py-28">
+    <section ref={sectionRef} id="curiosity" className="px-4 sm:px-6 pt-16 sm:pt-20 pb-8 sm:pb-12">
       <div className="mx-auto max-w-7xl">
         {/* Header */}
         <div className={cn("mb-10 sm:mb-14 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between opacity-0", isVisible && "animate-fade-in-up")}>
