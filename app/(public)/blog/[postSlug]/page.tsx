@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { blogPosts, getPostBySlug } from "@/lib/blog-data";
 import { BlogPostContent } from "@/components/public/blog/BlogContent";
-import { Footer } from "@/components/Footer";
+import { Footer } from "@/components/footer";
 import { generateBlogPostStructuredData } from "@/lib/structured-data";
 import type { Metadata } from "next";
 

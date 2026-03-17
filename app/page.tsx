@@ -1,6 +1,6 @@
 import { CurrentQuests } from "@/components/public/home/HomeQuests";
-import { Footer } from "@/components/Footer"
-import { Header } from "@/components/Header"
+import { Footer } from "@/components/footer"
+import { Header } from "@/components/header"
 import { HeroSection } from "@/components/public/home/HomeHero"
 import { LabContent } from "@/components/public/lab/LabContent";
 import { Now } from "@/components/public/home/HomeNow";
