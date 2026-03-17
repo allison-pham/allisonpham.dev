@@ -50,8 +50,8 @@ const knowledgeCategories: KnowledgeCategory[] = [
     id: "computer-science",
     label: "Computer Science",
     icon: "01",
-    color: "from-primary/20 to-primary/5",
-    currentFocus: "developing interactive systems that are efficient, scalable, & user-friendly.",
+    color: "from-purple-200 to-purple-100",
+    currentFocus: "developing interactive systems that are efficient, scalable, & user-friendly",
     futureGoals: ["software engineering (swe)", "machine learning (ml)", "human-computer interaction (hci)"],
 
     topics: [
@@ -84,7 +84,7 @@ const knowledgeCategories: KnowledgeCategory[] = [
     id: "engineering",
     label: "Engineering",
     icon: "02",
-    color: "from-orange-500/20 to-orange-500/5",
+    color: "from-blue-200 to-blue-100",
     currentFocus: "intersecting hardware with software",
     futureGoals: ["electronics & circuit design", "embedded systems", "robotics"],
 
@@ -104,7 +104,7 @@ const knowledgeCategories: KnowledgeCategory[] = [
     id: "product-design",
     label: "Product & Design",
     icon: "03",
-    color: "from-pink-500/20 to-pink-500/5",
+    color: "from-pink-200 to-pink-100",
     currentFocus: "crafting intuitive interfaces that look & feel cohesive for beautiful UX",
     futureGoals: ["human-centered design (hcd)", "ui/ux", "prototyping"],
 
@@ -135,7 +135,7 @@ const knowledgeCategories: KnowledgeCategory[] = [
     id: "business",
     label: "Business",
     icon: "04",
-    color: "from-green-500/20 to-green-500/5",
+    color: "from-emerald-200 to-emerald-100",
 
     topics: [
       {
@@ -153,7 +153,7 @@ const knowledgeCategories: KnowledgeCategory[] = [
     id: "cog-science",
     label: "Cognitive Science & Psych",
     icon: "05",
-    color: "from-purple-500/20 to-purple-500/5",
+    color: "from-indigo-200 to-indigo-100",
     currentFocus: "decision-making under uncertainty",
 
     topics: [
@@ -172,7 +172,7 @@ const knowledgeCategories: KnowledgeCategory[] = [
     id: "space-systems",
     label: "Space Systems",
     icon: "06",
-    color: "from-blue-500/20 to-blue-500/5",
+    color: "from-cyan-500/20 to-cyan-500/5",
 
     topics: [
       {
@@ -318,10 +318,10 @@ export function KnowledgeRepertoire() {
   )
 
   return (
-    <section ref={sectionRef} className="px-4 sm:px-6 py-20 sm:py-28">
+    <section ref={sectionRef} className="px-4 sm:px-6 py-20 sm:py-16">
       <div className="mx-auto max-w-7xl">
         {/* Header */}
-        <div className={cn("mb-10 sm:mb-14 opacity-0", isVisible && "animate-fade-in-up")}>
+        <div className={cn("opacity-0", isVisible && "animate-fade-in-up")}>
           <div className="flex items-center gap-3 mb-3">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Knowledge Repertoire ⋆˚</h2>
           </div>
@@ -331,7 +331,7 @@ export function KnowledgeRepertoire() {
         </div>
 
         {/* Stats bar */}
-        <div className={cn("mb-8 flex flex-wrap gap-4 opacity-0", isVisible && "animate-fade-in-up stagger-1")}>
+        <div className={cn("mt-8 mb-8 flex flex-wrap gap-4 opacity-0", isVisible && "animate-fade-in-up stagger-1")}>
           <div className="rounded-lg border border-border bg-card/40 glass px-4 py-2 flex items-center gap-2">
             <BookOpen className="h-4 w-4 text-primary" />
             <span className="font-mono text-sm">{totalItems} topics</span>
@@ -412,7 +412,7 @@ export function KnowledgeRepertoire() {
                         <p className="text-xs text-muted-foreground mt-1">{topicGroup.description}</p>
                       )}
                     </div>
-                    <div className="space-y-3">
+                    <div className="grid gap-3 sm:grid-cols-2">
                       {topicGroup.items.map((item, itemIdx) => {
                         const isExpanded = expandedItem === `${idx}-${itemIdx}`
                         const levelInfo = skillLevelConfig[item.level]

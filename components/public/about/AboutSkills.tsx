@@ -51,9 +51,9 @@ export function AboutSkills() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="border-t border-border/30 px-4 sm:px-6 py-20 sm:py-28">
+    <section ref={sectionRef} className="border-t border-border/30 px-4 sm:px-6 py-20 sm:py-16">
       <div className="mx-auto max-w-7xl">
-        <div className={cn("mb-10 sm:mb-14 space-y-3 opacity-0", isVisible && "animate-fade-in-up")}>
+        <div className={cn("space-y-3 opacity-0", isVisible && "animate-fade-in-up")}>
           <p className="font-mono text-xs tracking-[0.25em] sm:tracking-[0.35em] text-primary">tools;</p>
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Technical Skills ✧.*</h2>
           <p className="max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed">
@@ -61,7 +61,7 @@ export function AboutSkills() {
           </p>
         </div>
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {skillGroups.map((group, groupIndex) => (
             <div
               key={group.category}

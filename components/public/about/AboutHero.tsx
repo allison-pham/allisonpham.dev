@@ -70,14 +70,14 @@ export function AboutHero() {
             >
               <p>
                 I build through the intersection of tech, engineering, and{" "}
-                <span className="text-foreground font-medium">product</span> to create projects and initiatives from the ground up.
+                <span className="font-bold italic underline decoration-wavy">product</span> to create projects and initiatives from the ground up.
               </p>
               
               <p>
                 I work on designing products that target the architecture behind how others think, decide, and act.
                 I am driven by the desire to ensure every system feeling like an{" "}
-                <span className="text-foreground font-medium">extension</span> of the{" "}
-                <span className="text-foreground font-medium">mind</span>, not a constraint on it.
+                <span className="font-bold italic underline decoration-wavy">extension</span> of the{" "}
+                <span className="font-bold italic underline decoration-wavy">mind</span>, not a constraint on it.
               </p>
 
               <p>
@@ -121,20 +121,20 @@ export function AboutHero() {
 {
   "name": "Allison Pham",
 
-  "current missions": [
-    "President @ ACM",
-    "Design & Research (Autonomous Traversal) @ NASA",
-    "Director @ Citrus Hack",
-    "Director @ Cutie Hack",
-    "Campus Leader @ Notion"
-  ],
-
-  "targets": [
+  "current missions & targets": [
     "Computer science",
     "Electrical engineering",
     "Product design & management",
     "Human-computer interaction (HCI)",
     "Space systems"
+  ],
+
+  "involvement": [
+    "President @ ACM",
+    "Design & Research (Autonomous Traversal) @ NASA",
+    "Director @ Citrus Hack",
+    "Director @ Cutie Hack",
+    "Campus Leader @ Notion"
   ],
 
   "status": "designing products"  

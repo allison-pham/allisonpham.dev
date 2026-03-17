@@ -76,8 +76,8 @@ export function LearningQueue() {
   const completedCount = learningItems.filter((i) => i.status === "completed").length
 
   return (
-    <section ref={ref} className="px-4 sm:px-6 py-16 sm:py-20">
-      <div className={cn("mx-auto max-w-5xl opacity-0", isVisible && "animate-fade-in-up")}>
+    <section ref={ref} className="px-4 sm:px-6 py-16 sm:py-16">
+      <div className={cn("mx-auto max-w-7xl opacity-0", isVisible && "animate-fade-in-up")}>
         <div className="flex items-center gap-3 mb-2">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Learning Queue</h2>
         </div>
@@ -86,7 +86,7 @@ export function LearningQueue() {
         </p>
 
         {/* Stats */}
-        <div className="grid grid-cols-3 gap-4 mb-6">
+        <div className="grid grid-cols-3 gap-4 mt-8 mb-6">
           <div className="rounded-lg bg-primary/10 border border-primary/30 p-3 text-center">
             <p className="text-2xl font-bold text-primary">{activeCount}</p>
             <p className="font-mono text-[10px] text-muted-foreground">Active</p>

@@ -13,13 +13,61 @@ const education = [
   },
 ]
 
-const certifications = [
-  {
-    title: "Project Management",
-    issuer: "Google",
-    year: "2023",
-  },
-]
+// const certifications = [
+//   {
+//     title: "Agile Methodologies",
+//     issuer: "LinkedIn",
+//     year: "Nov 2023",
+//   },
+
+//   {
+//     title: "Microsoft Outlook",
+//     issuer: "LinkedIn",
+//     year: "Nov 2023",
+//   },
+
+//   {
+//     title: "Object-Oriented Programming (OOP)",
+//     issuer: "LinkedIn",
+//     year: "Nov 2023",
+//   },
+
+//   {
+//     title: "Social & Behavioral Research",
+//     issuer: "CITI Program",
+//     year: "Sep 2023",
+//   },
+
+//   {
+//     title: "Search Engine Optimization (SEO)",
+//     issuer: "LinkedIn",
+//     year: "Aug 2023",
+//   },
+
+//   {
+//     title: "Business Finance",
+//     issuer: "Career Technical Education (CTE)",
+//     year: "Jun 2023",
+//   },
+
+//   {
+//     title: "Information & Communication Technologies",
+//     issuer: "Career Technical Education (CTE)",
+//     year: "Jun 2023",
+//   },
+
+//   {
+//     title: "Project Management",
+//     issuer: "Google",
+//     year: "Sep 2022",
+//   },
+
+//   {
+//     title: "Digital Marketing",
+//     issuer: "Google",
+//     year: "Aug 2022",
+//   },
+// ]
 
 export function AboutEducation() {
   const [isVisible, setIsVisible] = useState(false)
@@ -37,8 +85,8 @@ export function AboutEducation() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="border-t border-border/30 px-4 sm:px-6 py-20 sm:py-28">
-      <div className="mx-auto max-w-4xl">
+    <section ref={sectionRef} className="border-t border-border/30 px-4 sm:px-6 py-20 sm:py-16">
+      <div className="mx-auto max-w-7xl">
         <div className="grid gap-10 sm:grid-cols-2">
           {/* Education */}
           <div>
@@ -46,7 +94,7 @@ export function AboutEducation() {
               <p className="font-mono text-xs tracking-[0.25em] sm:tracking-[0.35em] text-primary">
                 academia;
               </p>
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Education</h2>
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Education ✶</h2>
             </div>
 
             <div className="space-y-4">
@@ -73,7 +121,7 @@ export function AboutEducation() {
             </div>
           </div>
 
-          {/* Knowledge */}
+          {/* Knowledge
           <div>
             <div className={cn("mb-8 space-y-2 opacity-0", isVisible && "animate-fade-in-up stagger-2")}>
               <p className="font-mono text-xs tracking-[0.25em] sm:tracking-[0.35em] text-primary">
@@ -82,7 +130,7 @@ export function AboutEducation() {
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Knowledge</h2>
             </div>
 
-            <div className="space-y-3">
+            <div className="grid gap-3 sm:grid-cols-2">
               {certifications.map((cert, index) => (
                 <div
                   key={cert.title}
@@ -103,7 +151,7 @@ export function AboutEducation() {
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
