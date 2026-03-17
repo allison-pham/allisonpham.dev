@@ -3,6 +3,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Refined color palette with softer, more sophisticated tones */
 :root {
   --background: oklch(0.985 0.002 285);
   --foreground: oklch(0.12 0.015 285);
@@ -130,6 +131,7 @@
   }
 }
 
+/* Refined scanline effect - more subtle */
 .scanlines::before {
   content: "";
   position: absolute;
@@ -145,6 +147,7 @@
   z-index: 100;
 }
 
+/* Smoother glitch animation */
 @keyframes glitch {
   0%,
   100% {
@@ -171,6 +174,7 @@
   animation: glitch 0.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
+/* Typing cursor */
 @keyframes blink {
   0%,
   50% {
@@ -192,6 +196,7 @@
   color: var(--primary);
 }
 
+/* New animation utilities */
 @keyframes fade-in-up {
   from {
     opacity: 0;
@@ -340,6 +345,7 @@
   animation: gradient-shift 4s ease infinite;
 }
 
+/* Stagger animation delays */
 .stagger-1 {
   animation-delay: 0.1s;
 }
@@ -365,6 +371,7 @@
   animation-delay: 0.8s;
 }
 
+/* Glass morphism effect */
 .glass {
   background: oklch(from var(--card) l c h / 0.6);
   backdrop-filter: blur(12px) saturate(1.5);
@@ -377,6 +384,7 @@
   -webkit-backdrop-filter: blur(20px) saturate(1.8);
 }
 
+/* Interactive hover card effect */
 .hover-lift {
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -390,6 +398,7 @@
   box-shadow: 0 12px 40px -8px oklch(0 0 0 / 0.4);
 }
 
+/* Border glow effect */
 .border-glow {
   position: relative;
 }
@@ -409,13 +418,15 @@
   opacity: 0.5;
 }
 
+/* Text gradient effect */
 .text-gradient {
-  background: linear-gradient(135deg, var(--primary), oklch(0.65 0.18 310));
+  background: linear-gradient(135deg, var(--primary), oklch(0.65 0.18 200));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
+/* Smooth underline animation */
 .underline-animate {
   position: relative;
 }
@@ -435,6 +446,7 @@
   width: 100%;
 }
 
+/* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -453,6 +465,7 @@
   background: var(--muted-foreground);
 }
 
+/* Hide scrollbar utility */
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -462,12 +475,14 @@
   display: none;
 }
 
+/* Focus styles enhancement */
 :focus-visible {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
   border-radius: var(--radius-sm);
 }
 
+/* Selection styling */
 ::selection {
   background: oklch(from var(--primary) l c h / 0.3);
   color: var(--foreground);

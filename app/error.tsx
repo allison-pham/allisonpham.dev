@@ -36,10 +36,13 @@ export default function Error({
                   />
                 </svg>
               </div>
+
               <h2 className="text-3xl font-bold mb-4">Application Error</h2>
+              
               <p className="text-muted-foreground text-lg mb-2">
-                A critical error occurred. We apologize for the inconvenience.
+                A critical error occurred.
               </p>
+              
               {error.message && (
                 <p className="text-sm text-muted-foreground font-mono bg-muted px-4 py-2 rounded mt-4">
                   {error.message}

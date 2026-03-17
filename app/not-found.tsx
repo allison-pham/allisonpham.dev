@@ -5,7 +5,7 @@ export default function NotFound() {
     <div className="min-h-screen flex items-center justify-center px-4">
       <div className="max-w-2xl text-center">
         <div className="mb-8">
-          {/* 404 page*/}
+          {/* 404 Glitch Effect */}
           <h1 className="text-9xl font-bold mb-4 font-mono relative">
             <span className="glitch inline-block">404</span>
           </h1>
@@ -15,7 +15,7 @@ export default function NotFound() {
             The page you're looking for doesn't exist or has been moved.
           </p>
           <p className="text-muted-foreground">
-            Navigate back!
+            Let's get you back on track.
           </p>
         </div>
 
