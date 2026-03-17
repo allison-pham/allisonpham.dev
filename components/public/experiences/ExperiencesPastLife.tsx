@@ -68,8 +68,8 @@ export function PastLife() {
   const filtered = filter === "all" ? pastRoles : pastRoles.filter((r) => r.category === filter)
 
   return (
-    <section ref={sectionRef} className="relative px-4 sm:px-6 pb-20 sm:pb-28">
-      <div className="mx-auto max-w-4xl">
+    <section ref={sectionRef} className="relative px-4 sm:px-6 pt-16 sm:pt-16 pb-8 sm:pb-12">
+      <div className="mx-auto max-w-7xl">
 
         {/* Terminal header */}
         <div className={cn("mb-10 opacity-0", isVisible && "animate-fade-in-up")}>
@@ -82,12 +82,12 @@ export function PastLife() {
                 ~/past-life
               </span>
             </div>
-            <div className="px-5 py-5 space-y-1">
+            <div className="px-5 py-5 space-y-3">
               <p className="font-mono text-xs tracking-[0.25em] text-primary">past life;</p>
-              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-balance">
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
                 Everything else I've been part of
               </h2>
-              <p className="text-sm text-muted-foreground leading-relaxed pt-1 max-w-xl">
+              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
                 Additional things I've done across the past several years (orgs & work). They shape how I think & work.
               </p>
             </div>

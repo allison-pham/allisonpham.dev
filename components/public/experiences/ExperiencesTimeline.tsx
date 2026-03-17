@@ -2,9 +2,24 @@
 
 import { useEffect, useRef, useState } from "react"
 import { cn } from "@/lib/utils"
-import { Laptop, ExternalLink } from "lucide-react"
+import { Laptop, ExternalLink, Sparkles, ArrowRight, ChevronDown } from "lucide-react"
 
-const experiences = [
+interface Experience {
+  id: number
+  role: string
+  company: string
+  companyUrl?: string
+  logo?: string
+  period: string
+  type: string
+  current: boolean
+  description: string
+  highlights: string[]
+  tags: string[]
+  labels?: string[]
+}
+
+const experiences: Experience[] = [
   {
     id: 1,
     role: "Design & Research (Autonomous Traversal)",
@@ -63,7 +78,7 @@ const experiences = [
     description:
       "",
     highlights: [
-      "Previous Operations Lead (Jun 2024 - Jun 2025), Operations Committee (Oct 2023 - May 2024)"
+      "Previous Operations Lead (Jun 2024 - Jun 2025) & Operations Committee (Oct 2023 - May 2024)"
     ],
     tags: ["Hackathon"],
   },
@@ -71,7 +86,7 @@ const experiences = [
   {
     id: 5,
     role: "President",
-    company: "Association for Computing Machinery (ACM)",
+    company: "ACM at UCR",
     companyUrl: "https://acm.cs.ucr.edu",
     period: "April 2025 - Present",
     type: "",
@@ -79,7 +94,8 @@ const experiences = [
     description:
       "",
     highlights: [
-      "Previous Event Chair (Feb 2024 - Jun 2025), Board Intern (Oct 2023 - Mar 2024)"
+      "Association for Computing Machinery (ACM)",
+      "Previous Event Chair (Feb 2024 - Jun 2025) & Board Intern (Oct 2023 - Mar 2024)"
     ],
     tags: ["CS & Engineering"],
   },
@@ -116,8 +132,8 @@ const experiences = [
 
   {
     id: 8,
-    role: "Computer Science Grader (Department of CS & Engineering)",
-    company: "University of California, Riverside (UCR)",
+    role: "Computer Science Grader",
+    company: "University of California, Riverside",
     companyUrl: "",
     period: "Jan 2024 - Mar 2024",
     type: "Previous",
@@ -125,15 +141,70 @@ const experiences = [
     description:
       "",
     highlights: [
+      "Department of CS & Engineering",
     ],
     tags: ["Computer Science", "Education"],
   },
 ]
 
+function LogoBadge({ company, logo, size = "md" }: { company: string; logo?: string; size?: "sm" | "md" }) {
+  const dim = size === "sm" ? "h-7 w-7 text-[10px]" : "h-9 w-9 text-xs"
+  if (logo) {
+    return (
+      <img
+        src={logo}
+        alt={company}
+        className={cn("shrink-0 rounded-[12px] border border-border/60 object-cover", dim)}
+      />
+    )
+  }
+  return (
+    <div className={cn("flex shrink-0 items-center justify-center rounded-[12px] border border-border/60 bg-secondary/60 font-mono font-bold text-muted-foreground", dim)}>
+      {company[0]}
+    </div>
+  )
+}
+
 export function ExperiencesTimeline() {
   const [isVisible, setIsVisible] = useState(false)
   const [activeId, setActiveId] = useState<number | null>(null)
+  const [expandedId, setExpandedId] = useState<number | null>(null)
+  const [expandedIds, setExpandedIds] = useState<number[]>([])
+  const [activeFilters, setActiveFilters] = useState<string[]>(["all"])
   const sectionRef = useRef<HTMLElement>(null)
+
+  const currentExperiences = experiences.filter((exp) => exp.current)
+  const previousExperiences = experiences.filter((exp) => !exp.current)
+  const focusAreas = [...new Set(experiences.flatMap((exp) => exp.tags))]
+  const filterTags = ["all", "current", "previous", ...focusAreas]
+
+  const toggleFilter = (filter: string) => {
+    setActiveFilters((prev) => {
+      if (filter === "all") return ["all"]
+      const withoutAll = prev.filter((f) => f !== "all")
+      const next = withoutAll.includes(filter)
+        ? withoutAll.filter((f) => f !== filter)
+        : [...withoutAll, filter]
+      return next.length === 0 ? ["all"] : next
+    })
+  }
+
+  const filterCount = (filter: string) => {
+    if (filter === "all") return experiences.length
+    if (filter === "current") return currentExperiences.length
+    if (filter === "previous") return previousExperiences.length
+    return experiences.filter((exp) => exp.tags.includes(filter)).length
+  }
+
+  const filteredExperiences = activeFilters.includes("all")
+    ? experiences
+    : experiences.filter((exp) =>
+        activeFilters.some((f) => {
+          if (f === "current") return exp.current
+          if (f === "previous") return !exp.current
+          return exp.tags.includes(f)
+        }),
+      )
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -147,10 +218,10 @@ export function ExperiencesTimeline() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="relative px-4 sm:px-6 pt-28 sm:pt-36 pb-16 sm:pb-24">
-      <div className="mx-auto max-w-4xl">
+    <section ref={sectionRef} className="relative px-4 sm:px-6 pt-28 sm:pt-36 pb-8 sm:pb-12">
+      <div className="mx-auto max-w-7xl">
         {/* Header */}
-        <div className={cn("mb-12 sm:mb-16 space-y-3 opacity-0", isVisible && "animate-fade-in-up")}>
+        <div className={cn("space-y-3 opacity-0", isVisible && "animate-fade-in-up")}>
           <p className="font-mono text-xs tracking-[0.25em] sm:tracking-[0.35em] text-primary">
             interdisciplinary;
           </p>
@@ -162,113 +233,134 @@ export function ExperiencesTimeline() {
           </p>
         </div>
 
-        {/* Timeline */}
-        <div className="relative">
-          {/* Vertical line */}
-          <div className="absolute left-4.25 top-2 bottom-2 w-px bg-border/50 hidden sm:block" />
-
-          <div className="space-y-6 sm:space-y-8">
-            {experiences.map((exp, index) => (
-              <div
-                key={exp.id}
+        {/* Filter tags */}
+        <div className={cn("mt-6 flex flex-wrap gap-2 opacity-0", isVisible && "animate-fade-in-up stagger-1")}>
+          {filterTags.map((tag) => {
+            const isActive = activeFilters.includes(tag)
+            const count = filterCount(tag)
+            return (
+              <button
+                key={tag}
+                type="button"
+                onClick={() => toggleFilter(tag)}
                 className={cn(
-                  "relative sm:pl-12 opacity-0",
-                  isVisible && "animate-fade-in-up",
+                  "flex items-center gap-1.5 rounded-full border px-3 py-1.5 font-mono text-xs tracking-wide transition-all",
+                  isActive
+                    ? "border-primary/50 bg-primary/15 text-primary"
+                    : "border-border/50 bg-secondary/30 text-muted-foreground hover:border-primary/30 hover:text-foreground",
                 )}
-                style={{ animationDelay: `${index * 120 + 200}ms` }}
               >
-                {/* Timeline dot */}
-                <div
+                {tag.toLowerCase()}
+                <span
                   className={cn(
-                    "absolute left-0 top-6 hidden sm:flex h-9 w-9 items-center justify-center rounded-xl border transition-all duration-300 z-10",
-                    exp.current
-                      ? "border-primary/60 bg-primary/20 text-primary animate-pulse-glow"
-                      : "border-border/60 bg-card/60 text-muted-foreground",
-                    activeId === exp.id && "border-primary bg-primary/20 text-primary",
+                    "rounded-full px-1.5 py-0.5 font-mono text-[10px] font-semibold",
+                    isActive ? "bg-primary/20 text-primary" : "bg-secondary text-muted-foreground",
                   )}
                 >
-                  <Laptop className="h-4 w-4" />
-                </div>
+                  {count}
+                </span>
+              </button>
+            )
+          })}
+        </div>
 
-                {/* Card */}
-                <div
-                  className={cn(
-                    "group rounded-xl border bg-card/40 glass p-6 sm:p-7 transition-all duration-400 hover-lift cursor-default",
-                    exp.current
-                      ? "border-primary/30 bg-gradient-to-br from-primary/8 via-card/50 to-primary/8"
-                      : "border-border/50 hover:border-primary/30",
-                    activeId === exp.id && "border-primary/40",
-                  )}
-                  onMouseEnter={() => setActiveId(exp.id)}
-                  onMouseLeave={() => setActiveId(null)}
-                >
-                  {/* Card header */}
-                  <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
-                    <div className="space-y-1">
-                      <h3 className="text-lg sm:text-xl font-bold tracking-tight transition-colors group-hover:text-gradient">
-                        {exp.role}
-                      </h3>
-                      <div className="flex items-center gap-2">
-                        {exp.companyUrl ? (
-                          <a
-                            href={exp.companyUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group/link flex items-center gap-1.5 font-mono text-sm text-primary hover:underline"
-                          >
-                            {exp.company}
-                            <ExternalLink className="h-3 w-3 opacity-60 transition-opacity group-hover/link:opacity-100" />
-                          </a>
-                        ) : (
-                          <span className="font-mono text-sm text-primary">{exp.company}</span>
-                        )}
-                        {/* <span className="text-muted-foreground/50">·</span> */}
-                      </div>
-                    </div>
-
-                    <div className="flex flex-col items-end gap-1.5">
-                      <span className="font-mono text-xs text-muted-foreground">{exp.period}</span>
-                      <span
-                        className={cn(
-                          "rounded-full px-2.5 py-0.5 font-mono text-[10px] tracking-wider border",
-                          exp.current
-                            ? "border-primary/40 bg-primary/15 text-primary"
-                            : "border-border/60 bg-secondary/50 text-muted-foreground",
-                        )}
-                      >
-                        {exp.current ? "Current" : exp.type}
-                      </span>
-                    </div>
-                  </div>
-
-                  <p className="mb-5 text-sm leading-relaxed text-muted-foreground">{exp.description}</p>
-
-                  {/* Highlights */}
-                  <ul className="mb-5 space-y-2">
-                    {exp.highlights.map((highlight) => (
-                      <li key={highlight} className="flex items-start gap-2.5 text-sm text-muted-foreground">
-                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary/60" />
-                        {highlight}
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2">
-                    {exp.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-md border border-border/60 bg-secondary/50 px-2.5 py-1 font-mono text-xs text-secondary-foreground hover:border-primary/50 hover:bg-primary/10 transition-colors"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+        <div
+          className={cn(
+            "mt-8 opacity-0",
+            isVisible && "animate-fade-in-up stagger-2",
+          )}
+        >
+          <div className="relative overflow-hidden rounded-2xl border border-primary/20 bg-linear-to-br from-primary/10 via-card/60 to-card/40 p-6 sm:p-7">
+            <div className="absolute right-0 top-0 h-32 w-32 rounded-full bg-primary/10 blur-3xl" />
+            <div className="relative">
+              <div className="mb-4 flex items-center gap-2">
+                <span className="rounded-full border border-primary/30 bg-primary/10 px-3 py-1 font-mono text-[10px] tracking-[0.25em] text-primary">
+                  current orbit
+                </span>
+                <Sparkles className="h-4 w-4 text-primary" />
               </div>
-            ))}
+              <p className="max-w-2xl text-lg leading-relaxed text-foreground sm:text-xl">
+                Building across research, systems, community, and design with roles that move between campus leadership and ambitious technical work.
+              </p>
+              <div className="mt-6 grid gap-3 sm:grid-cols-2 items-start">
+                {filteredExperiences.map((exp) => (
+                  <div
+                    key={exp.id}
+                    className="rounded-xl border border-border/50 bg-background/40 backdrop-blur-sm transition-colors hover:border-primary/30"
+                  >
+                    <button
+                      type="button"
+                      className="flex w-full items-start justify-between gap-3 px-4 py-3 text-left"
+                      aria-expanded={expandedIds.includes(exp.id)}
+                      onClick={() => setExpandedIds(expandedIds.includes(exp.id) ? expandedIds.filter((id) => id !== exp.id) : [...expandedIds, exp.id])}
+                    >
+                      <div className="flex items-start gap-2.5">
+                        <LogoBadge company={exp.company} logo={exp.logo} size="sm" />
+                        <div>
+                          <p className="text-sm font-semibold tracking-tight text-foreground">{exp.role}</p>
+                          <div className="mt-1 flex items-center gap-1.5 font-mono text-xs text-primary">
+                            <span>{exp.company}</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="font-mono text-xs text-muted-foreground">{exp.period}</span>
+                        <span
+                          className={cn(
+                            "rounded-md border px-2 py-0.5 font-mono text-xs font-medium",
+                            exp.current
+                              ? "border-primary/40 bg-primary/15 text-primary"
+                              : "border-border/60 bg-secondary/50 text-muted-foreground",
+                          )}
+                        >
+                          {exp.current ? "Current" : "Previous"}
+                        </span>
+                        <ChevronDown
+                          className={cn(
+                            "h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-300",
+                            expandedIds.includes(exp.id) && "rotate-180 text-primary",
+                          )}
+                        />
+                      </div>
+                    </button>
+
+                    {expandedIds.includes(exp.id) && (
+                      <div className="border-t border-border/40 px-4 pb-4 pt-3 space-y-3">
+                        {exp.description && (
+                          <p className="text-sm text-muted-foreground">{exp.description}</p>
+                        )}
+                        {exp.highlights.length > 0 && (
+                          <ul className="space-y-2">
+                            {exp.highlights.slice(0, 2).map((highlight) => (
+                              <li key={highlight} className="flex items-start gap-2 text-sm text-muted-foreground">
+                                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary/60" />
+                                {highlight}
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                        {exp.tags.length > 0 && (
+                          <div className="flex flex-wrap gap-2">
+                            {exp.tags.map((tag) => (
+                              <span
+                                key={tag}
+                                className="rounded-md border border-border/60 bg-secondary/50 px-2 py-1 font-mono text-xs text-secondary-foreground"
+                              >
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
+
+
       </div>
     </section>
   )

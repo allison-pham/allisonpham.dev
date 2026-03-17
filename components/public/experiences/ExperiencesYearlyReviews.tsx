@@ -61,248 +61,248 @@ const yearlyReviews: YearlyReview[] = [
     ],
   },
 
-  {
-    year: 2025,
-    theme: "Year of #",
-    themeColor: "from-violet-500 to-violet-300",
-    summary: "",
-    highlights: [
-      { icon: <Code2 className="h-4 w-4" />, label: "Projects Shipped", value: "4" },
-      { icon: <BookOpen className="h-4 w-4" />, label: "Books Read", value: "12" },
-      { icon: <Plane className="h-4 w-4" />, label: "Countries", value: "3" },
-      { icon: <Music className="h-4 w-4" />, label: "Hours of Music", value: "980" },
-    ],
-    wins: [
-      "",
-    ],
-    lessons: [
-      "",
-    ],
-    gratefulFor: [
-      "",
-    ],
-    stats: [
-      { label: "GitHub Commits", value: 564, comparison: "-15% vs 2021", trend: "down" },
-    ],
-    topProjects: [
-      "",
-    ],
-    booksRead: 0,
-    countriesVisited: [""],
-    wordOfTheYear: "",
-    nextYearGoals: [
-      "",
-    ],
-  },
+  // {
+  //   year: 2025,
+  //   theme: "Year of #",
+  //   themeColor: "from-violet-500 to-violet-300",
+  //   summary: "",
+  //   highlights: [
+  //     { icon: <Code2 className="h-4 w-4" />, label: "Projects Shipped", value: "4" },
+  //     { icon: <BookOpen className="h-4 w-4" />, label: "Books Read", value: "12" },
+  //     { icon: <Plane className="h-4 w-4" />, label: "Countries", value: "3" },
+  //     { icon: <Music className="h-4 w-4" />, label: "Hours of Music", value: "980" },
+  //   ],
+  //   wins: [
+  //     "",
+  //   ],
+  //   lessons: [
+  //     "",
+  //   ],
+  //   gratefulFor: [
+  //     "",
+  //   ],
+  //   stats: [
+  //     { label: "GitHub Commits", value: 564, comparison: "-15% vs 2021", trend: "down" },
+  //   ],
+  //   topProjects: [
+  //     "",
+  //   ],
+  //   booksRead: 0,
+  //   countriesVisited: [""],
+  //   wordOfTheYear: "",
+  //   nextYearGoals: [
+  //     "",
+  //   ],
+  // },
 
-  {
-    year: 2024,
-    theme: "Year of #",
-    themeColor: "from-indigo-500 to-indigo-300",
-    summary: "",
-    highlights: [
-      { icon: <Code2 className="h-4 w-4" />, label: "Projects Shipped", value: "4" },
-      { icon: <BookOpen className="h-4 w-4" />, label: "Books Read", value: "12" },
-      { icon: <Plane className="h-4 w-4" />, label: "Countries", value: "3" },
-      { icon: <Music className="h-4 w-4" />, label: "Hours of Music", value: "980" },
-    ],
-    wins: [
-      "",
-    ],
-    lessons: [
-      "",
-    ],
-    gratefulFor: [
-      "",
-    ],
-    stats: [
-      { label: "GitHub Commits", value: 564, comparison: "-15% vs 2021", trend: "down" },
-    ],
-    topProjects: [
-      "",
-    ],
-    booksRead: 0,
-    countriesVisited: [""],
-    wordOfTheYear: "",
-    nextYearGoals: [
-      "",
-    ],
-  },
+  // {
+  //   year: 2024,
+  //   theme: "Year of #",
+  //   themeColor: "from-indigo-500 to-indigo-300",
+  //   summary: "",
+  //   highlights: [
+  //     { icon: <Code2 className="h-4 w-4" />, label: "Projects Shipped", value: "4" },
+  //     { icon: <BookOpen className="h-4 w-4" />, label: "Books Read", value: "12" },
+  //     { icon: <Plane className="h-4 w-4" />, label: "Countries", value: "3" },
+  //     { icon: <Music className="h-4 w-4" />, label: "Hours of Music", value: "980" },
+  //   ],
+  //   wins: [
+  //     "",
+  //   ],
+  //   lessons: [
+  //     "",
+  //   ],
+  //   gratefulFor: [
+  //     "",
+  //   ],
+  //   stats: [
+  //     { label: "GitHub Commits", value: 564, comparison: "-15% vs 2021", trend: "down" },
+  //   ],
+  //   topProjects: [
+  //     "",
+  //   ],
+  //   booksRead: 0,
+  //   countriesVisited: [""],
+  //   wordOfTheYear: "",
+  //   nextYearGoals: [
+  //     "",
+  //   ],
+  // },
 
-  {
-    year: 2023,
-    theme: "Year of #",
-    themeColor: "from-purple-500 to-purple-300",
-    summary: "",
-    highlights: [
-      { icon: <Code2 className="h-4 w-4" />, label: "Projects Shipped", value: "4" },
-      { icon: <BookOpen className="h-4 w-4" />, label: "Books Read", value: "12" },
-      { icon: <Plane className="h-4 w-4" />, label: "Countries", value: "3" },
-      { icon: <Music className="h-4 w-4" />, label: "Hours of Music", value: "980" },
-    ],
-    wins: [
-      "",
-    ],
-    lessons: [
-      "",
-    ],
-    gratefulFor: [
-      "",
-    ],
-    stats: [
-      { label: "GitHub Commits", value: 564, comparison: "-15% vs 2021", trend: "down" },
-    ],
-    topProjects: [
-      "",
-    ],
-    booksRead: 0,
-    countriesVisited: [""],
-    wordOfTheYear: "",
-    nextYearGoals: [
-      "",
-    ],
-  },
+  // {
+  //   year: 2023,
+  //   theme: "Year of #",
+  //   themeColor: "from-purple-500 to-purple-300",
+  //   summary: "",
+  //   highlights: [
+  //     { icon: <Code2 className="h-4 w-4" />, label: "Projects Shipped", value: "4" },
+  //     { icon: <BookOpen className="h-4 w-4" />, label: "Books Read", value: "12" },
+  //     { icon: <Plane className="h-4 w-4" />, label: "Countries", value: "3" },
+  //     { icon: <Music className="h-4 w-4" />, label: "Hours of Music", value: "980" },
+  //   ],
+  //   wins: [
+  //     "",
+  //   ],
+  //   lessons: [
+  //     "",
+  //   ],
+  //   gratefulFor: [
+  //     "",
+  //   ],
+  //   stats: [
+  //     { label: "GitHub Commits", value: 564, comparison: "-15% vs 2021", trend: "down" },
+  //   ],
+  //   topProjects: [
+  //     "",
+  //   ],
+  //   booksRead: 0,
+  //   countriesVisited: [""],
+  //   wordOfTheYear: "",
+  //   nextYearGoals: [
+  //     "",
+  //   ],
+  // },
 
-  {
-    year: 2022,
-    theme: "Year of #",
-    themeColor: "from-blue-500 to-blue-300",
-    summary: "",
-    highlights: [
-      { icon: <Code2 className="h-4 w-4" />, label: "Projects Shipped", value: "4" },
-      { icon: <BookOpen className="h-4 w-4" />, label: "Books Read", value: "12" },
-      { icon: <Plane className="h-4 w-4" />, label: "Countries", value: "3" },
-      { icon: <Music className="h-4 w-4" />, label: "Hours of Music", value: "980" },
-    ],
-    wins: [
-      "",
-    ],
-    lessons: [
-      "",
-    ],
-    gratefulFor: [
-      "",
-    ],
-    stats: [
-      { label: "GitHub Commits", value: 564, comparison: "-15% vs 2021", trend: "down" },
-    ],
-    topProjects: [
-      "",
-    ],
-    booksRead: 0,
-    countriesVisited: [""],
-    wordOfTheYear: "",
-    nextYearGoals: [
-      "",
-    ],
-  },
+  // {
+  //   year: 2022,
+  //   theme: "Year of #",
+  //   themeColor: "from-blue-500 to-blue-300",
+  //   summary: "",
+  //   highlights: [
+  //     { icon: <Code2 className="h-4 w-4" />, label: "Projects Shipped", value: "4" },
+  //     { icon: <BookOpen className="h-4 w-4" />, label: "Books Read", value: "12" },
+  //     { icon: <Plane className="h-4 w-4" />, label: "Countries", value: "3" },
+  //     { icon: <Music className="h-4 w-4" />, label: "Hours of Music", value: "980" },
+  //   ],
+  //   wins: [
+  //     "",
+  //   ],
+  //   lessons: [
+  //     "",
+  //   ],
+  //   gratefulFor: [
+  //     "",
+  //   ],
+  //   stats: [
+  //     { label: "GitHub Commits", value: 564, comparison: "-15% vs 2021", trend: "down" },
+  //   ],
+  //   topProjects: [
+  //     "",
+  //   ],
+  //   booksRead: 0,
+  //   countriesVisited: [""],
+  //   wordOfTheYear: "",
+  //   nextYearGoals: [
+  //     "",
+  //   ],
+  // },
 
-  {
-    year: 2021,
-    theme: "Year of #",
-    themeColor: "from-cyan-500 to-cyan-300",
-    summary: "",
-    highlights: [
-      { icon: <Code2 className="h-4 w-4" />, label: "Projects Shipped", value: "4" },
-      { icon: <BookOpen className="h-4 w-4" />, label: "Books Read", value: "12" },
-      { icon: <Plane className="h-4 w-4" />, label: "Countries", value: "3" },
-      { icon: <Music className="h-4 w-4" />, label: "Hours of Music", value: "980" },
-    ],
-    wins: [
-      "",
-    ],
-    lessons: [
-      "",
-    ],
-    gratefulFor: [
-      "",
-    ],
-    stats: [
-      { label: "GitHub Commits", value: 564, comparison: "-15% vs 2021", trend: "down" },
-    ],
-    topProjects: [
-      "",
-    ],
-    booksRead: 0,
-    countriesVisited: [""],
-    wordOfTheYear: "",
-    nextYearGoals: [
-      "",
-    ],
-  },
+  // {
+  //   year: 2021,
+  //   theme: "Year of #",
+  //   themeColor: "from-cyan-500 to-cyan-300",
+  //   summary: "",
+  //   highlights: [
+  //     { icon: <Code2 className="h-4 w-4" />, label: "Projects Shipped", value: "4" },
+  //     { icon: <BookOpen className="h-4 w-4" />, label: "Books Read", value: "12" },
+  //     { icon: <Plane className="h-4 w-4" />, label: "Countries", value: "3" },
+  //     { icon: <Music className="h-4 w-4" />, label: "Hours of Music", value: "980" },
+  //   ],
+  //   wins: [
+  //     "",
+  //   ],
+  //   lessons: [
+  //     "",
+  //   ],
+  //   gratefulFor: [
+  //     "",
+  //   ],
+  //   stats: [
+  //     { label: "GitHub Commits", value: 564, comparison: "-15% vs 2021", trend: "down" },
+  //   ],
+  //   topProjects: [
+  //     "",
+  //   ],
+  //   booksRead: 0,
+  //   countriesVisited: [""],
+  //   wordOfTheYear: "",
+  //   nextYearGoals: [
+  //     "",
+  //   ],
+  // },
 
-  {
-    year: 2020,
-    theme: "Year of #",
-    themeColor: "from-teal-500 to-teal-300",
-    summary: "",
-    highlights: [
-      { icon: <Code2 className="h-4 w-4" />, label: "Projects Shipped", value: "4" },
-      { icon: <BookOpen className="h-4 w-4" />, label: "Books Read", value: "12" },
-      { icon: <Plane className="h-4 w-4" />, label: "Countries", value: "3" },
-      { icon: <Music className="h-4 w-4" />, label: "Hours of Music", value: "980" },
-    ],
-    wins: [
-      "",
-    ],
-    lessons: [
-      "",
-    ],
-    gratefulFor: [
-      "",
-    ],
-    stats: [
-      { label: "GitHub Commits", value: 564, comparison: "-15% vs 2021", trend: "down" },
-    ],
-    topProjects: [
-      "",
-    ],
-    booksRead: 0,
-    countriesVisited: [""],
-    wordOfTheYear: "",
-    nextYearGoals: [
-      "",
-    ],
-  },
+  // {
+  //   year: 2020,
+  //   theme: "Year of #",
+  //   themeColor: "from-teal-500 to-teal-300",
+  //   summary: "",
+  //   highlights: [
+  //     { icon: <Code2 className="h-4 w-4" />, label: "Projects Shipped", value: "4" },
+  //     { icon: <BookOpen className="h-4 w-4" />, label: "Books Read", value: "12" },
+  //     { icon: <Plane className="h-4 w-4" />, label: "Countries", value: "3" },
+  //     { icon: <Music className="h-4 w-4" />, label: "Hours of Music", value: "980" },
+  //   ],
+  //   wins: [
+  //     "",
+  //   ],
+  //   lessons: [
+  //     "",
+  //   ],
+  //   gratefulFor: [
+  //     "",
+  //   ],
+  //   stats: [
+  //     { label: "GitHub Commits", value: 564, comparison: "-15% vs 2021", trend: "down" },
+  //   ],
+  //   topProjects: [
+  //     "",
+  //   ],
+  //   booksRead: 0,
+  //   countriesVisited: [""],
+  //   wordOfTheYear: "",
+  //   nextYearGoals: [
+  //     "",
+  //   ],
+  // },
 
-  {
-    year: 2019,
-    theme: "Year of #",
-    themeColor: "from-emerald-500 to-emerald-300",
-    summary: "",
-    highlights: [
-      { icon: <Code2 className="h-4 w-4" />, label: "Projects Shipped", value: "4" },
-      { icon: <BookOpen className="h-4 w-4" />, label: "Books Read", value: "12" },
-      { icon: <Plane className="h-4 w-4" />, label: "Countries", value: "3" },
-      { icon: <Music className="h-4 w-4" />, label: "Hours of Music", value: "980" },
-    ],
-    wins: [
-      "",
-    ],
-    lessons: [
-      "",
-    ],
-    gratefulFor: [
-      "",
-    ],
-    stats: [
-      { label: "GitHub Commits", value: 564, comparison: "-15% vs 2021", trend: "down" },
-    ],
-    topProjects: [
-      "",
-    ],
-    booksRead: 0,
-    countriesVisited: [""],
-    wordOfTheYear: "",
-    nextYearGoals: [
-      "",
-    ],
-  },
+  // {
+  //   year: 2019,
+  //   theme: "Year of #",
+  //   themeColor: "from-emerald-500 to-emerald-300",
+  //   summary: "",
+  //   highlights: [
+  //     { icon: <Code2 className="h-4 w-4" />, label: "Projects Shipped", value: "4" },
+  //     { icon: <BookOpen className="h-4 w-4" />, label: "Books Read", value: "12" },
+  //     { icon: <Plane className="h-4 w-4" />, label: "Countries", value: "3" },
+  //     { icon: <Music className="h-4 w-4" />, label: "Hours of Music", value: "980" },
+  //   ],
+  //   wins: [
+  //     "",
+  //   ],
+  //   lessons: [
+  //     "",
+  //   ],
+  //   gratefulFor: [
+  //     "",
+  //   ],
+  //   stats: [
+  //     { label: "GitHub Commits", value: 564, comparison: "-15% vs 2021", trend: "down" },
+  //   ],
+  //   topProjects: [
+  //     "",
+  //   ],
+  //   booksRead: 0,
+  //   countriesVisited: [""],
+  //   wordOfTheYear: "",
+  //   nextYearGoals: [
+  //     "",
+  //   ],
+  // },
 ]
 
 export function YearlyReviews() {
   const [isVisible, setIsVisible] = useState(false)
-  const [expandedYear, setExpandedYear] = useState<number | null>(2024)
+  const [expandedYear, setExpandedYear] = useState<number | null>(2026)
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -315,20 +315,24 @@ export function YearlyReviews() {
   }, [])
 
   return (
-    <section ref={ref} className="px-4 sm:px-6 py-16 sm:py-20">
-      <div className={cn("mx-auto max-w-5xl opacity-0", isVisible && "animate-fade-in-up")}>
-        <div className="flex items-center gap-3 mb-2">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Yearly Reviews</h2>
-          <Sparkles className="h-5 w-5 text-primary" />
+    <section ref={ref} className="px-4 sm:px-6 pt-16 sm:pt-16 pb-8 sm:pb-12">
+      <div className={cn("mx-auto max-w-7xl opacity-0", isVisible && "animate-fade-in-up")}>
+        <div className="space-y-3">
+          <div className="flex items-center gap-3">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+              Yearly Reviews
+            </h2>
+            <Sparkles className="h-5 w-5 text-primary" />
+          </div>
+          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+            Annual wrapped - wins, lessons, stats, & reflections.
+            My version of yearly recaps (inspiration: Spotify Wrapped), but for life.
+            A way to celebrate progress, reflect on growth, & set intentions for the year ahead.
+          </p>
         </div>
-        <p className="max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed">
-          Annual wrapped - wins, lessons, stats, & reflections.
-          My version of yearly recaps (inspiration: Spotify Wrapped), but for life.
-          A way to celebrate progress, reflect on growth, & set intentions for the year ahead.
-        </p>
 
         {/* Year Cards */}
-        <div className="space-y-4">
+        <div className="mt-8 space-y-4">
           {yearlyReviews.map((review, i) => (
             <div
               key={review.year}
