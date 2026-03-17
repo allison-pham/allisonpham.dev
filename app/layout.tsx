@@ -107,7 +107,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={`${geist.variable} ${geistMono.variable} ${spaceGrotesk.variable}`}>
       <body className="font-sans antialiased">
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={true} storageKey="theme-mode">
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={true} storageKey="theme-mode">
           {children}
         </ThemeProvider>
         <Analytics />
