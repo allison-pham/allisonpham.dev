@@ -4,44 +4,30 @@ import { useEffect, useRef, useState } from "react"
 import { cn } from "@/lib/utils"
 
 const pastRoles = [
-  { role: "Co-Founder", org: "Literature x Community Org", period: "", category: "org", featured: false },
-  { role: "Software Engineering", org: "Community Org", period: "", category: "org", featured: false },
-  { role: "Neuro Research", org: "Pediatrics Org", period: "", category: "org", featured: false },
-  { role: "Exec Board", org: "Justice Org", period: "", category: "org", featured: false },
-  { role: "Designer", org: "Justice Org", period: "", category: "org", featured: false },
-  { role: "Engineering Representative", org: "Student Gov", period: "", category: "org", featured: true },
-  { role: "Designer", org: "Event Org", period: "", category: "org", featured: false },
-  { role: "Marketing", org: "Justice Org", period: "", category: "org", featured: false },
-  { role: "Media Content", org: "Cultural Magazine", period: "", category: "org", featured: false },
-  { role: "Transcriber", org: "Speaking Org", period: "", category: "org", featured: false },
-  { role: "Events & Community", org: "Accessible Opportunities Org", period: "", category: "org", featured: true },
-  { role: "Designer & Editor", org: "Mental Health Org", period: "", category: "org", featured: false },
-  { role: "Content", org: "Justice Magazine", period: "", category: "org", featured: false },
-  { role: "Events", org: "Creativity Org", period: "", category: "org", featured: true },
-  { role: "Finance", org: "Health x Story Org", period: "", category: "org", featured: false },
-  { role: "Board", org: "Design Services Org", period: "", category: "org", featured: false },
-  { role: "Finance", org: "Voices x Justice Org", period: "", category: "org", featured: false },
-  { role: "Curriculum x Content", org: "Education Org", period: "", category: "org", featured: false },
-  { role: "Communications", org: "Sustainable Dev Org", period: "", category: "org", featured: false },
-  { role: "Designer", org: "Current Events Reporting Project", period: "", category: "org", featured: false },  
-  { role: "Writer", org: "Cultural Magazine", period: "", category: "org", featured: false },
-  { role: "Exec Board", org: "STEM x Art Org", period: "", category: "org", featured: false },
-  { role: "Editor", org: "Literary Magazine", period: "", category: "org", featured: false },
-  { role: "Board", org: "Community Service Org", period: "", category: "org", featured: false },
-  { role: "Founder", org: "Mental Health x Justice Nonprofit", period: "", category: "org", featured: false },
-  { role: "Exec Board", org: "Music for Retirement Homes Org", period: "", category: "org", featured: false },
-  { role: "Content", org: "Sports News", period: "", category: "org", featured: false },
+  { role: "Board (6x)", orgs: "", period: "", category: "orgs", featured: true },
+  { role: "Communications (1x)", orgs: "", period: "", category: "orgs", featured: false },
+  { role: "Content & Education (4x)", orgs: "", period: "", category: "orgs", featured: false },
+  { role: "Designer (4x)", orgs: "", period: "", category: "orgs", featured: true },
+  { role: "Editor (2x)", orgs: "", period: "", category: "orgs", featured: false },
+  { role: "Education (1x)", orgs: "", period: "", category: "orgs", featured: false },
+  { role: "Events (2x)", orgs: "", period: "", category: "orgs", featured: true },
+  { role: "Finance (2x)", orgs: "", period: "", category: "orgs", featured: false },
+  { role: "Founder (2x)", orgs: "", period: "", category: "orgs", featured: true },
+  { role: "Language Transcriber (1x)", orgs: "", period: "", category: "orgs", featured: false },
+  { role: "Marketing (3x)", orgs: "", period: "", category: "orgs", featured: false },
+  { role: "Software Engineering (2x)", orgs: "", period: "", category: "orgs", featured: true },
+  { role: "Writing (2x)", orgs: "", period: "", category: "orgs", featured: false },
 ]
 
 const categoryColors: Record<string, string> = {
-  org: "border-primary/30 bg-primary/8 text-primary",
+  orgs: "border-primary/30 bg-primary/8 text-primary",
   event: "border-border/60 bg-secondary/40 text-muted-foreground",
   work: "border-primary/50 bg-primary/12 text-primary",
   competition: "border-border/60 bg-secondary/40 text-muted-foreground",
 }
 
 const categoryLabels: Record<string, string> = {
-  org: "org",
+  orgs: "orgs",
   event: "event",
   work: "work",
   competition: "competition",
@@ -51,6 +37,12 @@ export function PastLife() {
   const [isVisible, setIsVisible] = useState(false)
   const [filter, setFilter] = useState<string>("all")
   const sectionRef = useRef<HTMLElement>(null)
+  const countLabel =
+    filter === "all"
+      ? "entries"
+      : filter === "competition"
+        ? "competitions"
+        : filter
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -63,7 +55,7 @@ export function PastLife() {
     return () => observer.disconnect()
   }, [])
 
-  const filters = ["all", "org", "event", "work", "competition"]
+  const filters = ["all", "orgs", "event", "work", "competition"]
 
   const filtered = filter === "all" ? pastRoles : pastRoles.filter((r) => r.category === filter)
 
@@ -116,7 +108,7 @@ export function PastLife() {
         <div className={cn("flex flex-wrap gap-2.5 opacity-0", isVisible && "animate-fade-in-up stagger-3")}>
           {filtered.map((item, index) => (
             <div
-              key={`${item.org}-${item.role}-${index}`}
+              key={`${item.orgs}-${item.role}-${index}`}
               className={cn(
                 "group flex items-center gap-2 rounded-full border px-3.5 py-1.5 transition-all duration-200 hover-lift cursor-default",
                 item.featured
@@ -127,25 +119,25 @@ export function PastLife() {
               <span className="text-sm font-medium tracking-tight">
                 {item.role}
               </span>
-              <span className="text-muted-foreground/50 text-xs">@</span>
-              <span className="font-mono text-xs text-foreground/80">
-                {item.org}
-              </span>
-              <span
+              {/* <span className="text-muted-foreground/50 text-xs">@</span> */}
+              {/* <span className="font-mono text-xs text-foreground/80">
+                {item.orgs}
+              </span> */}
+              {/* <span
                 className={cn(
                   "ml-1 rounded font-mono text-[10px] tracking-wider opacity-0 transition-opacity duration-200 group-hover:opacity-100",
                   "text-muted-foreground",
                 )}
               >
                 {item.period}
-              </span>
+              </span> */}
             </div>
           ))}
         </div>
 
         {/* Footer count */}
         <p className={cn("mt-6 font-mono text-xs text-muted-foreground/50 opacity-0", isVisible && "animate-fade-in-up stagger-4")}>
-          {filtered.length} {filter === "all" ? "entries" : filter + "s"}
+          {filtered.length} {countLabel}
           {/* hover to see year */}
         </p>
 

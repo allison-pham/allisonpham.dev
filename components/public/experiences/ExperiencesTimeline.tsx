@@ -2,10 +2,10 @@
 
 import { useEffect, useRef, useState } from "react"
 import { cn } from "@/lib/utils"
-import { Laptop, ExternalLink, Sparkles, ArrowRight, ChevronDown } from "lucide-react"
+import { ExternalLink, Sparkles, ChevronDown } from "lucide-react"
 
 interface Experience {
-  id: number
+  id: string
   role: string
   company: string
   companyUrl?: string
@@ -21,9 +21,11 @@ interface Experience {
 
 const experiences: Experience[] = [
   {
-    id: 1,
+    id: "nasa-research",
     role: "Design & Research (Autonomous Traversal)",
     company: "NASA",
+    companyUrl: "https://nasa.gov",
+    logo: "/logos/nasa.svg",
     period: "Jan 2026 - Present",
     type: "",
     current: true,
@@ -35,10 +37,11 @@ const experiences: Experience[] = [
   },
 
   {
-    id: 2,
+    id: "notion",
     role: "Campus Leader",
     company: "Notion",
-    companyUrl: "http://notion.so",
+    logo: "/logos/notion.svg",
+    companyUrl: "https://notion.so",
     period: "Sep 2025 - Present",
     type: "",
     current: true,
@@ -52,9 +55,10 @@ const experiences: Experience[] = [
   },
 
   {
-    id: 3,
+    id: "citrus-hack",
     role: "Director",
     company: "Citrus Hack",
+    logo: "/logos/citrus-hack.svg",
     companyUrl: "https://citrushack.com",
     period: "May 2025 - Present",
     type: "",
@@ -68,10 +72,11 @@ const experiences: Experience[] = [
   },
 
   {
-    id: 4,
+    id: "cutie-hack",
     role: "Director",
     company: "Cutie Hack",
-    companyUrl: "https://citrushack.com",
+    logo: "/logos/cutie-hack.svg",
+    companyUrl: "https://cutiehack.com",
     period: "May 2025 - Present",
     type: "",
     current: true,
@@ -84,11 +89,12 @@ const experiences: Experience[] = [
   },
 
   {
-    id: 5,
+    id: "acm",
     role: "President",
     company: "ACM at UCR",
+    logo: "/logos/acm.svg",
     companyUrl: "https://acm.cs.ucr.edu",
-    period: "April 2025 - Present",
+    period: "Apr 2025 - Present",
     type: "",
     current: true,
     description:
@@ -97,14 +103,15 @@ const experiences: Experience[] = [
       "Association for Computing Machinery (ACM)",
       "Previous Event Chair (Feb 2024 - Jun 2025) & Board Intern (Oct 2023 - Mar 2024)"
     ],
-    tags: ["CS & Engineering"],
+    tags: ["Computer Science", "Engineering"],
   },
 
   {
-    id: 6,
+    id: "nasa-engineering",
     role: "Lead Systems Engineer (L'SPACE)",
     company: "NASA",
-    companyUrl: "",
+    logo: "/logos/nasa.svg",
+    companyUrl: "https://nasa.gov",
     period: "Sep 2024 - Nov 2024",
     type: "Previous",
     current: false,
@@ -116,10 +123,11 @@ const experiences: Experience[] = [
   },
 
   {
-    id: 7,
+    id: "nucleo",
     role: "Software Engineer & Research Development Intern",
-    company: "Nucleo",
-    companyUrl: "",
+    company: "Nucleo Research",
+    logo: "/logos/nucleo.svg",
+    companyUrl: "https://nucleoresearch.com",
     period: "Aug 2024 - Sep 2024",
     type: "Previous",
     current: false,
@@ -131,10 +139,11 @@ const experiences: Experience[] = [
   },
 
   {
-    id: 8,
+    id: "ucr",
     role: "Computer Science Grader",
     company: "University of California, Riverside",
-    companyUrl: "",
+    logo: "/logos/ucr.svg",
+    companyUrl: "https://ucr.edu",
     period: "Jan 2024 - Mar 2024",
     type: "Previous",
     current: false,
@@ -151,11 +160,13 @@ function LogoBadge({ company, logo, size = "md" }: { company: string; logo?: str
   const dim = size === "sm" ? "h-7 w-7 text-[10px]" : "h-9 w-9 text-xs"
   if (logo) {
     return (
-      <img
-        src={logo}
-        alt={company}
-        className={cn("shrink-0 rounded-[12px] border border-border/60 object-cover", dim)}
-      />
+      <div className={cn("flex shrink-0 items-center justify-center rounded-[12px] border border-border/60 bg-secondary/60 p-1", dim)}>
+        <img
+          src={logo}
+          alt={company}
+          className="h-full w-full object-contain"
+        />
+      </div>
     )
   }
   return (
@@ -167,9 +178,7 @@ function LogoBadge({ company, logo, size = "md" }: { company: string; logo?: str
 
 export function ExperiencesTimeline() {
   const [isVisible, setIsVisible] = useState(false)
-  const [activeId, setActiveId] = useState<number | null>(null)
-  const [expandedId, setExpandedId] = useState<number | null>(null)
-  const [expandedIds, setExpandedIds] = useState<number[]>([])
+  const [expandedIds, setExpandedIds] = useState<string[]>([])
   const [activeFilters, setActiveFilters] = useState<string[]>(["all"])
   const sectionRef = useRef<HTMLElement>(null)
 
@@ -205,6 +214,19 @@ export function ExperiencesTimeline() {
           return exp.tags.includes(f)
         }),
       )
+
+  const getSafeExternalUrl = (url?: string) => {
+    if (!url) return undefined
+    const normalizedUrl = /^https?:\/\//i.test(url) ? url : `https://${url}`
+
+    try {
+      const parsed = new URL(normalizedUrl)
+      if (parsed.protocol !== "http:" && parsed.protocol !== "https:") return undefined
+      return parsed.toString()
+    } catch {
+      return undefined
+    }
+  }
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -275,15 +297,18 @@ export function ExperiencesTimeline() {
             <div className="relative">
               <div className="mb-4 flex items-center gap-2">
                 <span className="rounded-full border border-primary/30 bg-primary/10 px-3 py-1 font-mono text-[10px] tracking-[0.25em] text-primary">
-                  current orbit
+                  my orbit
                 </span>
                 <Sparkles className="h-4 w-4 text-primary" />
               </div>
               <p className="max-w-2xl text-lg leading-relaxed text-foreground sm:text-xl">
-                Building across research, systems, community, and design with roles that move between campus leadership and ambitious technical work.
+                Building across research, systems, community, & design. Moving across operations & technical work.
               </p>
               <div className="mt-6 grid gap-3 sm:grid-cols-2 items-start">
-                {filteredExperiences.map((exp) => (
+                {filteredExperiences.map((exp) => {
+                  const companyLink = getSafeExternalUrl(exp.companyUrl)
+
+                  return (
                   <div
                     key={exp.id}
                     className="rounded-xl border border-border/50 bg-background/40 backdrop-blur-sm transition-colors hover:border-primary/30"
@@ -299,7 +324,22 @@ export function ExperiencesTimeline() {
                         <div>
                           <p className="text-sm font-semibold tracking-tight text-foreground">{exp.role}</p>
                           <div className="mt-1 flex items-center gap-1.5 font-mono text-xs text-primary">
-                            <span>{exp.company}</span>
+                            {companyLink ? (
+                              <a
+                                href={companyLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={(event) => event.stopPropagation()}
+                                onMouseDown={(event) => event.stopPropagation()}
+                                className="inline-flex items-center gap-1.5 hover:underline"
+                                aria-label={`${exp.company} company page (opens in a new tab)`}
+                              >
+                                <span>{exp.company}</span>
+                                <ExternalLink className="h-3 w-3" />
+                              </a>
+                            ) : (
+                              <span>{exp.company}</span>
+                            )}
                           </div>
                         </div>
                       </div>
@@ -354,7 +394,8 @@ export function ExperiencesTimeline() {
                       </div>
                     )}
                   </div>
-                ))}
+                  )
+                })}
               </div>
             </div>
           </div>
