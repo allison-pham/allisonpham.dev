@@ -28,16 +28,16 @@ export function AboutHero() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="relative px-4 sm:px-6 pt-28 sm:pt-36 pb-16 sm:pb-24">
+    <section ref={sectionRef} className="relative overflow-x-clip px-4 sm:px-6 pt-24 sm:pt-36 pb-12 sm:pb-24">
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-20 lg:items-center">
           {/* Left */}
-          <div className="space-y-8">
+          <div className="min-w-0 space-y-8">
             <div className={cn("space-y-3 opacity-0", isVisible && "animate-fade-in-up")}>
               <p className="font-mono text-xs tracking-[0.25em] sm:tracking-[0.35em] text-primary">
                 about;
               </p>
-              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl text-balance">
+              <h1 className="text-3xl font-bold tracking-tight sm:text-5xl lg:text-6xl text-balance">
                 Allison Pham ✦
               </h1>
             </div>
@@ -88,7 +88,7 @@ export function AboutHero() {
             {/* Stats row */}
             <div
               className={cn(
-                "grid grid-cols-2 gap-4 sm:grid-cols-4 opacity-0",
+                "grid grid-cols-1 gap-4 min-[420px]:grid-cols-2 sm:grid-cols-4 opacity-0",
                 isVisible && "animate-fade-in-up stagger-4",
               )}
             >
@@ -105,19 +105,19 @@ export function AboutHero() {
           </div>
 
           {/* Right */}
-          <div className={cn("relative opacity-0", isVisible && "animate-scale-in stagger-4")}>
-            <div className="relative rounded-2xl border border-border/60 bg-card/60 glass p-8 hover-lift">
+          <div className={cn("relative min-w-0 opacity-0", isVisible && "animate-scale-in stagger-4")}>
+            <div className="relative rounded-2xl border border-border/60 bg-card/60 glass p-4 sm:p-8 hover-lift">
               <div className="absolute top-4 left-4 flex items-center gap-2">
                 <div className="h-3 w-3 rounded-full bg-destructive/60" />
                 <div className="h-3 w-3 rounded-full bg-yellow-500/60" />
                 <div className="h-3 w-3 rounded-full bg-primary/60" />
               </div>
-              <div className="absolute top-3.5 left-1/2 -translate-x-1/2 rounded-md bg-background/50 px-3 py-1 font-mono text-xs text-muted-foreground">
+              <div className="absolute top-3.5 left-1/2 hidden -translate-x-1/2 rounded-md bg-background/50 px-3 py-1 font-mono text-xs text-muted-foreground sm:block">
                 about-allison.json
               </div>
 
-              <pre className="mt-8 overflow-auto font-mono text-xs leading-6 text-foreground/80">
-                <code>{`
+              <pre className="mt-6 max-w-full overflow-x-auto font-mono text-xs leading-6 text-foreground/80 sm:mt-8">
+                <code className="block min-w-max">{`
 {
   "name": "Allison Pham",
 
@@ -143,7 +143,7 @@ export function AboutHero() {
               </pre>
             </div>
 
-            <div className="absolute -right-4 -top-4 rounded-lg border border-primary/40 bg-primary/15 glass px-4 py-1.5 font-mono text-xs text-primary animate-float">
+            <div className="hidden sm:block absolute -right-4 -top-4 rounded-lg border border-primary/40 bg-primary/15 glass px-4 py-1.5 font-mono text-xs text-primary animate-float">
               <span className="flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
                 night code sessions, fueled by tea & design curiosity 🌙

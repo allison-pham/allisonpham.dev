@@ -387,12 +387,12 @@ export function ProjectsPageContent() {
   }
 
   return (
-    <section ref={sectionRef} className="px-4 sm:px-6 py-12 sm:py-20">
+    <section ref={sectionRef} className="overflow-x-clip px-4 sm:px-6 py-12 sm:py-20">
       <div className="mx-auto max-w-7xl">
         {/* Hero */}
         <div className={cn("mb-12 sm:mb-16 space-y-4 opacity-0", isVisible && "animate-fade-in-up")}>
           <p className="font-mono text-xs tracking-[0.25em] sm:tracking-[0.35em] text-primary">pieces of building;</p>
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">Projects ★</h1>
+          <h1 className="text-3xl font-bold tracking-tight sm:text-5xl lg:text-6xl">Projects ★</h1>
           <p className="max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed">
             Collection of projects across CS, engineering, & design.
           </p>
@@ -456,7 +456,7 @@ export function ProjectsPageContent() {
             <article
               key={project.id}
               className={cn(
-                "group relative overflow-hidden rounded-xl border bg-card/40 p-6 sm:p-7 glass transition-all duration-400 active:scale-[0.99] hover-lift opacity-0",
+                "group relative min-w-0 overflow-hidden rounded-xl border bg-card/40 p-6 sm:p-7 glass transition-all duration-400 active:scale-[0.99] hover-lift opacity-0",
                 isVisible && "animate-fade-in-up",
                 hoveredProject === project.id && "border-primary/40 bg-card/70",
                 "highlight" in project && project.highlight
@@ -492,7 +492,7 @@ export function ProjectsPageContent() {
                     project.status === "archived" && "bg-muted-foreground",
                   )}
                 />
-                <span className="font-mono text-xs text-muted-foreground">{project.status}</span>
+                <span className="max-w-[7.5rem] truncate font-mono text-xs text-muted-foreground">{project.status}</span>
               </div>
 
               <div

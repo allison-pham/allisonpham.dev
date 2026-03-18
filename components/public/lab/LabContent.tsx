@@ -82,24 +82,24 @@ function TerminalBox({ title, path, icon, items, statusLabel, isVisible, stagger
       )}
     >
       {/* Terminal header */}
-      <div className="flex items-center gap-3 border-b border-border/50 bg-secondary/40 px-4 sm:px-5 py-3.5 sm:py-4">
+      <div className="flex items-center gap-2 sm:gap-3 border-b border-border/50 bg-secondary/40 px-3 sm:px-5 py-3.5 sm:py-4">
         <div className="flex items-center gap-2">
           <div className="h-3 w-3 rounded-full bg-destructive/60 transition-colors hover:bg-destructive cursor-pointer" />
           <div className="h-3 w-3 rounded-full bg-yellow-500/60 transition-colors hover:bg-yellow-500 cursor-pointer" />
           <div className="h-3 w-3 rounded-full bg-primary/60 transition-colors hover:bg-primary cursor-pointer" />
         </div>
-        <span className="ml-4 font-mono text-xs text-muted-foreground truncate">{path}</span>
-        <div className="ml-auto flex items-center gap-2 text-muted-foreground">
+        <span className="ml-2 sm:ml-4 flex-1 min-w-0 font-mono text-[10px] sm:text-xs text-muted-foreground truncate">{path}</span>
+        <div className="shrink-0 flex items-center gap-2 text-muted-foreground">
           {icon}
-          <span className="font-mono text-xs">{statusLabel}</span>
+          <span className="hidden min-[380px]:inline font-mono text-xs">{statusLabel}</span>
         </div>
       </div>
 
       {/* Section Title */}
-      <div className="px-5 py-4 border-b border-border/30 bg-secondary/20">
-        <h3 className="font-mono text-sm font-medium text-foreground flex items-center gap-2">
+      <div className="px-4 sm:px-5 py-4 border-b border-border/30 bg-secondary/20">
+        <h3 className="font-mono text-sm font-medium text-foreground flex items-center gap-2 min-w-0">
           {icon}
-          {title}
+          <span className="truncate">{title}</span>
         </h3>
       </div>
 
@@ -121,15 +121,15 @@ function TerminalBox({ title, path, icon, items, statusLabel, isVisible, stagger
             onClick={(e) => !item.url && e.preventDefault()}
           >
             <div className="flex-1 space-y-2 min-w-0">
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2 sm:gap-3 min-w-0">
                 <span className="text-primary font-mono text-sm shrink-0 transition-transform duration-300 group-hover:translate-x-1">
                   $
                 </span>
-                <h4 className="font-mono text-sm font-medium tracking-tight transition-colors group-hover:text-gradient truncate">
+                <h4 className="min-w-0 flex-1 font-mono text-sm font-medium tracking-tight transition-colors group-hover:text-gradient truncate">
                   {item.name}
                 </h4>
                 {item.url && (
-                  <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                  <div className="hidden sm:flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
                     <Github className="h-3.5 w-3.5 text-muted-foreground" />
                     <ExternalLink className="h-3 w-3 text-muted-foreground" />
                   </div>
@@ -138,7 +138,7 @@ function TerminalBox({ title, path, icon, items, statusLabel, isVisible, stagger
               <p className="pl-6 text-xs text-muted-foreground line-clamp-2 sm:line-clamp-1">
                 {item.description}
               </p>
-              <div className="pl-6 flex items-center gap-4 text-xs text-muted-foreground">
+              <div className="pl-6 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-muted-foreground">
                 <span className="flex items-center gap-1">
                   <GitBranch className="h-3 w-3" />
                   {item.branch}
@@ -147,7 +147,7 @@ function TerminalBox({ title, path, icon, items, statusLabel, isVisible, stagger
               </div>
             </div>
 
-            <div className="flex items-center justify-between gap-6 pl-6 sm:pl-0 sm:justify-end">
+            <div className="flex flex-wrap items-center justify-between gap-3 sm:gap-6 pl-6 sm:pl-0 sm:justify-end">
               <div className="flex items-center gap-3 flex-1 sm:flex-none">
                 <div className="h-2 w-full sm:w-28 overflow-hidden rounded-full bg-secondary/80 relative">
                   <div
@@ -174,7 +174,7 @@ function TerminalBox({ title, path, icon, items, statusLabel, isVisible, stagger
                   {item.progress}%
                 </span>
               </div>
-              <span className="font-mono text-xs text-muted-foreground shrink-0">{item.lastUpdated}</span>
+              <span className="font-mono text-[11px] sm:text-xs text-muted-foreground shrink-0">{item.lastUpdated}</span>
             </div>
           </a>
         ))}
@@ -183,7 +183,7 @@ function TerminalBox({ title, path, icon, items, statusLabel, isVisible, stagger
       <div className="border-t border-border/50 bg-secondary/30 px-4 sm:px-5 py-4">
         <div className="flex items-center gap-2 font-mono text-xs text-muted-foreground">
           <span className="text-primary">{">"}</span>
-          <span className="typing-cursor truncate">git status --all</span>
+          <span className="typing-cursor min-w-0 flex-1 truncate">git status --all</span>
           <span className="ml-auto text-primary/50 hidden sm:block">press enter to run</span>
         </div>
       </div>
@@ -199,14 +199,14 @@ export function LabContent() {
   }, [])
 
   return (
-    <section className="px-4 sm:px-6 pt-16 sm:pt-20 pb-8 sm:pb-12">
+    <section className="overflow-x-clip px-4 sm:px-6 pt-16 sm:pt-20 pb-8 sm:pb-12">
       <div className="mx-auto max-w-7xl">
         {/* Hero */}
         <div className={cn("mb-12 sm:mb-16 space-y-4 opacity-0", isVisible && "animate-fade-in-up")}>
           <p className="font-mono text-xs tracking-[0.25em] sm:tracking-[0.35em] text-primary">
             work in progress;
           </p>
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">Lab</h1>
+          <h1 className="text-3xl font-bold tracking-tight sm:text-5xl lg:text-6xl">Lab</h1>
           <p className="max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed">
             Current tinkering for experiments & prototypes. Building with design curiosity. Progress on ideation.
           </p>
@@ -214,7 +214,7 @@ export function LabContent() {
 
         <div className="grid gap-8 lg:grid-cols-3">
           {/* Main Content - 3 Terminal Boxes */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="min-w-0 lg:col-span-2 space-y-6">
             {/* Current Pieces */}
             <TerminalBox
               title="Current Pieces"
@@ -250,7 +250,7 @@ export function LabContent() {
           </div>
 
           {/* Sidebar */}
-          <div className="space-y-6">
+          <div className="min-w-0 space-y-6">
             {/* Stats */}
             <div
               className={cn(

@@ -318,12 +318,12 @@ export function KnowledgeRepertoire() {
   )
 
   return (
-    <section ref={sectionRef} className="px-4 sm:px-6 py-20 sm:py-16">
+    <section ref={sectionRef} className="overflow-x-clip px-4 sm:px-6 py-16 sm:py-16">
       <div className="mx-auto max-w-7xl">
         {/* Header */}
         <div className={cn("opacity-0", isVisible && "animate-fade-in-up")}>
           <div className="flex items-center gap-3 mb-3">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Knowledge Repertoire ⋆˚</h2>
+            <h2 className="text-2xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Knowledge Repertoire ⋆˚</h2>
           </div>
           <p className="max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed">
             A living map of the areas & topics I'm passionate about & pursue through learning, projects, & more.
@@ -344,11 +344,11 @@ export function KnowledgeRepertoire() {
             <Clock className="h-4 w-4 text-yellow-500" />
             <span className="font-mono text-sm">{levelCounts.learning || 0} actively learning</span>
           </div>
-          <div className="ml-auto flex gap-2">
+          <div className="flex w-full gap-2 sm:ml-auto sm:w-auto">
             <button
               onClick={() => setViewMode("detail")}
               className={cn(
-                "px-3 py-1.5 rounded-lg font-mono text-xs transition-all",
+                "flex-1 px-3 py-1.5 rounded-lg font-mono text-xs transition-all sm:flex-none",
                 viewMode === "detail" ? "bg-primary text-primary-foreground" : "bg-secondary/50 text-muted-foreground hover:text-foreground"
               )}
             >
@@ -357,7 +357,7 @@ export function KnowledgeRepertoire() {
             <button
               onClick={() => setViewMode("graph")}
               className={cn(
-                "px-3 py-1.5 rounded-lg font-mono text-xs transition-all",
+                "flex-1 px-3 py-1.5 rounded-lg font-mono text-xs transition-all sm:flex-none",
                 viewMode === "graph" ? "bg-primary text-primary-foreground" : "bg-secondary/50 text-muted-foreground hover:text-foreground"
               )}
             >
@@ -371,7 +371,7 @@ export function KnowledgeRepertoire() {
             {/* Content panel */}
             <div
               className={cn(
-                "rounded-xl border border-border bg-card/40 glass overflow-hidden opacity-0",
+                "min-w-0 rounded-xl border border-border bg-card/40 glass overflow-hidden opacity-0",
                 isVisible && "animate-scale-in stagger-2",
               )}
             >
@@ -430,10 +430,10 @@ export function KnowledgeRepertoire() {
                             >
                               <ChevronRight className={cn("h-4 w-4 text-muted-foreground transition-transform", isExpanded && "rotate-90")} />
                               <div className="flex-1 min-w-0">
-                                <div className="flex items-center gap-3">
-                                  <span className="font-medium text-sm">{item.name}</span>
+                                <div className="flex items-center gap-3 min-w-0">
+                                  <span className="font-medium text-sm truncate">{item.name}</span>
                                   {item.lastTouched && (
-                                    <span className="text-xs text-muted-foreground">
+                                    <span className="shrink-0 text-xs text-muted-foreground">
                                       {item.lastTouched === "today" ? (
                                         <span className="text-green-500">active today</span>
                                       ) : (
@@ -505,7 +505,7 @@ export function KnowledgeRepertoire() {
             {/* Category sidebar */}
             <div
               className={cn(
-                "space-y-2 opacity-0",
+                "min-w-0 space-y-2 opacity-0",
                 isVisible && "animate-fade-in-up stagger-3",
               )}
             >
@@ -532,7 +532,7 @@ export function KnowledgeRepertoire() {
                           "font-mono text-sm transition-colors",
                           activeCategory === category.id ? "text-primary" : "text-foreground"
                         )}>
-                          {category.label}
+                          <span className="block truncate">{category.label}</span>
                         </span>
                       </div>
                       <span className="text-xs text-muted-foreground">{itemCount}</span>

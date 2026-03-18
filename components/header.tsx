@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react"
 import { cn } from "@/lib/utils"
-import { Github, Twitter, Linkedin, ChevronDown } from "lucide-react"
+import { Github, Linkedin, ChevronDown, Menu, X } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
@@ -21,8 +21,8 @@ const moreNavItems = [
 ]
 
 const socialLinks = [
-  { label: "LinkedIn", href: "https://linkedin.com/in/imallisonpham", icon: Linkedin },
-  { label: "GitHub", href: "https://github.com/allison-pham", icon: Github },
+  { label: "LinkedIn", href: "https://linkedin.com/in/imallisonpham", handle: "imallisonpham", icon: Linkedin },
+  { label: "GitHub", href: "https://github.com/allison-pham", handle: "@allison-pham", icon: Github },
 ]
 
 export function Header() {
@@ -54,13 +54,17 @@ export function Header() {
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-        isScrolled ? "border-b border-border/50 bg-background/80 backdrop-blur-xl shadow-sm" : "bg-transparent",
+        isMobileMenuOpen
+          ? "border-b border-border/50 bg-background shadow-sm"
+          : isScrolled
+            ? "border-b border-border/50 bg-background/80 backdrop-blur-xl shadow-sm"
+            : "bg-transparent",
       )}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-4">
         <nav className="flex items-center justify-between">
           <Link href="/" className="group flex items-center gap-3">
-            <span className="bg-gradient-to-l from-primary/50 to-accent bg-clip-text text-transparent font-semibold">
+            <span className="bg-linear-to-l from-primary/50 to-accent bg-clip-text text-transparent font-semibold">
               Allison Pham
             </span>
           </Link>
@@ -122,7 +126,7 @@ export function Header() {
 
               <div
                 className={cn(
-                  "absolute top-full right-0 mt-2 min-w-[160px] rounded-xl border border-border bg-card/95 backdrop-blur-xl shadow-xl overflow-hidden transition-all duration-200",
+                  "absolute top-full right-0 mt-2 min-w-40 rounded-xl border border-border bg-card/95 backdrop-blur-xl shadow-xl overflow-hidden transition-all duration-200",
                   isMoreOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"
                 )}
               >
@@ -180,34 +184,17 @@ export function Header() {
               className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-card/50 md:hidden transition-colors hover:bg-secondary"
               aria-label="Toggle menu"
             >
-              <div className="flex flex-col gap-1.5 w-5">
-                <span
-                  className={cn(
-                    "h-0.5 bg-foreground transition-all duration-300 origin-center",
-                    isMobileMenuOpen ? "w-5 translate-y-2 rotate-45" : "w-5",
-                  )}
-                />
-                <span
-                  className={cn(
-                    "h-0.5 w-3.5 bg-foreground transition-all duration-300",
-                    isMobileMenuOpen && "opacity-0 translate-x-2",
-                  )}
-                />
-                <span
-                  className={cn(
-                    "h-0.5 bg-foreground transition-all duration-300 origin-center",
-                    isMobileMenuOpen ? "w-5 -translate-y-2 -rotate-45" : "w-5",
-                  )}
-                />
-              </div>
+              {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
           </div>
         </nav>
 
         <div
           className={cn(
-            "overflow-hidden transition-all duration-400 md:hidden",
-            isMobileMenuOpen ? "max-h-96 opacity-100 pt-4" : "max-h-0 opacity-0",
+            "rounded-b-xl border border-border/50 bg-background shadow-lg transition-all duration-400 md:hidden",
+            isMobileMenuOpen
+              ? "max-h-[65vh] overflow-y-auto overscroll-contain opacity-100 pt-4"
+              : "max-h-0 overflow-hidden opacity-0",
           )}
         >
           <div className="flex flex-col gap-1 border-t border-border/50 pt-4">
@@ -254,7 +241,7 @@ export function Header() {
               )
             })}
 
-            <div className="mt-4 flex items-center gap-2 border-t border-border/50 pt-4 px-4">
+            <div className="mt-4 grid gap-2 border-t border-border/50 pt-4 px-4">
               {socialLinks.map((link) => (
                 <a
                   key={link.label}
@@ -262,9 +249,13 @@ export function Header() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={link.label}
-                  className="flex h-11 w-11 items-center justify-center rounded-lg border border-border/50 text-muted-foreground transition-colors active:bg-secondary hover:border-primary/50 hover:text-primary hover:bg-primary/10"
+                  className="flex items-center justify-between rounded-lg border border-border/50 px-3 py-2.5 text-muted-foreground transition-colors active:bg-secondary hover:border-primary/50 hover:text-primary hover:bg-primary/10"
                 >
-                  <link.icon className="h-4 w-4" />
+                  <div className="flex items-center gap-2.5">
+                    <link.icon className="h-4 w-4" />
+                    <span className="font-mono text-xs tracking-widest">{link.label}</span>
+                  </div>
+                  <span className="font-mono text-[10px] text-muted-foreground">{link.handle}</span>
                 </a>
               ))}
             </div>
