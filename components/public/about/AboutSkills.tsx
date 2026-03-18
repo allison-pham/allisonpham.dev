@@ -2,35 +2,42 @@
 
 import { useEffect, useRef, useState } from "react"
 import { cn } from "@/lib/utils"
+import { Code2, Layers3, Wrench, Library, Cpu, Palette } from "lucide-react"
 
 const skillGroups = [
   {
     category: "Languages",
+    icon: Code2,
     skills: ["C++", "Python", "Java", "TypeScript", "JavaScript", "C", "SQL", "Swift", "HTML/CSS"],
   },
 
   {
     category: "Frameworks",
+    icon: Layers3,
     skills: ["Next.js", "React", "Vue.js", "Tailwind CSS", "Spring Boot", "Swift UI"],
   },
 
   {
     category: "Developer Tools",
+    icon: Wrench,
     skills: ["Docker", "AWS", "Google Cloud", "Firebase"],
   },
 
   {
     category: "Libraries",
+    icon: Library,
     skills: ["PyTorch", "TensorFlow", "scikit-learn", "NumPy", "pandas", "Matplotlib", "Three.js"],
   },
 
   {
     category: "Hardware / CAD",
+    icon: Cpu,
     skills: ["MATLAB", "SPICE", "Verilog", "FPGA Tools", "Arduino", "Altium", "Autodesk", "Qt"],
   },
 
   {
     category: "Design",
+    icon: Palette,
     skills: ["Figma", "Framer", "Spline", "Canva", "Adobe"],
   },
 ]
@@ -73,9 +80,14 @@ export function AboutSkills() {
             >
               <div className="relative z-10">
                 <div className="mb-5 flex items-center justify-between">
-                  <span className="rounded-lg border border-border/80 bg-secondary/60 px-3 py-1.5 font-mono text-xs text-muted-foreground transition-colors group-hover:border-primary/50 group-hover:text-foreground">
-                    {group.category}
-                  </span>
+                  <div className="flex items-center gap-2.5">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-primary/30 bg-primary/10 text-primary">
+                      <group.icon className="h-4 w-4" />
+                    </span>
+                    <span className="rounded-lg border border-border/80 bg-secondary/60 px-3 py-1.5 font-mono text-xs text-muted-foreground transition-colors group-hover:border-primary/50 group-hover:text-foreground">
+                      {group.category}
+                    </span>
+                  </div>
 
                 </div>
                 <div className="flex flex-wrap gap-2">
@@ -89,7 +101,7 @@ export function AboutSkills() {
                   ))}
                 </div>
               </div>
-              <div className="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-primary to-transparent transition-all duration-500 group-hover:w-full" />
+              <div className="absolute bottom-0 left-0 h-1 w-0 bg-linear-to-r from-primary to-transparent transition-all duration-500 group-hover:w-full" />
             </div>
           ))}
         </div>

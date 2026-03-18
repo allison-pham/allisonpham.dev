@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react"
 import { cn } from "@/lib/utils"
 import { Github, Linkedin, ChevronDown, Menu, X } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
 
 const navItems = [
@@ -64,6 +65,16 @@ export function Header() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-4">
         <nav className="flex items-center justify-between">
           <Link href="/" className="group flex items-center gap-3">
+            <span className="relative inline-flex h-8 w-8 items-center justify-center overflow-hidden rounded-lg border border-primary/35 bg-card/80 transition-transform duration-300 group-hover:scale-105">
+              <Image
+                src="/website-logo.svg"
+                alt="Allison Pham logo"
+                fill
+                sizes="32px"
+                className="object-contain p-1"
+                priority
+              />
+            </span>
             <span className="bg-linear-to-l from-primary/50 to-accent bg-clip-text text-transparent font-semibold">
               Allison Pham
             </span>
@@ -151,6 +162,7 @@ export function Header() {
           </div>
 
           <div className="flex items-center gap-4">
+
             <div className="hidden items-center gap-1 sm:flex">
               {socialLinks.map((link) => (
                 <a
