@@ -12,7 +12,7 @@ export function ProjectsPageContent() {
   const [activeFilter, setActiveFilter] = useState<ProjectFilter>("all")
   const [searchQuery, setSearchQuery] = useState("")
   const [selectedTags, setSelectedTags] = useState<string[]>([])
-  const [hoveredProject, setHoveredProject] = useState<number | null>(null)
+  const [hoveredProject, setHoveredProject] = useState<string | null>(null)
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
 
@@ -29,7 +29,7 @@ export function ProjectsPageContent() {
     const matchesTags = selectedTags.length === 0 || selectedTags.some((tag) => project.tags.includes(tag))
 
     return matchesFilter && matchesSearch && matchesTags
-  })
+  }).sort((leftProject, rightProject) => Number(rightProject.featured) - Number(leftProject.featured))
 
   const toggleTag = (tag: string) => {
     setSelectedTags((previousTags) =>
@@ -40,7 +40,7 @@ export function ProjectsPageContent() {
   }
 
   return (
-    <section ref={sectionRef} className="overflow-x-clip px-4 py-12 sm:px-6 sm:py-20">
+    <section ref={sectionRef} className="overflow-x-clip px-4 pt-10 pb-12 sm:px-6 sm:pt-16 sm:pb-20">
       <div className="mx-auto max-w-7xl">
         <div className={cn("mb-12 space-y-4 opacity-0 sm:mb-16", isVisible && "animate-fade-in-up")}>
           <p className="font-mono text-xs tracking-[0.25em] text-primary sm:tracking-[0.35em]">pieces of building;</p>
@@ -74,7 +74,7 @@ export function ProjectsPageContent() {
                     : "border-border text-muted-foreground hover:border-foreground/50 hover:bg-secondary/50 hover:text-foreground",
                 )}
               >
-                {filter}
+                {filter.toLowerCase()}
               </button>
             ))}
           </div>
@@ -92,14 +92,20 @@ export function ProjectsPageContent() {
                     : "border-border/60 bg-secondary/40 text-muted-foreground hover:border-primary/30 hover:text-foreground",
                 )}
               >
-                {tag}
+                {tag.toLowerCase()}
               </button>
             ))}
           </div>
         </div>
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {filteredProjects.map((project, index) => (
+          {filteredProjects.map((project, index) => {
+            const githubUrl = project.url.trim()
+            const liveUrl = project.homepage.trim()
+            const hasCaseStudyPage = Boolean(project.caseStudy)
+            const isFeaturedProject = project.featured
+
+            return (
             <article
               key={project.id}
               className={cn(
@@ -107,9 +113,9 @@ export function ProjectsPageContent() {
                 isVisible && "animate-fade-in-up",
                 hoveredProject === project.id && "border-primary/40 bg-card/70",
                 project.highlight
-                  ? "border-primary/30 bg-linear-to-br from-primary/8 via-card/50 to-primary/8 sm:col-span-2 lg:col-span-2"
+                  ? "border-primary/30 bg-linear-to-br from-primary/8 via-card/50 to-primary/8"
                   : "border-border/60",
-                project.featured && !project.highlight && "sm:col-span-2 lg:col-span-1",
+                isFeaturedProject && "sm:col-span-2 lg:col-span-2",
               )}
               style={{ animationDelay: `${(index % 6) * 80 + 200}ms` }}
               onMouseEnter={() => setHoveredProject(project.id)}
@@ -137,7 +143,12 @@ export function ProjectsPageContent() {
 
               <div className={cn("mb-4 font-mono text-xs text-muted-foreground", project.highlight && "mt-10")}>{project.year}</div>
 
-              <div className="relative mb-5 overflow-hidden rounded-lg border border-border/60 bg-secondary/35 aspect-video">
+              <div
+                className={cn(
+                  "relative mb-5 overflow-hidden rounded-lg border border-border/60 bg-secondary/35",
+                  isFeaturedProject ? "aspect-16/10 sm:aspect-28/9" : "aspect-video",
+                )}
+              >
                 {project.thumbnailSrc ? (
                   <Image
                     src={project.thumbnailSrc}
@@ -148,8 +159,8 @@ export function ProjectsPageContent() {
                   />
                 ) : (
                   <div className="flex h-full flex-col items-center justify-center gap-1.5 px-4 text-center">
-                    <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">add project image</span>
-                    <span className="text-xs text-muted-foreground/80">/public/projects/{project.slug}/cover.jpg</span>
+                    <span className="font-mono text-[11px] tracking-[0.22em] text-muted-foreground">cover image coming soon</span>
+                    {/* <span className="text-xs text-muted-foreground/80">/public/projects/{project.slug}/cover.jpg</span> */}
                   </div>
                 )}
               </div>
@@ -157,13 +168,13 @@ export function ProjectsPageContent() {
               <h3
                 className={cn(
                   "mb-3 font-bold tracking-tight transition-all duration-300 group-hover:text-gradient",
-                  project.highlight ? "text-xl sm:text-2xl" : "text-lg sm:text-xl",
+                  "text-lg sm:text-xl",
                 )}
               >
                 {project.title}
               </h3>
 
-              <p className={cn("mb-5 text-sm leading-relaxed text-muted-foreground", project.highlight ? "line-clamp-3" : "line-clamp-2")}>
+              <p className="mb-5 line-clamp-2 text-sm leading-relaxed text-muted-foreground">
                 {project.description}
               </p>
 
@@ -179,17 +190,19 @@ export function ProjectsPageContent() {
               </div>
 
               <div className="flex flex-wrap items-center gap-4">
-                <Link
-                  href={`/projects/${project.slug}`}
-                  className="group/link flex items-center gap-2 font-mono text-xs text-primary transition-all duration-300 hover:text-foreground"
-                >
-                  <ExternalLink className="h-4 w-4 transition-transform group-hover/link:scale-110" />
-                  <span className="underline-animate">Case Study</span>
-                </Link>
+                {hasCaseStudyPage && (
+                  <Link
+                    href={`/projects/${project.slug}`}
+                    className="group/link flex items-center gap-2 font-mono text-xs text-primary transition-all duration-300 hover:text-foreground"
+                  >
+                    <ExternalLink className="h-4 w-4 transition-transform group-hover/link:scale-110" />
+                    <span className="underline-animate">Case Study</span>
+                  </Link>
+                )}
 
-                {project.url && (
+                {githubUrl && (
                   <a
-                    href={project.url}
+                    href={githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group/link flex items-center gap-2 font-mono text-xs text-muted-foreground transition-all duration-300 hover:text-primary"
@@ -199,9 +212,9 @@ export function ProjectsPageContent() {
                   </a>
                 )}
 
-                {project.homepage && (
+                {liveUrl && (
                   <a
-                    href={project.homepage}
+                    href={liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group/link flex items-center gap-2 font-mono text-xs text-primary transition-all duration-300 hover:text-foreground"
@@ -214,7 +227,8 @@ export function ProjectsPageContent() {
 
               <div className="absolute bottom-0 left-0 h-1 w-0 bg-linear-to-r from-primary via-primary/80 to-transparent transition-all duration-500 group-hover:w-full" />
             </article>
-          ))}
+            )
+          })}
         </div>
 
         {filteredProjects.length === 0 && (

@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react"
 import { cn } from "@/lib/utils"
 import {
-  Sparkles, Calendar, TrendingUp, TrendingDown, Target, Heart,
+  BookHeart, Sparkles, Calendar, TrendingUp, TrendingDown, Target, Heart,
   Code2, BookOpen, Plane, Music, ChevronDown, Trophy,
   Lightbulb, AlertCircle, ArrowRight
 } from "lucide-react"
@@ -35,7 +35,7 @@ const yearlyReviews: YearlyReview[] = [
     highlights: [
       { icon: <Code2 className="h-4 w-4" />, label: "Projects Shipped", value: "0" },
       { icon: <BookOpen className="h-4 w-4" />, label: "Books Read", value: "0" },
-      { icon: <Plane className="h-4 w-4" />, label: "Countries", value: "0" },
+      { icon: <BookHeart className="h-4 w-4" />, label: "Concepts Explored", value: "0" },
       { icon: <Music className="h-4 w-4" />, label: "Hours of Music", value: "0" },
     ],
     wins: [
@@ -48,7 +48,10 @@ const yearlyReviews: YearlyReview[] = [
       "",
     ],
     stats: [
-      { label: "GitHub Commits", value: 564, comparison: "-15% vs 2021", trend: "down" },
+      { label: "Days Logged", value: 78, comparison: "", trend: "up" },
+      { label: "Curiosity Level", value: 75, comparison: "", trend: "up" },
+      { label: "Days Coding", value: 20, comparison: "", trend: "neutral" },
+      { label: "Days Designing", value: 30, comparison: "", trend: "neutral" },
     ],
     topProjects: [
       "",
