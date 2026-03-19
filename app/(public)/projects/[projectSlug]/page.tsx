@@ -74,7 +74,7 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
       <div className="mx-auto max-w-6xl space-y-10">
         <Link
           href="/projects"
-          className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:text-primary"
+          className="inline-flex items-center gap-2 font-mono text-xs tracking-[0.2em] text-muted-foreground transition-colors hover:text-primary"
         >
           <ArrowLeft className="h-4 w-4" />
           Back to projects
@@ -106,15 +106,15 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
 
         <div className="grid gap-3 sm:grid-cols-3">
           <article className="rounded-xl border border-border/70 bg-card/50 p-4">
-            <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">Role</h2>
+            <h2 className="font-mono text-xs tracking-[0.2em] text-muted-foreground">Role</h2>
             <p className="mt-2 text-sm font-medium">{caseStudy.role}</p>
           </article>
           <article className="rounded-xl border border-border/70 bg-card/50 p-4">
-            <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">Duration</h2>
+            <h2 className="font-mono text-xs tracking-[0.2em] text-muted-foreground">Duration</h2>
             <p className="mt-2 text-sm font-medium">{caseStudy.duration}</p>
           </article>
           <article className="rounded-xl border border-border/70 bg-card/50 p-4">
-            <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">Tech Stack</h2>
+            <h2 className="font-mono text-xs tracking-[0.2em] text-muted-foreground">Tech Stack</h2>
             <p className="mt-2 text-sm font-medium">{project.tags.length > 0 ? project.tags.join(" · ") : caseStudy.specialization}</p>
           </article>
         </div>

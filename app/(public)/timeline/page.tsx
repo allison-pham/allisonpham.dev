@@ -1,9 +1,15 @@
+import { TimelineMemoryMap } from "@/components/public/timeline/TimelineMemoryMap"
+import { TimelineLevels } from "@/components/public/timeline/TimelineLevels"
+import { TimelineDecisions } from "@/components/public/timeline/TimelineDecisions"
 import { TimelineContent } from "@/components/public/timeline/TimelineContent"
 
 export default function Loading() {
   return (
-        <>
-            <TimelineContent />
-        </>
+    <>
+      <TimelineMemoryMap />
+      <TimelineLevels />
+      <TimelineDecisions />
+      <TimelineContent />
+    </>
   )
 }

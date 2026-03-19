@@ -7,7 +7,7 @@ export default function Loading() {
         <>
             <ExperiencesTimeline/>
             <PastLife />
-            <YearlyReviews />
+            {/* <YearlyReviews /> */}
         </>
   )
 }
