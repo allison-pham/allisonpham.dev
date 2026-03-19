@@ -104,10 +104,33 @@ const PREVIEW = [
   { x: 20, rotate: 9 },
 ] as const
 
+const PREVIEW_LAYOUTS = {
+  1: [{ x: 0, rotate: 0 }],
+  2: [
+    { x: -12, rotate: -6 },
+    { x: 12, rotate: 6 },
+  ],
+  3: PREVIEW,
+} as const
+
+const FAN_LAYOUTS = {
+  1: [{ rotate: 0, ty: -82, delay: 0 }],
+  2: [
+    { rotate: -9, ty: -80, delay: 0 },
+    { rotate: 9, ty: -80, delay: 70 },
+  ],
+  3: FAN,
+} as const
+
 function Folder({ label, items = [], href, icon, colors }: FolderProps) {
   const [open, setOpen] = useState(false)
   const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const palette = colors ?? DEFAULT_FOLDER_COLORS
+  const visibleItems = items.slice(0, 3)
+  const itemCount = visibleItems.length
+  const previewSlots = itemCount > 0 ? PREVIEW_LAYOUTS[itemCount as 1 | 2 | 3] : []
+  const fanSlots = itemCount > 0 ? FAN_LAYOUTS[itemCount as 1 | 2 | 3] : []
+  const topIndex = itemCount === 2 ? 1 : Math.floor(itemCount / 2)
 
   useEffect(() => {
     return () => {
@@ -164,19 +187,20 @@ function Folder({ label, items = [], href, icon, colors }: FolderProps) {
         />
 
         {/* Tiny preview cards peeking from behind the flap when closed */}
-        {PREVIEW.map(({ x, rotate }, i) => {
-          const item = items[i]
+        {previewSlots.map(({ x, rotate }, i) => {
+          const item = visibleItems[i]
+          const previewZIndex = i === topIndex ? 30 : 24 + i
           return (
             <div
               key={`preview-${i}`}
               className="absolute overflow-hidden rounded-lg border border-border/60 bg-secondary shadow-sm"
               style={{
-                width: 66,
-                height: 48,
+                width: 72,
+                height: 72,
                 left: "50%",
-                marginLeft: -33,
+                marginLeft: -36,
                 bottom: 88,
-                zIndex: 24 + i,
+                zIndex: previewZIndex,
                 pointerEvents: "none",
                 willChange: "transform, opacity",
                 opacity: open ? 0 : 1,
@@ -186,16 +210,14 @@ function Folder({ label, items = [], href, icon, colors }: FolderProps) {
                 transition: `opacity ${open ? 180 : 260}ms ${CLOSE_EASE}, transform ${open ? 260 : 340}ms ${open ? OPEN_EASE : CLOSE_EASE}`,
               }}
             >
-              {item?.src ? (
+              {item?.src && (
                 <Image
                   src={item.src}
                   alt={item.alt}
                   fill
-                  sizes="54px"
+                  sizes="72px"
                   className="object-cover"
                 />
-              ) : (
-                <div className="h-full w-full bg-secondary/85" />
               )}
             </div>
           )
@@ -223,23 +245,24 @@ function Folder({ label, items = [], href, icon, colors }: FolderProps) {
         </div>
 
         {/* Item cards — live above the folder body via z-index */}
-        {FAN.map(({ rotate, ty, delay }, i) => {
-          const item = items[i]
-          const reverseDelay = (FAN.length - 1 - i) * 45
+        {fanSlots.map(({ rotate, ty, delay }, i) => {
+          const item = visibleItems[i]
+          const reverseDelay = (fanSlots.length - 1 - i) * 45
           const moveDuration = open ? 520 : 360
           const fadeDuration = open ? 280 : 220
           const staggerDelay = open ? delay : reverseDelay
+          const fanZIndex = i === topIndex ? 30 : 20 + i
           return (
             <div
               key={i}
               className="absolute overflow-hidden rounded-xl border border-border/60 bg-secondary/60 shadow-md"
               style={{
                 width: 96,
-                height: 74,
+                height: 96,
                 left: "50%",
                 marginLeft: -48,
                 bottom: 22,
-                zIndex: 20 + i,
+                zIndex: fanZIndex,
                 transformOrigin: "50% 100%",
                 willChange: "transform, opacity",
                 opacity: open ? 1 : 0,
@@ -249,7 +272,7 @@ function Folder({ label, items = [], href, icon, colors }: FolderProps) {
                 transition: `transform ${moveDuration}ms ${open ? OPEN_EASE : CLOSE_EASE} ${staggerDelay}ms, opacity ${fadeDuration}ms ${CLOSE_EASE} ${staggerDelay}ms`,
               }}
             >
-              {item?.src ? (
+              {item?.src && (
                 <Image
                   src={item.src}
                   alt={item.alt}
@@ -257,8 +280,6 @@ function Folder({ label, items = [], href, icon, colors }: FolderProps) {
                   sizes="96px"
                   className="object-cover"
                 />
-              ) : (
-                <div className="h-full w-full bg-secondary/80" />
               )}
             </div>
           )
@@ -303,14 +324,14 @@ function Folder({ label, items = [], href, icon, colors }: FolderProps) {
 
 const folders: Array<FolderProps & { id: string }> = [
   {
-    id: "building",
+    id: "building-designing",
     label: "Building & Designing",
-    href: "/projects",
+    // href: "/projects",
     colors: FOLDER_COLOR_THEMES.building,
     items: [
-      { src: "/logos/nasa.svg", alt: "NASA logo" },
-      { src: "/logos/ucr.svg", alt: "UCR logo" },
-      { src: "/logos/nucleo.svg", alt: "Nucleo logo" },
+      { src: "/tools/framer.svg", alt: "Framer logo" },
+      { src: "/tools/figma.svg", alt: "Figma logo" },
+      { src: "/tools/spline.svg", alt: "Spline logo" },
     ],
     icon: (
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
@@ -323,12 +344,12 @@ const folders: Array<FolderProps & { id: string }> = [
   {
     id: "research",
     label: "Research",
-    href: "/experiences",
+    // href: "/experiences",
     colors: FOLDER_COLOR_THEMES.research,
     items: [
+      // { src: "/logos/ucr.svg", alt: "UCR research logo" },
       { src: "/logos/nasa.svg", alt: "NASA research logo" },
-      { src: "/logos/ucr.svg", alt: "UCR research logo" },
-      { src: "/logos/acm.svg", alt: "ACM research logo" },
+      // { src: "/logos/acm.svg", alt: "ACM research logo" },
     ],
     icon: (
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
@@ -341,7 +362,7 @@ const folders: Array<FolderProps & { id: string }> = [
   {
     id: "behind-the-scenes",
     label: "Behind the Scenes",
-    href: "/behind-the-scenes",
+    // href: "/behind-the-scenes",
     colors: FOLDER_COLOR_THEMES["behind-the-scenes"],
     items: [
       { src: "/logos/notion.svg", alt: "Behind the scenes logo" },
@@ -385,7 +406,7 @@ export function AreasOfWork() {
           </p> */}
         </div>
 
-        <div className="flex flex-wrap justify-start gap-14 sm:gap-20">
+        <div className="flex flex-wrap justify-start gap-14 sm:gap-30">
           {folders.map((folder, i) => (
             <div
               key={folder.id}
