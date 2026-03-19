@@ -16,7 +16,6 @@ const navItems = [
 ]
 
 const moreNavItems = [
-  { label: "journal", href: "/journal" },
   { label: "collections", href: "/collections" },
   { label: "timeline", href: "/timeline" },
 ]
