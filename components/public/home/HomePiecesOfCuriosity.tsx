@@ -86,7 +86,10 @@ export function PiecesOfCuriosity() {
       <div className="mx-auto max-w-7xl">
         {/* Header */}
         <div className={cn("mb-10 sm:mb-14 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between opacity-0", isVisible && "animate-fade-in-up")}>
-          <div className="flex items-center gap-3">
+          <div className="space-y-2 sm:flex-1 sm:min-w-0">
+            <p className="font-mono text-xs tracking-[0.25em] text-primary flex items-center gap-2">
+              learning;
+            </p>
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Pieces of Curiosity ⟡</h2>
           </div>
           <Link

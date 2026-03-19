@@ -11,14 +11,15 @@ const nowData = {
   focus: {
     title: "Main Focus",
     items: [
-      // { label: "Building", text: "ML models" },
+      { label: "Idea", text: "Mindfulness, life optimization, & productivity" },
       { label: "Learning", text: "System design, Linux, & cloud computing" },
-      // { label: "Ongoing", text: "Campus Leader @ Notion" },
+      // { label: "Ongoing", text: "" },
     ],
   },
 
   reading: [
     { title: "Atomic Habits", author: "James Clear" },
+    { title: "Zero to One", author: "Peter Thiel" },
   ],
 
   listening: [
@@ -48,13 +49,12 @@ export function Now() {
       <div className="mx-auto max-w-7xl">
         {/* Header */}
         <div className={cn("flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 opacity-0", isVisible && "animate-fade-in-up")}>
-          <div className="space-y-2">
+          <div className="space-y-2 sm:flex-1 sm:min-w-0">
             <p className="font-mono text-xs tracking-[0.25em] text-primary flex items-center gap-2">
-              <Radio className="h-3.5 w-3.5 animate-pulse" />
               live snapshot;
             </p>
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Now</h2>
-            <p className="max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed">What I'm currently working on, reading, & thinking.</p>
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Now ⋆˚꩜｡</h2>
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">What I'm currently working on, reading, & thinking. Monthly log/snapshot: 1 book + 1 idea + 1 experiment + 1 quote = passion progress & productivity.</p>
           </div>
           <div className="flex items-center gap-4 font-mono text-xs text-muted-foreground">
             <span className="flex items-center gap-1.5">
@@ -154,7 +154,7 @@ export function Now() {
               <div className="p-2 rounded-lg bg-primary/10">
                 <Code2 className="h-4 w-4 text-primary" />
               </div>
-              <h3 className="font-mono text-sm font-medium tracking-wider">Currently Building</h3>
+              <h3 className="font-mono text-sm font-medium tracking-wider">Currently Building (Experimentation + Tinkering)</h3>
             </div>
             <div className="flex flex-wrap gap-3">
               {nowData.building.map((item, i) => (

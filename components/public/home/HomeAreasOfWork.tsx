@@ -32,6 +32,63 @@ type FolderColors = {
   labelText: string
 }
 
+const DEFAULT_FOLDER_COLORS: FolderColors = {
+  tabBg: "hsl(var(--card))",
+  tabBorder: "hsl(var(--border) / 0.75)",
+  bodyBg: "hsl(var(--card))",
+  bodyBorder: "hsl(var(--border) / 0.75)",
+  flapBg: "hsl(var(--card))",
+  flapBorder: "hsl(var(--border) / 0.5)",
+  rimBg: "hsl(var(--card) / 0.6)",
+  rimBorder: "hsl(var(--border) / 0.4)",
+  labelBg: "hsl(var(--primary) / 0.12)",
+  labelBorder: "hsl(var(--primary) / 0.35)",
+  labelText: "hsl(var(--primary))",
+}
+
+// Change folder colors here.
+const FOLDER_COLOR_THEMES: Record<string, FolderColors> = {
+  building: {
+    tabBg: "hsl(30 74% 89%)",
+    tabBorder: "hsl(30 54% 56% / 0.72)",
+    bodyBg: "hsl(30 74% 93%)",
+    bodyBorder: "hsl(30 48% 52% / 0.72)",
+    flapBg: "hsl(30 68% 90%)",
+    flapBorder: "hsl(30 50% 50% / 0.62)",
+    rimBg: "hsl(30 50% 84% / 0.72)",
+    rimBorder: "hsl(30 44% 49% / 0.46)",
+    labelBg: "hsl(30 85% 55% / 0.16)",
+    labelBorder: "hsl(30 78% 46% / 0.38)",
+    labelText: "hsl(30 74% 29%)",
+  },
+  research: {
+    tabBg: "hsl(152 42% 88%)",
+    tabBorder: "hsl(152 33% 50% / 0.72)",
+    bodyBg: "hsl(152 42% 92%)",
+    bodyBorder: "hsl(152 32% 46% / 0.72)",
+    flapBg: "hsl(152 38% 89%)",
+    flapBorder: "hsl(152 31% 44% / 0.62)",
+    rimBg: "hsl(152 28% 83% / 0.72)",
+    rimBorder: "hsl(152 26% 42% / 0.46)",
+    labelBg: "hsl(152 56% 42% / 0.16)",
+    labelBorder: "hsl(152 52% 34% / 0.38)",
+    labelText: "hsl(152 58% 24%)",
+  },
+  "behind-the-scenes": {
+    tabBg: "hsl(272 42% 90%)",
+    tabBorder: "hsl(272 30% 58% / 0.72)",
+    bodyBg: "hsl(272 42% 94%)",
+    bodyBorder: "hsl(272 28% 54% / 0.72)",
+    flapBg: "hsl(272 38% 91%)",
+    flapBorder: "hsl(272 28% 51% / 0.62)",
+    rimBg: "hsl(272 24% 86% / 0.72)",
+    rimBorder: "hsl(272 22% 50% / 0.46)",
+    labelBg: "hsl(272 62% 58% / 0.16)",
+    labelBorder: "hsl(272 52% 48% / 0.38)",
+    labelText: "hsl(272 54% 31%)",
+  },
+}
+
 // [left item, center item, right item]
 const FAN = [
   { rotate: -14, ty: -76, delay: 0 },
@@ -50,20 +107,7 @@ const PREVIEW = [
 function Folder({ label, items = [], href, icon, colors }: FolderProps) {
   const [open, setOpen] = useState(false)
   const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
-
-  const palette: FolderColors = {
-    tabBg: colors?.tabBg ?? "hsl(var(--card))",
-    tabBorder: colors?.tabBorder ?? "hsl(var(--border) / 0.75)",
-    bodyBg: colors?.bodyBg ?? "hsl(var(--card))",
-    bodyBorder: colors?.bodyBorder ?? "hsl(var(--border) / 0.75)",
-    flapBg: colors?.flapBg ?? "hsl(var(--card))",
-    flapBorder: colors?.flapBorder ?? "hsl(var(--border) / 0.5)",
-    rimBg: colors?.rimBg ?? "hsl(var(--card) / 0.6)",
-    rimBorder: colors?.rimBorder ?? "hsl(var(--border) / 0.4)",
-    labelBg: colors?.labelBg ?? "hsl(var(--primary) / 0.12)",
-    labelBorder: colors?.labelBorder ?? "hsl(var(--primary) / 0.35)",
-    labelText: colors?.labelText ?? "hsl(var(--primary))",
-  }
+  const palette = colors ?? DEFAULT_FOLDER_COLORS
 
   useEffect(() => {
     return () => {
@@ -259,26 +303,14 @@ function Folder({ label, items = [], href, icon, colors }: FolderProps) {
 
 const folders: Array<FolderProps & { id: string }> = [
   {
-    id: "designing",
-    label: "Designing",
+    id: "building",
+    label: "Building & Designing",
     href: "/projects",
-    colors: {
-      tabBg: "hsl(198 56% 89%)",
-      tabBorder: "hsl(198 44% 57% / 0.7)",
-      bodyBg: "hsl(198 56% 93%)",
-      bodyBorder: "hsl(198 40% 52% / 0.72)",
-      flapBg: "hsl(198 52% 90%)",
-      flapBorder: "hsl(198 42% 50% / 0.6)",
-      rimBg: "hsl(198 42% 85% / 0.7)",
-      rimBorder: "hsl(198 38% 50% / 0.45)",
-      labelBg: "hsl(198 72% 52% / 0.16)",
-      labelBorder: "hsl(198 70% 45% / 0.38)",
-      labelText: "hsl(198 74% 28%)",
-    },
+    colors: FOLDER_COLOR_THEMES.building,
     items: [
-      { src: "/logos/notion.svg", alt: "Notion logo" },
-      { src: "/logos/acm.svg", alt: "ACM logo" },
-      { src: "/logos/cutie-hack.svg", alt: "Cutie Hack logo" },
+      { src: "/logos/nasa.svg", alt: "NASA logo" },
+      { src: "/logos/ucr.svg", alt: "UCR logo" },
+      { src: "/logos/nucleo.svg", alt: "Nucleo logo" },
     ],
     icon: (
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
@@ -287,52 +319,12 @@ const folders: Array<FolderProps & { id: string }> = [
       </svg>
     ),
   },
+
   {
-    id: "building",
-    label: "Building",
-    href: "/lab",
-    colors: {
-      tabBg: "hsl(30 74% 89%)",
-      tabBorder: "hsl(30 54% 56% / 0.72)",
-      bodyBg: "hsl(30 74% 93%)",
-      bodyBorder: "hsl(30 48% 52% / 0.72)",
-      flapBg: "hsl(30 68% 90%)",
-      flapBorder: "hsl(30 50% 50% / 0.62)",
-      rimBg: "hsl(30 50% 84% / 0.72)",
-      rimBorder: "hsl(30 44% 49% / 0.46)",
-      labelBg: "hsl(30 85% 55% / 0.16)",
-      labelBorder: "hsl(30 78% 46% / 0.38)",
-      labelText: "hsl(30 74% 29%)",
-    },
-    items: [
-      { src: "/logos/nasa.svg", alt: "NASA logo" },
-      { src: "/logos/ucr.svg", alt: "UCR logo" },
-      { src: "/logos/nucleo.svg", alt: "Nucleo logo" },
-    ],
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-        <rect x="8" y="14" width="16" height="12" rx="2" stroke="currentColor" strokeWidth="1.5" />
-        <path d="M12 14 V10 a4 4 0 0 1 8 0 V14" stroke="currentColor" strokeWidth="1.5" />
-      </svg>
-    ),
-  },
-  {
-    id: "researching",
-    label: "Researching",
+    id: "research",
+    label: "Research",
     href: "/experiences",
-    colors: {
-      tabBg: "hsl(152 42% 88%)",
-      tabBorder: "hsl(152 33% 50% / 0.72)",
-      bodyBg: "hsl(152 42% 92%)",
-      bodyBorder: "hsl(152 32% 46% / 0.72)",
-      flapBg: "hsl(152 38% 89%)",
-      flapBorder: "hsl(152 31% 44% / 0.62)",
-      rimBg: "hsl(152 28% 83% / 0.72)",
-      rimBorder: "hsl(152 26% 42% / 0.46)",
-      labelBg: "hsl(152 56% 42% / 0.16)",
-      labelBorder: "hsl(152 52% 34% / 0.38)",
-      labelText: "hsl(152 58% 24%)",
-    },
+    colors: FOLDER_COLOR_THEMES.research,
     items: [
       { src: "/logos/nasa.svg", alt: "NASA research logo" },
       { src: "/logos/ucr.svg", alt: "UCR research logo" },
@@ -345,52 +337,12 @@ const folders: Array<FolderProps & { id: string }> = [
       </svg>
     ),
   },
-  {
-    id: "writing",
-    label: "Writing",
-    href: "/journal",
-    colors: {
-      tabBg: "hsl(334 54% 90%)",
-      tabBorder: "hsl(334 40% 57% / 0.72)",
-      bodyBg: "hsl(334 54% 94%)",
-      bodyBorder: "hsl(334 36% 53% / 0.72)",
-      flapBg: "hsl(334 50% 91%)",
-      flapBorder: "hsl(334 36% 50% / 0.62)",
-      rimBg: "hsl(334 34% 85% / 0.72)",
-      rimBorder: "hsl(334 30% 49% / 0.46)",
-      labelBg: "hsl(334 70% 55% / 0.16)",
-      labelBorder: "hsl(334 62% 46% / 0.38)",
-      labelText: "hsl(334 66% 29%)",
-    },
-    items: [
-      { src: "/logos/notion.svg", alt: "Notion writing logo" },
-      { src: "/logos/citrus-hack.svg", alt: "Citrus Hack writing logo" },
-      { src: "/logos/cutie-hack.svg", alt: "Cutie Hack writing logo" },
-    ],
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-        <path d="M10 22 L22 10 M19 9 L23 13 M9 19 L13 23" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-        <path d="M8 24 L10 22" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      </svg>
-    ),
-  },
+
   {
     id: "behind-the-scenes",
     label: "Behind the Scenes",
     href: "/behind-the-scenes",
-    colors: {
-      tabBg: "hsl(272 42% 90%)",
-      tabBorder: "hsl(272 30% 58% / 0.72)",
-      bodyBg: "hsl(272 42% 94%)",
-      bodyBorder: "hsl(272 28% 54% / 0.72)",
-      flapBg: "hsl(272 38% 91%)",
-      flapBorder: "hsl(272 28% 51% / 0.62)",
-      rimBg: "hsl(272 24% 86% / 0.72)",
-      rimBorder: "hsl(272 22% 50% / 0.46)",
-      labelBg: "hsl(272 62% 58% / 0.16)",
-      labelBorder: "hsl(272 52% 48% / 0.38)",
-      labelText: "hsl(272 54% 31%)",
-    },
+    colors: FOLDER_COLOR_THEMES["behind-the-scenes"],
     items: [
       { src: "/logos/notion.svg", alt: "Behind the scenes logo" },
       { src: "/logos/nasa.svg", alt: "Behind the scenes logo" },
@@ -407,7 +359,7 @@ const folders: Array<FolderProps & { id: string }> = [
   },
 ]
 
-export function HomeAreasofWork() {
+export function AreasOfWork() {
   const [isVisible, setIsVisible] = useState(false)
   const ref = useRef<HTMLElement>(null)
 
