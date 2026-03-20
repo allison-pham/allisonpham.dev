@@ -32,7 +32,7 @@ export default function Home() {
           <CurrentQuests />
           <Now />
           <PiecesOfCuriosity />
-          {/* <LabContent /> */}
+          <LabContent />
           <Footer />
         </div>
       </main>

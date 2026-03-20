@@ -365,7 +365,7 @@ function TerminalBox({ title, path, icon, items, statusLabel, isVisible, stagger
                   </div>
                 )}
               </div>
-              <p className="pl-6 text-xs leading-relaxed text-muted-foreground">
+              <p className="w-full pl-6 text-xs leading-relaxed text-muted-foreground whitespace-normal wrap-break-word">
                 {item.description}
               </p>
               <div className="pl-6 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-muted-foreground">
@@ -444,7 +444,7 @@ export function LabContent() {
             work in progress;
           </p>
           <h1 className="text-3xl font-bold tracking-tight sm:text-5xl lg:text-6xl">Lab</h1>
-          <p className="max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed">
+          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
             Current tinkering on experiments & prototypes through a mini tinker lab. Building with design curiosity while showcasing progress on ideation.
           </p>
         </div>

@@ -255,12 +255,11 @@ export function PlayWithMyBrain() {
       <div className={cn("mx-auto max-w-7xl opacity-0", isVisible && "animate-fade-in-up")}>
         <div className="space-y-2 mb-8">
           <p className="font-mono text-xs tracking-[0.25em] text-primary flex items-center gap-2">
-            <BrainCircuit className="h-3.5 w-3.5" />
             play with my brain;
           </p>
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Interactive Games Embedded Into The Site</h2>
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Interactive Games</h2>
           <p className="max-w-3xl text-base sm:text-lg text-muted-foreground leading-relaxed">
-            Tiny experimental games, weird interactions, and visual toys I made to turn this page into a playground.
+            Tiny experimental games, weird interactions, & visual toys to form a playground.
           </p>
         </div>
 
@@ -374,7 +373,7 @@ export function PlayWithMyBrain() {
               standout game;
             </p>
             <h3 className="text-lg font-semibold">Target Hunter</h3>
-            <p className="text-sm text-muted-foreground">12-second arcade challenge. Hit the moving target as many times as possible.</p>
+            <p className="text-sm text-muted-foreground">12 second arcade challenge. Hit the moving target as many times as possible.</p>
             <div className="relative h-44 rounded-lg border border-border/60 bg-[radial-gradient(circle_at_30%_20%,color-mix(in_oklch,var(--primary)_16%,transparent),transparent_48%),linear-gradient(to_bottom,color-mix(in_oklch,var(--foreground)_5%,transparent),transparent)] overflow-hidden">
               <button
                 onClick={hitHunterTarget}

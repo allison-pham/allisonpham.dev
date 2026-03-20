@@ -40,24 +40,27 @@ interface GardenFolder {
 
 const coreNodes: CoreNode[] = [
   {
+    id: "fragments",
+    title: "Fragments",
+    summary: "Loose pieces, fleeting sparks, & unfinished lines worth keeping",
+  },
+
+  {
     id: "notes",
     title: "Notes",
-    summary: "Raw observations, references, and scratch thoughts.",
+    summary: "Raw observations, references, & scratch thoughts",
   },
+  
+  {
+    id: "thoughts",
+    title: "Thoughts",
+    summary: "Intentionally unfinished notes that are still evolving",
+  },
+
   {
     id: "ideas",
     title: "Ideas",
-    summary: "Early sparks worth revisiting before they fade.",
-  },
-  {
-    id: "concepts",
-    title: "Concepts",
-    summary: "Reusable principles connected across projects and seasons.",
-  },
-  {
-    id: "half-finished",
-    title: "Half-finished Thoughts",
-    summary: "Intentionally unfinished notes that are still evolving.",
+    summary: "Early sparks worth revisiting before they fade",
   },
 ]
 
@@ -65,7 +68,7 @@ const gardenFolders: GardenFolder[] = [
   {
     id: "thinking",
     path: "/thinking/",
-    blurb: "Systems, decision-making, and first-principles notes.",
+    blurb: "Systems, decision-making, & first-principles notes",
     notes: [
       {
         id: "decision-entropy",
@@ -90,7 +93,7 @@ const gardenFolders: GardenFolder[] = [
   {
     id: "design",
     path: "/design/",
-    blurb: "Interface notes, composition studies, and visual pattern breakdowns.",
+    blurb: "Interface notes, composition studies, & visual pattern breakdowns",
     notes: [
       {
         id: "visual-rhythm",
@@ -115,7 +118,7 @@ const gardenFolders: GardenFolder[] = [
   {
     id: "life",
     path: "/life/",
-    blurb: "Personal operating notes, routines, and life systems.",
+    blurb: "Personal operating notes, routines, & life systems",
     notes: [
       {
         id: "energy-budgeting",
@@ -186,12 +189,12 @@ export function SecondBrain() {
       >
         <div className="space-y-2 mb-8">
           <p className="font-mono text-xs tracking-[0.25em] text-primary flex items-center gap-2">
-            <Brain className="h-3.5 w-3.5" />
             thinking systems;
           </p>
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">2nd Brain x Digital Garden</h2>
-          <p className="max-w-3xl text-base sm:text-lg text-muted-foreground leading-relaxed">
-            A collection of ongoing thoughts: small notes, half-formed ideas, and concepts that evolve over time.
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Brain System</h2>
+            <p className="w-full whitespace-normal text-base sm:text-lg text-muted-foreground leading-relaxed">
+            2nd brain (store & organize) x digital garden (where my thoughts grow over time). 
+            A collection of ongoing thoughts: half-formed ideas, small notes, etc.
           </p>
         </div>
 
@@ -207,9 +210,9 @@ export function SecondBrain() {
             >
               <p className="font-semibold">{node.title}</p>
               <p className="text-sm text-muted-foreground leading-relaxed">{node.summary}</p>
-              <div className="rounded-lg border border-border/50 bg-secondary/30 px-3 py-2">
+              {/* <div className="rounded-lg border border-border/50 bg-secondary/30 px-3 py-2">
                 <p className="font-mono text-[10px] tracking-wider text-muted-foreground">core system</p>
-              </div>
+              </div> */}
             </article>
           ))}
         </div>

@@ -29,7 +29,7 @@ const photoDumps: PhotoDump[] = [
     id: "food-drink-moments",
     title: "Food & Drink Moments",
     date: "2024-26",
-    description: "A collection of food & drink experiences over the past few years.",
+    description: "A collection of food & drink experiences over the past few years",
     mood: "cozy",
     photos: [
       { id: "c1", src: "/placeholder.svg", alt: "", aspectRatio: "square" },
@@ -86,12 +86,12 @@ export function PhotoDumps() {
   return (
     <section ref={ref} className="relative px-4 sm:px-6 pt-16 sm:pt-16 pb-8 sm:pb-12">
       <div className={cn("mx-auto w-full max-w-7xl opacity-0", isVisible && "animate-fade-in-up")}>
-        <div className="mb-2">
+        <div className="space-y-2 mb-8">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Photo Dumps</h2>
+          <p className="w-full text-base sm:text-lg text-muted-foreground leading-relaxed">
+            Moments from life captured through photos.
+          </p>
         </div>
-        <p className="max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed">
-          Moments from life captured through photos.
-        </p>
 
         {/* Dumps Grid */}
         <div className="grid gap-6 sm:grid-cols-2">
@@ -159,7 +159,7 @@ export function PhotoDumps() {
       {/* Modal */}
       {selectedDump && (
         <div
-          className="fixed inset-0 z-50 bg-background/95 backdrop-blur-xl overflow-y-auto"
+          className="fixed inset-0 z-50 bg-background/50 backdrop-blur-sm overflow-y-auto"
           onClick={() => setSelectedDump(null)}
         >
           <div
@@ -216,7 +216,7 @@ export function PhotoDumps() {
       {/* Lightbox */}
       {lightboxIndex !== null && selectedDump && (
         <div
-          className="fixed inset-0 z-[60] bg-black/95 flex items-center justify-center"
+          className="fixed inset-0 z-[60] bg-black/50 backdrop-blur-sm flex items-center justify-center"
           onClick={() => setLightboxIndex(null)}
         >
           <button

@@ -17,6 +17,7 @@ const navItems = [
 
 const moreNavItems = [
   { label: "collections", href: "/collections" },
+  { label: "playground", href: "/playground" },
   // { label: "timeline", href: "/timeline" },
 ]
 
