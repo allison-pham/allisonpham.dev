@@ -84,10 +84,9 @@ export function PhotoDumps() {
   }
 
   return (
-    <section ref={ref} className="px-4 sm:px-6 py-16 sm:py-20">
-      <div className={cn("mx-auto max-w-5xl opacity-0", isVisible && "animate-fade-in-up")}>
-        <div className="flex items-center gap-3 mb-2">
-          <Camera className="h-5 w-5 text-primary" />
+    <section ref={ref} className="relative px-4 sm:px-6 pt-16 sm:pt-16 pb-8 sm:pb-12">
+      <div className={cn("mx-auto w-full max-w-7xl opacity-0", isVisible && "animate-fade-in-up")}>
+        <div className="mb-2">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Photo Dumps</h2>
         </div>
         <p className="max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed">

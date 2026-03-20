@@ -17,7 +17,7 @@ const navItems = [
 
 const moreNavItems = [
   { label: "collections", href: "/collections" },
-  { label: "timeline", href: "/timeline" },
+  // { label: "timeline", href: "/timeline" },
 ]
 
 const socialLinks = [

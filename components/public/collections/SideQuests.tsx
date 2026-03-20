@@ -60,8 +60,8 @@ export function SideQuests() {
   }
 
   return (
-    <section ref={ref} className="px-4 sm:px-6 py-16 sm:py-16">
-      <div className={cn("mx-auto max-w-7xl opacity-0", isVisible && "animate-fade-in-up")}>
+    <section ref={ref} className="relative px-4 sm:px-6 pt-16 sm:pt-16 pb-8 sm:pb-12">
+      <div className={cn("mx-auto w-full max-w-7xl opacity-0", isVisible && "animate-fade-in-up")}>
         <div className="flex items-center gap-3 mb-2">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Side Quests</h2>
         </div>

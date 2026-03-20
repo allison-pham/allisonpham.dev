@@ -35,7 +35,7 @@ const levelConfig = {
 export function PassionGrowth() {
   const [isVisible, setIsVisible] = useState(false)
   const [expandedId, setExpandedId] = useState<number | null>(null)
-  const ref = useRef<HTMLDivElement>(null)
+  const ref = useRef<HTMLElement>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(([e]) => { if (e.isIntersecting) setIsVisible(true) }, { threshold: 0.1 })
@@ -44,7 +44,8 @@ export function PassionGrowth() {
   }, [])
 
   return (
-    <div ref={ref} className={cn("opacity-0 mx-auto max-w-7xl px-4", isVisible && "animate-fade-in-up stagger-2")}>
+    <section ref={ref} className="relative px-4 sm:px-6 pt-16 sm:pt-16 pb-8 sm:pb-12">
+      <div className={cn("mx-auto w-full max-w-7xl opacity-0", isVisible && "animate-fade-in-up stagger-2")}>
       <div className="flex items-center gap-3 mb-2">
         <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Passion Growth</h2>
       </div>
@@ -107,6 +108,7 @@ export function PassionGrowth() {
           </div>
         ))}
       </div>
-    </div>
+      </div>
+    </section>
   )
 }

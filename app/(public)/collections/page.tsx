@@ -13,14 +13,14 @@ export default function Loading() {
         <>
             <CollectionsIntro />
             <BookmarksFlipbook />
-            <SecondBrain />
-            <PlayWithMyBrain />
-            <PassionGrowth />
+            {/* <SecondBrain />
+            <PlayWithMyBrain /> */}
+            {/* <PassionGrowth />
             <PhotoDumps />
-            <SideQuests />
-            <div className="pt-24">
+            <SideQuests /> */}
+            {/* <div className="pt-24">
               <BehindTheScenesSection items={behindTheScenesItems} />
-            </div>
+            </div> */}
         </>
   )
 }
