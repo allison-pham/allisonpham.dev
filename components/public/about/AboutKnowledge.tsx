@@ -323,7 +323,7 @@ export function KnowledgeRepertoire() {
         {/* Header */}
         <div className={cn("opacity-0", isVisible && "animate-fade-in-up")}>
           <div className="flex items-center gap-3 mb-3">
-            <h2 className="text-2xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Knowledge Repertoire ⋆˚</h2>
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Knowledge Repertoire ⋆˚</h2>
           </div>
           <p className="max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed">
             A living map of the areas & topics I'm passionate about & pursue through learning, projects, & more.

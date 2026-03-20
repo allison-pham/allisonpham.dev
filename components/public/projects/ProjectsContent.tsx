@@ -46,7 +46,7 @@ export function ProjectsPageContent() {
           <p className="font-mono text-xs tracking-[0.25em] text-primary sm:tracking-[0.35em]">pieces of building;</p>
           <h1 className="text-3xl font-bold tracking-tight sm:text-5xl lg:text-6xl">Projects ★</h1>
           <p className="max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Collection of projects across CS, engineering, and design.
+            Collection of projects across CS, engineering, & design.
           </p>
         </div>
 
