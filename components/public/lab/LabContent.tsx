@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils"
 import { Github, ExternalLink, Clock, GitBranch, Activity, Archive, Sparkles, Lightbulb } from "lucide-react"
 
 interface LabItem {
-  id: number
+  id: string
   name: string
   description: string
   progress: number
@@ -15,35 +15,24 @@ interface LabItem {
   commits: number
 }
 
-const currentPieces: LabItem[] = [
+const currentPieces: LabItem[] = [  
   {
-    id: 1,
-    name: "hci-in-space",
-    description: "Cognitive load in environments & microgravity interaction design",
-    progress: 5,
-    lastUpdated: "Mar 2026",
+    id: "cs-ee-learning-system",
+    name: "cs-ee-learning-system",
+    description: "interactive learning platform for cs, engineering, & product fundamentals",
+    progress: 25,
+    lastUpdated: "jul 2025",
     url: "",
     branch: "main",
-    commits: 0,
+    commits: 2,
   },
 
   {
-    id: 2,
-    name: "cs-ee-learning-system",
-    description: "Interactive learning platform for CS, engineering, & product fundamentals",
-    progress: 35,
-    lastUpdated: "Mar 2026",
-    url: "",
-    branch: "main",
-    commits: 0,
-  },
-  
-  {
-    id: 3,
-    name: "mini-database",
-    description: "Building a database from scratch to understand internals",
-    progress: 20,
-    lastUpdated: "Mar 2026",
+    id: "nexa",
+    name: "nexa",
+    description: "AI agent - building autonomous workflows to speed up repetitive tasks",
+    progress: 5,
+    lastUpdated: "mar 2026",
     url: "",
     branch: "main",
     commits: 0,
@@ -54,12 +43,253 @@ const previousIterations: LabItem[] = [
 ]
 
 const ideasQueue: LabItem[] = [
+  {
+    id: "astrotrade",
+    name: "astrotrade",
+    description: "space commerce & trading simulation concept inspired by space-economy scenarios",
+    progress: 0,
+    lastUpdated: "wip",
+    url: "",
+    branch: "main",
+    commits: 0,
+  },
+
+  {
+    id: "bioquest",
+    name: "bioquest",
+    description: "environment learning through gamification",
+    progress: 20,
+    lastUpdated: "dec 2025",
+    url: "",
+    branch: "main",
+    commits: 15,
+  },
+
+  {
+    id: "component-library",
+    name: "component-library",
+    description: "",
+    progress: 0,
+    lastUpdated: "wip",
+    url: "",
+    branch: "main",
+    commits: 0,
+  },
+
+  {
+    id: "cozy-chat",
+    name: "cozy-chat",
+    description: "all-in-one learning & social platform concept",
+    progress: 10,
+    lastUpdated: "jul 2025",
+    url: "",
+    branch: "main",
+    commits: 6,
+  },
+ 
+  {
+    id: "cs-links",
+    name: "cs-links",
+    description: "",
+    progress: 0,
+    lastUpdated: "wip",
+    url: "",
+    branch: "main",
+    commits: 0,
+  },
+
+  {
+    id: "cyberdeck",
+    name: "cyberdeck",
+    description: "",
+    progress: 0,
+    lastUpdated: "wip",
+    url: "",
+    branch: "main",
+    commits: 0,
+  },
+
+  {
+    id: "figma-plugin-tool",
+    name: "figma-plugin-tool",
+    description: "",
+    progress: 0,
+    lastUpdated: "wip",
+    url: "",
+    branch: "main",
+    commits: 0,
+  },
+
+  {
+    id: "finflow",
+    name: "finflow",
+    description: "personal finance workflow concept for better money habits",
+    progress: 5,
+    lastUpdated: "wip",
+    url: "",
+    branch: "main",
+    commits: 0,
+  },
+
+  {
+    id: "hci-in-space",
+    name: "hci-in-space",
+    description: "cognitive load in environments & microgravity interaction design. hci concepts adapted for astronaut workflows",
+    progress: 5,
+    lastUpdated: "wip",
+    url: "",
+    branch: "main",
+    commits: 0,
+  },
+
+  // {
+  //   id: "mini-database",
+  //   name: "mini-database",
+  //   description: "Building a database from scratch to understand internals",
+  //   progress: 20,
+  //   lastUpdated: "Mar 2026",
+  //   url: "",
+  //   branch: "main",
+  //   commits: 0,
+  // },
+
+  {
+    id: "missionsync",
+    name: "missionsync",
+    description: "async interfaces for mission planning (coordination system concept)",
+    progress: 0,
+    lastUpdated: "wip",
+    url: "",
+    branch: "main",
+    commits: 0,
+  },
+
+  {
+    id: "ml-models",
+    name: "ml-models",
+    description: "machine learning model prototypes for applied use cases",
+    progress: 0,
+    lastUpdated: "wip",
+    url: "",
+    branch: "main",
+    commits: 0,
+  },
+
+  {
+    id: "musely",
+    name: "musely",
+    description: "music x journaling",
+    progress: 5,
+    lastUpdated: "wip",
+    url: "",
+    branch: "main",
+    commits: 0,
+  },
+
+  {
+    id: "neurowell",
+    name: "neurowell",
+    description: "healthcare learning combining neuroscience education & wellness",
+    progress: 0,
+    lastUpdated: "wip",
+    url: "",
+    branch: "main",
+    commits: 0,
+  },
+
+  {
+    id: "orbitintel",
+    name: "orbitintel",
+    description: "space asset directory & data exploration for orbital mission insights",
+    progress: 0,
+    lastUpdated: "wip",
+    url: "",
+    branch: "main",
+    commits: 0,
+  },
+
+  {
+    id: "organizer-dashboard",
+    name: "organizer-dashboard",
+    description: "",
+    progress: 0,
+    lastUpdated: "wip",
+    url: "",
+    branch: "main",
+    commits: 0,
+  },
+
+  {
+    id: "personality-quiz",
+    name: "personality-quiz",
+    description: "interactive quiz experiments for personality-driven recommendations",
+    progress: 0,
+    lastUpdated: "wip",
+    url: "",
+    branch: "main",
+    commits: 0,
+  },
+
+  {
+    id: "product-website",
+    name: "product-website",
+    description: "",
+    progress: 0,
+    lastUpdated: "wip",
+    url: "",
+    branch: "main",
+    commits: 0,
+  },
+
+  {
+    id: "resources",
+    name: "resources",
+    description: "",
+    progress: 0,
+    lastUpdated: "wip",
+    url: "",
+    branch: "main",
+    commits: 0,
+  },
+
+  {
+    id: "tamagotchi",
+    name: "tamagotchi",
+    description: "",
+    progress: 0,
+    lastUpdated: "wip",
+    url: "",
+    branch: "main",
+    commits: 0,
+  },
+
+  {
+    id: "thinksync",
+    name: "thinksync",
+    description: "cognitive UX",
+    progress: 5,
+    lastUpdated: "wip",
+    url: "",
+    branch: "main",
+    commits: 0,
+  },
+
+  {
+    id: "youflow",
+    name: "youflow",
+    description: "data analyzer experiments for structured workflow insight",
+    progress: 10,
+    lastUpdated: "dec 2025",
+    url: "",
+    branch: "main",
+    commits: 6,
+  },
 ]
 
-const recentActivity = [
-  { type: "commit", project: "cs-ee-learning-system", message: "Add interactive quiz component", time: "# days ago" },
-  { type: "branch", project: "cs-ee-learning-system", message: "Updated curriculum structure", time: "# days ago" },
-]
+// const recentActivity = [
+//   { type: "commit", project: "cs-ee-learning-system", message: "Add interactive quiz component", time: "# days ago" },
+//   { type: "branch", project: "cs-ee-learning-system", message: "Updated curriculum structure", time: "# days ago" },
+// ]
 
 interface TerminalBoxProps {
   title: string
@@ -72,7 +302,7 @@ interface TerminalBoxProps {
 }
 
 function TerminalBox({ title, path, icon, items, statusLabel, isVisible, staggerClass }: TerminalBoxProps) {
-  const [hoveredItem, setHoveredItem] = useState<number | null>(null)
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null)
 
   return (
     <div
@@ -135,7 +365,7 @@ function TerminalBox({ title, path, icon, items, statusLabel, isVisible, stagger
                   </div>
                 )}
               </div>
-              <p className="pl-6 text-xs text-muted-foreground line-clamp-2 sm:line-clamp-1">
+              <p className="w-full pl-6 text-xs leading-relaxed text-muted-foreground whitespace-normal wrap-break-word">
                 {item.description}
               </p>
               <div className="pl-6 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-muted-foreground">
@@ -147,19 +377,23 @@ function TerminalBox({ title, path, icon, items, statusLabel, isVisible, stagger
               </div>
             </div>
 
-            <div className="flex flex-wrap items-center justify-between gap-3 sm:gap-6 pl-6 sm:pl-0 sm:justify-end">
-              <div className="flex items-center gap-3 flex-1 sm:flex-none">
+            <div className="grid w-full grid-cols-1 gap-3 pl-6 sm:w-auto sm:grid-cols-[minmax(0,1fr)_10rem] sm:items-center sm:gap-4 sm:pl-0">
+              <div className="flex min-w-0 items-center gap-1">
                 <div className="h-2 w-full sm:w-28 overflow-hidden rounded-full bg-secondary/80 relative">
                   <div
                     className={cn(
                       "h-full rounded-full transition-all duration-700 ease-out",
-                      item.progress >= 80
-                        ? "bg-primary"
-                        : item.progress >= 50
-                          ? "bg-yellow-500"
-                          : item.progress > 0
-                            ? "bg-orange-500"
-                            : "bg-muted-foreground/30"
+                      item.progress === 100
+                        ? "bg-emerald-300"
+                        : item.progress >= 75
+                          ? "bg-lime-300"
+                          : item.progress >= 50
+                            ? "bg-yellow-300"
+                            : item.progress >= 25
+                              ? "bg-amber-300"
+                              : item.progress > 0
+                                ? "bg-orange-300"
+                                : "bg-zinc-300"
                     )}
                     style={{ width: `${Math.max(item.progress, 5)}%` }}
                   />
@@ -167,14 +401,17 @@ function TerminalBox({ title, path, icon, items, statusLabel, isVisible, stagger
                 </div>
                 <span
                   className={cn(
-                    "font-mono text-xs w-10 shrink-0 transition-colors",
+                    "w-10 shrink-0 text-left font-mono tabular-nums text-xs transition-colors",
                     item.progress >= 80 ? "text-primary" : "text-muted-foreground"
                   )}
                 >
                   {item.progress}%
                 </span>
               </div>
-              <span className="font-mono text-[11px] sm:text-xs text-muted-foreground shrink-0">{item.lastUpdated}</span>
+              <div className="flex shrink-0 flex-col items-start text-left font-mono text-[11px] leading-tight text-muted-foreground sm:items-end sm:text-right sm:text-xs">
+                <span>last updated</span>
+                <span className="tabular-nums">{item.lastUpdated}</span>
+              </div>
             </div>
           </a>
         ))}
@@ -199,7 +436,7 @@ export function LabContent() {
   }, [])
 
   return (
-    <section className="overflow-x-clip px-4 sm:px-6 pt-16 sm:pt-20 pb-8 sm:pb-12">
+    <section className="overflow-x-clip px-4 sm:px-6 pt-10 sm:pt-16 pb-8 sm:pb-12">
       <div className="mx-auto max-w-7xl">
         {/* Hero */}
         <div className={cn("mb-12 sm:mb-16 space-y-4 opacity-0", isVisible && "animate-fade-in-up")}>
@@ -207,8 +444,8 @@ export function LabContent() {
             work in progress;
           </p>
           <h1 className="text-3xl font-bold tracking-tight sm:text-5xl lg:text-6xl">Lab</h1>
-          <p className="max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed">
-            Current tinkering for experiments & prototypes. Building with design curiosity. Progress on ideation.
+          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+            Current tinkering on experiments & prototypes through a mini tinker lab. Building with design curiosity while showcasing progress on ideation.
           </p>
         </div>
 
@@ -281,7 +518,7 @@ export function LabContent() {
               </div>
             </div>
 
-            {/* Recent Activity */}
+            {/* Recent Activity
             <div
               className={cn(
                 "rounded-xl border border-border bg-card/40 glass p-5 opacity-0",
@@ -311,7 +548,7 @@ export function LabContent() {
                   </div>
                 ))}
               </div>
-            </div>
+            </div> */}
 
             {/* Legend */}
             <div
@@ -323,19 +560,27 @@ export function LabContent() {
               <h3 className="font-mono text-xs tracking-wider text-primary mb-4">Progress Legend</h3>
               <div className="space-y-2">
                 <div className="flex items-center gap-2 text-xs">
-                  <span className="w-3 h-3 rounded-full bg-primary" />
-                  <span className="text-muted-foreground">80-100% = complete</span>
+                  <span className="w-3 h-3 rounded-full bg-emerald-300" />
+                  <span className="text-muted-foreground">100% = complete</span>
                 </div>
                 <div className="flex items-center gap-2 text-xs">
-                  <span className="w-3 h-3 rounded-full bg-yellow-500" />
-                  <span className="text-muted-foreground">50-79% = in progress</span>
+                  <span className="w-3 h-3 rounded-full bg-lime-300" />
+                  <span className="text-muted-foreground">75-99% = near complete</span>
                 </div>
                 <div className="flex items-center gap-2 text-xs">
-                  <span className="w-3 h-3 rounded-full bg-orange-500" />
-                  <span className="text-muted-foreground">1-49% = early stage</span>
+                  <span className="w-3 h-3 rounded-full bg-yellow-300" />
+                  <span className="text-muted-foreground">50-74% = in progress</span>
                 </div>
                 <div className="flex items-center gap-2 text-xs">
-                  <span className="w-3 h-3 rounded-full bg-muted-foreground/30" />
+                  <span className="w-3 h-3 rounded-full bg-amber-300" />
+                  <span className="text-muted-foreground">25-49% = early build</span>
+                </div>
+                <div className="flex items-center gap-2 text-xs">
+                  <span className="w-3 h-3 rounded-full bg-orange-300" />
+                  <span className="text-muted-foreground">1-24% = idea forming</span>
+                </div>
+                <div className="flex items-center gap-2 text-xs">
+                  <span className="w-3 h-3 rounded-full bg-zinc-300" />
                   <span className="text-muted-foreground">0% = planned</span>
                 </div>
               </div>

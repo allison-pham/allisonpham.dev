@@ -239,9 +239,10 @@ export function BookmarksFlipbook() {
       label: "Concepts & Models",
       content: (
         <div className="space-y-3">
-          <p className="font-mono text-xs text-muted-foreground tracking-wider mb-4">Core ideas I revisit often, frameworks I use to think clearly (e.g. for decision-making), lessons learned (hard-won insights), & questions I'm exploring that guide my current work</p>
+          <p className="font-mono text-xs text-muted-foreground tracking-wider mb-4">Core ideas I revisit often, frameworks I use to think clearly (e.g. for decision-making), lessons learned (hard-won insights), & questions I'm exploring that guide my current work. Reusable principles connected across projects & seasons.</p>
           <div className="grid gap-3 sm:grid-cols-3">
             {[
+              { concept: "2nd brain", note: "Personal knowledge management (PKM) system to capture & organize info (files, ideas, notes, etc.)", domain: "productivity" },
               { concept: "Deep work", note: "Focus without distraction for productivity", domain: "productivity" },
               { concept: "Design principles", note: "My working design philosophy: details matter → start with why", domain: "product" },
               { concept: "Documentation", note: "Document everything", domain: "building" },
@@ -558,6 +559,9 @@ export function BookmarksFlipbook() {
     <section ref={ref} className="relative px-4 sm:px-6 pt-16 sm:pt-16 pb-8 sm:pb-12">
       <div className="mx-auto max-w-7xl">
       <div className={cn("space-y-3 mb-6 opacity-0", isVisible && "animate-fade-in-up")}>
+        <p className="font-mono text-xs tracking-[0.25em] text-primary flex items-center gap-2">
+            a bit of everything;
+          </p>
         <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Bookmarks</h2>
         <p className="w-fit max-w-none text-base sm:text-lg text-muted-foreground leading-relaxed whitespace-nowrap">Mini flipbook that works like a small index of artifacts, ideas, & references I return to often.</p>
       </div>

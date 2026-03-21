@@ -317,16 +317,110 @@ export function KnowledgeRepertoire() {
     {} as Record<SkillLevel, number>
   )
 
+  const levelScoreMap: Record<SkillLevel, number> = {
+    learning: 35,
+    comfortable: 60,
+    proficient: 80,
+    deep: 95,
+  }
+
+  const getCategoryAverageScore = (categoryId: string) => {
+    const category = knowledgeCategories.find((c) => c.id === categoryId)
+    if (!category) return 0
+
+    const allItems = category.topics.flatMap((topic) => topic.items)
+    if (allItems.length === 0) return 0
+
+    const totalScore = allItems.reduce((sum, item) => sum + levelScoreMap[item.level], 0)
+    return Math.round(totalScore / allItems.length)
+  }
+
+  const spiderAxisCategoryOrder = [
+    "computer-science",
+    "engineering",
+    "product-design",
+    "business",
+    "cog-science",
+    "space-systems",
+    "social-good",
+  ] as const
+
+  const formatSpiderLabel = (label: string) => {
+    const withAmpersandBreak = label.replace(" & ", "\n")
+    if (withAmpersandBreak.includes("\n")) {
+      if (label === "Cognitive Science & Psych") {
+        return "Cognitive Science\n& Psych"
+      }
+      return withAmpersandBreak
+    }
+
+    if (label === "Space Systems") {
+      return "Space\nSystems"
+    }
+
+    return withAmpersandBreak
+  }
+
+  const spiderAxes = spiderAxisCategoryOrder
+    .map((categoryId) => {
+      const category = knowledgeCategories.find((c) => c.id === categoryId)
+      if (!category) return null
+
+      return {
+        label: formatSpiderLabel(category.label),
+        score: getCategoryAverageScore(category.id),
+        categoryId: category.id,
+      }
+    })
+    .filter((axis): axis is { label: string; score: number; categoryId: string } => axis !== null)
+
+  const spiderLevels = [20, 40, 60, 80, 100]
+  const spiderInnerSize = 420
+  const spiderPadding = 84
+  const spiderSize = spiderInnerSize + spiderPadding * 2
+  const spiderCenter = spiderSize / 2
+  const spiderRadius = spiderInnerSize / 2 - 8
+  const spiderLabelOffset = 48
+
+  const spiderPoints = spiderAxes.map((axis, idx) => {
+    const angle = (idx / spiderAxes.length) * Math.PI * 2 - Math.PI / 2
+    const normalized = axis.score / 100
+    const x = spiderCenter + Math.cos(angle) * spiderRadius * normalized
+    const y = spiderCenter + Math.sin(angle) * spiderRadius * normalized
+    return { ...axis, x, y, angle }
+  })
+
+  const spiderPolygonPoints = spiderPoints.map((point) => `${point.x},${point.y}`).join(" ")
+
+  const spiderGridPolygons = spiderLevels.map((level) => {
+    const normalized = level / 100
+    return spiderAxes
+      .map((_, idx) => {
+        const angle = (idx / spiderAxes.length) * Math.PI * 2 - Math.PI / 2
+        const x = spiderCenter + Math.cos(angle) * spiderRadius * normalized
+        const y = spiderCenter + Math.sin(angle) * spiderRadius * normalized
+        return `${x},${y}`
+      })
+      .join(" ")
+  })
+
+  const axisLines = spiderAxes.map((_, idx) => {
+    const angle = (idx / spiderAxes.length) * Math.PI * 2 - Math.PI / 2
+    const x = spiderCenter + Math.cos(angle) * spiderRadius
+    const y = spiderCenter + Math.sin(angle) * spiderRadius
+    return { x, y, angle }
+  })
+
   return (
     <section ref={sectionRef} className="overflow-x-clip px-4 sm:px-6 py-16 sm:py-16">
       <div className="mx-auto max-w-7xl">
         {/* Header */}
         <div className={cn("opacity-0", isVisible && "animate-fade-in-up")}>
           <div className="flex items-center gap-3 mb-3">
-            <h2 className="text-2xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Knowledge Repertoire ⋆˚</h2>
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Knowledge Repertoire ⋆˚</h2>
           </div>
           <p className="max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed">
-            A living map of the areas & topics I'm passionate about & pursue through learning, projects, & more.
+            A living map of the areas & topics I'm passionate about & pursue through learning, projects, & more. Actively learning, what's next/upcoming, & completion.
           </p>
         </div>
 
@@ -336,10 +430,10 @@ export function KnowledgeRepertoire() {
             <BookOpen className="h-4 w-4 text-primary" />
             <span className="font-mono text-sm">{totalItems} topics</span>
           </div>
-          <div className="rounded-lg border border-border bg-card/40 glass px-4 py-2 flex items-center gap-2">
+          {/* <div className="rounded-lg border border-border bg-card/40 glass px-4 py-2 flex items-center gap-2">
             <TrendingUp className="h-4 w-4 text-primary" />
             <span className="font-mono text-sm">{levelCounts.deep || 0} deep expertise</span>
-          </div>
+          </div> */}
           <div className="rounded-lg border border-border bg-card/40 glass px-4 py-2 flex items-center gap-2">
             <Clock className="h-4 w-4 text-yellow-500" />
             <span className="font-mono text-sm">{levelCounts.learning || 0} actively learning</span>
@@ -545,70 +639,124 @@ export function KnowledgeRepertoire() {
         ) : (
           /* Graph view */
           <div className={cn("opacity-0", isVisible && "animate-fade-in-up stagger-2")}>
-            <div className="rounded-xl border border-border bg-card/40 glass p-8 min-h-[500px] flex items-center justify-center">
-              <div className="relative w-full max-w-3xl aspect-square">
-                {/* Center node */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center z-10">
-                  <span className="font-mono text-xs text-primary">me</span>
-                </div>
-                {/* Orbiting nodes */}
-                {knowledgeCategories.map((cat, idx) => {
-                  const angle = (idx / knowledgeCategories.length) * 2 * Math.PI - Math.PI / 2
-                  const radius = 42 // percent
-                  const x = 50 + radius * Math.cos(angle)
-                  const y = 50 + radius * Math.sin(angle)
-                  const itemCount = cat.topics.reduce((a, t) => a + t.items.length, 0)
-                  const size = 12 + itemCount * 2
+            <div className="rounded-xl border border-border bg-card/40 glass p-6 sm:p-8 min-h-125">
+              <div className="mx-auto flex w-full max-w-4xl flex-col items-center gap-6">
+                <div className="w-full max-w-160">
+                  <svg viewBox={`0 0 ${spiderSize} ${spiderSize}`} className="h-auto w-full">
+                    {spiderGridPolygons.map((polygon, idx) => (
+                      <polygon
+                        key={`grid-${spiderLevels[idx]}`}
+                        points={polygon}
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth={idx === spiderGridPolygons.length - 1 ? 1.5 : 1}
+                        className="text-border/80"
+                      />
+                    ))}
 
-                  return (
-                    <button
-                      key={cat.id}
-                      onClick={() => {
-                        setActiveCategory(cat.id)
-                        setViewMode("detail")
-                      }}
-                      className={cn(
-                        "absolute rounded-full border-2 flex items-center justify-center transition-all duration-300 hover:scale-110 group",
-                        activeCategory === cat.id
-                          ? "bg-primary/30 border-primary"
-                          : "bg-secondary/50 border-border hover:border-primary/50"
-                      )}
-                      style={{
-                        left: `${x}%`,
-                        top: `${y}%`,
-                        width: `${size}%`,
-                        height: `${size}%`,
-                        transform: "translate(-50%, -50%)",
-                      }}
-                    >
-                      <span className="font-mono text-[10px] sm:text-xs text-center px-1 opacity-80 group-hover:opacity-100">
-                        {cat.label}
-                      </span>
-                    </button>
-                  )
-                })}
-                {/* Connection lines */}
-                <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 0 }}>
-                  {knowledgeCategories.map((cat, idx) => {
-                    const angle = (idx / knowledgeCategories.length) * 2 * Math.PI - Math.PI / 2
-                    const radius = 42
-                    const x = 50 + radius * Math.cos(angle)
-                    const y = 50 + radius * Math.sin(angle)
-                    return (
+                    {axisLines.map((line, idx) => (
                       <line
-                        key={cat.id}
-                        x1="50%"
-                        y1="50%"
-                        x2={`${x}%`}
-                        y2={`${y}%`}
+                        key={`axis-${idx}`}
+                        x1={spiderCenter}
+                        y1={spiderCenter}
+                        x2={line.x}
+                        y2={line.y}
                         stroke="currentColor"
                         strokeWidth="1"
-                        className="text-border"
-                        strokeDasharray="4 4"
+                        className="text-border/70"
                       />
-                    )
-                  })}
-                </svg>
+                    ))}
+
+                    <polygon
+                      points={spiderPolygonPoints}
+                      fill="#D4BAFF"
+                      fillOpacity="0.28"
+                      stroke="#D4BAFF"
+                      strokeOpacity="1"
+                      strokeWidth="3"
+                    />
+
+                    {spiderPoints.map((point, idx) => (
+                      <circle
+                        key={`point-${idx}`}
+                        cx={point.x}
+                        cy={point.y}
+                        r="4"
+                        fill="#D4BAFF"
+                      />
+                    ))}
+
+                    {spiderLevels.map((level, idx) => (
+                      <text
+                        key={`level-${level}`}
+                        x={spiderCenter}
+                        y={spiderCenter - spiderRadius * (level / 100) + (idx === 0 ? -2 : 4)}
+                        textAnchor="middle"
+                        className="fill-muted-foreground font-mono text-[11px] sm:text-xs"
+                      >
+                        {level}
+                      </text>
+                    ))}
+
+                    {axisLines.map((line, idx) => {
+                      const axis = spiderAxes[idx]
+                      const cos = Math.cos(line.angle)
+                      const sin = Math.sin(line.angle)
+                      const extraBottomDistance = sin > 0.7 ? 8 : 0
+                      const labelDistance = spiderRadius + spiderLabelOffset + extraBottomDistance
+                      const labelX = spiderCenter + cos * labelDistance
+                      const labelY = spiderCenter + sin * labelDistance
+                      const textAnchor: "start" | "middle" | "end" = cos > 0.35 ? "end" : cos < -0.35 ? "start" : "middle"
+                      const baseXOffset = textAnchor === "start" ? 6 : textAnchor === "end" ? -6 : 0
+                      const manualOffsets: Record<string, { x: number; y: number }> = {
+                        "computer-science": { x: 0, y: -1 },
+                        engineering: { x: 24, y: -2 },
+                        "product-design": { x: 26, y: 2 },
+                        business: { x: 24, y: 6 },
+                        "cog-science": { x: -24, y: 6 },
+                        "space-systems": { x: -24, y: 2 },
+                        "social-good": { x: -8, y: -2 },
+                      }
+                      const manualOffset = manualOffsets[axis.categoryId] || { x: 0, y: 0 }
+                      const labelXOffset = baseXOffset + manualOffset.x
+                      const labelYOffset = manualOffset.y
+                      const labelParts = axis.label.split("\n")
+                      const lineHeight = 16
+                      const firstLineDy = labelParts.length > 1 ? -((labelParts.length - 1) * lineHeight) / 2 : 0
+                      return (
+                        <text
+                          key={`label-${idx}`}
+                          x={labelX + labelXOffset}
+                          y={labelY + labelYOffset}
+                          textAnchor={textAnchor}
+                          dominantBaseline="middle"
+                          className="fill-foreground font-semibold text-sm sm:text-base"
+                        >
+                          {labelParts.map((part, lineIdx) => (
+                            <tspan key={`${part}-${lineIdx}`} x={labelX + labelXOffset} dy={lineIdx === 0 ? firstLineDy : lineHeight}>
+                              {part}
+                            </tspan>
+                          ))}
+                        </text>
+                      )
+                    })}
+                  </svg>
+                </div>
+
+                <div className="mt-2 flex flex-wrap justify-center gap-3 pb-1">
+                  {spiderAxes.map((axis) => (
+                    <button
+                      key={axis.label}
+                      onClick={() => {
+                        setActiveCategory(axis.categoryId)
+                        setViewMode("detail")
+                      }}
+                      className="rounded-full border border-border bg-secondary/40 px-3 py-1.5 text-sm font-mono text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground"
+                    >
+                      {axis.label.replace("\n", " ")} · {axis.score}
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
