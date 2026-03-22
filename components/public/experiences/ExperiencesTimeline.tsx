@@ -107,6 +107,40 @@ const experiences: Experience[] = [
   },
 
   {
+    id: "gamespawn",
+    role: "Treasurer",
+    company: "Gamespawn",
+    logo: "/logos/gamespawn.svg",
+    companyUrl: "https://gamespawn.cs.ucr.edu",
+    period: "Mar 2025 - Present",
+    type: "",
+    current: true,
+    description:
+      "",
+    highlights: [
+      "Previous Project + Workshop Coordinator (Mar 2024 - Jun 2025) & Junior Officer (Dec 2023 - Mar 2024)"
+    ],
+    tags: [],
+  },
+
+  {
+    id: "asucr",
+    role: "Bourns College of Engineering (BCOE) Senator",
+    company: "Associated Students of UCR (ASUCR)",
+    logo: "/logos/asucr.svg",
+    companyUrl: "",
+    period: "May 2024 - Apr 2025",
+    type: "Previous",
+    current: false,
+    description:
+      "",
+    highlights: [
+      "Previous Executive Fellow (Oct 2023 - Jun 2024), Senate Intern (Nov 2023 - Jun 2024), etc."
+    ],
+    tags: [],
+  },
+
+  {
     id: "nasa-engineering",
     role: "Lead Systems Engineer (L'SPACE)",
     company: "NASA",

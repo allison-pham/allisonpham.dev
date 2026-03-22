@@ -1,3 +1,4 @@
+import { BehindTheScenesSection } from "@/components/public/collections/BehindTheScenesSection"
 import { LabContent } from "@/components/public/lab/LabContent";
 import type { Metadata } from "next";
 
@@ -7,6 +8,10 @@ export default function LabPage() {
   return (
     <div className="pt-24">
       <LabContent />
+      {/* <BehindTheScenesSection />
+      <div className="pt-24">
+        <BehindTheScenesSection items={behindTheScenesItems} />
+      </div> */}
     </div>
   );
 }

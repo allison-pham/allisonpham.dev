@@ -164,7 +164,7 @@ function Folder({ label, items = [], href, icon, colors }: FolderProps) {
     >
       {/* Folder shell */}
       <div className="relative" style={{ width: 172, height: 152, perspective: "1000px" }}>
-        {/* Tab — top-left bump */}
+        {/* Tab - top-left bump */}
         <div
           className="absolute left-0 rounded-t-xl border border-b-0 bg-card"
           style={{
@@ -223,7 +223,7 @@ function Folder({ label, items = [], href, icon, colors }: FolderProps) {
           )
         })}
 
-        {/* Folder front flap — opens outward toward the viewer */}
+        {/* Folder front flap - opens outward toward the viewer */}
         <div
           className="absolute inset-x-0 overflow-hidden rounded-2xl rounded-tl-none border"
           style={{
@@ -244,7 +244,7 @@ function Folder({ label, items = [], href, icon, colors }: FolderProps) {
           {icon && <div className="absolute inset-0 flex items-center justify-center text-muted-foreground/50">{icon}</div>}
         </div>
 
-        {/* Item cards — live above the folder body via z-index */}
+        {/* Item cards - live above the folder body via z-index */}
         {fanSlots.map(({ rotate, ty, delay }, i) => {
           const item = visibleItems[i]
           const reverseDelay = (fanSlots.length - 1 - i) * 45
@@ -285,7 +285,7 @@ function Folder({ label, items = [], href, icon, colors }: FolderProps) {
           )
         })}
 
-        {/* Folder back rim — subtle depth strip at the top of the body */}
+        {/* Folder back rim - subtle depth strip at the top of the body */}
         <div
           className="absolute inset-x-0 rounded-2xl rounded-tl-none border-x border-t"
           style={{

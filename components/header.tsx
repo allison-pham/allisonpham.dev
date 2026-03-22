@@ -11,13 +11,14 @@ const navItems = [
   { label: "about", href: "/about" },
   { label: "experiences", href: "/experiences" },
   { label: "projects", href: "/projects" },
-  { label: "blog", href: "/blog" },
+  // { label: "blog", href: "/blog" },
   { label: "lab", href: "/lab" },
 ]
 
 const moreNavItems = [
   { label: "collections", href: "/collections" },
-  { label: "timeline", href: "/timeline" },
+  { label: "playground", href: "/playground" },
+  // { label: "timeline", href: "/timeline" },
 ]
 
 const socialLinks = [
