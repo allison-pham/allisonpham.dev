@@ -2,9 +2,10 @@
 
 import { useState, useEffect, useRef } from "react"
 import { cn } from "@/lib/utils"
-import { ArrowRight, Clock, Calendar } from "lucide-react"
+import { ArrowRight, Calendar } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import Link from "next/link"
+import Image from "next/image"
 import { blogPosts } from "@/lib/blog-data"
 
 export function BlogList() {
@@ -52,6 +53,19 @@ export function BlogList() {
           />
 
           <div className="relative z-0">
+            {post.coverImage && (
+              <div className="mb-5 -mx-6 sm:-mx-7 -mt-6 sm:-mt-7 overflow-hidden rounded-t-xl">
+                <div className="relative aspect-[3/1] w-full">
+                  <Image
+                    src={post.coverImage}
+                    alt={post.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+              </div>
+            )}
+
             <div className="mb-4 flex flex-wrap items-center gap-3">
               <span className="rounded-lg border border-border/80 bg-secondary/60 px-3 py-1.5 font-mono text-xs text-muted-foreground transition-colors group-hover:border-primary/50 group-hover:text-foreground">
                 {post.category}
@@ -66,10 +80,6 @@ export function BlogList() {
                   <Calendar className="h-3.5 w-3.5" />
                   {post.date}
                 </span>
-                <span className="flex items-center gap-1.5">
-                  <Clock className="h-3.5 w-3.5" />
-                  {post.readTime}
-                </span>
               </div>
             </div>
 
@@ -82,7 +92,7 @@ export function BlogList() {
             </p>
 
             <div className="flex items-center justify-between gap-4">
-              <div className="flex items-center gap-3">
+              {/* <div className="flex items-center gap-3">
                 <Avatar className="h-9 w-9 border border-border">
                   <AvatarImage src={post.author.avatar || "/placeholder.svg"} alt={post.author.name} />
                   <AvatarFallback className="bg-secondary text-xs font-mono">
@@ -96,7 +106,7 @@ export function BlogList() {
                   <span className="text-sm font-medium">{post.author.name}</span>
                   <span className="text-xs text-muted-foreground">{post.author.role}</span>
                 </div>
-              </div>
+              </div> */}
 
               <div className="flex items-center gap-2 font-mono text-xs text-primary transition-all duration-300 sm:opacity-0 sm:translate-x-[-8px] group-hover:opacity-100 group-hover:translate-x-0">
                 <span>read article</span>

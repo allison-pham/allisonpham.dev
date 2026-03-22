@@ -9,7 +9,6 @@ interface FeatureStory {
   title: string
   deck: string
   category: string
-  readTime: string
 }
 
 interface SideColumnItem {
@@ -31,7 +30,6 @@ const featureStory: FeatureStory = {
   deck:
     "A running magazine of references, fragments, and recurring ideas that keep shaping how I build, learn, and live.",
   category: "cover story",
-  readTime: "8 min",
 }
 
 const sideColumnItems: SideColumnItem[] = [
@@ -118,11 +116,7 @@ export function CollectionsMagazine() {
               {featureStory.title}
             </h2>
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">{featureStory.deck}</p>
-            <div className="flex items-center gap-4 text-xs font-mono text-muted-foreground">
-              <span className="flex items-center gap-1.5">
-                <BookText className="h-3.5 w-3.5" />
-                {featureStory.readTime}
-              </span>
+            <div className="flex items-center gap-4 text-xs font-mono text-muted-foreground"> 
               <span className="h-1 w-1 rounded-full bg-muted-foreground/70" />
               <span className="flex items-center gap-1.5">
                 <Compass className="h-3.5 w-3.5" />
