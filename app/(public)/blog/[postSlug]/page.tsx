@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   return {
     title: post.title,
     description: post.excerpt,
-    authors: [{ name: post.author.name }],
+    authors: [{ name: "Allison Pham" }],
     keywords: post.tags,
 
     openGraph: {
@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       title: post.title,
       description: post.excerpt,
       publishedTime: new Date(post.date).toISOString(),
-      authors: [post.author.name],
+      authors: ["Allison Pham"],
       tags: post.tags,
       images: [
         {

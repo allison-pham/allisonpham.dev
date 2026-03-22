@@ -2,8 +2,9 @@
 
 import { useEffect, useState, useRef } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { cn } from "@/lib/utils"
-import { ArrowLeft, Calendar, Clock, Bookmark, Twitter, Linkedin, Link2, ChevronUp } from "lucide-react"
+import { ArrowLeft, Calendar, Bookmark, Twitter, Linkedin, Link2, ChevronUp } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { BlogPost, getRelatedPosts } from "@/lib/blog-data"
@@ -43,7 +44,7 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative px-4 sm:px-6 pt-28 sm:pt-32 pb-12 sm:pb-16 border-b border-border/30">
+      <section className="relative px-4 sm:px-6 pt-20 sm:pt-28 pb-8 sm:pb-10 border-b border-border/30">
         <div className={cn("absolute inset-0 bg-gradient-to-br opacity-30 pointer-events-none", post.color)} />
         <div className="mx-auto max-w-4xl relative z-10">
           {/* Back Link */}
@@ -63,7 +64,7 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
             className={cn("flex flex-wrap items-center gap-3 mb-6 opacity-0", isVisible && "animate-fade-in-up")}
             style={{ animationDelay: "100ms" }}
           >
-            <span className="rounded-lg border border-primary/50 bg-primary/10 px-3 py-1.5 font-mono text-xs text-primary uppercase tracking-wider">
+            <span className="rounded-lg border border-primary/50 bg-primary/10 px-3 py-1.5 font-mono text-xs text-primary tracking-wider">
               {post.category}
             </span>
             {post.featured && (
@@ -95,7 +96,7 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
             {post.excerpt}
           </p>
 
-          {/* Author & Meta Row */}
+          {/* Author & Meta Row
           <div
             className={cn(
               "flex flex-wrap items-center justify-between gap-6 opacity-0",
@@ -129,52 +130,77 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
                 {post.readTime}
               </span>
             </div>
-          </div>
+          </div> */}
 
-          {/* Tags */}
+          {/* Date & Tags */}
           <div
-            className={cn("flex flex-wrap gap-2 mt-6 opacity-0", isVisible && "animate-fade-in-up")}
-            style={{ animationDelay: "300ms" }}
+            className={cn("flex flex-col gap-3 mt-5 opacity-0", isVisible && "animate-fade-in-up")}
+            style={{ animationDelay: "250ms" }}
           >
-            {post.tags.map((tag) => (
-              <span
-                key={tag}
-                className="rounded-md bg-secondary/60 border border-border/50 px-3 py-1 font-mono text-xs text-muted-foreground hover:text-foreground hover:border-primary/50 transition-colors cursor-pointer"
-              >
-                #{tag}
-              </span>
-            ))}
+            <span className="flex items-center gap-1.5 text-xs text-muted-foreground font-mono">
+              <Calendar className="h-3.5 w-3.5" />
+              {post.date}
+            </span>
+            <div className="flex flex-wrap gap-2">
+              {post.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-md bg-secondary/60 border border-border/50 px-3 py-1 font-mono text-xs text-muted-foreground hover:text-foreground hover:border-primary/50 transition-colors cursor-pointer"
+                >
+                  #{tag}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
+      {/* Cover Image */}
+      {post.coverImage && (
+        <div className="px-4 sm:px-6">
+          <div className="mx-auto max-w-4xl -mt-1">
+            <div className="relative aspect-[2/1] w-full overflow-hidden rounded-b-2xl border border-border/40 border-t-0">
+              <Image
+                src={post.coverImage}
+                alt={post.title}
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Content Section */}
-      <section className="px-4 sm:px-6 py-12 sm:py-16">
+      <section className="px-4 sm:px-6 pt-8 sm:pt-10 pb-12 sm:pb-16">
         <div className="mx-auto max-w-4xl">
           <div className="grid gap-8 lg:grid-cols-[1fr_auto]">
             {/* Main Content */}
             <article
               ref={contentRef}
               className={cn(
-                "prose prose-invert prose-lg max-w-none opacity-0",
-                "prose-headings:font-semibold prose-headings:tracking-tight",
-                "prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4 prose-h2:text-gradient",
-                "prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3",
-                "prose-p:text-muted-foreground prose-p:leading-relaxed",
-                "prose-a:text-primary prose-a:no-underline hover:prose-a:underline",
-                "prose-strong:text-foreground prose-strong:font-semibold",
-                "prose-code:text-primary prose-code:bg-secondary/60 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:font-mono prose-code:text-sm prose-code:before:content-none prose-code:after:content-none",
-                "prose-pre:bg-card/80 prose-pre:border prose-pre:border-border/50 prose-pre:rounded-xl prose-pre:p-4 prose-pre:overflow-x-auto",
-                "prose-ul:text-muted-foreground prose-ol:text-muted-foreground",
-                "prose-li:marker:text-primary",
-                "prose-blockquote:border-l-primary prose-blockquote:text-muted-foreground prose-blockquote:italic",
+                "max-w-none opacity-0",
+                "[&_h1]:mt-12 [&_h1]:mb-6 [&_h1]:text-3xl [&_h1]:font-semibold [&_h1]:tracking-tight [&_h1]:text-foreground sm:[&_h1]:text-4xl",
+                "[&_h2]:mt-12 [&_h2]:mb-4 [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:tracking-tight [&_h2]:text-foreground",
+                "[&_h3]:mt-8 [&_h3]:mb-3 [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:tracking-tight [&_h3]:text-foreground",
+                "[&_p]:text-muted-foreground [&_p]:leading-relaxed [&_p]:my-4",
+                "[&_a]:text-primary [&_a]:no-underline hover:[&_a]:underline",
+                "[&_strong]:font-semibold [&_strong]:text-foreground",
+                "[&_code]:rounded [&_code]:bg-secondary/60 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:font-mono [&_code]:text-sm [&_code]:text-primary",
+                "[&_pre]:my-6 [&_pre]:overflow-x-auto [&_pre]:rounded-xl [&_pre]:border [&_pre]:border-border/50 [&_pre]:bg-card/80 [&_pre]:p-4",
+                "[&_pre_code]:bg-transparent [&_pre_code]:p-0",
+                "[&_ul]:my-4 [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:text-muted-foreground",
+                "[&_ol]:my-4 [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:text-muted-foreground",
+                "[&_li]:my-1 [&_li::marker]:text-primary",
+                "[&_blockquote]:my-6 [&_blockquote]:border-l-2 [&_blockquote]:border-l-primary [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-muted-foreground",
                 isVisible && "animate-fade-in-up",
               )}
               style={{ animationDelay: "350ms" }}
               dangerouslySetInnerHTML={{ __html: parseMarkdown(post.content) }}
             />
 
-            {/* Sticky Share Sidebar */}
+            {/* Sticky Share Sidebar
             <aside
               className={cn("hidden lg:block opacity-0", isVisible && "animate-fade-in-up")}
               style={{ animationDelay: "400ms" }}
@@ -230,7 +256,7 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
                   <span className="sr-only">Bookmark</span>
                 </Button>
               </div>
-            </aside>
+            </aside> */}
           </div>
 
           {/* Mobile Share Bar */}
@@ -323,8 +349,6 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
                     <p className="text-sm text-muted-foreground line-clamp-2 mb-4">{relatedPost.excerpt}</p>
                     <div className="flex items-center gap-3 text-xs text-muted-foreground">
                       <span>{relatedPost.date}</span>
-                      <span className="text-border">•</span>
-                      <span>{relatedPost.readTime}</span>
                     </div>
                   </div>
                   <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-gradient-to-r from-primary to-transparent transition-all duration-500 group-hover:w-full" />
@@ -352,36 +376,62 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
 
 // Simple markdown parser for rendering content
 function parseMarkdown(content: string): string {
-  return (
-    content
-      // Headers
-      .replace(/^### (.*$)/gm, "<h3>$1</h3>")
-      .replace(/^## (.*$)/gm, "<h2>$1</h2>")
-      .replace(/^# (.*$)/gm, "<h1>$1</h1>")
-      // Bold
-      .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
-      // Italic
-      .replace(/\*(.*?)\*/g, "<em>$1</em>")
-      // Code blocks
-      .replace(/```(\w+)?\n([\s\S]*?)```/g, '<pre><code class="language-$1">$2</code></pre>')
-      // Inline code
-      .replace(/`([^`]+)`/g, "<code>$1</code>")
-      // Unordered lists
-      .replace(/^- (.*$)/gm, "<li>$1</li>")
-      .replace(/(<li>.*<\/li>)\n(?=<li>)/g, "$1")
-      .replace(/(<li>.*<\/li>)(?:\n|$)/g, "<ul>$1</ul>")
-      // Ordered lists
-      .replace(/^\d+\. (.*$)/gm, "<li>$1</li>")
-      // Paragraphs
-      .replace(/\n\n(?!<)/g, "</p><p>")
-      .replace(/^(?!<)(.+)$/gm, "<p>$1</p>")
-      // Clean up empty paragraphs
-      .replace(/<p><\/p>/g, "")
-      .replace(/<p>(<h[1-3]>)/g, "$1")
-      .replace(/(<\/h[1-3]>)<\/p>/g, "$1")
-      .replace(/<p>(<pre>)/g, "$1")
-      .replace(/(<\/pre>)<\/p>/g, "$1")
-      .replace(/<p>(<ul>)/g, "$1")
-      .replace(/(<\/ul>)<\/p>/g, "$1")
-  )
+  let html = content.trim()
+  
+  // Headers (must be before paragraphs)
+  html = html.replace(/^### (.*?)$/gm, "<h3>$1</h3>")
+  html = html.replace(/^## (.*?)$/gm, "<h2>$1</h2>")
+  html = html.replace(/^# (.*?)$/gm, "<h1>$1</h1>")
+  
+  // Code blocks (before inline code)
+  html = html.replace(/```([\w]*)\n([\s\S]*?)```/g, '<pre><code class="language-$1">$2</code></pre>')
+  
+  // Inline code
+  html = html.replace(/`([^`]+)`/g, "<code>$1</code>")
+  
+  // Bold (before italic to avoid conflicts)
+  html = html.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+  
+  // Italic
+  html = html.replace(/\*(.*?)\*/g, "<em>$1</em>")
+  
+  // Split into lines for paragraph handling
+  const lines = html.split('\n')
+  let result: string[] = []
+  let paragraphLines: string[] = []
+  
+  for (const line of lines) {
+    const trimmed = line.trim()
+    
+    // Skip empty lines
+    if (!trimmed) {
+      if (paragraphLines.length > 0) {
+        result.push(`<p>${paragraphLines.join(' ')}</p>`)
+        paragraphLines = []
+      }
+      continue
+    }
+    
+    // Check if line is a block element
+    const isBlockElement = /^<(h[1-3]|pre|code|ul|ol|li|blockquote)/.test(trimmed)
+    
+    if (isBlockElement) {
+      // Flush any pending paragraphs
+      if (paragraphLines.length > 0) {
+        result.push(`<p>${paragraphLines.join(' ')}</p>`)
+        paragraphLines = []
+      }
+      result.push(trimmed)
+    } else {
+      // Accumulate as part of paragraph
+      paragraphLines.push(trimmed)
+    }
+  }
+  
+  // Flush any remaining paragraph
+  if (paragraphLines.length > 0) {
+    result.push(`<p>${paragraphLines.join(' ')}</p>`)
+  }
+  
+  return result.join('\n')
 }

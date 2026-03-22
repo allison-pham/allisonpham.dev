@@ -11,7 +11,7 @@ export function generateBlogPostStructuredData(post: BlogPost, url: string) {
     dateModified: new Date(post.date).toISOString(),
     author: {
       '@type': 'Person',
-      name: post.author.name,
+      name: 'Allison Pham',
       url: 'https://github.com/allison-pham',
     },
     publisher: {
@@ -25,7 +25,6 @@ export function generateBlogPostStructuredData(post: BlogPost, url: string) {
     },
     articleSection: post.category,
     keywords: post.tags.join(', '),
-    timeRequired: post.readTime,
   }
 }
 
