@@ -53,9 +53,10 @@ const levels: LifeLevel[] = [
     subtitle: "the beginning of curiosity",
     years: "20XX",
     tone: "origin",
-    mission: "Add your first spark moment here: what pulled you in, and why you kept going.",
+    mission: "My 1st spark moment here: what pulled me in & why I kept going.",
     unlockedByDefault: true,
   },
+
   {
     id: 2,
     level: 2,
@@ -63,8 +64,9 @@ const levels: LifeLevel[] = [
     subtitle: "learning by shipping",
     years: "20XX",
     tone: "craft",
-    mission: "Add the chapter where you leveled up through consistent output and hard reps.",
+    mission: "The chapter where I leveled up through consistent output & hard reps.",
   },
+
   {
     id: 3,
     level: 3,
@@ -72,8 +74,9 @@ const levels: LifeLevel[] = [
     subtitle: "pressure, doubt, and the hard pivot",
     years: "20XX",
     tone: "edge",
-    mission: "Add the challenge that forced you to evolve: a setback, rejection, or identity shift.",
+    mission: "The challenge that forced me to evolve: a setback, rejection, identity shift.",
   },
+
   {
     id: 4,
     level: 4,
@@ -81,8 +84,9 @@ const levels: LifeLevel[] = [
     subtitle: "building beyond yourself",
     years: "20XX",
     tone: "impact",
-    mission: "Add your impact chapter: leading, mentoring, or building things that helped others.",
+    mission: "My impact chapter: leading, mentoring, building things that helped others.",
   },
+
   {
     id: 5,
     level: 5,
@@ -90,7 +94,7 @@ const levels: LifeLevel[] = [
     subtitle: "current chapter",
     years: "now",
     tone: "future",
-    mission: "Add what you are pursuing right now and what you are intentionally exploring next.",
+    mission: "What I'm pursuing right now & what I'm intentionally exploring next.",
   },
 ]
 
@@ -119,7 +123,7 @@ export function TimelineLevels() {
       <div className="mx-auto max-w-6xl">
         <div className="space-y-4 mb-10">
           <p className="font-mono text-xs tracking-[0.35em] text-primary uppercase">origin story / levels mode</p>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">Life, But As Unlockable Stages</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">Life (as Unlockable Stages)</h2>
           <p className="max-w-2xl text-sm sm:text-base text-muted-foreground leading-relaxed">
             Scroll less, explore more. Each level is a chapter you can open in any order.
           </p>

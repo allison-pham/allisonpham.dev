@@ -46,10 +46,11 @@ const decisions: Decision[] = [
     title: "The First Computer",
     tagline: "before this, I didn't know what I could become.",
     story:
-      "Add your origin story here - the first moment you encountered what would shape your entire path. What did it feel like the first time? What did you stay up late doing? What did you not yet know?",
+      "Origin story - 1st moment I encountered what would shape my entire path. What it felt like the 1st time, what I stayed up late doing, & what I didn't yet know",
     category: "origin",
     size: "lg",
   },
+
   {
     id: 2,
     year: "????",
@@ -57,21 +58,23 @@ const decisions: Decision[] = [
     title: "I'm Doing This",
     tagline: "the first real commitment.",
     story:
-      "Add the moment you stopped exploring and started committing. When did you decide your direction wasn't a phase?",
+      "Moment I stopped exploring & started committing. When I decided my direction wasn't a phase",
     category: "build",
     size: "sm",
   },
+
   {
     id: 3,
     year: "????",
     chapter: "the hard year",
-    title: "The One That Broke Me",
+    title: "The One That Was Difficult",
     tagline: "it didn't kill me. mostly.",
     story:
-      "Every story needs this chapter. Add the moment that challenged everything - a rejection, a failure, a year you wouldn't repeat but couldn't undo.",
+      "Every story needs this chapter. The moment that challenged everything - a rejection, a failure, a year I wouldn't repeat but couldn't undo.",
     category: "loss",
     size: "sm",
   },
+
   {
     id: 4,
     year: "????",
@@ -79,10 +82,11 @@ const decisions: Decision[] = [
     title: "Oh. That's What I Want.",
     tagline: "clarity came out of nowhere.",
     story:
-      "Add the moment you discovered what actually matters to you. A late-night conversation, a random project, something that made the noise disappear.",
+      "The moment I discovered what actually matters to me. A late-night conversation, a random project, something that made the noise disappear.",
     category: "discovery",
     size: "md",
   },
+
   {
     id: 5,
     year: "????",
@@ -90,10 +94,11 @@ const decisions: Decision[] = [
     title: "This Wasn't the Plan",
     tagline: "detoured. landed somewhere better.",
     story:
-      "Add an unexpected turn - a pivot that looked like a setback and turned out to be the whole point.",
+      "An unexpected turn - a pivot that looked like a setback & turned out to be the whole point.",
     category: "pivot",
     size: "sm",
   },
+
   {
     id: 6,
     year: "????",
@@ -101,10 +106,11 @@ const decisions: Decision[] = [
     title: "I Said Yes Anyway",
     tagline: "terrified and going for it.",
     story:
-      "Add a leap - when you showed up before you were ready, and it worked out differently than expected (in the best way).",
+      "A leap - when I showed up before I was ready & it worked out differently than expected (in the best way).",
     category: "leap",
     size: "sm",
   },
+  
   {
     id: 7,
     year: "now",

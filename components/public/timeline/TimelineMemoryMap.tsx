@@ -46,6 +46,7 @@ const toneClasses: Record<MemoryTone, { chip: string; ring: string; glow: string
   },
 }
 
+// Photos, places, tools, people
 const memoryNodes: MemoryNode[] = [
   {
     id: 1,
@@ -58,6 +59,7 @@ const memoryNodes: MemoryNode[] = [
     y: "32%",
     detail: "The first place I wrote ideas that actually made me feel like I had a direction.",
   },
+
   {
     id: 2,
     label: "Object 02",
@@ -69,6 +71,7 @@ const memoryNodes: MemoryNode[] = [
     y: "67%",
     detail: "A chaotic project that taught me more than any polished portfolio piece ever could.",
   },
+
   {
     id: 3,
     label: "Object 03",
@@ -80,6 +83,7 @@ const memoryNodes: MemoryNode[] = [
     y: "24%",
     detail: "A decision to say yes to something uncertain. That detour became the real path.",
   },
+
   {
     id: 4,
     label: "Object 04",
@@ -91,6 +95,7 @@ const memoryNodes: MemoryNode[] = [
     y: "58%",
     detail: "Hours of focused work and reflection; this is where consistency started to compound.",
   },
+
   {
     id: 5,
     label: "Object 05",
@@ -102,6 +107,7 @@ const memoryNodes: MemoryNode[] = [
     y: "30%",
     detail: "A bold idea I almost never shipped. Even unrealized, it changed what I believed possible.",
   },
+
   {
     id: 6,
     label: "Object 06",
@@ -127,10 +133,10 @@ export function TimelineMemoryMap() {
     <section className="px-4 sm:px-6 py-20 border-t border-border/40">
       <div className="mx-auto max-w-6xl space-y-8">
         <div className="space-y-4">
-          <p className="font-mono text-xs tracking-[0.35em] text-primary uppercase">origin story / memory mode</p>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">Interactive Memory Field</h2>
+          <p className="font-mono text-xs tracking-[0.35em] text-primary">memory mode / origin story;</p>
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">Memory Field</h2>
           <p className="max-w-2xl text-sm sm:text-base text-muted-foreground leading-relaxed">
-            Instead of a timeline, this is a room of artifacts. Click any object to reveal a chapter.
+            Room of artifacts (interactive). Click any object to reveal a chapter.
           </p>
         </div>
 
@@ -160,7 +166,7 @@ export function TimelineMemoryMap() {
                   >
                     <span className="flex items-center gap-2">
                       <Icon className="h-3.5 w-3.5" />
-                      <span className="font-mono text-[10px] tracking-wider uppercase">{node.label}</span>
+                      <span className="font-mono text-[10px] tracking-wider">{node.label}</span>
                     </span>
                   </button>
                 )
@@ -171,7 +177,7 @@ export function TimelineMemoryMap() {
           <aside className="rounded-3xl border border-border bg-card/45 glass p-6 sm:p-7">
             <div className="space-y-5">
               <div className="flex items-center justify-between">
-                <p className="font-mono text-xs tracking-wider uppercase text-muted-foreground">Selected Memory</p>
+                <p className="font-mono text-xs tracking-wider text-muted-foreground">Selected Memory</p>
                 <span className="inline-flex items-center gap-1 text-[11px] font-mono text-muted-foreground">
                   <Star className="h-3.5 w-3.5 text-primary/80" />
                   {activeNode?.year}
@@ -181,12 +187,6 @@ export function TimelineMemoryMap() {
               <div className="space-y-2">
                 <h3 className="text-2xl font-bold tracking-tight">{activeNode?.title}</h3>
                 <p className="text-sm text-foreground/85 leading-relaxed">{activeNode?.detail}</p>
-              </div>
-
-              <div className="pt-2">
-                <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground">
-                  Tip: replace these objects with real moments (photos, places, tools, people).
-                </p>
               </div>
 
               <div className="grid grid-cols-3 gap-2 pt-2">
