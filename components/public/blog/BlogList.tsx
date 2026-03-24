@@ -6,9 +6,13 @@ import { ArrowRight, Calendar } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import Link from "next/link"
 import Image from "next/image"
-import { blogPosts } from "@/lib/blog-data"
+import type { BlogPost } from "@/lib/blog/types"
 
-export function BlogList() {
+interface BlogListProps {
+  posts: BlogPost[]
+}
+
+export function BlogList({ posts }: BlogListProps) {
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null)
 
@@ -31,7 +35,7 @@ export function BlogList() {
 
   return (
     <div ref={sectionRef} className="min-w-0 space-y-6">
-      {blogPosts.map((post, index) => (
+      {posts.map((post, index) => (
         <article
           key={post.id}
           className={cn(

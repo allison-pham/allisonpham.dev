@@ -1,6 +1,8 @@
 import { BlogHero } from "@/components/public/blog/BlogHero";
 import { BlogList } from "@/components/public/blog/BlogList";
 import { BlogSidebar } from "@/components/public/blog/BlogSideBar";
+import { DevAutoRefresh } from "@/components/public/blog/DevAutoRefresh";
+import { getAllPosts } from "@/lib/blog";
 import type { Metadata } from "next";
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://allisonpham.dev';
@@ -37,13 +39,16 @@ export const metadata: Metadata = {
 };
 
 export default function BlogPage() {
+  const posts = getAllPosts();
+
   return (
     <div>
+      <DevAutoRefresh />
       <BlogHero />
       <section className="px-4 sm:px-6 py-8 sm:py-10 border-t border-border/30">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-12 lg:grid-cols-[1fr_320px]">
-            <BlogList />
+            <BlogList posts={posts} />
             <BlogSidebar />
           </div>
         </div>

@@ -76,6 +76,7 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
+    year: ""
   },
 
   // {
@@ -206,6 +207,7 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
+    year: ""
   },
 
   {
@@ -219,6 +221,7 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
+    year: ""
   },
 
   // {
@@ -258,6 +261,7 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
+    year: ""
   },
 
   {
@@ -271,6 +275,7 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
+    year: ""
   },
 
   {
@@ -284,6 +289,7 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
+    year: ""
   },
 
   // {

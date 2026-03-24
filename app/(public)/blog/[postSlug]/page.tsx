@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
-import { blogPosts, getPostBySlug } from "@/lib/blog-data";
+import { getAllPosts, getPostBySlug, getRelatedPosts } from "@/lib/blog";
 import { BlogPostContent } from "@/components/public/blog/BlogContent";
-import { Footer } from "@/components/footer";
+import { DevAutoRefresh } from "@/components/public/blog/DevAutoRefresh";
 import { generateBlogPostStructuredData } from "@/lib/structured-data";
 import type { Metadata } from "next";
 
@@ -10,7 +10,7 @@ interface BlogPostPageProps {
 }
 
 export async function generateStaticParams() {
-  return blogPosts.map((post) => ({
+  return getAllPosts().map((post) => ({
     postSlug: post.slug,
   }));
 }
@@ -75,17 +75,20 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound();
   }
 
+  const relatedPosts = getRelatedPosts(post.slug);
+
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://allisonpham.dev';
   const structuredData = generateBlogPostStructuredData(post, baseUrl);
 
   return (
     <>
+      <DevAutoRefresh />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       <div>
-        <BlogPostContent post={post} />
+        <BlogPostContent post={post} relatedPosts={relatedPosts} />
       </div>
     </>
   );
