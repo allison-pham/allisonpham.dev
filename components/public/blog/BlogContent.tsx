@@ -7,18 +7,20 @@ import { cn } from "@/lib/utils"
 import { ArrowLeft, Calendar, Bookmark, Twitter, Linkedin, Link2, ChevronUp } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
-import { BlogPost, getRelatedPosts } from "@/lib/blog-data"
+import type { BlogPost } from "@/lib/blog/types"
+import ReactMarkdown from "react-markdown"
+import remarkGfm from "remark-gfm"
 
 interface BlogPostContentProps {
   post: BlogPost
+  relatedPosts: BlogPost[]
 }
 
-export function BlogPostContent({ post }: BlogPostContentProps) {
+export function BlogPostContent({ post, relatedPosts }: BlogPostContentProps) {
   const [isVisible, setIsVisible] = useState(false)
   const [showScrollTop, setShowScrollTop] = useState(false)
   const [copied, setCopied] = useState(false)
   const contentRef = useRef<HTMLDivElement>(null)
-  const relatedPosts = getRelatedPosts(post.slug)
 
   useEffect(() => {
     setIsVisible(true)
@@ -197,8 +199,9 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
                 isVisible && "animate-fade-in-up",
               )}
               style={{ animationDelay: "350ms" }}
-              dangerouslySetInnerHTML={{ __html: parseMarkdown(post.content) }}
-            />
+            >
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.content}</ReactMarkdown>
+            </article>
 
             {/* Sticky Share Sidebar
             <aside
@@ -315,7 +318,7 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
           <div className="mx-auto max-w-4xl">
             <div className="mb-8">
               <span className="inline-block rounded-lg border border-border bg-secondary/50 px-3 py-1.5 font-mono text-xs tracking-wider text-muted-foreground mb-4">
-                [RELATED_POSTS]
+                Related Posts
               </span>
               <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">
                 Continue <span className="bg-gradient-to-l from-primary/50 to-accent text-transparent bg-clip-text">Reading</span>
@@ -374,64 +377,4 @@ export function BlogPostContent({ post }: BlogPostContentProps) {
   )
 }
 
-// Simple markdown parser for rendering content
-function parseMarkdown(content: string): string {
-  let html = content.trim()
-  
-  // Headers (must be before paragraphs)
-  html = html.replace(/^### (.*?)$/gm, "<h3>$1</h3>")
-  html = html.replace(/^## (.*?)$/gm, "<h2>$1</h2>")
-  html = html.replace(/^# (.*?)$/gm, "<h1>$1</h1>")
-  
-  // Code blocks (before inline code)
-  html = html.replace(/```([\w]*)\n([\s\S]*?)```/g, '<pre><code class="language-$1">$2</code></pre>')
-  
-  // Inline code
-  html = html.replace(/`([^`]+)`/g, "<code>$1</code>")
-  
-  // Bold (before italic to avoid conflicts)
-  html = html.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
-  
-  // Italic
-  html = html.replace(/\*(.*?)\*/g, "<em>$1</em>")
-  
-  // Split into lines for paragraph handling
-  const lines = html.split('\n')
-  let result: string[] = []
-  let paragraphLines: string[] = []
-  
-  for (const line of lines) {
-    const trimmed = line.trim()
-    
-    // Skip empty lines
-    if (!trimmed) {
-      if (paragraphLines.length > 0) {
-        result.push(`<p>${paragraphLines.join(' ')}</p>`)
-        paragraphLines = []
-      }
-      continue
-    }
-    
-    // Check if line is a block element
-    const isBlockElement = /^<(h[1-3]|pre|code|ul|ol|li|blockquote)/.test(trimmed)
-    
-    if (isBlockElement) {
-      // Flush any pending paragraphs
-      if (paragraphLines.length > 0) {
-        result.push(`<p>${paragraphLines.join(' ')}</p>`)
-        paragraphLines = []
-      }
-      result.push(trimmed)
-    } else {
-      // Accumulate as part of paragraph
-      paragraphLines.push(trimmed)
-    }
-  }
-  
-  // Flush any remaining paragraph
-  if (paragraphLines.length > 0) {
-    result.push(`<p>${paragraphLines.join(' ')}</p>`)
-  }
-  
-  return result.join('\n')
-}
+

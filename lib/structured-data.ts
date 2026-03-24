@@ -1,4 +1,4 @@
-import type { BlogPost } from './blog-data'
+import type { BlogPost } from './blog'
 
 export function generateBlogPostStructuredData(post: BlogPost, url: string) {
   return {
