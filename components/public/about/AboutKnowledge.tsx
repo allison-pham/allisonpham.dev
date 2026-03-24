@@ -8,8 +8,15 @@ type SkillLevel = "learning" | "comfortable" | "proficient" | "deep"
 
 interface Resource {
   title: string
-  type: "book" | "course" | "article" | "project"
+  type: "book" | "course" | "article" | "project" | "website"
   url?: string
+}
+
+const ensureHref = (url: string) => {
+  if (/^https?:\/\//i.test(url)) {
+    return url
+  }
+  return `https://${url}`
 }
 
 interface KnowledgeItem {
@@ -113,6 +120,13 @@ const knowledgeCategories: KnowledgeCategory[] = [
         category: "Growing In",
         description: "Active areas of deep investment",
         items: [
+          { name: "Design engineering", level: "comfortable", notes: "To be added",
+            resources: [
+              { title: "Design Engineering 101", type: "article", url: "https://www.designdisciplin.com/p/design-engineering-101" },
+              { title: "Interface Craft", type: "website", url: "https://www.interfacecraft.dev" },
+              { title: "userinterface.wiki", type: "website", url: "https://www.userinterface.wiki" },
+              { title: "Variant", type: "website", url: "https://www.variant.com" }
+            ] },
           { name: "Human-centered design (HCD)", level: "comfortable", notes: "To be added" },
           { name: "UI/UX", level: "proficient", notes: "To be added" },
           { name: "Prototyping", level: "proficient", notes: "To be added" },
@@ -577,12 +591,31 @@ export function KnowledgeRepertoire() {
                                 {item.resources && item.resources.length > 0 && (
                                   <div className="flex items-center gap-2 flex-wrap">
                                     <span className="text-xs text-muted-foreground">Resources:</span>
-                                    {item.resources.map((res, rIdx) => (
-                                      <span key={rIdx} className="inline-flex items-center gap-1 text-xs bg-secondary/50 px-2 py-1 rounded">
-                                        {res.title}
-                                        {res.url && <ExternalLink className="h-3 w-3" />}
-                                      </span>
-                                    ))}
+                                    {item.resources.map((res, rIdx) => {
+                                      const resourcePillClass = "inline-flex items-center gap-1 text-xs bg-secondary/50 px-2 py-1 rounded"
+
+                                      if (!res.url) {
+                                        return (
+                                          <span key={rIdx} className={resourcePillClass}>
+                                            {res.title}
+                                          </span>
+                                        )
+                                      }
+
+                                      return (
+                                        <a
+                                          key={rIdx}
+                                          href={ensureHref(res.url)}
+                                          target="_blank"
+                                          rel="noopener noreferrer"
+                                          className={cn(resourcePillClass, "hover:bg-secondary/70 hover:text-foreground")}
+                                          aria-label={`Open resource: ${res.title}`}
+                                        >
+                                          {res.title}
+                                          <ExternalLink className="h-3 w-3" />
+                                        </a>
+                                      )
+                                    })}
                                   </div>
                                 )}
                               </div>
