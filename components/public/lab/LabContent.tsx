@@ -37,6 +37,17 @@ const currentPieces: LabItem[] = [
     branch: "main",
     commits: 0,
   },
+
+  {
+    id: "terraground",
+    name: "terraground",
+    description: "",
+    progress: 10,
+    lastUpdated: "mar 2026",
+    url: "",
+    branch: "main",
+    commits: 0,
+  },
 ]
 
 const previousIterations: LabItem[] = [
