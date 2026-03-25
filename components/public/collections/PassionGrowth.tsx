@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import { cn } from "@/lib/utils"
-import { Target, Sparkles, ChevronDown } from "lucide-react"
+import { BookHeart, BookOpen, Brain, ChevronDown, Music, NotebookPen, Sparkles, Target } from "lucide-react"
 
 type HobbyTab = "current" | "past" | "future"
 type HobbyLevel = "emerging" | "growing" | "thriving"
@@ -24,7 +24,7 @@ const hobbyGroups: Record<HobbyTab, PassionItem[]> = {
     {
       id: "chess",
       passion: "Chess",
-      icon: <Target className="h-5 w-5" />,
+      icon: <Brain className="h-5 w-5" />,
       level: "growing",
       progress: 35,
       description: "",
@@ -35,6 +35,70 @@ const hobbyGroups: Record<HobbyTab, PassionItem[]> = {
       ].join("\n"),
       milestones: [
         { label: "Further learn chess strategies (for classic + endgame)", done: false },
+      ],
+    },
+  
+    {
+      id: "music",
+      passion: "Music",
+      icon: <Music className="h-5 w-5" />,
+      level: "thriving",
+      progress: 80,
+      description: "",
+      startedYear: "",
+      notes: [
+        "",
+      ].join("\n"),
+      milestones: [
+        { label: "", done: false },
+      ],
+    },
+
+    {
+      id: "reading",
+      passion: "Reading",
+      icon: <BookOpen className="h-5 w-5" />,
+      level: "thriving",
+      progress: 60,
+      description: "",
+      startedYear: "",
+      notes: [
+        "",
+      ].join("\n"),
+      milestones: [
+        { label: "", done: false },
+      ],
+    },
+
+    {
+      id: "scrapbooking",
+      passion: "Scrapbooking",
+      icon: <BookHeart className="h-5 w-5" />,
+      level: "thriving",
+      progress: 75,
+      description: "",
+      startedYear: "",
+      notes: [
+        "",
+      ].join("\n"),
+      milestones: [
+        { label: "", done: false },
+      ],
+    },
+  
+    {
+      id: "writing",
+      passion: "Writing",
+      icon: <NotebookPen className="h-5 w-5" />,
+      level: "thriving",
+      progress: 60,
+      description: "",
+      startedYear: "",
+      notes: [
+        "",
+      ].join("\n"),
+      milestones: [
+        { label: "", done: false },
       ],
     },
   ],

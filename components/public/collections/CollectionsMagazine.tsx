@@ -28,7 +28,7 @@ const featureStory: FeatureStory = {
   id: "issue-001",
   title: "An Archive of Curiosity",
   deck:
-    "A running magazine of references, fragments, and recurring ideas that keep shaping how I build, learn, and live.",
+    "A running magazine of references, fragments, & recurring ideas that keep shaping how I build, learn, and live",
   category: "cover story",
 }
 
@@ -55,19 +55,21 @@ const miniIssues: MiniIssue[] = [
     id: "issue-002",
     issue: "issue 002",
     title: "Bookmarks as a Living Library",
-    blurb: "From essays to talks, references I revisit when I need clarity.",
+    blurb: "From essays to talks, references I revisit when I need clarity",
   },
+
   {
     id: "issue-003",
     issue: "issue 003",
-    title: "Second Brain, In Public",
-    blurb: "Notes, fragments, and thoughts still in progress.",
+    title: "2nd Brain (Notes as a Thought Garden)",
+    blurb: "Notes, fragments, & thoughts still in progress",
   },
+
   {
     id: "issue-004",
     issue: "issue 004",
     title: "Photo Dumps as Memory Maps",
-    blurb: "Snapshots and scenes that capture specific seasons of life.",
+    blurb: "Snapshots & scenes that capture specific seasons of life",
   },
 ]
 

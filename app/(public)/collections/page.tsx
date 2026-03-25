@@ -11,10 +11,10 @@ export default function Loading() {
   return (
         <>
             <CollectionsIntro />
-            {/* <CollectionsMagazine /> */}
+            <CollectionsMagazine />
             <BookmarksFlipbook />
             <SecondBrain />
-            {/* <RabbitHoles /> */}
+            <RabbitHoles />
             <PassionGrowth />
             {/* <PhotoDumps /> */}
         </>
