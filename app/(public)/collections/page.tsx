@@ -18,7 +18,7 @@ export default function Loading() {
             <RabbitHoles />
             <PassionGrowth />
             {/* <PhotoDumps /> */}
-            <ChildhoodNostalgiaWhimsy />
+            {/* <ChildhoodNostalgiaWhimsy /> */}
         </>
   )
 }
