@@ -6,9 +6,9 @@ import { GraduationCap, Award } from "lucide-react"
 
 const education = [
   {
-    degree: "Bachelor's Degree - Computer Engineering",
     institution: "University of California, Riverside",
-    period: "",
+    degree: "Bachelor's Degree - Computer Engineering",
+    period: "Sep 2023 - Jun 2027",
     description: "",
   },
 ]
@@ -111,8 +111,8 @@ export function AboutEducation() {
                     <GraduationCap className="h-5 w-5" />
                   </div>
                   <div className="space-y-1">
-                    <h3 className="font-semibold tracking-tight text-foreground">{edu.degree}</h3>
-                    <p className="font-mono text-sm text-primary">{edu.institution}</p>
+                    <h3 className="font-semibold tracking-tight text-foreground">{edu.institution}</h3>
+                    <p className="font-mono text-sm text-primary">{edu.degree}</p>
                     <p className="font-mono text-xs text-muted-foreground">{edu.period}</p>
                     <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{edu.description}</p>
                   </div>

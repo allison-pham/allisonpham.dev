@@ -3,8 +3,8 @@
 import Link from "next/link"
 import { useEffect, useState } from "react"
 
-const roles = ["human cognition", "interface systems", "space interfaces", "cohesive actions"]
-// Other: design systems, HCI
+const roles = ["human cognition", "interface systems", "user interactions", "space interfaces", "cohesive actions"]
+// Other: design interactions, design systems, HCI, material design
 
 export function HeroSection() {
   const [currentRole, setCurrentRole] = useState(0)

@@ -1,5 +1,6 @@
 import { behindTheScenesItems } from "@/lib/behind-the-scenes-data"
 import { BookmarksFlipbook } from "@/components/public/collections/Bookmarks"
+import { ChildhoodNostalgiaWhimsy } from "@/components/public/collections/ChildhoodNostalgiaWhimsy"
 import { CollectionsIntro } from "@/components/public/collections/CollectionsIntro"
 import { CollectionsMagazine } from "@/components/public/collections/CollectionsMagazine"
 import { PassionGrowth } from "@/components/public/collections/PassionGrowth"
@@ -17,6 +18,7 @@ export default function Loading() {
             <RabbitHoles />
             <PassionGrowth />
             {/* <PhotoDumps /> */}
+            <ChildhoodNostalgiaWhimsy />
         </>
   )
 }
