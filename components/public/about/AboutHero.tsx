@@ -48,17 +48,17 @@ export function AboutHero() {
                 isVisible && "animate-fade-in-up stagger-2",
               )}
             >
-              <span className="flex items-center gap-1.5 rounded-full border border-border/60 bg-secondary/50 px-3 py-1.5 font-mono text-xs text-muted-foreground">
+              {/* <span className="flex items-center gap-1.5 rounded-full border border-border/60 bg-secondary/50 px-3 py-1.5 font-mono text-xs text-muted-foreground">
                 <MapPin className="h-3 w-3 text-primary" />
                 United States
-              </span>
+              </span> */}
               <span className="flex items-center gap-1.5 rounded-full border border-border/60 bg-secondary/50 px-3 py-1.5 font-mono text-xs text-muted-foreground">
                 <Terminal className="h-3 w-3 text-primary" />
-                Engineering & Design
+                Engineering & design
               </span>
               <span className="flex items-center gap-1.5 rounded-full border border-border/60 bg-secondary/50 px-3 py-1.5 font-mono text-xs text-muted-foreground">
                 <Coffee className="h-3 w-3 text-primary" />
-                HCI & Space Systems
+                HCI & space systems
               </span>
             </div>
 
@@ -70,18 +70,19 @@ export function AboutHero() {
             >
               <p>
                 I build through the intersection of tech, engineering, and{" "}
-                <span className="font-bold italic underline decoration-wavy">product</span> to create projects and initiatives from the ground up.
+                <span className="font-bold italic underline decoration-wavy">product</span> to develop projects and initiatives geared towards impact from the ground up.
               </p>
               
               <p>
                 I work on designing products that target the architecture behind how others think, decide, and act.
-                I am driven by the desire to ensure every system feeling like an{" "}
+                I'm driven by the desire to ensure every system feeling like an{" "}
                 <span className="font-bold italic underline decoration-wavy">extension</span> of the{" "}
                 <span className="font-bold italic underline decoration-wavy">mind</span>, not a constraint on it.
               </p>
 
               <p>
-                Productivity mixed in with resilient serendipity and serenity are my current targets. Thoughtful design and product engineering are a constant passion of mine.
+                Productivity mixed in with resilient serendipity and serenity are my current targets.
+                Thoughtful design and product engineering are a constant passion of mine.
               </p>
             </div>
 
