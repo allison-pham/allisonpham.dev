@@ -7,23 +7,23 @@ import { Briefcase, Laptop, Satellite } from "lucide-react"
 const values = [
   {
     icon: Satellite,
-    title: "Researching autonomous traversal for space exploration",
+    title: "Researching HCI in space",
     description:
-      "Leading @ NASA program",
-  },
-
-  {
-    icon: Laptop,
-    title: "Project sightings - machine learning & HCI",
-    description:
-      "Building systems from the ground up, tinkering with new ideas",
+      "Human-robot interaction in microgravity",
   },
 
   {
     icon: Briefcase,
     title: "Leading orgs across campus & internationally",
     description:
-      "Currently: President @ ACM at UCR, Director @ Citrus & Cutie Hack, etc.",
+      "Current: President @ ACM at UCR, Director @ Citrus & Cutie Hack, etc.",
+  },
+  
+  {
+    icon: Laptop,
+    title: "Project sightings - machine learning & HCI",
+    description:
+      "Building systems from the ground up, tinkering with new ideas",
   },
 
   // {

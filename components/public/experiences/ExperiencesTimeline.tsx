@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import { cn } from "@/lib/utils"
-import { ExternalLink, Sparkles, ChevronDown } from "lucide-react"
+import { ChevronDown, ExternalLink, Sparkles } from "lucide-react"
 
 interface Experience {
   id: string
@@ -20,6 +20,25 @@ interface Experience {
 }
 
 const experiences: Experience[] = [
+  {
+    id: "research",
+    role: "Research",
+    company: "Lab",
+    companyUrl: "",
+    logo: "",
+    period: "Mar 2026 - Present",
+    type: "",
+    current: true,
+    description:
+      "",
+    highlights: [
+      "Research projects and initiatives in the context of HCI in space and neurotech",
+      "Interaction in microgravity environments",
+      "Conducting user research, designing experiments, and developing prototypes to explore human-robot interaction in microgravity environments"
+    ],
+    tags: ["HCI"],
+  },
+
   {
     id: "nasa-research",
     role: "Design & Research (Autonomous Traversal)",
@@ -98,9 +117,8 @@ const experiences: Experience[] = [
     type: "",
     current: true,
     description:
-      "",
+      "ACM = Association for Computing Machinery",
     highlights: [
-      "Association for Computing Machinery (ACM)",
       "Previous Event Chair (Feb 2024 - Jun 2025) & Board Intern (Oct 2023 - Mar 2024)"
     ],
     tags: ["Computer Science", "Engineering"],
@@ -125,7 +143,7 @@ const experiences: Experience[] = [
 
   {
     id: "asucr",
-    role: "Bourns College of Engineering (BCOE) Senator",
+    role: "College of Engineering Senator",
     company: "Associated Students of UCR (ASUCR)",
     logo: "/logos/asucr.svg",
     companyUrl: "",
@@ -133,7 +151,7 @@ const experiences: Experience[] = [
     type: "Previous",
     current: false,
     description:
-      "",
+      "Full title: Bourns College of Engineering (BCOE) Senator",
     highlights: [
       "Previous Executive Fellow (Oct 2023 - Jun 2024), Senate Intern (Nov 2023 - Jun 2024), etc."
     ],
@@ -158,7 +176,7 @@ const experiences: Experience[] = [
 
   {
     id: "nucleo",
-    role: "Software Engineer & Research Development Intern",
+    role: "Software Engineer & Research Intern",
     company: "Nucleo Research",
     logo: "/logos/nucleo.svg",
     companyUrl: "https://nucleoresearch.com",
@@ -166,7 +184,7 @@ const experiences: Experience[] = [
     type: "Previous",
     current: false,
     description:
-      "",
+      "Full title: Software Engineer & Research Development Intern",
     highlights: [
     ],
     tags: ["Neurotech"],
@@ -335,8 +353,8 @@ export function ExperiencesTimeline() {
                 </span>
                 <Sparkles className="h-4 w-4 text-primary" />
               </div>
-              <p className="max-w-2xl text-lg leading-relaxed text-foreground sm:text-xl">
-                Building across research, systems, community, & design. Moving across operations & technical work.
+              <p className="w-full text-lg leading-relaxed text-foreground sm:text-xl">
+                Building across systems, tech, design, community, and research. Each toggle includes details and some have a link to an external page with further insight.
               </p>
               <div className="mt-6 grid gap-3 sm:grid-cols-2 items-start">
                 {filteredExperiences.map((exp) => {
@@ -424,6 +442,16 @@ export function ExperiencesTimeline() {
                               </span>
                             ))}
                           </div>
+                        )}
+                        {/* Link to full ACM experience page */}
+                        {exp.id === "acm" && (
+                          <a
+                            href="/experiences/acm"
+                            className="inline-block mt-2 rounded border border-primary/70 bg-primary/60 px-3 py-1 text-xs font-semibold text-foreground hover:bg-primary/80 transition-colors"
+                            target="_self"
+                          >
+                            Read more →
+                          </a>
                         )}
                       </div>
                     )}

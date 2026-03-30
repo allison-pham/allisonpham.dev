@@ -102,7 +102,7 @@ export function ProjectsPageContent() {
           {filteredProjects.map((project, index) => {
             const githubUrl = project.url.trim()
             const liveUrl = project.homepage.trim()
-            const hasCaseStudyPage = Boolean(project.caseStudy)
+            const hasCaseStudyPage = project.hasCaseStudy
             const isFeaturedProject = project.featured
 
             return (

@@ -1,5 +1,6 @@
 import { AreasOfWork } from "@/components/public/home/HomeAreasOfWork";
 import { CurrentQuests } from "@/components/public/home/HomeQuests";
+import { ExplorationGlimpse } from "@/components/public/home/ExplorationGlimpse"
 import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
 import { HeroSection } from "@/components/public/home/HomeHero"
@@ -28,10 +29,14 @@ export default function Home() {
         <div className="relative z-10">
           <Header />
           <HeroSection />
-          <AreasOfWork />
+          {/* <AreasOfWork /> */}
           <CurrentQuests />
-          <Now />
+          {/* <Now /> */}
           <PiecesOfCuriosity />
+          {/* Exploration Glimpse Section */}
+          {/* <div className="mt-16">
+            <ExplorationGlimpse />
+          </div> */}
           {/* <LabContent /> */}
           <Footer />
         </div>
