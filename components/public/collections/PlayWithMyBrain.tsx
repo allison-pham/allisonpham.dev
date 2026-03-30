@@ -259,7 +259,7 @@ export function PlayWithMyBrain() {
           </p>
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Interactive Games</h2>
           <p className="max-w-3xl text-base sm:text-lg text-muted-foreground leading-relaxed">
-            Tiny experimental games, weird interactions, & visual toys to form a playground.
+            Tiny experimental games, weird interactions, & visuals to form a playground.
           </p>
         </div>
 

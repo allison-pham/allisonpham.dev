@@ -81,7 +81,7 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
         </Link>
 
         <header className="space-y-4">
-          <p className="font-mono text-xs tracking-[0.25em] text-primary">project case study</p>
+          <p className="font-mono text-xs tracking-[0.25em] text-primary">project case study;</p>
           <h1 className="text-3xl font-bold tracking-tight sm:text-5xl">{project.title}</h1>
           <p className="max-w-3xl text-base leading-relaxed text-muted-foreground sm:text-lg">{project.description}</p>
         </header>

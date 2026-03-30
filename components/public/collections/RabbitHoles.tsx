@@ -79,7 +79,7 @@ export function RabbitHoles() {
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Curiosity Trails</h2>
           <p className="w-full whitespace-normal text-base sm:text-lg text-muted-foreground leading-relaxed">
             Curate fascinating things I keep falling into: niche topics, random skills, deep dives,
-            & open-ended curiosity trails
+            & open-ended curiosity trails.
           </p>
         </div>
 

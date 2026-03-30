@@ -91,7 +91,7 @@ export function HeroSection() {
             </p> */}
 
             <p className="m-0 max-w-lg text-base sm:text-lg leading-relaxed text-muted-foreground">
-              ✦ Researching autonomous traversal & HCI in space
+              ✦ Researching HCI in space
             </p>
 
             <p className="m-0 max-w-lg text-base sm:text-lg leading-relaxed text-muted-foreground">

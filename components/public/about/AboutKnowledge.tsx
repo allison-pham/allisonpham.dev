@@ -429,12 +429,13 @@ export function KnowledgeRepertoire() {
     <section ref={sectionRef} className="overflow-x-clip px-4 sm:px-6 py-16 sm:py-16">
       <div className="mx-auto max-w-7xl">
         {/* Header */}
-        <div className={cn("opacity-0", isVisible && "animate-fade-in-up")}>
+        <div className={cn("opacity-0", isVisible && "animate-fade-in-up")}> 
           <div className="flex items-center gap-3 mb-3">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Knowledge Repertoire ⋆˚</h2>
           </div>
-          <p className="max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed">
-            A living map of the areas & topics I'm passionate about & pursue through learning, projects, & more. Actively learning, what's next/upcoming, & completion.
+          <p className="w-full text-base sm:text-lg text-muted-foreground leading-relaxed">
+            A living map of the areas and topics I'm passionate about and pursue through learning, projects, and more.
+            Actively learning, what's next/upcoming, and completion.
           </p>
         </div>
 
@@ -517,7 +518,7 @@ export function KnowledgeRepertoire() {
                         {topicGroup.category}
                       </h4>
                       {topicGroup.description && (
-                        <p className="text-xs text-muted-foreground mt-1">{topicGroup.description}</p>
+                        <p className="text-xs text-muted-foreground mt-1 w-full break-words">{topicGroup.description}</p>
                       )}
                     </div>
                     <div className="grid gap-3 sm:grid-cols-2">

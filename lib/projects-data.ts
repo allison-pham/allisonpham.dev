@@ -33,6 +33,7 @@ export type ProjectSeed = {
   homepage: string
   featured: boolean
   highlight: boolean
+  hasCaseStudy?: boolean
   thumbnailSrc?: string
   thumbnailAlt?: string
   caseStudy?: Partial<ProjectCaseStudy>
@@ -76,7 +77,8 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    year: ""
+    year: "",
+    hasCaseStudy: false
   },
 
   // {
@@ -207,7 +209,8 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    year: ""
+    year: "",
+    hasCaseStudy: false
   },
 
   {
@@ -221,7 +224,8 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    year: ""
+    year: "",
+    hasCaseStudy: false
   },
 
   // {
@@ -261,7 +265,8 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    year: ""
+    year: "",
+    hasCaseStudy: false
   },
 
   {
@@ -275,7 +280,8 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    year: ""
+    year: "",
+    hasCaseStudy: false
   },
 
   {
@@ -289,7 +295,8 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    year: ""
+    year: "",
+    hasCaseStudy: false
   },
 
   // {
