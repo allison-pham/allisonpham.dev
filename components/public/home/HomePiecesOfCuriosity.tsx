@@ -21,9 +21,9 @@ const curiosityTopics = [
     label: "Computer Science",
     title: "Computer Science",
     tags: ["software engineering (swe)", "machine learning (ml)", "human-computer interaction (hci)"],
-    description: "Developing interactive systems that are efficient, scalable, & user-friendly.",
-    history: "Building systems, how computers think, & how software scales.",
-    futureProjects: "Exploring compiler design & designing a mini operating system.",
+    description: "Developing interactive systems that are efficient, scalable, and user-friendly.",
+    history: "Building systems, how computers think, and how software scales.",
+    futureProjects: "Exploring compiler design and designing a mini operating system.",
   },
 
   {
@@ -33,7 +33,7 @@ const curiosityTopics = [
     tags: ["electronics & circuit design", "embedded systems", "robotics"],
     description: "Intersecting hardware with software.",
     history: "Tinkering to explore my curiosity of how physical systems interact with computation.",
-    futureProjects: "Building a circuit board & mini desk robot.",
+    futureProjects: "Building a circuit board and mini desk robot.",
   },
 
   {
@@ -41,9 +41,9 @@ const curiosityTopics = [
     label: "Product (Design)",
     title: "Product (Design)",
     tags: ["human-centered design (hcd)", "ui/ux", "prototyping"],
-    description: "Crafting intuitive interfaces that look & feel cohesive for beautiful UX.",
-    history: "Learned through building & designing. Intersecting design & engineering showed me how intertwined they are.",
-    futureProjects: "Creating a design system with a focus in accessibility & intersecting with healthcare.",
+    description: "Crafting intuitive interfaces that look and feel cohesive for beautiful UX.",
+    history: "Learned through building and designing. Intersecting design and engineering showed me how intertwined they are.",
+    futureProjects: "Creating a design system with a focus in accessibility and intersecting with healthcare.",
   },
 
   {
@@ -52,7 +52,7 @@ const curiosityTopics = [
     title: "Product (Management)",
     tags: ["strategy", "development", "analysis & growth"],
     description: "Understanding user needs to transform them into thoughtful, yet impactful product decisions.",
-    history: "Managing projects & initiatives taught me prioritization & building iteratively.",
+    history: "Managing projects and initiatives taught me prioritization and building iteratively.",
     futureProjects: "Designing a framework to validate ideas quicker.",
   },
 ]
