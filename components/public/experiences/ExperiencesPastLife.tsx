@@ -93,7 +93,7 @@ export function PastLife() {
               key={f}
               onClick={() => setFilter(f)}
               className={cn(
-                "rounded-lg border px-3 py-1.5 font-mono text-xs tracking-widest transition-all duration-200",
+                "rounded-full border px-3 py-1.5 font-mono text-xs tracking-widest transition-all duration-200",
                 filter === f
                   ? "border-primary/50 bg-primary/15 text-primary"
                   : "border-border/50 bg-card/40 text-muted-foreground hover:border-primary/30 hover:text-foreground",

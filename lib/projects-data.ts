@@ -66,20 +66,20 @@ const projectSeeds: ProjectSeed[] = [
   //   },
   // },
 
-  {
-    id: "nexa",
-    title: "Nexa",
-    description: "AI agent - building autonomous workflows to speed up repetitive tasks",
-    tags: ["Automation"],
-    status: "ideation",
-    // year: "2026",
-    url: "",
-    homepage: "",
-    featured: false,
-    highlight: false,
-    year: "",
-    hasCaseStudy: false
-  },
+  // {
+  //   id: "nexa",
+  //   title: "Nexa",
+  //   description: "AI agent - building autonomous workflows to speed up repetitive tasks",
+  //   tags: ["Automation"],
+  //   status: "ideation",
+  //   // year: "2026",
+  //   url: "",
+  //   homepage: "",
+  //   featured: false,
+  //   highlight: false,
+  //   year: "",
+  //   hasCaseStudy: false
+  // },
 
   // {
   //   id: "personality-quiz",

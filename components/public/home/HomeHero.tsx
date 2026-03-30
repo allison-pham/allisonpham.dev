@@ -57,10 +57,15 @@ export function HeroSection() {
             </div>
 
             <p className="m-0 max-w-lg text-base sm:text-lg leading-relaxed text-muted-foreground">
+              <span className="font-bold italic underline decoration-wavy">Human-centered</span> systems for{" "}
+              <span className="italic">cognition & productivity</span>
+            </p>
+
+            {/* <p className="m-0 max-w-lg text-base sm:text-lg leading-relaxed text-muted-foreground">
               Building{" "}
               <span className="font-bold italic underline decoration-wavy">human-centered</span> systems to enhance{" "}
               <span className="italic">cognition & productivity</span>
-            </p>
+            </p> */}
 
             <p className="m-0 max-w-lg text-base sm:text-lg leading-relaxed text-muted-foreground">
               ✦ Campus Leader @{" "}
