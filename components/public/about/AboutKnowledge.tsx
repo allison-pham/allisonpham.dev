@@ -434,8 +434,8 @@ export function KnowledgeRepertoire() {
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Knowledge Repertoire ⋆˚</h2>
           </div>
           <p className="w-full text-base sm:text-lg text-muted-foreground leading-relaxed">
-            A living map of the areas and topics I'm passionate about and pursue through learning, projects, and more.
-            Actively learning, what's next/upcoming, and completion.
+            A living map of the areas & topics I'm passionate about & pursue through learning, projects, etc.
+            Features actively learning, what's next / upcoming, & completion.
           </p>
         </div>
 
