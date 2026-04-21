@@ -88,7 +88,15 @@ export function HeroSection() {
                 ACM
               </a>{" "}
               
-              + Hackathons
+              + {" "}
+              <a
+                href="https://www.citrushack.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline decoration-wavy decoration-current/45 underline-offset-3 transition-colors hover:decoration-current/80"
+              >
+                Hackathons
+              </a>
             </p>
 
             {/* <p className="m-0 max-w-lg text-base sm:text-lg leading-relaxed text-muted-foreground">

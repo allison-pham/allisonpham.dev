@@ -85,7 +85,10 @@ const experiences: Experience[] = [
     description:
       "",
     highlights: [
-      "Previous UI/UX Design & Operations Lead (Dec 2024 - Jun 2025)"
+      "Previous UI/UX Design & Operations Lead (Dec 2024 - Jun 2025)",
+      "Lead hackathon organizers to plan the Inland Empire's largest and oldest student-run hackathon (by ACM at UCR) with 300+ participants and 45 projects submitted",
+      "Manage teams and processes across operations, finance, marketing, UI/UX design, and software engineering",
+      "Coordinate total of 25 industry professionals (Amazon, Google, Salesforce, Visa, etc.), 20 sponsors and partners (secure 15+), 15+ tracks and prizes, and 10+ mini events"
     ],
     tags: ["Hackathon"],
   },
@@ -354,8 +357,9 @@ export function ExperiencesTimeline() {
                 <Sparkles className="h-4 w-4 text-primary" />
               </div>
               <p className="w-full text-lg leading-relaxed text-foreground sm:text-xl">
-                Building across systems, tech, design, community, and research. Each toggle includes details and some have a link to an external page with further insight.
+                Building across systems, tech, design, community, and research
               </p>
+              {/* Each toggle includes details and some have a link to an external page with further insight */}
               <div className="mt-6 grid gap-3 sm:grid-cols-2 items-start">
                 {filteredExperiences.map((exp) => {
                   const companyLink = getSafeExternalUrl(exp.companyUrl)
@@ -423,7 +427,7 @@ export function ExperiencesTimeline() {
                         )}
                         {exp.highlights.length > 0 && (
                           <ul className="space-y-2">
-                            {exp.highlights.slice(0, 2).map((highlight) => (
+                            {exp.highlights.map((highlight) => (
                               <li key={highlight} className="flex items-start gap-2 text-sm text-muted-foreground">
                                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary/60" />
                                 {highlight}

@@ -192,9 +192,12 @@ export function SecondBrain() {
             thinking systems;
           </p>
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Brain System</h2>
-            <p className="w-full whitespace-normal text-base sm:text-lg text-muted-foreground leading-relaxed">
-            2nd brain (store & organize) x digital garden (where my thoughts grow over time). 
+          <p className="w-full whitespace-normal text-base sm:text-lg text-muted-foreground leading-relaxed">
+            A digital garden of where my thoughts grow over time. 
             A collection of ongoing thoughts: half-formed ideas, small notes, etc.
+            
+            {/* 2nd brain (store & organize) x digital garden (where my thoughts grow over time). 
+            A collection of ongoing thoughts: half-formed ideas, small notes, etc. */}
           </p>
         </div>
 

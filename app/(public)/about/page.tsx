@@ -9,7 +9,7 @@ export default function Loading() {
             <AboutHero />
             <AboutEducation />
             <AboutSkills />
-            {/* <KnowledgeRepertoire /> */}
+            <KnowledgeRepertoire />
         </>
   )
 }
