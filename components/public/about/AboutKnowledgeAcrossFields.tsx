@@ -6,43 +6,31 @@ import { Code2, Layers3, Wrench, Library, Cpu, Palette } from "lucide-react"
 
 const skillGroups = [
   {
-    category: "Languages",
+    category: "Computer Science",
     icon: Code2,
-    skills: ["C++", "Python", "Java", "TypeScript", "JavaScript", "C", "SQL", "Swift", "HTML/CSS"],
+    skills: ["Full-Stack Development", "System Design", "AI/ML", "Data Science", "NLP", "Computer Vision", "Mobile Development", "Databases", "Networks", "APIs"],
   },
 
   {
-    category: "Frameworks",
-    icon: Layers3,
-    skills: ["Next.js", "React", "Vue.js", "Tailwind CSS", "Spring Boot", "Swift UI"],
-  },
-
-  {
-    category: "Developer Tools",
-    icon: Wrench,
-    skills: ["Docker", "AWS", "Google Cloud", "Supabase", "Firebase"],
-  },
-
-  {
-    category: "Libraries",
-    icon: Library,
-    skills: ["PyTorch", "TensorFlow", "scikit-learn", "NumPy", "pandas", "Matplotlib", "Three.js"],
-  },
-
-  {
-    category: "Hardware / CAD",
-    icon: Cpu,
-    skills: ["MATLAB", "SPICE", "Verilog", "FPGA Tools", "Arduino", "Altium", "Autodesk", "Qt"],
-  },
-
-  {
-    category: "Design",
+    category: "Product (Design)",
     icon: Palette,
-    skills: ["Figma", "Framer", "Spline", "Canva", "Adobe"],
+    skills: ["Design Engineering", "Human-Computer Interaction (HCI)", "Cognitive UX", "Information Architecture", "Interaction Design", "Wireframing & Prototyping", "UI/UX Design", "Visual Design", "Design Systems"],
+  },
+
+  {
+    category: "Product (Management)",
+    icon: Library,
+    skills: ["Product Strategy", "User Research & Testing", "Usability Testing", "Experimentation & Iteration", "Impact Evaluation", "Analytics & Insight"],
+  },
+
+  {
+    category: "Electrical Engineering",
+    icon: Cpu,
+    skills: ["Signals & Systems", "Spectral Analysis", "Analog Electronics", "Sensing & Actuation", "Semiconductors", "Hardware Design", "Register-Transfer Level (RTL) Design", "Engineering Simulation & Testing", "Applied Quantum Mechanics"],
   },
 ]
 
-export function AboutSkills() {
+export function AboutKnowledgeAcrossFields() {
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
 
@@ -61,10 +49,10 @@ export function AboutSkills() {
     <section ref={sectionRef} className="border-t border-border/30 overflow-x-clip px-4 sm:px-6 py-16 sm:py-16">
       <div className="mx-auto max-w-7xl">
         <div className={cn("space-y-3 opacity-0", isVisible && "animate-fade-in-up")}>
-          <p className="font-mono text-xs tracking-[0.25em] sm:tracking-[0.35em] text-primary">tools;</p>
-          <h2 className="text-2xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Technical Skills ✧.*</h2>
+          <p className="font-mono text-xs tracking-[0.25em] sm:tracking-[0.35em] text-primary">knowledge;</p>
+          <h2 className="text-2xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Knowledge Across Fields</h2>
           <p className="max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed">
-            CS • EE • Product • Design
+            CS • Product (Design & Management) • EE
           </p>
         </div>
 
