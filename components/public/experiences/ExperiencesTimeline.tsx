@@ -40,11 +40,11 @@ const experiences: Experience[] = [
   },
 
   {
-    id: "nasa-research",
-    role: "Design & Research (Autonomous Traversal)",
-    company: "NASA",
-    companyUrl: "https://nasa.gov",
-    logo: "/logos/nasa.svg",
+    id: "hack-for-la",
+    role: "Product & Strategy",
+    company: "Hack for LA",
+    logo: "/logos/hack-for-la.svg",
+    companyUrl: "",
     period: "Jan 2026 - Present",
     type: "",
     current: true,
@@ -52,7 +52,7 @@ const experiences: Experience[] = [
       "",
     highlights: [
     ],
-    tags: ["Space"],
+    tags: [],
   },
 
   {
@@ -75,7 +75,7 @@ const experiences: Experience[] = [
 
   {
     id: "citrus-hack",
-    role: "Director",
+    role: "Director (Prev UI/UX Design & Operations)",
     company: "Citrus Hack",
     logo: "/logos/citrus-hack.svg",
     companyUrl: "https://citrushack.com",
@@ -95,7 +95,7 @@ const experiences: Experience[] = [
 
   {
     id: "cutie-hack",
-    role: "Director",
+    role: "Director (Prev Operations)",
     company: "Cutie Hack",
     logo: "/logos/cutie-hack.svg",
     companyUrl: "https://cutiehack.com",
@@ -112,7 +112,7 @@ const experiences: Experience[] = [
 
   {
     id: "acm",
-    role: "President",
+    role: "President (Prev Events)",
     company: "ACM at UCR",
     logo: "/logos/acm.svg",
     companyUrl: "https://acm.cs.ucr.edu",
@@ -129,7 +129,7 @@ const experiences: Experience[] = [
 
   {
     id: "gamespawn",
-    role: "Treasurer",
+    role: "Treasurer (Prev Projects & Workshops)",
     company: "Gamespawn",
     logo: "/logos/gamespawn.svg",
     companyUrl: "https://gamespawn.cs.ucr.edu",
@@ -142,6 +142,22 @@ const experiences: Experience[] = [
       "Previous Project + Workshop Coordinator (Mar 2024 - Jun 2025) & Junior Officer (Dec 2023 - Mar 2024)"
     ],
     tags: [],
+  },
+
+  {
+    id: "nasa-research",
+    role: "Design & Research (Autonomous Traversal)",
+    company: "NASA",
+    companyUrl: "https://nasa.gov",
+    logo: "/logos/nasa.svg",
+    period: "Jan 2026 - May 2026",
+    type: "",
+    current: false,
+    description:
+      "",
+    highlights: [
+    ],
+    tags: ["Space"],
   },
 
   {
