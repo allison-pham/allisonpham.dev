@@ -1,3 +1,5 @@
+import acmExperience from "./experiences/acm";
+import cutieHackExperience from "./experiences/cutie-hack";
 import React from "react";
 
 export const SECTIONS = {
@@ -6,6 +8,7 @@ export const SECTIONS = {
   "org-impact-contributions": "Org Impact & My Contributions",
   "tools-technologies": "Tools & Technologies",
   "lessons-learned": "Lessons Learned",
+  "links-media": "Links, Demo, & Media"
 } as const;
 
 export type SectionId = keyof typeof SECTIONS;
@@ -18,17 +21,13 @@ export type Experience = {
   skills?: string[];
   thumbnail?: string;
   shortDescription: string;
-  oneSentence?: string;
   sections?: Array<{
     id: SectionId;
     content: React.ReactNode;
   }>;
 };
 
-import acmExperience from "./experiences/acm";
-import cutieHackExperience from "./experiences/cutie-hack";
-
 export const experiences: Experience[] = [
   acmExperience,
-  // cutieHackExperience
+  cutieHackExperience
 ];
