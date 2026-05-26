@@ -44,275 +44,530 @@ export type Project = ProjectSeed & {
 }
 
 const projectSeeds: ProjectSeed[] = [
-  // {
-  //   id: "hci-in-space",
-  //   title: "HCI in Space",
-  //   description: "Human-computer interaction concepts adapted for astronaut workflows",
-  //   tags: ["HCI", "UX", "Space Tech"],
-  //   status: "ideation",
-  //   year: "2026",
-  //   url: "",
-  //   homepage: "",
-  //   featured: true,
-  //   highlight: true,
-  //   thumbnailSrc: "",
-  //   thumbnailAlt: "HCI in Space project cover",
-  //   caseStudy: {
-  //     role: "Product Designer",
-  //     duration: "Month + year",
-  //     specialization: "HCI Design",
-  //     oneSentence: "Design interaction systems that reduce cognitive load in zero-gravity workspaces.",
-  //     quickAction: "Rapid concept validation with storyboard testing.",
-  //   },
-  // },
-
-  // {
-  //   id: "nexa",
-  //   title: "Nexa",
-  //   description: "AI agent - building autonomous workflows to speed up repetitive tasks",
-  //   tags: ["Automation"],
-  //   status: "ideation",
-  //   // year: "2026",
-  //   url: "",
-  //   homepage: "",
-  //   featured: false,
-  //   highlight: false,
-  //   year: "",
-  //   hasCaseStudy: false
-  // },
-
-  // {
-  //   id: "personality-quiz",
-  //   title: "Personality Quiz",
-  //   description: "Interactive quiz experiments for personality-driven recommendations",
-  //   tags: ["UX", "Experiment"],
-  //   status: "archived",
-  //   year: "2026",
-  //   url: "",
-  //   homepage: "",
-  //   featured: false,
-  //   highlight: false,
-  // },
-
-  // {
-  //   id: "ml-models",
-  //   title: "ML Models",
-  //   description: "Machine learning model prototypes for applied use cases",
-  //   tags: ["ML", "Python"],
-  //   status: "ideation",
-  //   year: "2025",
-  //   url: "",
-  //   homepage: "",
-  //   featured: false,
-  //   highlight: false,
-  // },
-
-  // {
-  //   id: "neurowell",
-  //   title: "NeuroWell",
-  //   description: "Healthcare learning combining neuroscience education & wellness",
-  //   tags: ["Wellness", "Product"],
-  //   status: "archived",
-  //   year: "2025",
-  //   url: "",
-  //   homepage: "",
-  //   featured: false,
-  //   highlight: false,
-  // },
-
-  // {
-  //   id: "missionsync",
-  //   title: "MissionSync",
-  //   description: "Async interfaces for mission planning (coordination system concept)",
-  //   tags: [],
-  //   status: "ideation",
-  //   year: "2025",
-  //   url: "",
-  //   homepage: "",
-  //   featured: false,
-  //   highlight: false,
-  // },
-
-  // {
-  //   id: "astrotrade",
-  //   title: "AstroTrade",
-  //   description: "Space commerce & trading simulation concept inspired by space-economy scenarios",
-  //   tags: ["Space", "Finance"],
-  //   status: "archived",
-  //   year: "2025",
-  //   url: "",
-  //   homepage: "",
-  //   featured: false,
-  //   highlight: false,
-  // },
-
-  // {
-  //   id: "orbitintel",
-  //   title: "OrbitIntel",
-  //   description: "Space asset directory & data exploration for orbital mission insights",
-  //   tags: ["Space Tech"],
-  //   status: "ideation",
-  //   year: "2025",
-  //   url: "",
-  //   homepage: "",
-  //   featured: false,
-  //   highlight: false,
-  // },
-  
-  // {
-  //   id: "thinksync",
-  //   title: "ThinkSync",
-  //   description: "Cognitive UX",
-  //   tags: ["Productivity"],
-  //   status: "ideation",
-  //   year: "2025",
-  //   url: "",
-  //   homepage: "",
-  //   featured: false,
-  //   highlight: false,
-  // },
-
-  // {
-  //   id: "musely",
-  //   title: "Musely",
-  //   description: "Music x journaling",
-  //   tags: ["Creative Tools"],
-  //   status: "archived",
-  //   year: "2025",
-  //   url: "",
-  //   homepage: "",
-  //   featured: false,
-  //   highlight: false,
-  // },
-
-  // {
   //   id: "finflow",
   //   title: "FinFlow",
   //   description: "Personal finance workflow concept for better money habits",
   //   tags: ["Finance", "Product"],
-  //   status: "archived",
-  //   year: "2025",
-  //   url: "",
-  //   homepage: "",
-  //   featured: false,
-  //   highlight: false,
-  // },
+
+  {
+    id: "ingredia",
+    title: "Ingredia",
+    description: "",
+    tags: ["React"],
+    status: "in progress",
+    year: "2026 - present",
+    url: "",
+    homepage: "",
+    featured: false,
+    highlight: false,
+    hasCaseStudy: false
+  },
+
+  {
+    id: "citrus-cutie-hack-main-website",
+    title: "Citrus & Cutie Hack: Main Website",
+    description: "",
+    tags: ["Next.js", "Tailwind CSS", "TypeScript", "Figma"],
+    status: "in progress",
+    year: "2026 - present",
+    url: "",
+    homepage: "",
+    featured: false,
+    highlight: false,
+    hasCaseStudy: false
+  },
+
+  {
+    id: "terraground",
+    title: "TerraGround",
+    description: "Emergency system",
+    tags: ["Next.js", "TypeScript", "Figma"],
+    status: "in progress",
+    year: "2026 - present",
+    url: "https://github.com/allison-pham/terraground",
+    homepage: "",
+    featured: false,
+    highlight: false,
+    hasCaseStudy: false
+  },
+
+  {
+    id: "nexa",
+    title: "Nexa",
+    description: "AI agent",
+    tags: ["Next.js", "TypeScript", "Figma"],
+    status: "in progress",
+    year: "2026 - present",
+    url: "https://github.com/allison-pham/nexa",
+    homepage: "",
+    featured: false,
+    highlight: false,
+    hasCaseStudy: false
+  },
+
+  {
+    id: "awesome-engineering-resources",
+    title: "Awesome Engineering Resources",
+    description: "Resources for computer science, electrical engineering, product design, and product management",
+    tags: ["Markdown"],
+    status: "in progress",
+    year: "2025 - present",
+    url: "https://github.com/allison-pham/awesome-engineering-resources",
+    homepage: "",
+    featured: false,
+    highlight: false,
+    hasCaseStudy: false
+  },
+
+  {
+    id: "figma-plugin-tool",
+    title: "Figma Plugin Tool",
+    description: "",
+    tags: [],
+    status: "ideation",
+    year: "2025",
+    url: "",
+    homepage: "",
+    featured: false,
+    highlight: false,
+    hasCaseStudy: false
+  },
+
+  {
+    id: "ml-models",
+    title: "ML Models",
+    description: "Machine learning model prototypes for applied use cases",
+    tags: [],
+    status: "ideation",
+    year: "2025",
+    url: "",
+    homepage: "",
+    featured: false,
+    highlight: false,
+    hasCaseStudy: false
+  },
+
+  {
+    id: "neurowell",
+    title: "NeuroWell",
+    description: "Accessible platform for neuroscience",
+    tags: [],
+    status: "ideation",
+    year: "2025",
+    url: "https://github.com/allison-pham/neurowell",
+    homepage: "",
+    featured: false,
+    highlight: false,
+    hasCaseStudy: false
+  },
+
+  {
+    id: "missionsync",
+    title: "MissionSync",
+    description: "Deep space communication",
+    tags: [],
+    status: "ideation",
+    year: "2025",
+    url: "https://github.com/allison-pham/missionsync",
+    homepage: "",
+    featured: false,
+    highlight: false,
+    hasCaseStudy: false
+  },
+
+  {
+    id: "astrotrade",
+    title: "AstroTrade",
+    description: "Enhancing space systems, 1 step at a time - space logistics and mission coordination",
+    tags: [],
+    status: "ideation",
+    year: "2025",
+    url: "https://github.com/allison-pham/astrotrade",
+    homepage: "",
+    featured: false,
+    highlight: false,
+    hasCaseStudy: false
+  },
+
+  {
+    id: "cognistack",
+    title: "CogniStack",
+    description: "Tech resources web app (learning system for computer science x electrical engineering x product)",
+    tags: ["Next.js", "TypeScript", "Figma"],
+    status: "in progress",
+    year: "2025 - present",
+    url: "https://github.com/allison-pham/cognistack",
+    homepage: "",
+    featured: false,
+    highlight: false,
+    hasCaseStudy: false
+  },
+
+  {
+    id: "thinksync",
+    title: "Thinksync",
+    description: "Cognitive UX platform (with a software-focused BCI system) inspired by neuromorphic engineering, leveraging neural networks and sensory feedback for adaptive HCI",
+    tags: ["Next.js", "Tailwind CSS", "TypeScript", "Supabase", "PyTorch", "WebSockets"],
+    status: "in progress",
+    year: "2025 - present",
+    url: "https://github.com/allison-pham/thinksync",
+    homepage: "",
+    featured: false,
+    highlight: false,
+    hasCaseStudy: false
+  },
+
+  {
+    id: "productembark-website",
+    title: "ProductEmbark: Website",
+    description: "",
+    tags: ["Next.js", "Tailwind CSS", "TypeScript"],
+    status: "in progress",
+    year: "2025 - present",
+    url: "https://github.com/productembark/product-embark-website",
+    homepage: "",
+    featured: false,
+    highlight: false,
+    hasCaseStudy: false
+  },
+
+  {
+    id: "project-design-template",
+    title: "Project Design Template",
+    description: "Template for projects",
+    tags: ["Figma"],
+    status: "shipped",
+    year: "2025",
+    url: "",
+    homepage: "",
+    featured: false,
+    highlight: false,
+    hasCaseStudy: false
+  },
+
+  {
+    id: "musely",
+    title: "Musely",
+    description: "A jar collection of mood journaling combined with favorite music albums",
+    tags: ["React", "Vite", "Tailwind CSS", "JavaScript", "Figma"],
+    status: "in progress",
+    year: "2025 - present",
+    url: "https://github.com/allison-pham/musely",
+    homepage: "",
+    featured: false,
+    highlight: false,
+    hasCaseStudy: false
+  },
+
+  {
+    id: "client-chat-bot",
+    title: "Client Chat Bot",
+    description: "A chat bot for client communication",
+    tags: ["Next.js", "CSS", "JavaScript", "Python", "Flask", "SQLite", "Docker"],
+    status: "shipped",
+    year: "2024",
+    url: "",
+    homepage: "",
+    featured: false,
+    highlight: false,
+    hasCaseStudy: false
+  },
+
+  {
+    id: "ai-bot-integration",
+    title: "AI Bot Integration",
+    description: "Integrate AI bot with retrieval-augmented generation (RAG) for apps (Notion, etc.)",
+    tags: ["Python"],
+    status: "shipped",
+    year: "2024",
+    url: "",
+    homepage: "",
+    featured: false,
+    highlight: false,
+    hasCaseStudy: false
+  },
+
+  {
+    id: "boilerplate",
+    title: "Boilerplate",
+    description: "Template for projects",
+    tags: ["Next.js", "TypeScript"],
+    status: "shipped",
+    year: "2024",
+    url: "https://github.com/allison-pham/boilerplate",
+    homepage: "",
+    featured: false,
+    highlight: false,
+    hasCaseStudy: false
+  },
 
   {
     id: "assistify",
     title: "Assistify",
-    description: "Receive tailored support with quality responses",
-    tags: ["Next.js", "TypeScript", "Material UI"],
+    description: "AI customer support (questions → quality responses)",
+    tags: ["Next.js", "Material UI", "JavaScript"],
     status: "shipped",
-    // year: "2024",
+    year: "2024",
     url: "https://github.com/allison-pham/assistify",
     homepage: "",
     featured: false,
     highlight: false,
-    year: "",
+    hasCaseStudy: false
+  },
+
+  {
+    id: "wellnest",
+    title: "WellNest",
+    description: "Pantry tracker for effortless nutrition tracking",
+    tags: ["Next.js", "Material UI", "JavaScript", "Firebase", "Figma"],
+    status: "shipped",
+    year: "2024",
+    url: "https://github.com/allison-pham/wellnest",
+    homepage: "",
+    featured: false,
+    highlight: false,
     hasCaseStudy: false
   },
 
   {
     id: "eevi",
     title: "Eevi",
-    description: "The 0 → 1 software tool",
-    tags: ["React"],
+    description: "0→1 software tool for productivity and side quests",
+    tags: ["React", "CSS", "JavaScript"],
     status: "shipped",
-    // year: "2024",
-    url: "https://github.com/allison-pham/eevi-side-quests",
+    year: "2024",
+    url: "https://github.com/allison-pham/eevi",
     homepage: "",
     featured: false,
     highlight: false,
-    year: "",
-    hasCaseStudy: false
-  },
-
-  // {
-  //   id: "youflow",
-  //   title: "YouFlow",
-  //   description: "Data analyzer experiments for structured workflow insight",
-  //   tags: ["Data", "Python"],
-  //   status: "archived",
-  //   year: "2024",
-  //   url: "https://github.com/allison-pham/youflow-data-analyzer",
-  //   homepage: "",
-  //   featured: false,
-  //   highlight: false,
-  // },
-
-  // {
-  //   id: "bioquest",
-  //   title: "BioQuest",
-  //   description: "Environment learning through gamification",
-  //   tags: ["Data"],
-  //   status: "archived",
-  //   year: "2024",
-  //   url: "",
-  //   homepage: "",
-  //   featured: false,
-  //   highlight: false,
-  // },
- 
-  {
-    id: "pantrypilot",
-    title: "PantryPilot",
-    description: "Streamline grocery shopping with a few clicks",
-    tags: ["Python", "scikit-learn", "pandas", "NumPy"],
-    status: "shipped",
-    // year: "2024",
-    url: "https://github.com/allison-pham/grocery-in-one",
-    homepage: "",
-    featured: false,
-    highlight: false,
-    year: "",
     hasCaseStudy: false
   },
 
   {
-    id: "shelfsense",
-    title: "ShelfSense",
-    description: "Data analysis for books with actionable reading insights",
-    tags: ["Python", "NumPy", "pandas", "Matplotlib"],
+    id: "enviropath",
+    title: "EnviroPath",
+    description: "",
+    tags: ["Figma"],
     status: "shipped",
-    // year: "2023",
+    year: "2024",
     url: "",
     homepage: "",
     featured: false,
     highlight: false,
-    year: "",
+    hasCaseStudy: false
+  },
+
+  {
+    id: "youflow",
+    title: "YouFlow",
+    description: "Data analyzer for healthcare research",
+    tags: ["Python", "pandas", "Figma"],
+    status: "shipped",
+    year: "2024",
+    url: "https://github.com/allison-pham/youflow",
+    homepage: "",
+    featured: false,
+    highlight: false,
+    hasCaseStudy: false
+  },
+
+  {
+    id: "bioquest",
+    title: "BioQuest",
+    description: "Gamification meets sustainability",
+    tags: ["HTML", "CSS", "JavaScript", "Python", "Figma"],
+    status: "shipped",
+    year: "2024",
+    url: "https://github.com/allison-pham/bioquest",
+    homepage: "",
+    featured: false,
+    highlight: false,
+    hasCaseStudy: false
+  },
+
+  {
+    id: "quick-study",
+    title: "Quick Study",
+    description: "Reduce and optimize study sessions",
+    tags: ["Python"],
+    status: "shipped",
+    year: "2024",
+    url: "https://github.com/allison-pham/quick-study",
+    homepage: "",
+    featured: false,
+    highlight: false,
+    hasCaseStudy: false
+  },
+
+  {
+    id: "appsort",
+    title: "AppSort",
+    description: "Streamline the application review process",
+    tags: ["Python", "pandas"],
+    status: "shipped",
+    year: "2024",
+    url: "https://github.com/allison-pham/appsort",
+    homepage: "",
+    featured: false,
+    highlight: false,
+    hasCaseStudy: false
+  },
+
+  {
+    id: "task-dev-bot",
+    title: "Task Dev Bot",
+    description: "Task management Discord bot",
+    tags: ["Python"],
+    status: "shipped",
+    year: "2024",
+    url: "https://github.com/allison-pham/task-dev-bot",
+    homepage: "",
+    featured: false,
+    highlight: false,
+    hasCaseStudy: false
+  },
+
+  {
+    id: "pantrypilot",
+    title: "PantryPilot",
+    description: "Streamline grocery shopping with a few clicks (grocery in one)",
+    tags: ["Python", "scikit-learn", "pandas", "NumPy"],
+    status: "shipped",
+    year: "2024",
+    url: "https://github.com/allison-pham/pantrypilot",
+    homepage: "",
+    featured: false,
+    highlight: false,
+    hasCaseStudy: false
+  },
+
+  {
+    id: "life-dev",
+    title: "Life Dev",
+    description: "Productivity solver for task and time management",
+    tags: ["C++"],
+    status: "shipped",
+    year: "2024",
+    url: "https://github.com/allison-pham/life-dev",
+    homepage: "",
+    featured: false,
+    highlight: false,
+    hasCaseStudy: false
+  },
+
+  {
+    id: "task-flow",
+    title: "Task Flow",
+    description: "Task scheduler to track flow of to do lists",
+    tags: ["Vue.js", "JavaScript", "Python", "Flask"],
+    status: "shipped",
+    year: "2024",
+    url: "https://github.com/allison-pham/task-flow",
+    homepage: "",
+    featured: false,
+    highlight: false,
+    hasCaseStudy: false
+  },
+
+  {
+    id: "weatherwise",
+    title: "WeatherWise",
+    description: "Weather notification system to prepare for all situations",
+    tags: ["Python"],
+    status: "shipped",
+    year: "2023",
+    url: "https://github.com/allison-pham/weatherwise",
+    homepage: "",
+    featured: false,
+    highlight: false,
+    hasCaseStudy: false
+  },
+
+  {
+    id: "shelf-sense",
+    title: "Shelf Sense",
+    description: "Data analysis for books to seamlessly draw effective conclusions",
+    tags: ["Python", "NumPy", "pandas", "Matplotlib"],
+    status: "shipped",
+    year: "2023",
+    url: "https://github.com/allison-pham/shelf-sense",
+    homepage: "",
+    featured: false,
+    highlight: false,
     hasCaseStudy: false
   },
 
   {
     id: "qr-connect",
     title: "QR Connect",
-    description: "Save wifi logins → reduce setup time",
+    description: "Save wifi logins → save time (through QR codes)",
     tags: ["Python"],
     status: "shipped",
-    // year: "2023",
+    year: "2023",
     url: "https://github.com/allison-pham/qr-connect",
     homepage: "",
     featured: false,
     highlight: false,
-    year: "",
     hasCaseStudy: false
   },
 
-  // {
-  //   id: "cozy-chat",
-  //   title: "Cozy Chat",
-  //   description: "All-in-one learning & social platform concept",
-  //   tags: ["Education"],
-  //   status: "archived",
-  //   year: "2023 & 2026",
-  //   url: "",
-  //   homepage: "",
-  //   featured: false,
-  //   highlight: false,
-  //   caseStudy: {
-  //   }
-  // },
+  {
+    id: "cozy-chat",
+    title: "Cozy Chat",
+    description: "All-in-one platform (learning x productivity x social media) with syncing across platforms (GitHub, Instagram, Notion, Twitter)",
+    tags: ["Next.js", "Tailwind CSS", "TypeScript", "Figma"],
+    // tags: ["Education"],
+    status: "in progress",
+    year: "2023 - present",
+    url: "https://github.com/allison-pham/cozy-chat",
+    homepage: "",
+    featured: false,
+    highlight: false,
+    caseStudy: {
+    }
+  },
+
+  {
+    id: "frigerator-sim",
+    title: "Frigerator Sim(ulator)",
+    description: "Reduce food waste and increase efficiency",
+    tags: ["C++"],
+    status: "shipped",
+    year: "2023",
+    url: "https://github.com/pilafnoodle/FridgeSimulator",
+    homepage: "",
+    featured: false,
+    highlight: false,
+    hasCaseStudy: false
+  },
+
+  {
+    id: "flappy-bird",
+    title: "Flappy Bird",
+    description: "Childhood game recreated",
+    tags: ["C#", "Unity"],
+    status: "shipped",
+    year: "2023",
+    url: "https://github.com/allison-pham/flappy-bird",
+    homepage: "",
+    featured: false,
+    highlight: false,
+    hasCaseStudy: false
+  },
+
+  {
+    id: "thin-ice",
+    title: "Thin Ice",
+    description: "Remake of a childhood game (fire puffle that traverses an ice maze), built for personal learning and growth",
+    tags: ["Java", "libGDX"],
+    status: "shipped",
+    year: "2023",
+    url: "https://github.com/allison-pham/thin-ice",
+    homepage: "",
+    featured: false,
+    highlight: false,
+    hasCaseStudy: false
+  }
 ]
 
 function slugify(value: string): string {

@@ -1,5 +1,4 @@
 "use client"
-
 import { useState, useEffect } from "react"
 import { cn } from "@/lib/utils"
 import { Github, ExternalLink, Clock, GitBranch, Activity, Archive, Sparkles, Lightbulb } from "lucide-react"
@@ -283,6 +282,122 @@ const ideasQueue: LabItem[] = [
   //   url: "",
   //   branch: "main",
   //   commits: 6,
+  // },
+
+
+  // {
+  //   id: "hci-in-space",
+  //   title: "HCI in Space",
+  //   description: "Human-computer interaction concepts adapted for astronaut workflows",
+  //   tags: ["HCI", "UX", "Space Tech"],
+  //   status: "ideation",
+  //   year: "2026",
+  //   url: "",
+  //   homepage: "",
+  //   featured: true,
+  //   highlight: true,
+  //   thumbnailSrc: "",
+  //   thumbnailAlt: "HCI in Space project cover",
+  //   caseStudy: {
+  //     role: "Product Designer",
+  //     duration: "Month + year",
+  //     specialization: "HCI Design",
+  //     oneSentence: "Design interaction systems that reduce cognitive load in zero-gravity workspaces.",
+  //     quickAction: "Rapid concept validation with storyboard testing.",
+  //   },
+  // },
+
+  // {
+  //   id: "nexa",
+  //   title: "Nexa",
+  //   description: "AI agent - building autonomous workflows to speed up repetitive tasks",
+  //   tags: ["Automation"],
+  //   status: "ideation",
+  //   // year: "2026",
+  //   url: "",
+  //   homepage: "",
+  //   featured: false,
+  //   highlight: false,
+  //   year: "",
+  //   hasCaseStudy: false
+  // },
+
+  // {
+  //   id: "personality-quiz",
+  //   title: "Personality Quiz",
+  //   description: "Interactive quiz experiments for personality-driven recommendations",
+  //   tags: ["UX", "Experiment"],
+  //   status: "archived",
+  //   year: "2026",
+  //   url: "",
+  //   homepage: "",
+  //   featured: false,
+  //   highlight: false,
+  // },
+
+  // {
+  //   id: "ml-models",
+  //   title: "ML Models",
+  //   description: "Machine learning model prototypes for applied use cases",
+  //   tags: ["ML", "Python"],
+  //   status: "ideation",
+  //   year: "2025",
+  //   url: "",
+  //   homepage: "",
+  //   featured: false,
+  //   highlight: false,
+  // },
+
+  // {
+  //   id: "neurowell",
+  //   title: "NeuroWell",
+  //   description: "Healthcare learning combining neuroscience education & wellness",
+  //   tags: ["Wellness", "Product"],
+  //   status: "archived",
+  //   year: "2025",
+  //   url: "",
+  //   homepage: "",
+  //   featured: false,
+  //   highlight: false,
+  // },
+
+  // {
+  //   id: "missionsync",
+  //   title: "MissionSync",
+  //   description: "Async interfaces for mission planning (coordination system concept)",
+  //   tags: [],
+  //   status: "ideation",
+  //   year: "2025",
+  //   url: "",
+  //   homepage: "",
+  //   featured: false,
+  //   highlight: false,
+  // },
+
+  // {
+  //   id: "astrotrade",
+  //   title: "AstroTrade",
+  //   description: "Space commerce & trading simulation concept inspired by space-economy scenarios",
+  //   tags: ["Space", "Finance"],
+  //   status: "archived",
+  //   year: "2025",
+  //   url: "",
+  //   homepage: "",
+  //   featured: false,
+  //   highlight: false,
+  // }
+  
+  // {
+  //   id: "thinksync",
+  //   title: "ThinkSync",
+  //   description: "Cognitive UX",
+  //   tags: ["Productivity"],
+  //   status: "ideation",
+  //   year: "2025",
+  //   url: "",
+  //   homepage: "",
+  //   featured: false,
+  //   highlight: false,
   // },
 ]
 
