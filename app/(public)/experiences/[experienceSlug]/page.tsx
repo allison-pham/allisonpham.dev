@@ -1,9 +1,10 @@
 // Enable static generation for all experience pages
+
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
-import { experiences } from "@/lib/experiences-data";
+import { experiences, SECTIONS } from "@/lib/experiences-data";
 
 function getRelatedExperiences(currentSlug: string) {
   return experiences.filter(e => e.slug !== currentSlug).slice(0, 3);
@@ -33,14 +34,14 @@ export default async function ExperiencePage(props: { params: Promise<{ experien
 
         {/* Experience Highlight, Title, Description */}
         <header className="space-y-4">
-          <p className="font-mono text-xs tracking-[0.25em] text-primary">experience highlight</p>
+          <p className="font-mono text-xs tracking-[0.25em] text-primary">experience highlight;</p>
           <h1 className="text-3xl font-bold tracking-tight sm:text-5xl">{experience.title}</h1>
-          <p className="max-w-3xl text-base leading-relaxed text-muted-foreground sm:text-lg">{experience.shortDescription}</p>
+          <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">{experience.shortDescription}</p>
         </header>
 
         {/* Thumbnail */}
         {experience.thumbnail && (
-          <div className="relative aspect-[16/6] w-full overflow-hidden rounded-2xl border border-border/70 bg-card/40">
+          <div className="relative aspect-16/6 w-full overflow-hidden rounded-2xl border border-border/70 bg-card/40">
             <Image
               src={experience.thumbnail}
               alt={experience.title + " thumbnail"}
@@ -56,7 +57,7 @@ export default async function ExperiencePage(props: { params: Promise<{ experien
         <div className="grid gap-3 sm:grid-cols-3">
           <article className="rounded-xl border border-border/70 bg-card/50 p-4">
             <h2 className="font-mono text-xs tracking-[0.2em] text-muted-foreground">Role</h2>
-            <p className="mt-2 text-sm font-medium">{experience.role}</p>
+            <p className="mt-2 text-sm font-medium">{experience.role?.join(" · ")}</p>
           </article>
           <article className="rounded-xl border border-border/70 bg-card/50 p-4">
             <h2 className="font-mono text-xs tracking-[0.2em] text-muted-foreground">Duration</h2>
@@ -68,19 +69,11 @@ export default async function ExperiencePage(props: { params: Promise<{ experien
           </article>
         </div>
 
-        {/* In 1 sentence... */}
-        {experience.oneSentence && (
-          <div className="space-y-4 rounded-2xl border border-border/70 bg-card/35 p-5 sm:p-6">
-            <h2 className="text-xl font-semibold tracking-tight">In 1 sentence...</h2>
-            <p className="text-sm text-muted-foreground">{experience.oneSentence}</p>
-          </div>
-        )}
-
         {/* Sections */}
         {experience.sections?.map((section) => (
-          <div key={section.id} className="space-y-4 rounded-2xl border border-border/70 bg-card/35 p-5 sm:p-6">
-            <h2 className="text-xl font-semibold tracking-tight">{section.title}</h2>
-            <div className="text-sm text-muted-foreground">{section.content}</div>
+          <div key={section.id} className="space-y-2">
+            <h2 className="text-2xl font-semibold tracking-tight">{SECTIONS[section.id]}</h2>
+            <div className="text-lg text-muted-foreground space-y-4">{section.content}</div>
           </div>
         ))}
 

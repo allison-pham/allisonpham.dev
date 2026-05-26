@@ -1,22 +1,35 @@
+import acmExperience from "./experiences/acm";
+import citrusHackExperience from "./experiences/citrus-hack";
+import cutieHackExperience from "./experiences/cutie-hack";
+import React from "react";
+
+export const SECTIONS = {
+  "intro-opportunities": "Intro & Opportunities",
+  "background-story": "Background Story",
+  "org-impact-contributions": "Org Impact & My Contributions",
+  "tools-technologies": "Tools & Technologies",
+  "lessons-learned": "Lessons Learned",
+  "links-media": "Links, Demo, & Media"
+} as const;
+
+export type SectionId = keyof typeof SECTIONS;
+
 export type Experience = {
   slug: string;
   title: string;
   period: string;
-  role?: string;
+  role?: string[];
   skills?: string[];
   thumbnail?: string;
   shortDescription: string;
-  oneSentence?: string;
   sections?: Array<{
-    id: string;
-    title: string;
+    id: SectionId;
     content: React.ReactNode;
   }>;
 };
 
-import acmExperience from "./experiences/acm";
-
 export const experiences: Experience[] = [
   acmExperience,
-  // Add more experiences here
+  citrusHackExperience,
+  cutieHackExperience
 ];

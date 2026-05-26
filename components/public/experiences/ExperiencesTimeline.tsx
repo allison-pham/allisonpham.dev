@@ -17,6 +17,7 @@ interface Experience {
   highlights: string[]
   tags: string[]
   labels?: string[]
+  hasReadMore?: boolean
 }
 
 const experiences: Experience[] = [
@@ -37,6 +38,7 @@ const experiences: Experience[] = [
       "Conducting user research, designing experiments, and developing prototypes to explore human-robot interaction in microgravity environments"
     ],
     tags: ["HCI"],
+    hasReadMore: true,
   },
 
   {
@@ -53,6 +55,7 @@ const experiences: Experience[] = [
     highlights: [
     ],
     tags: [],
+    hasReadMore: false,
   },
 
   {
@@ -71,6 +74,7 @@ const experiences: Experience[] = [
       "Empowering students to bring impact and project visions to life"
     ],
     tags: ["Productivity", "Community"],
+    hasReadMore: true,
   },
 
   {
@@ -91,6 +95,7 @@ const experiences: Experience[] = [
       "Coordinate total of 25 industry professionals (Amazon, Google, Salesforce, Visa, etc.), 20 sponsors and partners (secure 15+), 15+ tracks and prizes, and 10+ mini events"
     ],
     tags: ["Hackathon"],
+    hasReadMore: true,
   },
 
   {
@@ -108,6 +113,7 @@ const experiences: Experience[] = [
       "Previous Operations Lead (Jun 2024 - Jun 2025) & Operations Committee (Oct 2023 - May 2024)"
     ],
     tags: ["Hackathon"],
+    hasReadMore: true,
   },
 
   {
@@ -125,6 +131,7 @@ const experiences: Experience[] = [
       "Previous Event Chair (Feb 2024 - Jun 2025) & Board Intern (Oct 2023 - Mar 2024)"
     ],
     tags: ["Computer Science", "Engineering"],
+    hasReadMore: true,
   },
 
   {
@@ -142,6 +149,7 @@ const experiences: Experience[] = [
       "Previous Project + Workshop Coordinator (Mar 2024 - Jun 2025) & Junior Officer (Dec 2023 - Mar 2024)"
     ],
     tags: [],
+    hasReadMore: true,
   },
 
   {
@@ -158,6 +166,7 @@ const experiences: Experience[] = [
     highlights: [
     ],
     tags: ["Space"],
+    hasReadMore: false,
   },
 
   {
@@ -175,6 +184,7 @@ const experiences: Experience[] = [
       "Previous Executive Fellow (Oct 2023 - Jun 2024), Senate Intern (Nov 2023 - Jun 2024), etc."
     ],
     tags: [],
+    hasReadMore: true,
   },
 
   {
@@ -191,6 +201,7 @@ const experiences: Experience[] = [
     highlights: [
     ],
     tags: ["Space"],
+    hasReadMore: false,
   },
 
   {
@@ -207,6 +218,7 @@ const experiences: Experience[] = [
     highlights: [
     ],
     tags: ["Neurotech"],
+    hasReadMore: false,
   },
 
   {
@@ -224,6 +236,7 @@ const experiences: Experience[] = [
       "Department of CS & Engineering",
     ],
     tags: ["Computer Science", "Education"],
+    hasReadMore: false,
   },
 ]
 
@@ -463,10 +476,10 @@ export function ExperiencesTimeline() {
                             ))}
                           </div>
                         )}
-                        {/* Link to full ACM experience page */}
-                        {exp.id === "acm" && (
+                        {/* Link to full experience page */}
+                        {exp.hasReadMore && (
                           <a
-                            href="/experiences/acm"
+                            href={`/experiences/${exp.id}`}
                             className="inline-block mt-2 rounded border border-primary/70 bg-primary/60 px-3 py-1 text-xs font-semibold text-foreground hover:bg-primary/80 transition-colors"
                             target="_self"
                           >

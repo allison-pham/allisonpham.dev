@@ -111,7 +111,7 @@ export function HeroSection() {
               ✦ Computer Engineering @ UC Riverside
             </p>
 
-            <p className="max-w-lg text-base sm:text-lg leading-relaxed text-muted-foreground animate-fade-in-up stagger-2">
+            <p className="max-w-lg text-base sm:text-lg leading-relaxed text-muted-foreground">
               ✦ CS • EE • Product • Design
             </p>
 
