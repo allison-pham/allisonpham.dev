@@ -8,25 +8,25 @@ const skillGroups = [
   {
     category: "Computer Science",
     icon: Code2,
-    skills: ["Full-Stack Development", "System Design", "AI/ML", "Data Science", "NLP", "Computer Vision", "Mobile Development", "Databases", "Networks", "APIs"],
-  },
-
-  {
-    category: "Product (Design)",
-    icon: Palette,
-    skills: ["Design Engineering", "Human-Computer Interaction (HCI)", "Cognitive UX", "Information Architecture", "Interaction Design", "Wireframing & Prototyping", "UI/UX Design", "Visual Design", "Design Systems"],
-  },
-
-  {
-    category: "Product (Management)",
-    icon: Library,
-    skills: ["Product Strategy", "User Research & Testing", "Usability Testing", "Experimentation & Iteration", "Impact Evaluation", "Analytics & Insight"],
+    skills: ["Full-stack development", "System design", "AI & machine learning", "Data science", "NLP", "Computer vision", "Mobile development", "Databases", "Networks", "APIs"],
   },
 
   {
     category: "Electrical Engineering",
     icon: Cpu,
-    skills: ["Signals & Systems", "Spectral Analysis", "Analog Electronics", "Sensing & Actuation", "Semiconductors", "Hardware Design", "Register-Transfer Level (RTL) Design", "Engineering Simulation & Testing", "Applied Quantum Mechanics"],
+    skills: ["Signals & systems", "Spectral analysis", "Analog electronics", "Sensing & actuation", "Semiconductors", "Hardware design", "Register-transfer level (RTL) design", "Engineering simulation & testing", "Applied quantum mechanics"],
+  },
+
+  {
+    category: "Product (Design)",
+    icon: Palette,
+    skills: ["Design engineering", "Human-computer interaction (HCI)", "Cognitive UX", "Information architecture", "Interaction design", "Wireframing & prototyping", "UI/UX design", "Visual design", "Design systems"],
+  },
+
+  {
+    category: "Product (Management)",
+    icon: Library,
+    skills: ["Product strategy", "User research & testing", "Usability testing", "Experimentation & iteration", "Impact evaluation", "Analytics & insight"],
   },
 ]
 
@@ -52,7 +52,7 @@ export function AboutKnowledgeAcrossFields() {
           <p className="font-mono text-xs tracking-[0.25em] sm:tracking-[0.35em] text-primary">knowledge;</p>
           <h2 className="text-2xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Knowledge Across Fields</h2>
           <p className="max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed">
-            CS • Product (Design & Management) • EE
+            CS • EE • Product (Design & Management)
           </p>
         </div>
 

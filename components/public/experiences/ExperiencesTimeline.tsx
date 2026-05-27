@@ -269,18 +269,23 @@ export function ExperiencesTimeline() {
   const currentExperiences = experiences.filter((exp) => exp.current)
   const previousExperiences = experiences.filter((exp) => !exp.current)
   const focusAreas = [...new Set(experiences.flatMap((exp) => exp.tags))]
-  const filterTags = ["all", "current", "previous", ...focusAreas]
+  const filterTags = ["all", "current", "previous"]
+  // const filterTags = ["all", "current", "previous", ...focusAreas]
 
   const toggleFilter = (filter: string) => {
-    setActiveFilters((prev) => {
-      if (filter === "all") return ["all"]
-      const withoutAll = prev.filter((f) => f !== "all")
-      const next = withoutAll.includes(filter)
-        ? withoutAll.filter((f) => f !== filter)
-        : [...withoutAll, filter]
-      return next.length === 0 ? ["all"] : next
-    })
+    setActiveFilters([filter])
   }
+
+  // const toggleFilter = (filter: string) => {
+  //   setActiveFilters((prev) => {
+  //     if (filter === "all") return ["all"]
+  //     const withoutAll = prev.filter((f) => f !== "all")
+  //     const next = withoutAll.includes(filter)
+  //       ? withoutAll.filter((f) => f !== filter)
+  //       : [...withoutAll, filter]
+  //     return next.length === 0 ? ["all"] : next
+  //   })
+  // }
 
   const filterCount = (filter: string) => {
     if (filter === "all") return experiences.length
@@ -335,7 +340,7 @@ export function ExperiencesTimeline() {
             Experiences ✩
           </h1>
           <p className="max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed">
-            CS • EE • Product • Design
+            CS • EE • Design • PM
           </p>
         </div>
 

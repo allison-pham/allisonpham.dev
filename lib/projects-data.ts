@@ -230,6 +230,7 @@ const projectSeeds: ProjectSeed[] = [
     id: "missionsync",
     title: "MissionSync",
     description: "Deep space communication",
+    // Space asset directory and data exploration for orbital mission insights
     tags: [],
     status: "ideation",
     year: "2025",
@@ -278,7 +279,7 @@ const projectSeeds: ProjectSeed[] = [
     url: "https://github.com/allison-pham/thinksync",
     homepage: "",
     featured: true,
-    highlight: true,
+    highlight: false,
     hasCaseStudy: false
   },
 

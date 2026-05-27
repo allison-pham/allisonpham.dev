@@ -20,16 +20,6 @@ export const currentPieces: LabItem[] = [
     branch: "main",
     commits: 0,
   },
-  {
-    id: "terraground",
-    name: "terraground",
-    description: "",
-    progress: 10,
-    lastUpdated: "mar 2026",
-    url: "",
-    branch: "main",
-    commits: 0,
-  },
 ]
 
 export const previousIterations: LabItem[] = []
@@ -39,16 +29,6 @@ export const ideasQueue: LabItem[] = [
     id: "ml-models",
     name: "ml-models",
     description: "machine learning model prototypes for applied use cases",
-    progress: 0,
-    lastUpdated: "wip",
-    url: "",
-    branch: "main",
-    commits: 0,
-  },
-  {
-    id: "orbitintel",
-    name: "orbitintel",
-    description: "space asset directory & data exploration for orbital mission insights",
     progress: 0,
     lastUpdated: "wip",
     url: "",
