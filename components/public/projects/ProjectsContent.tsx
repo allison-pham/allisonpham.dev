@@ -20,6 +20,11 @@ export function ProjectsPageContent() {
     setIsVisible(true)
   }, [])
 
+  const filterCount = (filter: ProjectFilter) => {
+    if (filter === "all") return projects.length
+    return projects.filter((p) => p.status === filter).length
+  }
+
   const filteredProjects = projects
     .filter((project) => {
       const matchesFilter = activeFilter === "all" || project.status === activeFilter
@@ -47,7 +52,7 @@ export function ProjectsPageContent() {
           <p className="font-mono text-xs tracking-[0.25em] text-primary sm:tracking-[0.35em]">pieces of building;</p>
           <h1 className="text-3xl font-bold tracking-tight sm:text-5xl lg:text-6xl">Projects ★</h1>
           <p className="max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            Collection of projects across CS, engineering, & design.
+            Collection of projects across CS, engineering, and design 
           </p>
         </div>
 
@@ -64,20 +69,31 @@ export function ProjectsPageContent() {
           </div>
 
           <div className="flex flex-wrap gap-2">
-            {projectFilters.map((filter) => (
-              <button
-                key={filter}
-                onClick={() => setActiveFilter(filter)}
-                className={cn(
-                  "rounded-full border px-4 py-2 font-mono text-xs tracking-wider transition-all duration-300 active:scale-[0.98]",
-                  activeFilter === filter
-                    ? "border-primary bg-primary/15 text-primary shadow-sm shadow-primary/20"
-                    : "border-border text-muted-foreground hover:border-foreground/50 hover:bg-secondary/50 hover:text-foreground",
-                )}
-              >
-                {filter.toLowerCase()}
-              </button>
-            ))}
+            {projectFilters.map((filter) => {
+              const isActive = activeFilter === filter
+              const count = filterCount(filter)
+              return (
+                <button
+                  key={filter}
+                  type="button"
+                  onClick={() => setActiveFilter(filter)}
+                  className={cn(
+                    "flex items-center gap-1.5 rounded-full border px-3 py-1.5 font-mono text-xs tracking-wide transition-all active:scale-[0.98]",
+                    isActive
+                      ? "border-primary/50 bg-primary/15 text-primary"
+                      : "border-border/50 bg-secondary/30 text-muted-foreground hover:border-primary/30 hover:text-foreground",
+                  )}
+                >
+                  {filter.toLowerCase()}
+                  <span className={cn(
+                    "rounded-full px-1.5 py-0.5 font-mono text-[10px] font-semibold",
+                    isActive ? "bg-primary/20 text-primary" : "bg-secondary text-muted-foreground",
+                  )}>
+                    {count}
+                  </span>
+                </button>
+              )
+            })}
           </div>
 
           <div className="flex flex-wrap gap-2">
