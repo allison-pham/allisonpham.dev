@@ -3,30 +3,31 @@
 import { useEffect, useRef, useState } from "react"
 import { cn } from "@/lib/utils"
 import { Code2, Layers3, Wrench, Library, Cpu, Palette } from "lucide-react"
+import { TechIcon } from "@/components/TechStackIcons"
 
 const skillGroups = [
   {
     category: "Languages",
     icon: Code2,
-    skills: ["C++", "Python", "Java", "TypeScript", "JavaScript", "C", "SQL", "Swift", "HTML/CSS"],
+    skills: ["C++", "Python", "TypeScript", "JavaScript", "Go", "Java", "SQL", "C#", "Swift", "Rust", "C", "HTML", "CSS", "Assembly"],
   },
 
   {
     category: "Frameworks",
     icon: Layers3,
-    skills: ["Next.js", "React", "Vue.js", "Tailwind CSS", "Spring Boot", "Swift UI"],
+    skills: ["Next.js", "React", "Vue.js", "Tailwind CSS", "Apache Spark", "Express.js", "Spring Boot", "FastAPI", "Flask", "SwiftUI"],
   },
 
   {
     category: "Developer Tools",
     icon: Wrench,
-    skills: ["Docker", "AWS", "Google Cloud", "Supabase", "Firebase"],
+    skills: ["Docker", "AWS", "Google Cloud", "Supabase", "Firebase", "MongoDB", "Unity", "Godot"],
   },
 
   {
     category: "Libraries",
     icon: Library,
-    skills: ["PyTorch", "TensorFlow", "scikit-learn", "NumPy", "pandas", "Matplotlib", "Three.js"],
+    skills: ["PyTorch", "TensorFlow", "scikit-learn", "Three.js", "Material UI", "NumPy", "pandas", "Matplotlib"],
   },
 
   {
@@ -88,16 +89,10 @@ export function AboutSkills() {
                       {group.category}
                     </span>
                   </div>
-
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {group.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="rounded-md border border-border/60 bg-secondary/40 px-2.5 py-1 font-mono text-xs text-secondary-foreground transition-colors hover:border-primary/50 hover:bg-primary/10 hover:text-primary"
-                    >
-                      {skill}
-                    </span>
+                    <TechIcon key={skill} tag={skill} />
                   ))}
                 </div>
               </div>
