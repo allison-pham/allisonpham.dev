@@ -132,7 +132,6 @@ export function AboutHero() {
 
   "involvement": [
     "President @ ACM",
-    "Design & Research (Autonomous Traversal) @ NASA",
     "Director @ Citrus Hack",
     "Director @ Cutie Hack",
     "Campus Leader @ Notion"

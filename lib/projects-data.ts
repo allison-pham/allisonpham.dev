@@ -50,12 +50,26 @@ const projectSeeds: ProjectSeed[] = [
   //   tags: ["Finance", "Product"],
 
   {
+    id: "acadence",
+    title: "Acadence",
+    description: "Web app that includes all notifications from Canvas, Gradescope, zyBooks, etc.",
+    tags: [],
+    status: "in progress",
+    year: "2026",
+    url: "https://github.com/allison-pham/acadence",
+    homepage: "",
+    featured: false,
+    highlight: false,
+    hasCaseStudy: false
+  },
+
+  {
     id: "ingredia",
     title: "Ingredia",
-    description: "",
-    tags: ["React"],
+    description: "Social platform for checking ingredients within products",
+    tags: ["React", "JavaScript", "Express.js", "Figma"],
     status: "in progress",
-    year: "2026 - present",
+    year: "2026",
     url: "",
     homepage: "",
     featured: false,
@@ -66,10 +80,10 @@ const projectSeeds: ProjectSeed[] = [
   {
     id: "citrus-cutie-hack-main-website",
     title: "Citrus & Cutie Hack: Main Website",
-    description: "",
-    tags: ["Next.js", "Tailwind CSS", "TypeScript", "Figma"],
+    description: "Main (central) website for ACM at UCR's hackathons (Citrus and Cutie Hack)",
+    tags: ["Next.js", "Tailwind CSS", "TypeScript", "Supabase", "Clerk", "Figma"],
     status: "in progress",
-    year: "2026 - present",
+    year: "2026",
     url: "",
     homepage: "",
     featured: false,
@@ -83,7 +97,7 @@ const projectSeeds: ProjectSeed[] = [
     description: "Emergency system",
     tags: ["Next.js", "TypeScript", "Figma"],
     status: "in progress",
-    year: "2026 - present",
+    year: "2026",
     url: "https://github.com/allison-pham/terraground",
     homepage: "",
     featured: false,
@@ -97,7 +111,7 @@ const projectSeeds: ProjectSeed[] = [
     description: "AI agent",
     tags: ["Next.js", "TypeScript", "Figma"],
     status: "in progress",
-    year: "2026 - present",
+    year: "2026",
     url: "https://github.com/allison-pham/nexa",
     homepage: "",
     featured: false,
@@ -111,7 +125,7 @@ const projectSeeds: ProjectSeed[] = [
     description: "Resources for computer science, electrical engineering, product design, and product management",
     tags: ["Markdown"],
     status: "in progress",
-    year: "2025 - present",
+    year: "2025",
     url: "https://github.com/allison-pham/awesome-engineering-resources",
     homepage: "",
     featured: false,
@@ -195,7 +209,7 @@ const projectSeeds: ProjectSeed[] = [
     description: "Tech resources web app (learning system for computer science x electrical engineering x product)",
     tags: ["Next.js", "TypeScript", "Figma"],
     status: "in progress",
-    year: "2025 - present",
+    year: "2025",
     url: "https://github.com/allison-pham/cognistack",
     homepage: "",
     featured: false,
@@ -209,7 +223,7 @@ const projectSeeds: ProjectSeed[] = [
     description: "Cognitive UX platform (with a software-focused BCI system) inspired by neuromorphic engineering, leveraging neural networks and sensory feedback for adaptive HCI",
     tags: ["Next.js", "Tailwind CSS", "TypeScript", "Supabase", "PyTorch", "WebSockets"],
     status: "in progress",
-    year: "2025 - present",
+    year: "2025",
     url: "https://github.com/allison-pham/thinksync",
     homepage: "",
     featured: false,
@@ -223,7 +237,7 @@ const projectSeeds: ProjectSeed[] = [
     description: "",
     tags: ["Next.js", "Tailwind CSS", "TypeScript"],
     status: "in progress",
-    year: "2025 - present",
+    year: "2025",
     url: "https://github.com/productembark/product-embark-website",
     homepage: "",
     featured: false,
@@ -251,7 +265,7 @@ const projectSeeds: ProjectSeed[] = [
     description: "A jar collection of mood journaling combined with favorite music albums",
     tags: ["React", "Vite", "Tailwind CSS", "JavaScript", "Figma"],
     status: "in progress",
-    year: "2025 - present",
+    year: "2025",
     url: "https://github.com/allison-pham/musely",
     homepage: "",
     featured: false,
@@ -480,7 +494,9 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: false,
+    thumbnailSrc: "/projects/weatherwise.svg",
+    thumbnailAlt: "WeatherWise cover"
   },
 
   {
@@ -508,7 +524,9 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: false,
+    thumbnailSrc: "/projects/qr-connect.svg",
+    thumbnailAlt: "QR Connect cover"
   },
 
   {
@@ -517,14 +535,13 @@ const projectSeeds: ProjectSeed[] = [
     description: "All-in-one platform (learning x productivity x social media) with syncing across platforms (GitHub, Instagram, Notion, Twitter)",
     tags: ["Next.js", "Tailwind CSS", "TypeScript", "Figma"],
     // tags: ["Education"],
-    status: "in progress",
-    year: "2023 - present",
+    status: "archived",
+    year: "2023",
     url: "https://github.com/allison-pham/cozy-chat",
     homepage: "",
     featured: false,
     highlight: false,
-    caseStudy: {
-    }
+    hasCaseStudy: false
   },
 
   {
@@ -552,7 +569,9 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: false,
+    thumbnailSrc: "/projects/flappy-bird.svg",
+    thumbnailAlt: "Flappy Bird cover"
   },
 
   {
@@ -566,7 +585,9 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: false,
+    thumbnailSrc: "/projects/thin-ice.svg",
+    thumbnailAlt: "Thin Ice cover"
   }
 ]
 

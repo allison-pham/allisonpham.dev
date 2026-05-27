@@ -141,7 +141,9 @@ export function ProjectsPageContent() {
                   <span className="max-w-30 truncate font-mono text-xs text-muted-foreground">{project.status}</span>
                 </div>
 
-                <div className={cn("mb-4 font-mono text-xs text-muted-foreground", project.highlight && "mt-10")}>{project.year}</div>
+                <div className={cn("mb-4 font-mono text-xs text-muted-foreground", project.highlight && "mt-10")}>
+                  {project.year}{project.status === "in progress" && project.year ? " - present" : project.status === "in progress" ? "present" : ""}
+                </div>
 
                 <div
                   className={cn(
@@ -229,7 +231,7 @@ export function ProjectsPageContent() {
 
         {filteredProjects.length === 0 && (
           <div className="py-20 text-center">
-            <p className="font-mono text-sm text-muted-foreground">No projects found matching your criteria.</p>
+            <p className="font-mono text-sm text-muted-foreground">No projects under this category.</p>
           </div>
         )}
       </div>
