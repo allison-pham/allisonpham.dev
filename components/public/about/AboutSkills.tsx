@@ -9,31 +9,36 @@ const skillGroups = [
   {
     category: "Languages",
     icon: Code2,
-    skills: ["C++", "Python", "TypeScript", "JavaScript", "Go", "Java", "SQL", "C#", "Swift", "Rust", "C", "HTML", "CSS", "Assembly"],
+    skills: ["C++", "Python", "TypeScript", "JavaScript", "Java", "SQL", "C", "HTML", "CSS"],
+    // skills: ["C++", "Python", "TypeScript", "JavaScript", "Go", "Java", "SQL", "C#", "Swift", "Rust", "C", "HTML", "CSS", "Assembly"],
   },
 
   {
     category: "Frameworks",
     icon: Layers3,
-    skills: ["Next.js", "React", "Vue.js", "Tailwind CSS", "Apache Spark", "Express.js", "Spring Boot", "FastAPI", "Flask", "SwiftUI"],
+    skills: ["Next.js", "React", "Vue.js", "Tailwind CSS", "Apache Spark", "Express.js"],
+    // skills: ["Next.js", "React", "Vue.js", "Tailwind CSS", "Apache Spark", "Express.js", "Spring Boot", "FastAPI", "Flask", "SwiftUI"],
   },
 
   {
     category: "Developer Tools",
     icon: Wrench,
-    skills: ["Docker", "AWS", "Google Cloud", "Supabase", "Firebase", "MongoDB", "Unity", "Godot"],
+    skills: ["Docker", "AWS", "Google Cloud", "Supabase", "Firebase", "MongoDB"],
+    // skills: ["Docker", "AWS", "Google Cloud", "Supabase", "Firebase", "MongoDB", "Unity", "Godot"],
   },
 
   {
     category: "Libraries",
     icon: Library,
-    skills: ["PyTorch", "TensorFlow", "scikit-learn", "Three.js", "Material UI", "NumPy", "pandas", "Matplotlib"],
+    skills: ["PyTorch", "TensorFlow", "scikit-learn", "Material UI", "NumPy", "pandas", "Matplotlib"],
+    // skills: ["PyTorch", "TensorFlow", "scikit-learn", "Three.js", "Material UI", "NumPy", "pandas", "Matplotlib"],
   },
 
   {
     category: "Hardware / CAD",
     icon: Cpu,
-    skills: ["MATLAB", "SPICE", "Verilog", "FPGA Tools", "Arduino", "Altium", "Autodesk", "Qt"],
+    skills: ["MATLAB", "Verilog", "Arduino", "Altium", "Autodesk"],
+    // skills: ["MATLAB", "SPICE", "Verilog", "FPGA Tools", "Arduino", "Altium", "Autodesk", "Qt"],
   },
 
   {
