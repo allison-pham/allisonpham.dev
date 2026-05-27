@@ -197,8 +197,7 @@
   color: var(--primary);
 }
 
-/* New animation utilities */
-@keyframes fade-in-up {
+/* @keyframes fade-in-up {
   from {
     opacity: 0;
     transform: translateY(24px);
@@ -207,9 +206,9 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
+} */
 
-@keyframes fade-in-down {
+/* @keyframes fade-in-down {
   from {
     opacity: 0;
     transform: translateY(-24px);
@@ -218,18 +217,18 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
+} */
 
-@keyframes fade-in {
+/* @keyframes fade-in {
   from {
     opacity: 0;
   }
   to {
     opacity: 1;
   }
-}
+} */
 
-@keyframes scale-in {
+/* @keyframes scale-in {
   from {
     opacity: 0;
     transform: scale(0.95);
@@ -238,9 +237,9 @@
     opacity: 1;
     transform: scale(1);
   }
-}
+} */
 
-@keyframes slide-in-left {
+/* @keyframes slide-in-left {
   from {
     opacity: 0;
     transform: translateX(-24px);
@@ -249,9 +248,9 @@
     opacity: 1;
     transform: translateX(0);
   }
-}
+} */
 
-@keyframes slide-in-right {
+/* @keyframes slide-in-right {
   from {
     opacity: 0;
     transform: translateX(24px);
@@ -260,7 +259,51 @@
     opacity: 1;
     transform: translateX(0);
   }
+} */
+
+/* .animate-fade-in-up {
+  animation: fade-in-up 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+} */
+
+/* .animate-fade-in-down {
+  animation: fade-in-down 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+} */
+
+/* .animate-fade-in {
+  animation: fade-in 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+} */
+
+/* .animate-scale-in {
+  animation: scale-in 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+} */
+
+/* .animate-slide-in-left {
+  animation: slide-in-left 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+} */
+
+/* .animate-slide-in-right {
+  animation: slide-in-right 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+} */
+
+/* No-ops so components using these classes don't break */
+.animate-fade-in-up,
+.animate-fade-in-down,
+.animate-fade-in,
+.animate-scale-in,
+.animate-slide-in-left,
+.animate-slide-in-right {
+  animation: none;
+  opacity: 1 !important;
 }
+
+/* .stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+.stagger-6 { animation-delay: 0.6s; }
+.stagger-7 { animation-delay: 0.7s; }
+.stagger-8 { animation-delay: 0.8s; } */
 
 @keyframes float {
   0%,
@@ -303,30 +346,6 @@
   }
 }
 
-.animate-fade-in-up {
-  animation: fade-in-up 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-.animate-fade-in-down {
-  animation: fade-in-down 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-.animate-fade-in {
-  animation: fade-in 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-.animate-scale-in {
-  animation: scale-in 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-.animate-slide-in-left {
-  animation: slide-in-left 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-.animate-slide-in-right {
-  animation: slide-in-right 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
 .animate-float {
   animation: float 4s ease-in-out infinite;
 }
@@ -344,32 +363,6 @@
 .animate-gradient {
   background-size: 200% 200%;
   animation: gradient-shift 4s ease infinite;
-}
-
-/* Stagger animation delays */
-.stagger-1 {
-  animation-delay: 0.1s;
-}
-.stagger-2 {
-  animation-delay: 0.2s;
-}
-.stagger-3 {
-  animation-delay: 0.3s;
-}
-.stagger-4 {
-  animation-delay: 0.4s;
-}
-.stagger-5 {
-  animation-delay: 0.5s;
-}
-.stagger-6 {
-  animation-delay: 0.6s;
-}
-.stagger-7 {
-  animation-delay: 0.7s;
-}
-.stagger-8 {
-  animation-delay: 0.8s;
 }
 
 /* Glass morphism effect */

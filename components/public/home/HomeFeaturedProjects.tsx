@@ -20,7 +20,7 @@ export function FeaturedProjects() {
     return () => observer.disconnect()
   }, [])
 
-  const featuredProjects = projects.filter((p) => p.highlight)
+  const featuredProjects = projects.filter((p) => p.featured)
   if (featuredProjects.length === 0) return null
 
   return (

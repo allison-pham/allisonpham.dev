@@ -671,10 +671,18 @@ export const projects: Project[] = projectSeeds.map((project) => ({
 }))
 
 export const projectFilters = ["all", "shipped", "in progress", "ideation", "archived"] as const
-
 export type ProjectFilter = (typeof projectFilters)[number]
 
-export const allProjectTags = [...new Set(projects.flatMap((project) => project.tags))]
+export const allProjectTags = Object.entries(
+  projects.flatMap((p) => p.tags).reduce<Record<string, number>>((acc, tag) => {
+    acc[tag] = (acc[tag] ?? 0) + 1
+    return acc
+  }, {})
+)
+  .sort((a, b) => b[1] - a[1])
+  .map(([tag]) => tag)
+
+// export const allProjectTags = [...new Set(projects.flatMap((project) => project.tags))]
 
 const defaultSectionTitles: Array<{ id: string; title: string }> = [
   { id: "background-story", title: "Background Story" },

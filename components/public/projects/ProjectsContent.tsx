@@ -56,46 +56,51 @@ export function ProjectsPageContent() {
           </p>
         </div>
 
-        <div className={cn("mb-10 space-y-6 opacity-0", isVisible && "animate-fade-in-up stagger-2")}>
-          <div className="relative max-w-md">
-            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-            <Input
-              type="text"
-              placeholder="Search projects..."
-              value={searchQuery}
-              onChange={(event) => setSearchQuery(event.target.value)}
-              className="border-border/60 bg-card/40 pl-10 focus:border-primary/50"
-            />
+        <div className={cn("mb-10 space-y-4 opacity-0", isVisible && "animate-fade-in-up stagger-2")}>
+
+          {/* Filters + search in one row */}
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex flex-wrap gap-2">
+              {projectFilters.map((filter) => {
+                const isActive = activeFilter === filter
+                const count = filterCount(filter)
+                return (
+                  <button
+                    key={filter}
+                    type="button"
+                    onClick={() => setActiveFilter(filter)}
+                    className={cn(
+                      "flex items-center gap-1.5 rounded-full border px-3 py-1.5 font-mono text-xs tracking-wide transition-all active:scale-[0.98]",
+                      isActive
+                        ? "border-primary/50 bg-primary/15 text-primary"
+                        : "border-border/50 bg-secondary/30 text-muted-foreground hover:border-primary/30 hover:text-foreground",
+                    )}
+                  >
+                    {filter.toLowerCase()}
+                    <span className={cn(
+                      "rounded-full px-1.5 py-0.5 font-mono text-[10px] font-semibold",
+                      isActive ? "bg-primary/20 text-primary" : "bg-secondary text-muted-foreground",
+                    )}>
+                      {count}
+                    </span>
+                  </button>
+                )
+              })}
+            </div>
+
+            <div className="relative w-full sm:max-w-xs">
+              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+              <Input
+                type="text"
+                placeholder="Search projects..."
+                value={searchQuery}
+                onChange={(event) => setSearchQuery(event.target.value)}
+                className="border-border/60 bg-card/40 pl-10 focus:border-primary/50"
+              />
+            </div>
           </div>
 
-          <div className="flex flex-wrap gap-2">
-            {projectFilters.map((filter) => {
-              const isActive = activeFilter === filter
-              const count = filterCount(filter)
-              return (
-                <button
-                  key={filter}
-                  type="button"
-                  onClick={() => setActiveFilter(filter)}
-                  className={cn(
-                    "flex items-center gap-1.5 rounded-full border px-3 py-1.5 font-mono text-xs tracking-wide transition-all active:scale-[0.98]",
-                    isActive
-                      ? "border-primary/50 bg-primary/15 text-primary"
-                      : "border-border/50 bg-secondary/30 text-muted-foreground hover:border-primary/30 hover:text-foreground",
-                  )}
-                >
-                  {filter.toLowerCase()}
-                  <span className={cn(
-                    "rounded-full px-1.5 py-0.5 font-mono text-[10px] font-semibold",
-                    isActive ? "bg-primary/20 text-primary" : "bg-secondary text-muted-foreground",
-                  )}>
-                    {count}
-                  </span>
-                </button>
-              )
-            })}
-          </div>
-
+          {/* Tag filters */}
           <div className="flex flex-wrap gap-2">
             <Filter className="mr-2 h-4 w-4 self-center text-muted-foreground" />
             {allProjectTags.slice(0, 12).map((tag) => (
