@@ -1,5 +1,4 @@
 "use client"
-
 import Link from "next/link"
 import { useEffect, useState } from "react"
 
@@ -112,7 +111,7 @@ export function HeroSection() {
             </p>
 
             <p className="max-w-lg text-base sm:text-lg leading-relaxed text-muted-foreground">
-              ✦ CS • EE • Product • Design
+              ✦ CS • EE • Design • PM
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up stagger-3">

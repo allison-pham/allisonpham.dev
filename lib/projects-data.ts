@@ -44,11 +44,6 @@ export type Project = ProjectSeed & {
 }
 
 const projectSeeds: ProjectSeed[] = [
-  //   id: "finflow",
-  //   title: "FinFlow",
-  //   description: "Personal finance workflow concept for better money habits",
-  //   tags: ["Finance", "Product"],
-
   {
     id: "acadence",
     title: "Acadence",
@@ -92,6 +87,34 @@ const projectSeeds: ProjectSeed[] = [
   },
 
   {
+    id: "component-library",
+    title: "Component Library",
+    description: "",
+    tags: [],
+    status: "ideation",
+    year: "2026",
+    url: "",
+    homepage: "",
+    featured: false,
+    highlight: false,
+    hasCaseStudy: false
+  },
+
+  {
+    id: "hci-in-space",
+    title: "HCI in Space",
+    description: "Cognitive load in environments and microgravity interaction design (HCI concepts adapted for astronaut workflows)",
+    tags: [],
+    status: "ideation",
+    year: "2026",
+    url: "",
+    homepage: "",
+    featured: false,
+    highlight: false,
+    hasCaseStudy: false
+  },
+
+  {
     id: "terraground",
     title: "TerraGround",
     description: "Emergency system",
@@ -108,11 +131,25 @@ const projectSeeds: ProjectSeed[] = [
   {
     id: "nexa",
     title: "Nexa",
-    description: "AI agent",
+    description: "AI agent - building autonomous workflows to speed up repetitive tasks",
     tags: ["Next.js", "TypeScript", "Figma"],
     status: "in progress",
     year: "2026",
     url: "https://github.com/allison-pham/nexa",
+    homepage: "",
+    featured: false,
+    highlight: false,
+    hasCaseStudy: false
+  },
+
+  {
+    id: "personality-quiz",
+    title: "Personality Quiz",
+    description: "Interactive quiz experiments for personality-driven recommendations",
+    tags: [],
+    status: "ideation",
+    year: "2026",
+    url: "",
     homepage: "",
     featured: false,
     highlight: false,
@@ -127,6 +164,20 @@ const projectSeeds: ProjectSeed[] = [
     status: "in progress",
     year: "2025",
     url: "https://github.com/allison-pham/awesome-engineering-resources",
+    homepage: "",
+    featured: true,
+    highlight: true,
+    hasCaseStudy: false
+  },
+
+  {
+    id: "github-package",
+    title: "GitHub Package",
+    description: "",
+    tags: [],
+    status: "ideation",
+    year: "2025",
+    url: "",
     homepage: "",
     featured: false,
     highlight: false,
@@ -179,6 +230,7 @@ const projectSeeds: ProjectSeed[] = [
     id: "missionsync",
     title: "MissionSync",
     description: "Deep space communication",
+    // Space asset directory and data exploration for orbital mission insights
     tags: [],
     status: "ideation",
     year: "2025",
@@ -226,7 +278,7 @@ const projectSeeds: ProjectSeed[] = [
     year: "2025",
     url: "https://github.com/allison-pham/thinksync",
     homepage: "",
-    featured: false,
+    featured: true,
     highlight: false,
     hasCaseStudy: false
   },
@@ -267,6 +319,20 @@ const projectSeeds: ProjectSeed[] = [
     status: "in progress",
     year: "2025",
     url: "https://github.com/allison-pham/musely",
+    homepage: "",
+    featured: false,
+    highlight: false,
+    hasCaseStudy: false
+  },
+
+  {
+    id: "finflow",
+    title: "FinFlow",
+    description: "Fintech x healthcare (financial software - personal finance workflow concept for better money habits)",
+    tags: [],
+    status: "archived",
+    year: "2025",
+    url: "",
     homepage: "",
     featured: false,
     highlight: false,
@@ -605,10 +671,18 @@ export const projects: Project[] = projectSeeds.map((project) => ({
 }))
 
 export const projectFilters = ["all", "shipped", "in progress", "ideation", "archived"] as const
-
 export type ProjectFilter = (typeof projectFilters)[number]
 
-export const allProjectTags = [...new Set(projects.flatMap((project) => project.tags))]
+export const allProjectTags = Object.entries(
+  projects.flatMap((p) => p.tags).reduce<Record<string, number>>((acc, tag) => {
+    acc[tag] = (acc[tag] ?? 0) + 1
+    return acc
+  }, {})
+)
+  .sort((a, b) => b[1] - a[1])
+  .map(([tag]) => tag)
+
+// export const allProjectTags = [...new Set(projects.flatMap((project) => project.tags))]
 
 const defaultSectionTitles: Array<{ id: string; title: string }> = [
   { id: "background-story", title: "Background Story" },

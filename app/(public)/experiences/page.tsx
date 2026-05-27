@@ -5,7 +5,7 @@ export default function ExperiencesPage() {
   return (
     <>
       <ExperiencesTimeline />
-      <PastLife />
+      {/* <PastLife /> */}
     </>
   );
 }
