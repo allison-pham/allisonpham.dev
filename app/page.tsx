@@ -1,6 +1,7 @@
 import { AreasOfWork } from "@/components/public/home/HomeAreasOfWork";
 import { CurrentQuests } from "@/components/public/home/HomeQuests";
-import { ExplorationGlimpse } from "@/components/public/home/ExplorationGlimpse"
+import { ExplorationGlimpse } from "@/components/public/home/HomeExplorationGlimpse"
+import { FeaturedProjects } from "@/components/public/home/HomeFeaturedProjects";
 import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
 import { HeroSection } from "@/components/public/home/HomeHero"
@@ -31,8 +32,9 @@ export default function Home() {
           <HeroSection />
           {/* <AreasOfWork /> */}
           <CurrentQuests />
+          <FeaturedProjects />
           {/* <Now /> */}
-          <PiecesOfCuriosity />
+          {/* <PiecesOfCuriosity /> */}
           {/* Exploration Glimpse Section */}
           {/* <div className="mt-16">
             <ExplorationGlimpse />

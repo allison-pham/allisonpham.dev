@@ -6,10 +6,15 @@ import { MapPin, Coffee, Terminal } from "lucide-react"
 import Image from "next/image"
 
 const stats = [
-  { label: "Engineering", value: "Resources" },
+  { label: "Engineering", value: "0→1 builds" },
   { label: "Design", value: "Accessibility" },
-  { label: "Research", value: "HCI in space" },
+  { label: "Research", value: "HCI & neuro" },
   { label: "Cups of tea", value: "∞" },
+
+  // { label: "Engineering", value: "Resources" },
+  // { label: "Design", value: "Accessibility" },
+  // { label: "Research", value: "HCI in space" },
+  // { label: "Cups of tea", value: "∞" },
 ]
 
 export function AboutHero() {

@@ -1,36 +1,42 @@
 "use client"
-
 import { useEffect, useRef, useState } from "react"
 import { cn } from "@/lib/utils"
-import { Briefcase, Laptop, Satellite } from "lucide-react"
+import { ArrowRight, Briefcase, Laptop, Satellite, Telescope } from "lucide-react"
+import Link from "next/link"
 
 const values = [
   {
-    icon: Satellite,
-    title: "Researching HCI in space",
+    icon: Laptop,
+    title: "Project sightings",
     description:
-      "Human-robot interaction in microgravity",
+      "Building systems from the ground up, tinkering with new ideas",
   },
 
   {
     icon: Briefcase,
-    title: "Leading orgs across campus & internationally",
+    title: "Leading across campus + internationally",
     description:
-      "Current: President @ ACM at UCR, Director @ Citrus & Cutie Hack, etc.",
+      "Involvement: Notion, ACM at UCR, Citrus Hack, Cutie Hack, etc.",
   },
-  
+
   {
-    icon: Laptop,
-    title: "Project sightings - machine learning & HCI",
+    icon: Telescope,
+    title: "Builder at heart",
+    description: "Always making something at the intersection of technology and design",
+  },
+
+  {
+    icon: Satellite,
+    title: "Research",
     description:
-      "Building systems from the ground up, tinkering with new ideas",
+      "Machine learning, HCI, and 0→1 systems",
   },
 
   // {
   //   icon: Hammer,
   //   title: "Misc.",
   //   description:
-  //     "Avid polymath & hobbyist, currently buildling & designing in the context of space",
+  //     "Avid polymath & hobbyist, currently buildling and designing in the context of space",
   // },
 ]
 
@@ -52,11 +58,20 @@ export function CurrentQuests() {
   return (
     <section ref={sectionRef} className="border-t border-border/30 px-4 sm:px-6 pt-16 sm:pt-20 pb-8 sm:pb-12\">
       <div className="mx-auto max-w-7xl">
-        <div className={cn("mb-10 sm:mb-14 space-y-3 opacity-0", isVisible && "animate-fade-in-up")}>
-          <p className="font-mono text-xs tracking-[0.25em] sm:tracking-[0.35em] text-primary">missions;</p>
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Current Quests ⋆｡°</h2>
+        <div className={cn("mb-10 sm:mb-14 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between opacity-0", isVisible && "animate-fade-in-up")}>
+          <div className="space-y-3 sm:flex-1 sm:min-w-0">
+            <p className="font-mono text-xs tracking-[0.25em] sm:tracking-[0.35em] text-primary">missions;</p>
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Current Quests ⋆｡°</h2>
+          </div>
+          <Link
+            href="/about"
+            className="flex items-center gap-2 font-mono text-sm text-muted-foreground hover:text-primary transition-colors group"
+          >
+            Explore more @ about
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </Link>
         </div>
-
+        
         <div className="grid gap-5 sm:grid-cols-2">
           {values.map((value, index) => (
             <div

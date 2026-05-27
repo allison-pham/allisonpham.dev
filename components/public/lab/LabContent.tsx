@@ -1,410 +1,9 @@
 "use client"
+
 import { useState, useEffect } from "react"
 import { cn } from "@/lib/utils"
-import { Github, ExternalLink, Clock, GitBranch, Activity, Archive, Sparkles, Lightbulb } from "lucide-react"
-
-interface LabItem {
-  id: string
-  name: string
-  description: string
-  progress: number
-  lastUpdated: string
-  url: string
-  branch: string
-  commits: number
-}
-
-const currentPieces: LabItem[] = [  
-  {
-    id: "cs-ee-learning-system",
-    name: "cs-ee-learning-system",
-    description: "interactive learning platform for cs, engineering, & product fundamentals",
-    progress: 25,
-    lastUpdated: "jul 2025",
-    url: "",
-    branch: "main",
-    commits: 2,
-  },
-
-  {
-    id: "nexa",
-    name: "nexa",
-    description: "AI agent - building autonomous workflows to speed up repetitive tasks",
-    progress: 5,
-    lastUpdated: "mar 2026",
-    url: "",
-    branch: "main",
-    commits: 0,
-  },
-
-  {
-    id: "terraground",
-    name: "terraground",
-    description: "",
-    progress: 10,
-    lastUpdated: "mar 2026",
-    url: "",
-    branch: "main",
-    commits: 0,
-  },
-]
-
-const previousIterations: LabItem[] = [
-]
-
-const ideasQueue: LabItem[] = [
-  // {
-  //   id: "astrotrade",
-  //   name: "astrotrade",
-  //   description: "space commerce & trading simulation concept inspired by space-economy scenarios",
-  //   progress: 0,
-  //   lastUpdated: "wip",
-  //   url: "",
-  //   branch: "main",
-  //   commits: 0,
-  // },
-
-  // {
-  //   id: "bioquest",
-  //   name: "bioquest",
-  //   description: "environment learning through gamification",
-  //   progress: 20,
-  //   lastUpdated: "dec 2025",
-  //   url: "",
-  //   branch: "main",
-  //   commits: 15,
-  // },
-
-  // {
-  //   id: "component-library",
-  //   name: "component-library",
-  //   description: "",
-  //   progress: 0,
-  //   lastUpdated: "wip",
-  //   url: "",
-  //   branch: "main",
-  //   commits: 0,
-  // },
-
-  // {
-  //   id: "cozy-chat",
-  //   name: "cozy-chat",
-  //   description: "all-in-one learning & social platform concept",
-  //   progress: 10,
-  //   lastUpdated: "jul 2025",
-  //   url: "",
-  //   branch: "main",
-  //   commits: 6,
-  // },
- 
-  // {
-  //   id: "cs-links",
-  //   name: "cs-links",
-  //   description: "",
-  //   progress: 0,
-  //   lastUpdated: "wip",
-  //   url: "",
-  //   branch: "main",
-  //   commits: 0,
-  // },
-
-  // {
-  //   id: "cyberdeck",
-  //   name: "cyberdeck",
-  //   description: "",
-  //   progress: 0,
-  //   lastUpdated: "wip",
-  //   url: "",
-  //   branch: "main",
-  //   commits: 0,
-  // },
-
-  // {
-  //   id: "figma-plugin-tool",
-  //   name: "figma-plugin-tool",
-  //   description: "",
-  //   progress: 0,
-  //   lastUpdated: "wip",
-  //   url: "",
-  //   branch: "main",
-  //   commits: 0,
-  // },
-
-  // {
-  //   id: "finflow",
-  //   name: "finflow",
-  //   description: "personal finance workflow concept for better money habits",
-  //   progress: 5,
-  //   lastUpdated: "wip",
-  //   url: "",
-  //   branch: "main",
-  //   commits: 0,
-  // },
-
-  // {
-  //   id: "hci-in-space",
-  //   name: "hci-in-space",
-  //   description: "cognitive load in environments & microgravity interaction design. hci concepts adapted for astronaut workflows",
-  //   progress: 5,
-  //   lastUpdated: "wip",
-  //   url: "",
-  //   branch: "main",
-  //   commits: 0,
-  // },
-
-  // {
-  //   id: "missionsync",
-  //   name: "missionsync",
-  //   description: "async interfaces for mission planning (coordination system concept)",
-  //   progress: 0,
-  //   lastUpdated: "wip",
-  //   url: "",
-  //   branch: "main",
-  //   commits: 0,
-  // },
-
-  {
-    id: "ml-models",
-    name: "ml-models",
-    description: "machine learning model prototypes for applied use cases",
-    progress: 0,
-    lastUpdated: "wip",
-    url: "",
-    branch: "main",
-    commits: 0,
-  },
-
-  // {
-  //   id: "musely",
-  //   name: "musely",
-  //   description: "music x journaling",
-  //   progress: 5,
-  //   lastUpdated: "wip",
-  //   url: "",
-  //   branch: "main",
-  //   commits: 0,
-  // },
-
-  // {
-  //   id: "neurowell",
-  //   name: "neurowell",
-  //   description: "healthcare learning combining neuroscience education & wellness",
-  //   progress: 0,
-  //   lastUpdated: "wip",
-  //   url: "",
-  //   branch: "main",
-  //   commits: 0,
-  // },
-
-  {
-    id: "orbitintel",
-    name: "orbitintel",
-    description: "space asset directory & data exploration for orbital mission insights",
-    progress: 0,
-    lastUpdated: "wip",
-    url: "",
-    branch: "main",
-    commits: 0,
-  },
-
-  // {
-  //   id: "organizer-dashboard",
-  //   name: "organizer-dashboard",
-  //   description: "",
-  //   progress: 0,
-  //   lastUpdated: "wip",
-  //   url: "",
-  //   branch: "main",
-  //   commits: 0,
-  // },
-
-  // {
-  //   id: "personality-quiz",
-  //   name: "personality-quiz",
-  //   description: "interactive quiz experiments for personality-driven recommendations",
-  //   progress: 0,
-  //   lastUpdated: "wip",
-  //   url: "",
-  //   branch: "main",
-  //   commits: 0,
-  // },
-
-  // {
-  //   id: "product-website",
-  //   name: "product-website",
-  //   description: "",
-  //   progress: 0,
-  //   lastUpdated: "wip",
-  //   url: "",
-  //   branch: "main",
-  //   commits: 0,
-  // },
-
-  // {
-  //   id: "resources",
-  //   name: "resources",
-  //   description: "",
-  //   progress: 0,
-  //   lastUpdated: "wip",
-  //   url: "",
-  //   branch: "main",
-  //   commits: 0,
-  // },
-
-  // {
-  //   id: "tamagotchi",
-  //   name: "tamagotchi",
-  //   description: "",
-  //   progress: 0,
-  //   lastUpdated: "wip",
-  //   url: "",
-  //   branch: "main",
-  //   commits: 0,
-  // },
-
-  // {
-  //   id: "thinksync",
-  //   name: "thinksync",
-  //   description: "cognitive UX",
-  //   progress: 5,
-  //   lastUpdated: "wip",
-  //   url: "",
-  //   branch: "main",
-  //   commits: 0,
-  // },
-
-  // {
-  //   id: "youflow",
-  //   name: "youflow",
-  //   description: "data analyzer experiments for structured workflow insight",
-  //   progress: 10,
-  //   lastUpdated: "dec 2025",
-  //   url: "",
-  //   branch: "main",
-  //   commits: 6,
-  // },
-
-
-  // {
-  //   id: "hci-in-space",
-  //   title: "HCI in Space",
-  //   description: "Human-computer interaction concepts adapted for astronaut workflows",
-  //   tags: ["HCI", "UX", "Space Tech"],
-  //   status: "ideation",
-  //   year: "2026",
-  //   url: "",
-  //   homepage: "",
-  //   featured: true,
-  //   highlight: true,
-  //   thumbnailSrc: "",
-  //   thumbnailAlt: "HCI in Space project cover",
-  //   caseStudy: {
-  //     role: "Product Designer",
-  //     duration: "Month + year",
-  //     specialization: "HCI Design",
-  //     oneSentence: "Design interaction systems that reduce cognitive load in zero-gravity workspaces.",
-  //     quickAction: "Rapid concept validation with storyboard testing.",
-  //   },
-  // },
-
-  // {
-  //   id: "nexa",
-  //   title: "Nexa",
-  //   description: "AI agent - building autonomous workflows to speed up repetitive tasks",
-  //   tags: ["Automation"],
-  //   status: "ideation",
-  //   // year: "2026",
-  //   url: "",
-  //   homepage: "",
-  //   featured: false,
-  //   highlight: false,
-  //   year: "",
-  //   hasCaseStudy: false
-  // },
-
-  // {
-  //   id: "personality-quiz",
-  //   title: "Personality Quiz",
-  //   description: "Interactive quiz experiments for personality-driven recommendations",
-  //   tags: ["UX", "Experiment"],
-  //   status: "archived",
-  //   year: "2026",
-  //   url: "",
-  //   homepage: "",
-  //   featured: false,
-  //   highlight: false,
-  // },
-
-  // {
-  //   id: "ml-models",
-  //   title: "ML Models",
-  //   description: "Machine learning model prototypes for applied use cases",
-  //   tags: ["ML", "Python"],
-  //   status: "ideation",
-  //   year: "2025",
-  //   url: "",
-  //   homepage: "",
-  //   featured: false,
-  //   highlight: false,
-  // },
-
-  // {
-  //   id: "neurowell",
-  //   title: "NeuroWell",
-  //   description: "Healthcare learning combining neuroscience education & wellness",
-  //   tags: ["Wellness", "Product"],
-  //   status: "archived",
-  //   year: "2025",
-  //   url: "",
-  //   homepage: "",
-  //   featured: false,
-  //   highlight: false,
-  // },
-
-  // {
-  //   id: "missionsync",
-  //   title: "MissionSync",
-  //   description: "Async interfaces for mission planning (coordination system concept)",
-  //   tags: [],
-  //   status: "ideation",
-  //   year: "2025",
-  //   url: "",
-  //   homepage: "",
-  //   featured: false,
-  //   highlight: false,
-  // },
-
-  // {
-  //   id: "astrotrade",
-  //   title: "AstroTrade",
-  //   description: "Space commerce & trading simulation concept inspired by space-economy scenarios",
-  //   tags: ["Space", "Finance"],
-  //   status: "archived",
-  //   year: "2025",
-  //   url: "",
-  //   homepage: "",
-  //   featured: false,
-  //   highlight: false,
-  // }
-  
-  // {
-  //   id: "thinksync",
-  //   title: "ThinkSync",
-  //   description: "Cognitive UX",
-  //   tags: ["Productivity"],
-  //   status: "ideation",
-  //   year: "2025",
-  //   url: "",
-  //   homepage: "",
-  //   featured: false,
-  //   highlight: false,
-  // },
-]
-
-// const recentActivity = [
-//   { type: "commit", project: "cs-ee-learning-system", message: "Add interactive quiz component", time: "# days ago" },
-//   { type: "branch", project: "cs-ee-learning-system", message: "Updated curriculum structure", time: "# days ago" },
-// ]
+import { Github, ExternalLink, GitBranch, Archive, Sparkles, Lightbulb } from "lucide-react"
+import { currentPieces, previousIterations, ideasQueue, type LabItem } from "@/lib/lab-data"
 
 interface TerminalBoxProps {
   title: string
@@ -440,7 +39,7 @@ function TerminalBox({ title, path, icon, items, statusLabel, isVisible, stagger
         </div>
       </div>
 
-      {/* Section Title */}
+      {/* Section title */}
       <div className="px-4 sm:px-5 py-4 border-b border-border/30 bg-secondary/20">
         <h3 className="font-mono text-sm font-medium text-foreground flex items-center gap-2 min-w-0">
           {icon}
@@ -565,7 +164,7 @@ export function LabContent() {
         </div>
 
         <div className="grid gap-8 lg:grid-cols-3">
-          {/* Main Content - 3 Terminal Boxes */}
+          {/* Main content — terminal boxes */}
           <div className="min-w-0 lg:col-span-2 space-y-6">
             {/* Current Pieces */}
             <TerminalBox
@@ -633,39 +232,7 @@ export function LabContent() {
               </div>
             </div>
 
-            {/* Recent Activity
-            <div
-              className={cn(
-                "rounded-xl border border-border bg-card/40 glass p-5 opacity-0",
-                isVisible && "animate-fade-in-up stagger-4"
-              )}
-            >
-              <h3 className="font-mono text-xs tracking-wider text-primary mb-4 flex items-center gap-2">
-                <Activity className="h-3.5 w-3.5" />
-                Recent Activity
-              </h3>
-              <div className="space-y-3">
-                {recentActivity.map((activity, index) => (
-                  <div key={index} className="flex items-start gap-3 text-xs">
-                    <span
-                      className={cn(
-                        "shrink-0 w-1.5 h-1.5 rounded-full mt-1.5",
-                        activity.type === "commit" ? "bg-primary" : "bg-yellow-500"
-                      )}
-                    />
-                    <div className="min-w-0 flex-1">
-                      <p className="text-foreground truncate">{activity.message}</p>
-                      <p className="text-muted-foreground flex items-center gap-1">
-                        <Clock className="h-3 w-3" />
-                        {activity.time}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div> */}
-
-            {/* Legend */}
+            {/* Progress legend */}
             <div
               className={cn(
                 "rounded-xl border border-border bg-card/40 glass p-5 opacity-0",
@@ -674,30 +241,19 @@ export function LabContent() {
             >
               <h3 className="font-mono text-xs tracking-wider text-primary mb-4">Progress Legend</h3>
               <div className="space-y-2">
-                <div className="flex items-center gap-2 text-xs">
-                  <span className="w-3 h-3 rounded-full bg-emerald-300" />
-                  <span className="text-muted-foreground">100% = complete</span>
-                </div>
-                <div className="flex items-center gap-2 text-xs">
-                  <span className="w-3 h-3 rounded-full bg-lime-300" />
-                  <span className="text-muted-foreground">75-99% = near complete</span>
-                </div>
-                <div className="flex items-center gap-2 text-xs">
-                  <span className="w-3 h-3 rounded-full bg-yellow-300" />
-                  <span className="text-muted-foreground">50-74% = in progress</span>
-                </div>
-                <div className="flex items-center gap-2 text-xs">
-                  <span className="w-3 h-3 rounded-full bg-amber-300" />
-                  <span className="text-muted-foreground">25-49% = early build</span>
-                </div>
-                <div className="flex items-center gap-2 text-xs">
-                  <span className="w-3 h-3 rounded-full bg-orange-300" />
-                  <span className="text-muted-foreground">1-24% = idea forming</span>
-                </div>
-                <div className="flex items-center gap-2 text-xs">
-                  <span className="w-3 h-3 rounded-full bg-zinc-300" />
-                  <span className="text-muted-foreground">0% = planned</span>
-                </div>
+                {[
+                  { color: "bg-emerald-300", label: "100% = complete" },
+                  { color: "bg-lime-300",    label: "75-99% = near complete" },
+                  { color: "bg-yellow-300",  label: "50-74% = in progress" },
+                  { color: "bg-amber-300",   label: "25-49% = early build" },
+                  { color: "bg-orange-300",  label: "1-24% = idea forming" },
+                  { color: "bg-zinc-300",    label: "0% = planned" },
+                ].map(({ color, label }) => (
+                  <div key={label} className="flex items-center gap-2 text-xs">
+                    <span className={`w-3 h-3 rounded-full ${color}`} />
+                    <span className="text-muted-foreground">{label}</span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

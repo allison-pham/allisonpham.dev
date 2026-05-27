@@ -20,16 +20,17 @@ export function ProjectsPageContent() {
     setIsVisible(true)
   }, [])
 
-  const filteredProjects = projects.filter((project) => {
-    const matchesFilter = activeFilter === "all" || project.status === activeFilter
-    const matchesSearch =
-      searchQuery === "" ||
-      project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      project.description.toLowerCase().includes(searchQuery.toLowerCase())
-    const matchesTags = selectedTags.length === 0 || selectedTags.some((tag) => project.tags.includes(tag))
-
-    return matchesFilter && matchesSearch && matchesTags
-  }).sort((leftProject, rightProject) => Number(rightProject.featured) - Number(leftProject.featured))
+  const filteredProjects = projects
+    .filter((project) => {
+      const matchesFilter = activeFilter === "all" || project.status === activeFilter
+      const matchesSearch =
+        searchQuery === "" ||
+        project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        project.description.toLowerCase().includes(searchQuery.toLowerCase())
+      const matchesTags = selectedTags.length === 0 || selectedTags.some((tag) => project.tags.includes(tag))
+      return matchesFilter && matchesSearch && matchesTags
+    })
+    .sort((leftProject, rightProject) => Number(rightProject.featured) - Number(leftProject.featured))
 
   const toggleTag = (tag: string) => {
     setSelectedTags((previousTags) =>
@@ -103,7 +104,7 @@ export function ProjectsPageContent() {
             const githubUrl = project.url.trim()
             const liveUrl = project.homepage.trim()
             const hasCaseStudyPage = project.hasCaseStudy
-            const isFeaturedProject = project.featured
+            const isFeaturedProject = project.highlight
 
             return (
               <article
@@ -112,7 +113,7 @@ export function ProjectsPageContent() {
                   "group relative flex h-full min-w-0 flex-col overflow-hidden rounded-xl border bg-card/40 p-6 glass transition-all duration-400 hover-lift active:scale-[0.99] sm:p-7 opacity-0",
                   isVisible && "animate-fade-in-up",
                   hoveredProject === project.id && "border-primary/40 bg-card/70",
-                  project.highlight
+                  project.featured
                     ? "border-primary/30 bg-linear-to-br from-primary/8 via-card/50 to-primary/8"
                     : "border-border/60",
                   isFeaturedProject && "sm:col-span-2 lg:col-span-2",
@@ -121,13 +122,7 @@ export function ProjectsPageContent() {
                 onMouseEnter={() => setHoveredProject(project.id)}
                 onMouseLeave={() => setHoveredProject(null)}
               >
-                {project.highlight && (
-                  <div className="absolute left-5 top-5 flex items-center gap-2 rounded-full border border-primary/40 bg-primary/15 px-3.5 py-1.5 animate-pulse-glow">
-                    <Sparkles className="h-3.5 w-3.5 text-primary" />
-                    <span className="font-mono text-[10px] font-medium tracking-wider text-primary">featured</span>
-                  </div>
-                )}
-
+                {/* Status dot - top right */}
                 <div className="absolute right-5 top-5 flex items-center gap-2.5">
                   <span
                     className={cn(
@@ -141,16 +136,24 @@ export function ProjectsPageContent() {
                   <span className="max-w-30 truncate font-mono text-xs text-muted-foreground">{project.status}</span>
                 </div>
 
-                <div className={cn("mb-4 font-mono text-xs text-muted-foreground", project.highlight && "mt-10")}>
+                {/* Year - consistent across all cards */}
+                <div className="mb-4 font-mono text-xs text-muted-foreground">
                   {project.year}{project.status === "in progress" && project.year ? " - present" : project.status === "in progress" ? "present" : ""}
                 </div>
 
+                {/* Thumbnail - featured badge overlays top-left corner */}
                 <div
                   className={cn(
                     "relative mb-5 overflow-hidden rounded-lg border border-border/60 bg-secondary/35",
                     isFeaturedProject ? "aspect-16/10 sm:aspect-28/9" : "aspect-video",
                   )}
                 >
+                  {project.featured && (
+                    <div className="absolute left-3 top-3 z-10 flex items-center gap-2 rounded-full border border-primary/40 bg-primary/15 backdrop-blur-sm px-3 py-1.5 animate-pulse-glow">
+                      <Sparkles className="h-3 w-3 text-primary" />
+                      <span className="font-mono text-[10px] font-medium tracking-wider text-primary">featured</span>
+                    </div>
+                  )}
                   {project.thumbnailSrc ? (
                     <Image
                       src={project.thumbnailSrc}
