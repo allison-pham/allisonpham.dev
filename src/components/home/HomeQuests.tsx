@@ -70,26 +70,9 @@ export function CurrentQuests() {
             </p>
 
             <p>
-              Previously I've built at Nucleo,{" "}
-              <a
-                href="https://www.nasa.gov"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline decoration-wavy decoration-current/45 underline-offset-3 transition-colors hover:decoration-current/80"
-              >
-                NASA
-              </a>
-              , etc. and currently I'm designing at the intersection of software, cognition, and product. I'm a researcher
-              (located in the West `Coast) and study computer engineering at{" "}
-              <a
-                href="https://www.ucr.edu"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline decoration-wavy decoration-current/45 underline-offset-3 transition-colors hover:decoration-current/80"
-              >
-                UC Riverside
-              </a>{" "}
-              through the intersection of computer science and electrical engineering.
+              Previously I've built at Nucleo, NASA, research labs for CS and HCI, etc. Currently I'm designing at the intersection of software, cognition, and product. I'm a researcher
+              (located in the West Coast) and study computer engineering at UC Riverside{" "}
+              through the intersection of computer science, electrical engineering, human-computer interaction, and product design.
             </p>
 
             <p>
@@ -134,10 +117,9 @@ export function CurrentQuests() {
             </p>
 
             <p>
-              In my childhood, I explored as much as I could find just to understand how it worked. That instinct became a
-              passion with how systems shape the way people think, decide, and act. My target is to build things that feel
-              like <span className="font-bold italic underline decoration-wavy">extensions of the mind</span> - not
-              obstacles to it.
+              In my childhood, I explored as much as I could find just to understand how it worked.
+              That instinct became a passion with how systems shape the way people think, decide, and act.
+              My target is to build things that feel extensions of the mind - not obstacles to it.
             </p>
 
             <p>
