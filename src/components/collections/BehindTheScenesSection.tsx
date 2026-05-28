@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react"
 import { ChevronDown, ChevronUp, Sparkles, BookOpen, Clock } from "lucide-react"
 import { cn } from "@/src/lib/utils"
-import type { BehindTheScenesItem, Iteration } from "@/src/lib/behind-the-scenes-data"
+import type { BehindTheScenesItem, Iteration } from "@/src/lib/main-pages/behind-the-scenes-data"
 
 interface IterationCardProps {
   iteration: Iteration

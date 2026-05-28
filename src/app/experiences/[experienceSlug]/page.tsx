@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import { experiences, SECTIONS } from "@/src/lib/experiences-data";
+import { experiences, SECTIONS } from "@/src/lib/main-pages/experiences-data";
 import { notFound } from "next/navigation";
 
 // Enable static generation for all experience pages

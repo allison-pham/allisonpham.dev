@@ -1,6 +1,6 @@
-import acmExperience from "./experiences/acm";
-import citrusHackExperience from "./experiences/citrus-hack";
-import cutieHackExperience from "./experiences/cutie-hack";
+import acmExperience from "../experiences/acm";
+import citrusHackExperience from "../experiences/citrus-hack";
+import cutieHackExperience from "../experiences/cutie-hack";
 import React from "react";
 
 export const SECTIONS = {

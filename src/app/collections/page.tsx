@@ -1,4 +1,4 @@
-import { behindTheScenesItems } from "@/src/lib/behind-the-scenes-data"
+import { behindTheScenesItems } from "@/src/lib/main-pages/behind-the-scenes-data"
 import { BookmarksFlipbook } from "@/src/components/collections/Bookmarks"
 import { ChildhoodNostalgiaWhimsy } from "@/src/components/collections/ChildhoodNostalgiaWhimsy"
 import { CollectionsIntro } from "@/src/components/collections/CollectionsIntro"

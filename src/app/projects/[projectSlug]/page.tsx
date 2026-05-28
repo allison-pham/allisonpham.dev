@@ -2,7 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import type { Metadata } from "next"
 import { ArrowLeft, ExternalLink, Github } from "lucide-react"
-import { getProjectBySlug, getProjectCaseStudy, getRelatedProjects, projects } from "@/src/lib/projects-data"
+import { getProjectBySlug, getProjectCaseStudy, getRelatedProjects, projects } from "@/src/lib/main-pages/projects-data"
 import { notFound } from "next/navigation"
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://allisonpham.dev"

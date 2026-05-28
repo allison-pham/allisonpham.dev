@@ -5,7 +5,7 @@ import Link from "next/link"
 import { cn } from "@/src/lib/utils"
 import { Github, ExternalLink, Sparkles, Search, Filter } from "lucide-react"
 import { Input } from "@/src/components/ui/Input"
-import { allProjectTags, projectFilters, projects, type ProjectFilter } from "@/src/lib/projects-data"
+import { allProjectTags, projectFilters, projects, type ProjectFilter } from "@/src/lib/main-pages/projects-data"
 import { TechIcon } from "@/src/components/TechStackIcons"
 
 export function ProjectsPageContent() {
