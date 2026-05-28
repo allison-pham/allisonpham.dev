@@ -148,6 +148,27 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
   )
 }
 
+function StatusDot({ status }: { status: string }) {
+  const colorMap: Record<string, string> = {
+    shipped: "var(--primary)",
+    "in progress": "#eab308",
+    ideation: "#3b82f6",
+    archived: "var(--muted-foreground)",
+  }
+  return (
+    <span
+      style={{
+        display: "inline-block",
+        width: "10px",
+        height: "10px",
+        borderRadius: "50%",
+        backgroundColor: colorMap[status] ?? "var(--muted-foreground)",
+        flexShrink: 0,
+      }}
+    />
+  )
+}
+
 export function ProjectsPageContent() {
   const [activeFilter, setActiveFilter] = useState<ProjectFilter>("all")
   const [searchQuery, setSearchQuery] = useState("")
@@ -287,28 +308,28 @@ export function ProjectsPageContent() {
                       : "border-border/60",
                     isFeaturedProject && "sm:col-span-2 lg:col-span-2",
                   )}
-                  style={{ animationDelay: `${(index % 6) * 80 + 200}ms` }}
+                  style={{ animationDelay: `${(index % 6) * 80 + 200}ms`, paddingTop: "1.25rem" }}
                   onMouseEnter={() => setHoveredProject(project.id)}
                   onMouseLeave={() => setHoveredProject(null)}
                 >
 
-                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "1rem", fontFamily: "monospace", fontSize: "0.75rem", color: "var(--muted-foreground)" }}>
-                    <span>
+                  <div style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    marginBottom: "1rem",
+                    fontFamily: "monospace",
+                    fontSize: "0.8rem",
+                  }}>
+                    <span style={{ color: "var(--muted-foreground)" }}>
                       {project.status === "in progress" && project.year
                         ? `${project.year} - present`
                         : project.year}
                     </span>
-                    <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                      <span
-                        className={cn(
-                          "h-2.5 w-2.5 rounded-full transition-shadow duration-300",
-                          project.status === "shipped" && "bg-primary shadow-sm shadow-primary/50",
-                          project.status === "in progress" && "animate-pulse bg-yellow-500 shadow-sm shadow-yellow-500/50",
-                          project.status === "ideation" && "bg-blue-500 shadow-sm shadow-blue-500/50",
-                          project.status === "archived" && "bg-muted-foreground",
-                        )}
-                      />
-                      <span>{project.status}</span>
+                    <div style={{ display: "flex", flexDirection: "row", alignItems: "center", gap: "6px" }}>
+                      <StatusDot status={project.status} />
+                      <span style={{ color: "var(--muted-foreground)" }}>{project.status}</span>
                     </div>
                   </div>
 
