@@ -1,16 +1,11 @@
 "use client"
-import { useState, useEffect, useRef, useCallback } from "react"
+import { useState, useEffect, useCallback } from "react"
 import Image from "next/image"
-import Link from "next/link"
 import { cn } from "@/src/lib/utils"
 import { Github, ExternalLink, Sparkles, Search, Filter, X } from "lucide-react"
 import { Input } from "@/src/components/ui/Input"
 import { allProjectTags, projectFilters, projects, getProjectCaseStudy, type Project, type ProjectFilter } from "@/src/lib/main-pages/projects-data"
 import { TechIcon } from "@/src/components/TechStackIcons"
-
-// ---------------------------------------------------------------------------
-// Modal
-// ---------------------------------------------------------------------------
 
 function ProjectModal({ project, onClose }: { project: Project; onClose: () => void }) {
   const caseStudy = getProjectCaseStudy(project)
@@ -18,7 +13,9 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
   const liveUrl = project.homepage.trim()
 
   useEffect(() => {
-    const handleKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose() }
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose()
+    }
     document.addEventListener("keydown", handleKey)
     document.body.style.overflow = "hidden"
     return () => {
@@ -30,12 +27,12 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6"
-      onClick={(e) => { if (e.target === e.currentTarget) onClose() }}
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose()
+      }}
     >
       <div className="absolute inset-0 bg-background/80 backdrop-blur-sm animate-in fade-in duration-200 pointer-events-none" />
-
       <div className="relative z-10 w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl border border-border/60 bg-card/95 shadow-2xl animate-in fade-in slide-in-from-bottom-4 duration-300">
-
         <button
           onClick={onClose}
           className="absolute right-4 top-4 z-10 rounded-full border border-border/60 bg-card p-1.5 text-muted-foreground transition-all hover:border-primary/40 hover:text-foreground cursor-pointer"
@@ -58,15 +55,19 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
         <div className="p-6 sm:p-8">
           <div className="mb-6">
             <div className="mb-2 flex items-center gap-3">
-              <span className={cn(
-                "h-2 w-2 rounded-full",
-                project.status === "shipped" && "bg-primary",
-                project.status === "in progress" && "animate-pulse bg-yellow-500",
-                project.status === "ideation" && "bg-blue-500",
-                project.status === "archived" && "bg-muted-foreground",
-              )} />
+              <span
+                className={cn(
+                  "h-2 w-2 rounded-full",
+                  project.status === "shipped" && "bg-primary",
+                  project.status === "in progress" && "animate-pulse bg-yellow-500",
+                  project.status === "ideation" && "bg-blue-500",
+                  project.status === "archived" && "bg-muted-foreground",
+                )}
+              />
               <span className="font-mono text-xs text-muted-foreground">{project.status}</span>
-              {project.year && <span className="font-mono text-xs text-muted-foreground">· {project.year}</span>}
+              {project.year && (
+                <span className="font-mono text-xs text-muted-foreground">· {project.year}</span>
+              )}
             </div>
             <h2 className="mb-2 text-2xl font-bold tracking-tight sm:text-3xl">{project.title}</h2>
             <p className="text-sm leading-relaxed text-muted-foreground">{project.description}</p>
@@ -147,10 +148,6 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
   )
 }
 
-// ---------------------------------------------------------------------------
-// Page
-// ---------------------------------------------------------------------------
-
 export function ProjectsPageContent() {
   const [activeFilter, setActiveFilter] = useState<ProjectFilter>("all")
   const [searchQuery, setSearchQuery] = useState("")
@@ -158,9 +155,10 @@ export function ProjectsPageContent() {
   const [hoveredProject, setHoveredProject] = useState<string | null>(null)
   const [isVisible, setIsVisible] = useState(false)
   const [modalProject, setModalProject] = useState<Project | null>(null)
-  const sectionRef = useRef<HTMLElement>(null)
 
-  useEffect(() => { setIsVisible(true) }, [])
+  useEffect(() => {
+    setIsVisible(true)
+  }, [])
 
   const closeModal = useCallback(() => setModalProject(null), [])
 
@@ -176,23 +174,29 @@ export function ProjectsPageContent() {
         searchQuery === "" ||
         project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         project.description.toLowerCase().includes(searchQuery.toLowerCase())
-      const matchesTags = selectedTags.length === 0 || selectedTags.some((tag) => project.tags.includes(tag))
+      const matchesTags =
+        selectedTags.length === 0 || selectedTags.some((tag) => project.tags.includes(tag))
       return matchesFilter && matchesSearch && matchesTags
     })
     .sort((l, r) => Number(r.featured) - Number(l.featured))
 
   const toggleTag = (tag: string) => {
-    setSelectedTags((prev) => prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag])
+    setSelectedTags((prev) =>
+      prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
+    )
   }
 
   return (
-    <>
+    <div>
       {modalProject && <ProjectModal project={modalProject} onClose={closeModal} />}
 
-      <section ref={sectionRef} className="overflow-x-clip px-4 pt-10 pb-12 sm:px-6 sm:pt-16 sm:pb-20">
+      <div className="overflow-x-clip px-4 pt-10 pb-12 sm:px-6 sm:pt-16 sm:pb-20">
         <div className="mx-auto max-w-7xl">
+
           <div className={cn("mb-12 space-y-4 opacity-0 sm:mb-16", isVisible && "animate-fade-in-up")}>
-            <p className="font-mono text-xs tracking-[0.25em] text-primary sm:tracking-[0.35em]">pieces of building;</p>
+            <p className="font-mono text-xs tracking-[0.25em] text-primary sm:tracking-[0.35em]">
+              pieces of building;
+            </p>
             <h1 className="text-3xl font-bold tracking-tight sm:text-5xl lg:text-6xl">Projects ★</h1>
             <p className="max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
               Collection of projects across CS, engineering, and design
@@ -218,10 +222,14 @@ export function ProjectsPageContent() {
                       )}
                     >
                       {filter.toLowerCase()}
-                      <span className={cn(
-                        "rounded-full px-1.5 py-0.5 font-mono text-[10px] font-semibold",
-                        isActive ? "bg-primary/20 text-primary" : "bg-secondary text-muted-foreground",
-                      )}>
+                      <span
+                        className={cn(
+                          "rounded-full px-1.5 py-0.5 font-mono text-[10px] font-semibold",
+                          isActive
+                            ? "bg-primary/20 text-primary"
+                            : "bg-secondary text-muted-foreground",
+                        )}
+                      >
                         {count}
                       </span>
                     </button>
@@ -283,29 +291,39 @@ export function ProjectsPageContent() {
                   onMouseEnter={() => setHoveredProject(project.id)}
                   onMouseLeave={() => setHoveredProject(null)}
                 >
-                  <div className="absolute right-5 top-5 flex items-center gap-2.5">
-                    <span className={cn(
-                      "h-2.5 w-2.5 rounded-full transition-shadow duration-300",
-                      project.status === "shipped" && "bg-primary shadow-sm shadow-primary/50",
-                      project.status === "in progress" && "animate-pulse bg-yellow-500 shadow-sm shadow-yellow-500/50",
-                      project.status === "ideation" && "bg-blue-500 shadow-sm shadow-blue-500/50",
-                      project.status === "archived" && "bg-muted-foreground",
-                    )} />
-                    <span className="max-w-30 truncate font-mono text-xs text-muted-foreground">{project.status}</span>
+
+                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "1rem", fontFamily: "monospace", fontSize: "0.75rem", color: "var(--muted-foreground)" }}>
+                    <span>
+                      {project.status === "in progress" && project.year
+                        ? `${project.year} - present`
+                        : project.year}
+                    </span>
+                    <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                      <span
+                        className={cn(
+                          "h-2.5 w-2.5 rounded-full transition-shadow duration-300",
+                          project.status === "shipped" && "bg-primary shadow-sm shadow-primary/50",
+                          project.status === "in progress" && "animate-pulse bg-yellow-500 shadow-sm shadow-yellow-500/50",
+                          project.status === "ideation" && "bg-blue-500 shadow-sm shadow-blue-500/50",
+                          project.status === "archived" && "bg-muted-foreground",
+                        )}
+                      />
+                      <span>{project.status}</span>
+                    </div>
                   </div>
 
-                  <div className="mb-4 font-mono text-xs text-muted-foreground">
-                    {project.status === "in progress" && project.year ? `${project.year} → present` : project.year}
-                  </div>
-
-                  <div className={cn(
-                    "relative mb-5 overflow-hidden rounded-lg border border-border/60 bg-secondary/35",
-                    isFeaturedProject ? "aspect-16/10 sm:aspect-28/9" : "aspect-video",
-                  )}>
+                  <div
+                    className={cn(
+                      "relative mb-5 overflow-hidden rounded-lg border border-border/60 bg-secondary/35",
+                      isFeaturedProject ? "aspect-16/10 sm:aspect-28/9" : "aspect-video",
+                    )}
+                  >
                     {project.featured && (
                       <div className="absolute left-3 top-3 z-10 flex items-center gap-2 rounded-full border border-primary/40 bg-primary/15 backdrop-blur-sm px-3 py-1.5 animate-pulse-glow">
                         <Sparkles className="h-3 w-3 text-primary" />
-                        <span className="font-mono text-[10px] font-medium tracking-wider text-primary">featured</span>
+                        <span className="font-mono text-[10px] font-medium tracking-wider text-primary">
+                          featured
+                        </span>
                       </div>
                     )}
                     {project.thumbnailSrc ? (
@@ -318,7 +336,9 @@ export function ProjectsPageContent() {
                       />
                     ) : (
                       <div className="flex h-full flex-col items-center justify-center gap-1.5 px-4 text-center">
-                        <span className="font-mono text-[11px] tracking-[0.22em] text-muted-foreground">cover image coming soon</span>
+                        <span className="font-mono text-[11px] tracking-[0.22em] text-muted-foreground">
+                          cover image coming soon
+                        </span>
                       </div>
                     )}
                   </div>
@@ -348,7 +368,6 @@ export function ProjectsPageContent() {
                           <span className="underline-animate">Case Study</span>
                         </button>
                       )}
-
                       {githubUrl && (
                         <a
                           href={githubUrl}
@@ -360,7 +379,6 @@ export function ProjectsPageContent() {
                           <span className="underline-animate">GitHub</span>
                         </a>
                       )}
-
                       {liveUrl && (
                         <a
                           href={liveUrl}
@@ -386,8 +404,9 @@ export function ProjectsPageContent() {
               <p className="font-mono text-sm text-muted-foreground">No projects under this category.</p>
             </div>
           )}
+
         </div>
-      </section>
-    </>
+      </div>
+    </div>
   )
 }

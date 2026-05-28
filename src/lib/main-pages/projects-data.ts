@@ -53,7 +53,7 @@ const projectSeeds: ProjectSeed[] = [
     year: "2026",
     url: "",
     homepage: "",
-    featured: false,
+    featured: true,
     highlight: false,
     hasCaseStudy: true,
     caseStudy: {
@@ -207,7 +207,7 @@ const projectSeeds: ProjectSeed[] = [
     year: "2026",
     url: "https://github.com/allison-pham/acadence",
     homepage: "",
-    featured: false,
+    featured: true,
     highlight: false,
     hasCaseStudy: false
   },
@@ -277,7 +277,7 @@ const projectSeeds: ProjectSeed[] = [
     year: "2026",
     url: "https://github.com/allison-pham/terraground",
     homepage: "",
-    featured: false,
+    featured: true,
     highlight: false,
     hasCaseStudy: false
   },
@@ -291,7 +291,7 @@ const projectSeeds: ProjectSeed[] = [
     year: "2026",
     url: "https://github.com/allison-pham/nexa",
     homepage: "",
-    featured: false,
+    featured: true,
     highlight: false,
     hasCaseStudy: false
   },
@@ -418,7 +418,7 @@ const projectSeeds: ProjectSeed[] = [
     year: "2025",
     url: "https://github.com/allison-pham/cognistack",
     homepage: "",
-    featured: false,
+    featured: true,
     highlight: false,
     hasCaseStudy: false
   },
@@ -432,7 +432,7 @@ const projectSeeds: ProjectSeed[] = [
     year: "2025",
     url: "https://github.com/allison-pham/thinksync",
     homepage: "",
-    featured: false,
+    featured: true,
     highlight: false,
     hasCaseStudy: false
   },
@@ -695,7 +695,7 @@ const projectSeeds: ProjectSeed[] = [
     year: "2024",
     url: "https://github.com/allison-pham/pantrypilot",
     homepage: "",
-    featured: false,
+    featured: true,
     highlight: false,
     hasCaseStudy: true,
     caseStudy: {
@@ -773,7 +773,7 @@ const projectSeeds: ProjectSeed[] = [
     year: "2023",
     url: "https://github.com/allison-pham/shelf-sense",
     homepage: "",
-    featured: false,
+    featured: true,
     highlight: false,
     hasCaseStudy: true,
     caseStudy: {
