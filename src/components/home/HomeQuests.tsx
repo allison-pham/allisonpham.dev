@@ -70,9 +70,9 @@ export function CurrentQuests() {
             </p>
 
             <p>
-              Previously I've built at Nucleo, NASA, research labs (computer science and human-computer interaction (HCI)), etc. Currently I'm designing at the intersection of software, cognition, and product. I'm a researcher
+              Previously I've built at Nucleo, NASA, research labs for CS and HCI, etc. Currently I'm designing at the intersection of software, cognition, and product. I'm a researcher
               (located in the West Coast) and study computer engineering at UC Riverside{" "}
-              through the intersection of computer science and electrical engineering.
+              through the intersection of computer science, electrical engineering, human-computer interaction, and product design.
             </p>
 
             <p>

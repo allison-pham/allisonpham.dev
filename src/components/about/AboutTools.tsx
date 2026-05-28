@@ -1,54 +1,36 @@
 "use client"
-
 import { useEffect, useRef, useState } from "react"
 import { cn } from "@/src/lib/utils"
-import { Code2, Layers3, Wrench, Library, Cpu, Palette } from "lucide-react"
-import { TechIcon } from "@/src/components/TechStackIcons"
-
-const skillGroups = [
+import { Brain, Briefcase, CheckSquare, FlaskConical, Sparkles } from "lucide-react"
+import { ToolIcons } from "@/src/components/ToolIcons"
+ 
+const toolGroups = [
   {
-    category: "Languages",
-    icon: Code2,
-    skills: ["C++", "Python", "TypeScript", "JavaScript", "Java", "SQL", "C", "HTML", "CSS"],
-    // skills: ["C++", "Python", "TypeScript", "JavaScript", "Go", "Java", "SQL", "C#", "Swift", "Rust", "C", "HTML", "CSS", "Ocaml", "Assembly"],
+    category: "Productivity & Focus",
+    icon: CheckSquare,
+    tools: ["Notion", "Google Calendar", "Todoist", "Google Drive", "Google Sheets", "Taskade", "LifeAt", "Virtual Cottage"],
   },
 
   {
-    category: "Frameworks",
-    icon: Layers3,
-    skills: ["Next.js", "React", "Vue.js", "Tailwind CSS", "Apache Spark", "Express.js"],
-    // skills: ["Next.js", "React", "Vue.js", "Tailwind CSS", "Apache Spark", "Express.js", "Spring Boot", "FastAPI", "Flask", "SwiftUI"],
+    category: "Knowledge & Learning",
+    icon: FlaskConical,
+    tools: ["Obsidian", "NotebookLM", "Anki", "RemNote", "Google Keep", "Evernote", "Quizlet"],
   },
 
   {
-    category: "Developer Tools",
-    icon: Wrench,
-    skills: ["Docker", "AWS", "Google Cloud", "Supabase", "Firebase", "MongoDB"],
-    // skills: ["Docker", "AWS", "Google Cloud", "Supabase", "Firebase", "MongoDB", "Unity", "Godot"],
+    category: "Career & Projects",
+    icon: Briefcase,
+    tools: ["LinkedIn", "Jira", "Asana", "Trello"],
   },
 
   {
-    category: "Libraries",
-    icon: Library,
-    skills: ["PyTorch", "TensorFlow", "scikit-learn", "Material UI", "NumPy", "pandas", "Matplotlib"],
-    // skills: ["PyTorch", "TensorFlow", "scikit-learn", "Three.js", "Material UI", "NumPy", "pandas", "Matplotlib"],
-  },
-
-  {
-    category: "Hardware / CAD",
-    icon: Cpu,
-    skills: ["MATLAB", "Verilog", "Arduino", "Altium", "Autodesk"],
-    // skills: ["MATLAB", "SPICE", "Verilog", "FPGA Tools", "Arduino", "Altium", "Autodesk", "Qt"],
-  },
-
-  {
-    category: "Design",
-    icon: Palette,
-    skills: ["Figma", "Framer", "Spline", "Canva", "Adobe"],
+    category: "Inspiration & Discovery",
+    icon: Sparkles,
+    tools: ["Raindrop", "Substack", "Pinterest", "Goodreads"],
   },
 ]
 
-export function AboutSkills() {
+export function AboutTools() {
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
 
@@ -67,15 +49,15 @@ export function AboutSkills() {
     <section ref={sectionRef} className="border-t border-border/30 overflow-x-clip px-4 sm:px-6 py-16 sm:py-16">
       <div className="mx-auto max-w-7xl">
         <div className={cn("space-y-3 opacity-0", isVisible && "animate-fade-in-up")}>
-          <p className="font-mono text-xs tracking-[0.25em] sm:tracking-[0.35em] text-primary">tools;</p>
-          <h2 className="text-2xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Technical Skills ✧.*</h2>
+          <p className="font-mono text-xs tracking-[0.25em] sm:tracking-[0.35em] text-primary">toolkit;</p>
+          <h2 className="text-2xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Tools I Use</h2>
           <p className="max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed">
-            Skills across CS • EE • Design • PM
+            Apps for thinking, building, and staying organized
           </p>
         </div>
 
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {skillGroups.map((group, groupIndex) => (
+          {toolGroups.map((group, groupIndex) => (
             <div
               key={group.category}
               className={cn(
@@ -96,8 +78,8 @@ export function AboutSkills() {
                   </div>
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {group.skills.map((skill) => (
-                    <TechIcon key={skill} tag={skill} />
+                  {group.tools.map((tool) => (
+                    <ToolIcons key={tool} name={tool} />
                   ))}
                 </div>
               </div>
