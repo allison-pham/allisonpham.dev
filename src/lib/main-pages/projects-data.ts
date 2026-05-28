@@ -55,7 +55,34 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: true,
+    caseStudy: {
+      role: "Full-Stack",
+      duration: "May 2026 - Present",
+      specialization: "Transit & Mapping",
+      // sections: [
+      //   {
+      //     id: "background-story",
+      //     title: "Background Story",
+      //     description: "",
+      //   },
+
+      //   {
+      //     id: "problem",
+      //     title: "Problem",
+      //     description: "",
+      //   },
+
+      //   {
+      //     id: "solution-prototype",
+      //     title: "Solution",
+      //     description: "",
+      //     images: [
+      //       { src: "/projects/metrosync/cover.jpg", alt: "MetroSync map view" },
+      //     ],
+      //   },
+      // ],
+    },
   },
 
   {
@@ -575,7 +602,12 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: true,
+    caseStudy: {
+      role: "Analyst",
+      duration: "May 2024 - Present",
+      specialization: "Data Analysis",
+    },
   },
 
   {
@@ -589,7 +621,12 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: true,
+    caseStudy: {
+      role: "Frontend Developer",
+      duration: "Mar 2024 - Present",
+      specialization: "Frontend Development • Education",
+    },
   },
 
   {
@@ -603,7 +640,12 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: true,
+    caseStudy: {
+      role: "Developer",
+      duration: "Mar 2024",
+      specialization: "CLI (Command-Line Interface)",
+    },
   },
 
   {
@@ -617,7 +659,12 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: true,
+    caseStudy: {
+      role: "Developer",
+      duration: "Mar 2024",
+      specialization: "CLI (Command-Line Interface)",
+    },
   },
 
   {
@@ -631,7 +678,12 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: true,
+    caseStudy: {
+      role: "Developer",
+      duration: "Feb 2024",
+      specialization: "Backend Development • Automation",
+    },
   },
 
   {
@@ -645,7 +697,12 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: true,
+    caseStudy: {
+      role: "Engineer",
+      duration: "Feb 2024",
+      specialization: "NLP (Natural Language Processing)",
+    },
   },
 
   {
@@ -659,7 +716,12 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: true,
+    caseStudy: {
+      role: "Developer",
+      duration: "Jan 2024 - Mar 2024",
+      specialization: "CLI (Command-Line Interface)",
+    },
   },
 
   {
@@ -673,7 +735,12 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: true,
+    caseStudy: {
+      role: "Full-Stack Developer",
+      duration: "Jan 2024 - Present",
+      specialization: "Full-Stack",
+    },
   },
 
   {
@@ -687,7 +754,12 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false,
+    hasCaseStudy: true,
+    caseStudy: {
+      role: "Engineer",
+      duration: "Dec 2023",
+      specialization: "Automation",
+    },
     thumbnailSrc: "/projects/weatherwise.svg",
     thumbnailAlt: "WeatherWise cover"
   },
@@ -703,7 +775,12 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: true,
+    caseStudy: {
+      role: "Engineer",
+      duration: "Dec 2023",
+      specialization: "Data Analysis",
+    },
   },
 
   {
@@ -717,7 +794,12 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false,
+    hasCaseStudy: true,
+    caseStudy: {
+      role: "Developer",
+      duration: "Dec 2023",
+      specialization: "CLI (Command-Line Interface)",
+    },
     thumbnailSrc: "/projects/qr-connect.svg",
     thumbnailAlt: "QR Connect cover"
   },
@@ -734,7 +816,12 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: true,
+    caseStudy: {
+      role: "Full-Stack Developer",
+      duration: "Dec 2023 - Present",
+      specialization: "Full-Stack",
+    },
   },
 
   {
@@ -748,7 +835,12 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: true,
+    caseStudy: {
+      role: "Developer",
+      duration: "Nov 2023",
+      specialization: "CLI (Command-Line Interface) • Nutrition",
+    },
   },
 
   {
@@ -762,7 +854,12 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false,
+    hasCaseStudy: true,
+    caseStudy: {
+      role: "Developer",
+      duration: "Nov 2023",
+      specialization: "Game Development",
+    },
     thumbnailSrc: "/projects/flappy-bird.svg",
     thumbnailAlt: "Flappy Bird cover"
   },
@@ -778,10 +875,29 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false,
+    hasCaseStudy: true,
+    caseStudy: {
+      role: "Developer",
+      duration: "May 2023 - Jun 2023",
+      specialization: "Game Development",
+    },
     thumbnailSrc: "/projects/thin-ice.svg",
     thumbnailAlt: "Thin Ice cover"
-  }
+  },
+
+  {
+    id: "etc.",
+    title: "etc.",
+    description: "Other projects have been developed across the past few years, but aren't listed",
+    tags: [],
+    status: "shipped",
+    year: "2022 - Present",
+    url: "",
+    homepage: "",
+    featured: false,
+    highlight: false,
+    hasCaseStudy: false
+  },
 ]
 
 function slugify(value: string): string {
@@ -818,15 +934,16 @@ const defaultSectionTitles: Array<{ id: string; title: string }> = [
   { id: "ideas-features", title: "Ideas and Features" },
   { id: "user-research", title: "User Research" },
   { id: "persona-storyboard", title: "User Persona + Storyboard" },
-  { id: "architecture-design", title: "Architecture / The Design" },
+  { id: "architecture-design", title: "Architecture / Design" },
   { id: "solution-prototype", title: "Solution (with Prototype)" },
   { id: "reflection", title: "Reflection" },
 ]
 
 export function getProjectCaseStudy(project: Project): ProjectCaseStudy {
-  const fallbackRole = "Product Designer"
+  const fallbackRole = "Position"
   const fallbackDuration = "Month + year"
-  const fallbackSpecialization = project.tags[0] || "Technical skills"
+  const fallbackSpecialization = "Specialization areas"
+  // const fallbackSpecialization = project.tags[0] || "Technical skills"
 
   return {
     role: project.caseStudy?.role || fallbackRole,
@@ -842,11 +959,7 @@ export function getProjectCaseStudy(project: Project): ProjectCaseStudy {
     sections:
       project.caseStudy?.sections && project.caseStudy.sections.length > 0
         ? project.caseStudy.sections
-        : defaultSectionTitles.map((section) => ({
-            id: section.id,
-            title: section.title,
-            description: `Add narrative for ${section.title.toLowerCase()} in ${project.title}.`,
-          })),
+        : [],
   }
 }
 

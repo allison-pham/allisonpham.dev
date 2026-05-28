@@ -26,7 +26,7 @@ const toolGroups = [
   {
     category: "Inspiration & Discovery",
     icon: Sparkles,
-    tools: ["Raindrop", "Substack", "Pinterest", "Goodreads"],
+    tools: ["Raindrop", "Substack", "Pinterest", "Goodreads", "Spotify"],
   },
 ]
 
