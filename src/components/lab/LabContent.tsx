@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import { cn } from "@/src/lib/utils"
 import { Github, ExternalLink, GitBranch, Archive, Sparkles, Lightbulb } from "lucide-react"
-import { currentPieces, previousIterations, ideasQueue, type LabItem } from "@/src/lib/lab-data"
+import { currentPieces, previousIterations, ideasQueue, type LabItem } from "@/src/lib/main-pages/lab-data"
 
 interface TerminalBoxProps {
   title: string

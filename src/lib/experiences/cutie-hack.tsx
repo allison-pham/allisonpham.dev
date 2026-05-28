@@ -1,4 +1,4 @@
-import { Experience } from "../experiences-data";
+import { Experience } from "../main-pages/experiences-data";
 
 const cutieHackExperience = {
   slug: "cutie-hack",

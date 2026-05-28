@@ -4,7 +4,7 @@ import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
 import { cn } from "@/src/lib/utils"
 import { ExternalLink, Github, Sparkles } from "lucide-react"
-import { projects } from "@/src/lib/projects-data"
+import { projects } from "@/src/lib/main-pages/projects-data"
 import { TechIcon } from "@/src/components/TechStackIcons"
 
 export function FeaturedProjects() {
