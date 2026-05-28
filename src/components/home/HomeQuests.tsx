@@ -80,15 +80,7 @@ export function CurrentQuests() {
                 NASA
               </a>
               , etc. and currently I'm designing at the intersection of software, cognition, and product. I'm a researcher
-              (located in the West `Coast) and study computer engineering at{" "}
-              <a
-                href="https://www.ucr.edu"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline decoration-wavy decoration-current/45 underline-offset-3 transition-colors hover:decoration-current/80"
-              >
-                UC Riverside
-              </a>{" "}
+              (located in the West Coast) and study computer engineering at UC Riverside{" "}
               through the intersection of computer science and electrical engineering.
             </p>
 
