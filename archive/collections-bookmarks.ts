@@ -1,0 +1,1 @@
+// Home page (sections for now, pieces of curiosity)
