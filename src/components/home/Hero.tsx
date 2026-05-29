@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 const roles = ["human cognition", "interface systems", "user interactions", "space interfaces", "cohesive actions"]
 // Other: design interactions, design systems, HCI, material design
 
-export function HeroSection() {
+export function Hero() {
   const [currentRole, setCurrentRole] = useState(0)
   const [displayText, setDisplayText] = useState("")
   const [isDeleting, setIsDeleting] = useState(false)

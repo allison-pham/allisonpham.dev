@@ -9,7 +9,7 @@ export type ProjectImage = {
 export type ProjectCaseStudySection = {
   id: string
   title: string
-  description: string
+  description: string | string[]
   images?: ProjectImage[]
 }
 
@@ -53,9 +53,36 @@ const projectSeeds: ProjectSeed[] = [
     year: "2026",
     url: "",
     homepage: "",
-    featured: false,
+    featured: true,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: true,
+    caseStudy: {
+      role: "Full-Stack",
+      duration: "May 2026 - Present",
+      specialization: "Transit & Mapping",
+      // sections: [
+      //   {
+      //     id: "background-story",
+      //     title: "Background Story",
+      //     description: "",
+      //   },
+
+      //   {
+      //     id: "problem",
+      //     title: "Problem",
+      //     description: "",
+      //   },
+
+      //   {
+      //     id: "solution-prototype",
+      //     title: "Solution",
+      //     description: "",
+      //     images: [
+      //       { src: "/projects/metrosync/cover.jpg", alt: "MetroSync map view" },
+      //     ],
+      //   },
+      // ],
+    },
   },
 
   {
@@ -180,7 +207,7 @@ const projectSeeds: ProjectSeed[] = [
     year: "2026",
     url: "https://github.com/allison-pham/acadence",
     homepage: "",
-    featured: false,
+    featured: true,
     highlight: false,
     hasCaseStudy: false
   },
@@ -230,7 +257,7 @@ const projectSeeds: ProjectSeed[] = [
   {
     id: "hci-in-space",
     title: "HCI in Space",
-    description: "Cognitive load in environments and microgravity interaction design (HCI concepts adapted for astronaut workflows)",
+    description: "Cognitive load in environments and microgravity interaction design (HCI concepts adapted for astronaut workflows) + design interaction systems that reduce in zero-gravity workspaces (rapid concept validation with testing)",
     tags: ["React", "TypeScript", "Framer Motion", "Three.js", "Python", "Firebase"],
     status: "ideation",
     year: "2026",
@@ -238,7 +265,41 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: true,
+    caseStudy: {
+      role: "Product Designer",
+      duration: "Mar 2026 - Present",
+      specialization: "",
+      sections: [
+        {
+          id: "background-story",
+          title: "Background Story",
+          description: "",
+        },
+
+        {
+          id: "problem",
+          title: "Problem",
+          description: "",
+        },
+
+        {
+          id: "solution-prototype",
+          title: "Solution",
+          description: [
+            "**Latest iteration:** interaction design for astronauts",
+            "**Raw thinking:** started with \"How do astronauts interact with systems in microgravity?\"",
+            "Earlier design iterations didn't account for spatial interactions",
+              "→ **Breakthrough:** researching how hand-gesture communication works in zero-g training was groundbreaking",
+            "Haptic feedback > visual feedback in a pressurized suit",
+            "",
+          ],
+          images: [
+            { src: "/projects/metrosync/cover.jpg", alt: "MetroSync map view" },
+          ],
+        },
+      ],
+    },
   },
 
   {
@@ -250,7 +311,7 @@ const projectSeeds: ProjectSeed[] = [
     year: "2026",
     url: "https://github.com/allison-pham/terraground",
     homepage: "",
-    featured: false,
+    featured: true,
     highlight: false,
     hasCaseStudy: false
   },
@@ -264,7 +325,7 @@ const projectSeeds: ProjectSeed[] = [
     year: "2026",
     url: "https://github.com/allison-pham/nexa",
     homepage: "",
-    featured: false,
+    featured: true,
     highlight: false,
     hasCaseStudy: false
   },
@@ -342,7 +403,7 @@ const projectSeeds: ProjectSeed[] = [
   {
     id: "neurowell",
     title: "NeuroWell",
-    description: "Accessible platform for neuroscience",
+    description: "Accessible platform for healthcare learning (combining neuroscience education and wellness)",
     tags: ["Next.js", "TypeScript", "shadcn", "Radix UI", "Three.js", "PyTorch", "TensorFlow"],
     status: "ideation",
     year: "2025",
@@ -356,7 +417,7 @@ const projectSeeds: ProjectSeed[] = [
   {
     id: "missionsync",
     title: "MissionSync",
-    description: "Deep space communication",
+    description: "Deep space communication including async interfaces for mission planning (coordination system concept)",
     // Space asset directory and data exploration for orbital mission insights
     tags: ["React", "JavaScript", "Go", "Python", "PyTorch", "Kubernetes", "Redis"],
     status: "ideation",
@@ -371,7 +432,7 @@ const projectSeeds: ProjectSeed[] = [
   {
     id: "astrotrade",
     title: "AstroTrade",
-    description: "Enhancing space systems, 1 step at a time - space logistics and mission coordination",
+    description: "Enhancing space systems, 1 step at a time - space logistics and mission coordination (data exploration for orbital mission insights)",
     tags: ["Next.js", "TypeScript", "Python", "PostgreSQL", "PyTorch"],
     status: "ideation",
     year: "2025",
@@ -391,7 +452,7 @@ const projectSeeds: ProjectSeed[] = [
     year: "2025",
     url: "https://github.com/allison-pham/cognistack",
     homepage: "",
-    featured: false,
+    featured: true,
     highlight: false,
     hasCaseStudy: false
   },
@@ -405,7 +466,7 @@ const projectSeeds: ProjectSeed[] = [
     year: "2025",
     url: "https://github.com/allison-pham/thinksync",
     homepage: "",
-    featured: false,
+    featured: true,
     highlight: false,
     hasCaseStudy: false
   },
@@ -567,7 +628,7 @@ const projectSeeds: ProjectSeed[] = [
   {
     id: "youflow",
     title: "YouFlow",
-    description: "Data analyzer for healthcare research",
+    description: "Data analyzer experiments for healthcare research and structured workflow insight",
     tags: ["Python", "pandas", "Figma"],
     status: "shipped",
     year: "2024",
@@ -575,7 +636,12 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: true,
+    caseStudy: {
+      role: "Analyst",
+      duration: "May 2024 - Present",
+      specialization: "Data Analysis",
+    },
   },
 
   {
@@ -589,7 +655,12 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: true,
+    caseStudy: {
+      role: "Frontend Developer",
+      duration: "Mar 2024 - Present",
+      specialization: "Frontend Development • Education",
+    },
   },
 
   {
@@ -603,7 +674,12 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: true,
+    caseStudy: {
+      role: "Developer",
+      duration: "Mar 2024",
+      specialization: "CLI (Command-Line Interface)",
+    },
   },
 
   {
@@ -617,7 +693,12 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: true,
+    caseStudy: {
+      role: "Developer",
+      duration: "Mar 2024",
+      specialization: "CLI (Command-Line Interface)",
+    },
   },
 
   {
@@ -631,7 +712,12 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: true,
+    caseStudy: {
+      role: "Developer",
+      duration: "Feb 2024",
+      specialization: "Backend Development • Automation",
+    },
   },
 
   {
@@ -643,9 +729,14 @@ const projectSeeds: ProjectSeed[] = [
     year: "2024",
     url: "https://github.com/allison-pham/pantrypilot",
     homepage: "",
-    featured: false,
+    featured: true,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: true,
+    caseStudy: {
+      role: "Engineer",
+      duration: "Feb 2024",
+      specialization: "NLP (Natural Language Processing)",
+    },
   },
 
   {
@@ -659,7 +750,12 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: true,
+    caseStudy: {
+      role: "Developer",
+      duration: "Jan 2024 - Mar 2024",
+      specialization: "CLI (Command-Line Interface)",
+    },
   },
 
   {
@@ -673,7 +769,12 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: true,
+    caseStudy: {
+      role: "Full-Stack Developer",
+      duration: "Jan 2024 - Present",
+      specialization: "Full-Stack",
+    },
   },
 
   {
@@ -687,7 +788,12 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false,
+    hasCaseStudy: true,
+    caseStudy: {
+      role: "Engineer",
+      duration: "Dec 2023",
+      specialization: "Automation",
+    },
     thumbnailSrc: "/projects/weatherwise.svg",
     thumbnailAlt: "WeatherWise cover"
   },
@@ -701,9 +807,14 @@ const projectSeeds: ProjectSeed[] = [
     year: "2023",
     url: "https://github.com/allison-pham/shelf-sense",
     homepage: "",
-    featured: false,
+    featured: true,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: true,
+    caseStudy: {
+      role: "Engineer",
+      duration: "Dec 2023",
+      specialization: "Data Analysis",
+    },
   },
 
   {
@@ -717,7 +828,12 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false,
+    hasCaseStudy: true,
+    caseStudy: {
+      role: "Developer",
+      duration: "Dec 2023",
+      specialization: "CLI (Command-Line Interface)",
+    },
     thumbnailSrc: "/projects/qr-connect.svg",
     thumbnailAlt: "QR Connect cover"
   },
@@ -734,7 +850,12 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: true,
+    caseStudy: {
+      role: "Full-Stack Developer",
+      duration: "Dec 2023 - Present",
+      specialization: "Full-Stack",
+    },
   },
 
   {
@@ -748,7 +869,12 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: true,
+    caseStudy: {
+      role: "Developer",
+      duration: "Nov 2023",
+      specialization: "CLI (Command-Line Interface) • Nutrition",
+    },
   },
 
   {
@@ -762,7 +888,12 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false,
+    hasCaseStudy: true,
+    caseStudy: {
+      role: "Developer",
+      duration: "Nov 2023",
+      specialization: "Game Development",
+    },
     thumbnailSrc: "/projects/flappy-bird.svg",
     thumbnailAlt: "Flappy Bird cover"
   },
@@ -778,10 +909,29 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false,
+    hasCaseStudy: true,
+    caseStudy: {
+      role: "Developer",
+      duration: "May 2023 - Jun 2023",
+      specialization: "Game Development",
+    },
     thumbnailSrc: "/projects/thin-ice.svg",
     thumbnailAlt: "Thin Ice cover"
-  }
+  },
+
+  {
+    id: "etc.",
+    title: "etc.",
+    description: "Other projects have been developed across the past few years, but aren't listed",
+    tags: [],
+    status: "shipped",
+    year: "2022 - Present",
+    url: "",
+    homepage: "",
+    featured: false,
+    highlight: false,
+    hasCaseStudy: false
+  },
 ]
 
 function slugify(value: string): string {
@@ -818,15 +968,16 @@ const defaultSectionTitles: Array<{ id: string; title: string }> = [
   { id: "ideas-features", title: "Ideas and Features" },
   { id: "user-research", title: "User Research" },
   { id: "persona-storyboard", title: "User Persona + Storyboard" },
-  { id: "architecture-design", title: "Architecture / The Design" },
+  { id: "architecture-design", title: "Architecture / Design" },
   { id: "solution-prototype", title: "Solution (with Prototype)" },
   { id: "reflection", title: "Reflection" },
 ]
 
 export function getProjectCaseStudy(project: Project): ProjectCaseStudy {
-  const fallbackRole = "Product Designer"
+  const fallbackRole = "Position"
   const fallbackDuration = "Month + year"
-  const fallbackSpecialization = project.tags[0] || "Technical skills"
+  const fallbackSpecialization = "Specialization areas"
+  // const fallbackSpecialization = project.tags[0] || "Technical skills"
 
   return {
     role: project.caseStudy?.role || fallbackRole,
@@ -842,11 +993,7 @@ export function getProjectCaseStudy(project: Project): ProjectCaseStudy {
     sections:
       project.caseStudy?.sections && project.caseStudy.sections.length > 0
         ? project.caseStudy.sections
-        : defaultSectionTitles.map((section) => ({
-            id: section.id,
-            title: section.title,
-            description: `Add narrative for ${section.title.toLowerCase()} in ${project.title}.`,
-          })),
+        : [],
   }
 }
 

@@ -1,19 +1,19 @@
-import { AboutEducation } from "@/src/components/about/AboutEducation"
-import { AboutHero } from "@/src/components/about/AboutHero"
-import { AboutKnowledgeAcrossFields } from "@/src/components/about/AboutKnowledgeAcrossFields"
-import { AboutSkills } from "@/src/components/about/AboutSkills"
-import { AboutTools } from "@/src/components/about/AboutTools"
-import { KnowledgeRepertoire } from "@/src/components/about/AboutKnowledge"
+import { Education } from "@/src/components/about/Education"
+import { Hero } from "@/src/components/about/Hero"
+import { KnowledgeAcrossFields } from "@/src/components/about/KnowledgeAcrossFields"
+import { KnowledgeRepertoire } from "@/src/components/about/KnowledgeRepertoire"
+import { TechnicalSkills } from "@/src/components/about/TechnicalSkills"
+import { ToolsIUse } from "@/src/components/about/ToolsIUse"
 
 export default function Loading() {
   return (
         <>
-            <AboutHero />
-            <AboutEducation />
-            <AboutSkills />
+            <Hero />
+            <Education />1
+            <TechnicalSkills />
+            <KnowledgeAcrossFields />
+            <ToolsIUse />
             {/* <KnowledgeRepertoire /> */}
-            <AboutKnowledgeAcrossFields />
-            <AboutTools />
         </>
   )
 }

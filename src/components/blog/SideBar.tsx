@@ -1,7 +1,5 @@
 "use client"
-
 import type React from "react"
-
 import { useState, useEffect, useRef } from "react"
 import { cn } from "@/src/lib/utils"
 import { Mail, Rss, Search, Tag, TrendingUp } from "lucide-react"
@@ -16,7 +14,7 @@ const categories = [
 
 const popularTags = ["nextjs"]
 
-export function BlogSidebar() {
+export function SideBar() {
   const [isVisible, setIsVisible] = useState(false)
   const [activeCategory, setActiveCategory] = useState("all")
   const [email, setEmail] = useState("")

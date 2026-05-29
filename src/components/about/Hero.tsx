@@ -16,7 +16,7 @@ const stats = [
   // { label: "Cups of tea", value: "∞" },
 ]
 
-export function AboutHero() {
+export function Hero() {
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
 

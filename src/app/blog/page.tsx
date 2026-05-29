@@ -1,9 +1,9 @@
-import { BlogHero } from "@/src/components/blog/BlogHero";
-import { BlogList } from "@/src/components/blog/BlogList";
-import { BlogSidebar } from "@/src/components/blog/BlogSideBar";
+import type { Metadata } from "next";
 import { DevAutoRefresh } from "@/src/components/blog/DevAutoRefresh";
 import { getAllPosts } from "@/src/lib/blog";
-import type { Metadata } from "next";
+import { Hero } from "@/src/components/blog/Hero";
+import { List } from "@/src/components/blog/List";
+import { SideBar } from "@/src/components/blog/SideBar";
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://allisonpham.dev';
 
@@ -44,12 +44,12 @@ export default function BlogPage() {
   return (
     <div>
       <DevAutoRefresh />
-      <BlogHero />
+      <Hero />
       <section className="px-4 sm:px-6 py-8 sm:py-10 border-t border-border/30">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-12 lg:grid-cols-[1fr_320px]">
-            <BlogList posts={posts} />
-            <BlogSidebar />
+            <List posts={posts} />
+            <SideBar />
           </div>
         </div>
       </section>

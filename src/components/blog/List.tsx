@@ -1,5 +1,4 @@
 "use client"
-
 import { useState, useEffect, useRef } from "react"
 import { cn } from "@/src/lib/utils"
 import { ArrowRight, Calendar } from "lucide-react"
@@ -12,7 +11,7 @@ interface BlogListProps {
   posts: BlogPost[]
 }
 
-export function BlogList({ posts }: BlogListProps) {
+export function List({ posts }: BlogListProps) {
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null)
 

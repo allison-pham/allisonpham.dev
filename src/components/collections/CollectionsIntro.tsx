@@ -14,17 +14,16 @@ export function CollectionsIntro() {
   }, [])
 
   return (
-    <section ref={ref} className="relative overflow-x-clip px-4 sm:px-6 pt-28 sm:pt-36 pb-8 sm:pb-12">
+    <section ref={ref} className="relative overflow-x-clip px-4 sm:px-6 pt-28 sm:pt-36 pb-2 sm:pb-4">
       <div className="mx-auto max-w-7xl">
         <div className={cn("space-y-4 opacity-0", isVisible && "animate-fade-in-up")}>
           <p className="font-mono text-xs tracking-[0.25em] sm:tracking-[0.35em] text-primary flex items-center gap-2">
             <Sparkles className="h-3.5 w-3.5" />
             curated treasures;
           </p>
-          <h1 className="text-3xl font-bold tracking-tight sm:text-5xl lg:text-6xl text-balance">Collections</h1>
+          <h1 className="text-3xl font-bold tracking-tight sm:text-5xl lg:text-6xl text-balance">Collections ⋆˚꩜｡</h1>
           <p className="text-base sm:text-lg text-muted-foreground leading-relaxed whitespace-nowrap">
-            Adventuring on Goodreads, Substack, and more.
-            Tools, reading, lessons, and things I keep returning to.
+            Reading, lessons, and things I keep returning to (adventuring on Goodreads, Substack, and more)
           </p>
         </div>
       </div>

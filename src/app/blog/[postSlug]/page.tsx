@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { BlogPostContent } from "@/src/components/blog/BlogContent";
+import { BlogPostContent } from "@/src/components/blog/Content";
 import { DevAutoRefresh } from "@/src/components/blog/DevAutoRefresh";
 import { generateBlogPostStructuredData } from "@/src/lib/structured-data";
 import { getAllPosts, getPostBySlug, getRelatedPosts } from "@/src/lib/blog";
