@@ -329,9 +329,9 @@ const folders: Array<FolderProps & { id: string }> = [
     // href: "/projects",
     colors: FOLDER_COLOR_THEMES.building,
     items: [
-      { src: "/tools/framer.svg", alt: "Framer logo" },
-      { src: "/tools/figma.svg", alt: "Figma logo" },
-      { src: "/tools/spline.svg", alt: "Spline logo" },
+      { src: "/tech-stack-icons/framer.svg", alt: "Framer logo" },
+      { src: "/tech-stack-icons/figma.svg", alt: "Figma logo" },
+      { src: "/tech-stack-icons/spline.svg", alt: "Spline logo" },
     ],
     icon: (
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
@@ -347,9 +347,9 @@ const folders: Array<FolderProps & { id: string }> = [
     // href: "/experiences",
     colors: FOLDER_COLOR_THEMES.research,
     items: [
-      // { src: "/logos/ucr.svg", alt: "UCR research logo" },
-      { src: "/logos/nasa.svg", alt: "NASA research logo" },
-      // { src: "/logos/acm.svg", alt: "ACM research logo" },
+      // { src: "/experiences/ucr.svg", alt: "UCR research logo" },
+      { src: "/experiences/nasa.svg", alt: "NASA research logo" },
+      // { src: "/experiences/acm.svg", alt: "ACM research logo" },
     ],
     icon: (
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
@@ -365,9 +365,9 @@ const folders: Array<FolderProps & { id: string }> = [
     // href: "/behind-the-scenes",
     colors: FOLDER_COLOR_THEMES["behind-the-scenes"],
     items: [
-      { src: "/logos/notion.svg", alt: "Behind the scenes logo" },
-      { src: "/logos/nasa.svg", alt: "Behind the scenes logo" },
-      { src: "/logos/acm.svg", alt: "Behind the scenes logo" },
+      { src: "/experiences/notion.svg", alt: "Behind the scenes logo" },
+      { src: "/experiences/nasa.svg", alt: "Behind the scenes logo" },
+      { src: "/experiences/acm.svg", alt: "Behind the scenes logo" },
     ],
     icon: (
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none">

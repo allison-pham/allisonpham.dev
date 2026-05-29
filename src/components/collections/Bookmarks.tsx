@@ -1,9 +1,9 @@
 "use client"
 import { useState, useEffect, useRef } from "react"
 import { cn } from "@/src/lib/utils"
-import { Atom, BookOpen, Brain, ChevronDown, ChevronLeft, ChevronRight, FileText, Lightbulb, Music, Palette, Quote, Sparkles, Star, Tag, Users, Video, Wrench } from "lucide-react"
+import { Atom, BookOpen, Brain, ChevronDown, ChevronLeft, ChevronRight, FileText, Heart, Lightbulb, Music, Palette, Quote, Sparkles, Star, Tag, Video, Puzzle } from "lucide-react"
 
-type InspirationCategory = "design" | "code" | "philosophy" | "art" | "quote"
+type InspirationCategory = "art" | "code" | "design" | "philosophy" | "quote"
 
 interface InspirationItem {
   id: string
@@ -23,23 +23,10 @@ const inspirationCategoryConfig: Record<InspirationCategory, { label: string; co
 }
 
 const inspirationItems: InspirationItem[] = [
-  {
-    id: "alan-kay",
-    category: "quote",
-    title: "The best way to predict the future is to invent it.",
-    source: "Alan Kay",
-    description: "Innovation comes from taking action & creating the future you envision.",
-    accentColor: "border-l-emerald-300",
-  },
-
-  {
-    id: "scott-belsky",
-    category: "quote",
-    title: "It's not about ideas. It's about making ideas happen.",
-    source: "Scott Belsky",
-    description: "The execution gap is where most ideas don't go on. Ship it, then refine.",
-    accentColor: "border-l-blue-300",
-  },
+  { id: "alan-kay", category: "quote", title: "The best way to predict the future is to invent it.", source: "Alan Kay", description: "Innovation comes from taking action and creating the future you envision.", accentColor: "border-l-emerald-300" },
+  { id: "scott-belsky", category: "quote", title: "It's not about ideas. It's about making ideas happen.", source: "Scott Belsky", description: "The execution gap is where most ideas don't go on. Ship it, then refine.", accentColor: "border-l-blue-300" },
+  { id: "don-norman", category: "design", title: "", source: "Don Norman", description: "Taught that design is about people, not solely aesthetics", accentColor: "border-l-blue-300" },
+  { id: "robert-greene", category: "quote", title: "", source: "Robert Greene", description: "Mastery as a lifelong pursuit, not a destination", accentColor: "border-l-blue-300" },
 ]
 
 const allInspirationCategories = Object.keys(inspirationCategoryConfig) as InspirationCategory[]
@@ -58,96 +45,311 @@ interface ReadingBook {
 }
 
 const readingBooks: ReadingBook[] = [
-  {
-    id: "atomic-habits",
-    title: "Atomic Habits",
-    author: "James Clear",
-    status: "queue",
-    // rating: N/A,
-    category: "self-improvement",
-    coverColor: "bg-yellow-300",
-    summary: "N/A",
-    keyTakeaways: ["N/A"],
-    favoriteQuotes: ["N/A"],
-  },
-  
-  {
-    id: "mastery",
-    title: "Mastery",
-    author: "Robert Greene",
-    status: "queue",
-    // rating: N/A,
-    category: "",
-    coverColor: "bg-orange-300",
-    summary: "N/A",
-    keyTakeaways: ["N/A"],
-    favoriteQuotes: ["N/A"],
-  },
+  { id: "atomic-habits", title: "Atomic Habits", author: "James Clear", status: "queue", category: "self-improvement", coverColor: "bg-yellow-300", summary: "N/A", keyTakeaways: ["N/A"], favoriteQuotes: ["N/A"] },
+  { id: "envelope-poems", title: "Envelope Poems", author: "Emily Dickinson", status: "done", category: "self-improvement", coverColor: "bg-gray-300", summary: "N/A", keyTakeaways: ["N/A"], favoriteQuotes: ["N/A"] },
+  { id: "envisioning-information", title: "Envisioning Information", author: "Edward R. Tufte", status: "queue", category: "", coverColor: "bg-gray-300", summary: "The density and precision of information design. Every page is a lesson.", keyTakeaways: [""], favoriteQuotes: ["N/A"] },
+  { id: "flow", title: "Flow: The Psychology of Optimal Experience", author: "Mihály Csíkszentmihályi", status: "queue", category: "", coverColor: "bg-gray-300", summary: "The psychology of optimal experience and how design can get out of the way.", keyTakeaways: [""], favoriteQuotes: ["N/A"] },
+  { id: "mastery", title: "Mastery", author: "Robert Greene", status: "queue", category: "", coverColor: "bg-orange-300", summary: "N/A", keyTakeaways: ["N/A"], favoriteQuotes: ["N/A"] },
+  { id: "the-alchemist", title: "The Alchemist", author: "Paulo Coelho", status: "done", category: "", coverColor: "bg-gray-300", summary: "", keyTakeaways: ["N/A"], favoriteQuotes: ["N/A"] },
+  { id: "the-design-of-everyday-things", title: "The Design of Everyday Things", author: "Donald A. Norman", status: "queue", category: "", coverColor: "bg-pink-300", summary: "Norman on affordances and feedback.", keyTakeaways: ["N/A"], favoriteQuotes: ["N/A"] },
+  { id: "great-gatsby", title: "The Great Gatsby", author: "F. Scott Fitzgerald", status: "done", category: "literary-fiction", coverColor: "bg-emerald-300", summary: "N/A", keyTakeaways: ["N/A"], favoriteQuotes: ["N/A"] },
+  { id: "earnest", title: "The Importance of Being Earnest", author: "Oscar Wilde", status: "done", category: "satirical-play", coverColor: "bg-purple-300", summary: "N/A", keyTakeaways: ["N/A"], favoriteQuotes: ["N/A"] },
+  { id: "dorian-gray", title: "The Picture of Dorian Gray", author: "Oscar Wilde", status: "done", category: "gothic-fiction", coverColor: "bg-blue-300", summary: "As Dorian Gray sinks into a worse life, his body retains his youth, while his painted portrait decays to reflect his inner self.", keyTakeaways: ["N/A"], favoriteQuotes: ["N/A"] },
+  { id: "thinking-fast-and-slow", title: "Thinking, Fast and Slow", author: "Daniel Kahneman", status: "queue", category: "", coverColor: "bg-gray-300", summary: "How System 1 and System 2 shape every decision and interface.", keyTakeaways: [""], favoriteQuotes: ["N/A"] },
+  { id: "zero-to-one", title: "Zero to One: Notes on Startups, or How to Build the Future", author: "Peter Thiel", status: "queue", category: "", coverColor: "bg-red-300", summary: "Thiel on creating unique value, building successful startups, and innovating things that didn't exist before.", keyTakeaways: ["Changed how I think about 0→1."], favoriteQuotes: ["N/A"] },
+]
 
-  {
-    id: "the-design-of-everyday-things",
-    title: "The Design of Everyday Things",
-    author: "Donald A. Norman",
-    status: "queue",
-    // rating: N/A,
-    category: "",
-    coverColor: "bg-pink-300",
-    summary: "Norman on affordances and feedback.",
-    keyTakeaways: ["N/A"],
-    favoriteQuotes: ["N/A"],
-  },
+type NostalgiaItem = {
+  id: string
+  title: string
+  emoji: string
+  type: "game" | "show" | "movie" | "activity" | "place" | "thing"
+  note: string
+  era: string
+}
 
-  {
-    id: "great-gatsby",
-    title: "The Great Gatsby",
-    author: "F. Scott Fitzgerald",
-    status: "done",
-    // rating: N/A,
-    category: "literary-fiction",
-    coverColor: "bg-emerald-300",
-    summary: "N/A",
-    keyTakeaways: ["N/A"],
-    favoriteQuotes: ["N/A"],
-  },
+const nostalgiaItems: NostalgiaItem[] = [
+  { id: "club-penguin", title: "Club Penguin", emoji: "🐧", type: "game", note: "Decorate igloos, waddle around, and play mini games. First sense of a digital community. The fire puffle maze game (Thin Ice) is the reason I eventually built my own version of it!", era: "early" },
+  { id: "lego", title: "Lego sets", emoji: "🛠️", type: "thing", note: "Building, taking apart, then building something else. Early prototyping of building worlds brick by brick, from castles to magic sets. Countless hours spent creating and imagining.", era: "several years" },
+  { id: "films", title: "Films", emoji: "🌿", type: "movie", note: "Various movies and TV shows that I still re-watch each year", era: "each year" },
+  { id: "library-visits", title: "Library visits", emoji: "📚", type: "activity", note: "Picking out a stack of books taller than reasonable. Still the best kind of afternoon.", era: "always / timeless" },
+  { id: "pokemon", title: "Pokémon", emoji: "🐈", type: "game", note: "Trading cards and watching the anime. Still runs through my head.", era: "early" },
+  { id: "retro-games", title: "Retro Games", emoji: "🎮", type: "game", note: "Fun and friendly interactive games consisting of chasing high scores and sharing laughs.", era: "early" },
+  { id: "storybooks", title: "Storybooks", emoji: "📖", type: "activity", note: "The magic of turning pages and getting lost in stories (classic tales and bedtime adventures).", era: "early" },
+]
 
-  {
-    id: "earnest",
-    title: "The Importance of Being Earnest",
-    author: "Oscar Wilde",
-    status: "done",
-    // rating: N/A,
-    category: "satirical-play",
-    coverColor: "bg-purple-300",
-    summary: "N/A",
-    keyTakeaways: ["N/A"],
-    favoriteQuotes: ["N/A"],
-  },
+const typeColors: Record<NostalgiaItem["type"], string> = {
+  game: "border-primary/40 bg-primary/10 text-primary",
+  show: "border-yellow-500/40 bg-yellow-500/10 text-yellow-600 dark:text-yellow-400",
+  movie: "border-pink-500/40 bg-pink-500/10 text-pink-600 dark:text-pink-400",
+  activity: "border-emerald-500/40 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
+  place: "border-blue-500/40 bg-blue-500/10 text-blue-600 dark:text-blue-400",
+  thing: "border-orange-500/40 bg-orange-500/10 text-orange-600 dark:text-orange-400",
+}
 
-  {
-    id: "dorian-gray",
-    title: "The Picture of Dorian Gray",
-    author: "Oscar Wilde",
-    status: "done",
-    // rating: N/A,
-    category: "gothic-fiction",
-    coverColor: "bg-blue-300",
-    summary: "As Dorian Gray sinks into a worse life, his body retains his youth, while his painted portrait decays to reflect his inner self.",
-    keyTakeaways: ["N/A"],
-    favoriteQuotes: ["N/A"],
-  },
+type FunFact = { id: string; emoji: string; fact: string; tag: string }
 
-  {
-    id: "zero-to-one",
-    title: "Zero to One: Notes on Startups, or How to Build the Future",
-    author: "Peter Thiel",
-    status: "queue",
-    // rating: N/A,
-    category: "",
-    coverColor: "bg-red-300",
-    summary: "Thiel on creating unique value and building successful startups.",
-    keyTakeaways: ["N/A"],
-    favoriteQuotes: ["N/A"],
-  },
+const funFacts: FunFact[] = [
+  { id: "tea", emoji: "🍵", fact: "I think better with tea, specifically jasmine green tea.", tag: "daily ritual" },
+  { id: "design", emoji: "✏️", fact: "I always sketch interfaces before I write code!", tag: "building" },
+  { id: "space-design", emoji: "🌌", fact: "I've been designing for space longer than I've been to space (which is 0 times).", tag: "space" },
+  { id: "personal-website", emoji: "💻", fact: "I've built several versions of my personal portfolio website, reflecting my desire to always iterate and make improvements. Each version taught me something the last one couldn't.", tag: "building" },
+  { id: "builder", emoji: "🧩", fact: "I take things apart to understand how they work. This started with legos and puzzles as a kid, to software, systems, and organizations in later years.", tag: "curiosity" },
+  { id: "night-ideas", emoji: "🌙", fact: "Most of my best ideas show up after midnight.", tag: "habits" },
+  { id: "typing", emoji: "📐", fact: "I learned to type faster specifically so I could think faster.", tag: "productivity" },
+  { id: "sunrise", emoji: "🌅", fact: "I'm not a morning person but I am a sunrise person (yes there's a difference).", tag: "personality" },
+  { id: "organized", emoji: "🗂️", fact: "I have a folder and system for everything. Color-coded, cross-linked, probably over-engineered.", tag: "organization" },
+  { id: "space-constraints", emoji: "🛰️", fact: "I find space constraints more interesting than space itself - what do you build when everything is limited?", tag: "space" },
+]
+
+type HobbyLevel = "emerging" | "growing" | "thriving"
+type HobbyTab = "current" | "past" | "future"
+type HobbyCategory = "creative" | "physical" | "intellectual" | "social" | "digital"
+
+interface HobbyItem {
+  id: string
+  title: string
+  emoji: string
+  category: HobbyCategory
+  frequency: "daily" | "often" | "weekly" | "ongoing" | "sometimes"
+  level: HobbyLevel
+  progress: number
+  description: string
+  startedYear?: string
+  notes: string
+  milestones: { label: string; done: boolean }[]
+}
+
+const hobbyCategoryColors: Record<HobbyCategory, string> = {
+  creative: "border-pink-500/40 bg-pink-500/10 text-pink-600 dark:text-pink-400",
+  physical: "border-emerald-500/40 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
+  intellectual: "border-blue-500/40 bg-blue-500/10 text-blue-600 dark:text-blue-400",
+  social: "border-yellow-500/40 bg-yellow-500/10 text-yellow-600 dark:text-yellow-400",
+  digital: "border-primary/40 bg-primary/10 text-primary",
+}
+
+const hobbyFrequencyColors: Record<string, string> = {
+  daily: "border-primary/30 bg-primary/10 text-primary",
+  often: "border-emerald-500/30 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
+  weekly: "border-blue-500/30 bg-blue-500/10 text-blue-600 dark:text-blue-400",
+  ongoing: "border-orange-500/30 bg-orange-500/10 text-orange-600 dark:text-orange-400",
+  sometimes: "border-border bg-secondary/60 text-muted-foreground",
+}
+
+const hobbyGroups: Record<HobbyTab, HobbyItem[]> = {
+  current: [
+    {
+      id: "chess",
+      title: "Chess",
+      emoji: "♟️",
+      category: "intellectual",
+      frequency: "often",
+      level: "growing",
+      progress: 35,
+      description: "Slow, deliberate strategy. Every game is a design problem.",
+      startedYear: "",
+      notes: "The queen ♛ & bishop ♝ are my go-to's\nLove the strategic aspect!",
+      milestones: [
+        { label: "Learn classic opening strategies", done: false },
+        { label: "Study endgame techniques", done: false },
+      ],
+    },
+    {
+      id: "music",
+      title: "Music",
+      emoji: "🎵",
+      category: "creative",
+      frequency: "daily",
+      level: "thriving",
+      progress: 80,
+      description: "Soundtracks for different modes — flow, focus, reflection.",
+      startedYear: "",
+      notes: "",
+      milestones: [],
+    },
+    {
+      id: "reading",
+      title: "Reading",
+      emoji: "📚",
+      category: "intellectual",
+      frequency: "daily",
+      level: "thriving",
+      progress: 60,
+      description: "Mostly non-fiction, design, and the occasional novel. The physical kind — I like the weight of a book.",
+      startedYear: "",
+      notes: "",
+      milestones: [],
+    },
+    {
+      id: "scrapbooking",
+      title: "Scrapbooking",
+      emoji: "📋",
+      category: "creative",
+      frequency: "often",
+      level: "thriving",
+      progress: 75,
+      description: "Capturing memories, ideas, and moments in a physical archive.",
+      startedYear: "",
+      notes: "",
+      milestones: [],
+    },
+    {
+      id: "writing",
+      title: "Writing",
+      emoji: "✍️",
+      category: "creative",
+      frequency: "often",
+      level: "thriving",
+      progress: 60,
+      description: "Field notes, brain dumps, and longer-form thinking.",
+      startedYear: "",
+      notes: "",
+      milestones: [],
+    },
+    {
+      id: "sketching",
+      title: "Sketching & wireframing",
+      emoji: "✏️",
+      category: "creative",
+      frequency: "often",
+      level: "thriving",
+      progress: 70,
+      description: "Low-fidelity thinking. I sketch systems, interfaces, and random ideas on paper before touching a screen.",
+      startedYear: "",
+      notes: "",
+      milestones: [],
+    },
+    {
+      id: "tea",
+      title: "Tea exploration",
+      emoji: "🍵",
+      category: "creative",
+      frequency: "daily",
+      level: "thriving",
+      progress: 65,
+      description: "Brewing and collecting loose-leaf teas. Current favorites: jasmine green, oolong, and hojicha.",
+      startedYear: "",
+      notes: "",
+      milestones: [],
+    },
+    {
+      id: "walking",
+      title: "Long walks",
+      emoji: "🌿",
+      category: "physical",
+      frequency: "weekly",
+      level: "growing",
+      progress: 50,
+      description: "Best way to unstick a problem. No podcasts, no music — just thinking and noticing things.",
+      startedYear: "",
+      notes: "",
+      milestones: [],
+    },
+    {
+      id: "building-things",
+      title: "Building things",
+      emoji: "🛠️",
+      category: "digital",
+      frequency: "ongoing",
+      level: "thriving",
+      progress: 80,
+      description: "Projects, prototypes, small tools that scratch an itch. The process of making something from nothing.",
+      startedYear: "",
+      notes: "",
+      milestones: [],
+    },
+    {
+      id: "organizing",
+      title: "Organizing systems",
+      emoji: "🗂️",
+      category: "intellectual",
+      frequency: "often",
+      level: "thriving",
+      progress: 75,
+      description: "Building PKM systems, organizing notes, designing workflows. It's hobby-level at this point.",
+      startedYear: "",
+      notes: "",
+      milestones: [],
+    },
+    {
+      id: "games",
+      title: "Games",
+      emoji: "🎮",
+      category: "digital",
+      frequency: "sometimes",
+      level: "growing",
+      progress: 40,
+      description: "Puzzle games, strategy, and anything with good world-building. Currently interested in games as design systems.",
+      startedYear: "",
+      notes: "",
+      milestones: [],
+    },
+    {
+      id: "stargazing",
+      title: "Stargazing",
+      emoji: "🌌",
+      category: "physical",
+      frequency: "sometimes",
+      level: "emerging",
+      progress: 20,
+      description: "Quiet nights, wide skies. Pairs well with questions about scale and what it means to build things that last.",
+      startedYear: "",
+      notes: "",
+      milestones: [],
+    },
+  ],
+  past: [],
+  future: [],
+}
+
+const hobbyLevelConfig: Record<HobbyLevel, string> = {
+  emerging: "bg-yellow-500/10 text-yellow-600 dark:text-yellow-400 border-yellow-500/30",
+  growing: "bg-orange-500/10 text-orange-600 dark:text-orange-400 border-orange-500/30",
+  thriving: "bg-primary/10 text-primary border-primary/30",
+}
+
+const hobbyTabLabels: Record<HobbyTab, string> = {
+  current: "Current Pursuits",
+  past: "Archives",
+  future: "Future",
+}
+
+const levelFilters: Array<"all" | HobbyLevel> = ["all", "emerging", "growing", "thriving"]
+
+const levelFilterStyles: Record<"all" | HobbyLevel, string> = {
+  all: "border-primary/30 bg-primary/10 text-primary",
+  emerging: "border-yellow-500/30 bg-yellow-500/10 text-yellow-600 dark:text-yellow-400",
+  growing: "border-orange-500/30 bg-orange-500/10 text-orange-600 dark:text-orange-400",
+  thriving: "border-primary/30 bg-primary/10 text-primary",
+}
+
+const pageNotes: Record<string, string> = {
+  overview: "Each tab captures a different kind of bookmark (always tinkering - this list updates as things ship or new rabbit holes appear).",
+  art: "Visual references, creative influences, and makers whose work I keep studying.",
+  "concepts-library": "Core ideas I revisit often, frameworks I use to think clearly, lessons learned, and questions I'm exploring. Reusable principles connected across projects and seasons. Fragments and field notes (shorter than essays).",
+  "fun-facts": "Random things about me - the kind of stuff that doesn't fit anywhere else.",
+  hobbies: "Side quests (years of hobbies) + how I pursue them (projects, learning, & more). Tracking the evolution of interests over time. Hobbies & interests that keep exploration alive and life interesting. Things I do for the joy of it - what I reach for when there's no deadline.",
+  "inspiration-board": "Ideas, people, and quotes that keep showing up in how I think and build.",
+  "music-playlists": "Curated for different modes.",
+  "nostalgia-whimsy": "A playful childhood collection of games, memories, shows, stories, toys, and things that still live rent-free in my head - what shaped my early years and made me, me.",
+  reading: "Current books, learnings, and notes that shape how I think about building, design, and systems.",
+  "talks-videos": "Talks worth watching twice.",
+  "tiny-experiments": "An extension of my lab and projects pages - small bets with clear outcomes.",
+  writing: "Articles, essays, and papers worth keeping.",
+}
+
+const overviewItems = [
+  { icon: <Palette className="h-4 w-4" />, label: "Art", id: "art" },
+  { icon: <Brain className="h-4 w-4" />, label: "Concepts & Models", id: "concepts-library" },
+  { icon: <Sparkles className="h-4 w-4" />, label: "Fun Facts", id: "fun-facts" },
+  { icon: <Puzzle className="h-4 w-4" />, label: "Hobbies", id: "hobbies" },
+  { icon: <Lightbulb className="h-4 w-4" />, label: "Inspiration Board", id: "inspiration-board" },
+  { icon: <Music className="h-4 w-4" />, label: "Music & Playlists", id: "music-playlists" },
+  { icon: <Heart className="h-4 w-4" />, label: "Nostalgia & Whimsy", id: "nostalgia-whimsy" },
+  { icon: <BookOpen className="h-4 w-4" />, label: "Reading Library", id: "reading" },
+  { icon: <Video className="h-4 w-4" />, label: "Talks & Videos", id: "talks-videos" },
+  { icon: <Atom className="h-4 w-4" />, label: "Tiny Experiments", id: "tiny-experiments" },
+  { icon: <FileText className="h-4 w-4" />, label: "Writing & Research", id: "writing" },
 ]
 
 interface FlipPage {
@@ -162,6 +364,10 @@ export function BookmarksFlipbook() {
   const [isVisible, setIsVisible] = useState(false)
   const [expandedBookId, setExpandedBookId] = useState<string | null>(null)
   const [activeInspirationCategory, setActiveInspirationCategory] = useState<InspirationCategory | null>(null)
+  const [activeNostalgiaType, setActiveNostalgiaType] = useState<NostalgiaItem["type"] | null>(null)
+  const [activeHobbyTab, setActiveHobbyTab] = useState<HobbyTab>("current")
+  const [activeHobbyLevel, setActiveHobbyLevel] = useState<"all" | HobbyLevel>("all")
+  const [expandedHobbyId, setExpandedHobbyId] = useState<string | null>(null)
   const ref = useRef<HTMLDivElement>(null)
   const navRef = useRef<HTMLDivElement>(null)
   const [navHeight, setNavHeight] = useState<number | null>(null)
@@ -169,6 +375,17 @@ export function BookmarksFlipbook() {
   const filteredInspirationItems = activeInspirationCategory
     ? inspirationItems.filter((item) => item.category === activeInspirationCategory)
     : inspirationItems
+
+  const filteredNostalgiaItems = activeNostalgiaType
+    ? nostalgiaItems.filter((item) => item.type === activeNostalgiaType)
+    : nostalgiaItems
+
+  const tabHobbies = hobbyGroups[activeHobbyTab]
+  const filteredHobbies = activeHobbyLevel === "all"
+    ? tabHobbies
+    : tabHobbies.filter((h) => h.level === activeHobbyLevel)
+
+  const nostalgiaTypes = [...new Set(nostalgiaItems.map((i) => i.type))] as NostalgiaItem["type"][]
 
   useEffect(() => {
     const observer = new IntersectionObserver(([e]) => { if (e.isIntersecting) setIsVisible(true) }, { threshold: 0.1 })
@@ -178,74 +395,43 @@ export function BookmarksFlipbook() {
 
   useEffect(() => {
     if (!navRef.current) return
-
-    const updateHeight = () => {
-      if (navRef.current) setNavHeight(navRef.current.offsetHeight)
-    }
-
+    const updateHeight = () => { if (navRef.current) setNavHeight(navRef.current.offsetHeight) }
     updateHeight()
     const resizeObserver = new ResizeObserver(() => updateHeight())
     resizeObserver.observe(navRef.current)
     window.addEventListener("resize", updateHeight)
-
-    return () => {
-      resizeObserver.disconnect()
-      window.removeEventListener("resize", updateHeight)
-    }
+    return () => { resizeObserver.disconnect(); window.removeEventListener("resize", updateHeight) }
   }, [])
 
   const pages: FlipPage[] = [
-    // Overview
     {
       id: "overview",
       icon: <Tag className="h-4 w-4" />,
       label: "Overview",
       content: (
-        <div className="space-y-4">
-          <div className="space-y-2">
-            <p className="font-mono text-xs text-muted-foreground tracking-wider">Each tab captures a different kind of bookmark</p>
-          </div>
-
-          <div className="grid gap-3 sm:grid-cols-2">
-            {[
-              { icon: <Palette className="h-4 w-4" />, label: "Art", note: "Visual inspiration I admire" },
-              { icon: <Brain className="h-4 w-4" />, label: "Concepts & Models", note: "Frameworks, principles, & lines of thinking that shape how I learn, design, & decide" },
-              { icon: <Lightbulb className="h-4 w-4" />, label: "Inspiration Board", note: "Collected sparks: ideas & references (sorted by category)" },
-              { icon: <Music className="h-4 w-4" />, label: "Music & Playlists", note: "Soundtracks for different modes (e.g. flow, focus, & reflection)" },
-              { icon: <BookOpen className="h-4 w-4" />, label: "Reading Library", note: "Some of the books I'm reading or have finished, along with notes, takeaways, & quotes" },
-              { icon: <Video className="h-4 w-4" />, label: "Talks & Videos", note: "Talks worth revisiting for ideas, perspective, or explanation clarity" },
-              { icon: <Atom className="h-4 w-4" />, label: "Tiny Experiments", note: "Small bets, ongoing trials, & side explorations with clear outcomes" },
-              { icon: <Wrench className="h-4 w-4" />, label: "Tools", note: "The tools I use for writing, building, & thinking" },
-              { icon: <FileText className="h-4 w-4" />, label: "Writing & Research", note: "Articles, essays, & papers I enjoy" },
-            ].map((item) => (
-              <div key={item.label} className="rounded-lg border border-border/50 bg-secondary/30 px-4 py-3 transition-colors hover:border-primary/30">
-                <div className="mb-2 flex items-center gap-2">
-                  <span className="text-primary">{item.icon}</span>
-                  <p className="text-sm font-semibold">{item.label}</p>
-                </div>
-                <p className="font-mono text-xs leading-relaxed text-muted-foreground">{item.note}</p>
+        <div className="grid gap-3 sm:grid-cols-2">
+          {overviewItems.map((item) => (
+            <div key={item.id} className="rounded-lg border border-border/50 bg-secondary/30 px-4 py-3 transition-colors hover:border-primary/30">
+              <div className="mb-2 flex items-center gap-2">
+                <span className="text-primary">{item.icon}</span>
+                <p className="text-sm font-semibold">{item.label}</p>
               </div>
-            ))}
-          </div>
+              <p className="font-mono text-xs leading-relaxed text-muted-foreground">{pageNotes[item.id]}</p>
+            </div>
+          ))}
         </div>
       ),
     },
 
-    // Art
     {
       id: "art",
       icon: <Palette className="h-4 w-4" />,
       label: "Art",
       content: (
         <div className="space-y-3">
-          <p className="font-mono text-xs text-muted-foreground tracking-wider mb-4">Visual references, creative influences, & makers whose work I keep studying</p>
-          {[
-            { piece: "Almond Blossoms", creator: "Vincent van Gogh" },
-          ].map((a) => (
+          {[{ piece: "Almond Blossoms", creator: "Vincent van Gogh" }].map((a) => (
             <div key={a.piece} className="rounded-lg bg-secondary/30 border border-border/50 px-4 py-3 hover:border-primary/30 transition-colors">
-              <div className="flex items-start justify-between gap-2 mb-1">
-                <p className="text-sm font-semibold">{a.piece}</p>
-              </div>
+              <p className="text-sm font-semibold mb-1">{a.piece}</p>
               <p className="font-mono text-xs text-muted-foreground">{a.creator}</p>
             </div>
           ))}
@@ -253,110 +439,282 @@ export function BookmarksFlipbook() {
       ),
     },
 
-    // Concepts & Models
     {
       id: "concepts-library",
       icon: <Brain className="h-4 w-4" />,
       label: "Concepts & Models",
       content: (
-        <div className="space-y-3">
-          <p className="font-mono text-xs text-muted-foreground tracking-wider mb-4">Core ideas I revisit often, frameworks I use to think clearly (e.g. for decision-making), lessons learned (hard-won insights), & questions I'm exploring that guide my current work. Reusable principles connected across projects & seasons.</p>
-          <div className="grid gap-3 sm:grid-cols-3">
-            {[
-              { concept: "2nd brain", note: "Personal knowledge management (PKM) system to capture & organize info (files, ideas, notes, etc.)", domain: "productivity" },
-              { concept: "Cognitive & neuroscience", note: "Research on how the brain processes information & its applications in design", domain: "knowledge" },
-              { concept: "Deep work", note: "Focus without distraction for productivity", domain: "productivity" },
-              { concept: "Design principles", note: "My working design philosophy: details matter → start with why", domain: "product" },
-              { concept: "Documentation", note: "Document everything", domain: "building" },
-              { concept: "Education", note: "Design learning experiences that are effective & enjoyable", domain: "learning" },
-              { concept: "Feedback loops", note: "Create mechanisms to learn & adapt quickly", domain: "systems" },
-              { concept: "First principles", note: "Break down complex problems into fundamental truths", domain: "systems" },
-              { concept: "Human-computer interaction (HCI)", note: "HCI research methods and occupational hazard of HCI research", domain: "product" },
-              { concept: "Inversion", note: "Ask what could fail first, then design around it", domain: "design" },
-              { concept: "Learning how to learn", note: "Interleaving - learning efficiently", domain: "knowledge" },
-              { concept: "Leverage", note: "Build once, benefit repeatedly", domain: "building" },
-              { concept: "Mind", note: "Make systems feel like extensions of the mind", domain: "cognitive science" },
-              { concept: "Product", note: "Build impactful 0→1 products (a.k.a. product building) - the craft of making something from nothing", domain: "product" },
-              { concept: "Rest", note: "Prioritize scheduled recovery to maintain sustainable output", domain: "productivity" },
-              { concept: "Second-order thinking", note: "Analyze the long-term effects of actions instead of immediate results", domain: "productivity" },
-              { concept: "Space", note: "Cognitive load in interfaces (HCI for astronaut interfaces) and designing for zero-gravity workflows", domain: "building" },
-              { concept: "Systems", note: "Build systems that stay useful at higher complexity", domain: "systems" },
-              { concept: "UI/UX patterns", note: "Strategic & tactical design", domain: "design" },
-              { concept: "Writing", note: "Communicate ideas clearly & engagingly", domain: "communication" },
-            ].map((c) => (
-              <div key={c.concept} className="rounded-lg bg-secondary/30 border border-border/50 px-4 py-3 hover:border-primary/30 transition-colors">
-                <div className="flex items-start justify-between gap-2 mb-1">
-                  <p className="text-sm font-semibold">{c.concept}</p>
-                  <span className="shrink-0 px-2 py-0.5 rounded-full bg-primary/10 border border-primary/30 font-mono text-[10px] text-primary">{c.domain}</span>
-                </div>
-                <p className="font-mono text-xs text-muted-foreground">{c.note}</p>
+        <div className="grid gap-3 sm:grid-cols-3">
+          {[
+            { concept: "2nd brain", note: "Personal knowledge management (PKM) system to capture & organize info (files, ideas, notes, etc.)", domain: "productivity" },
+            { concept: "Building", note: "Shipping something imperfect is almost always better than not shipping something perfect", domain: "building" },
+            { concept: "Cognitive & neuroscience", note: "Research on how the brain processes information & its applications in design", domain: "knowledge" },
+            { concept: "Deep work", note: "Focus without distraction for productivity", domain: "productivity" },
+            { concept: "Design interfaces", note: "The best interfaces don't respond to people, they think with them", domain: "design" },
+            { concept: "Design principles", note: "My working design philosophy: details matter → start with why", domain: "product" },
+            { concept: "Documentation", note: "Document everything", domain: "building" },
+            { concept: "Education", note: "Design learning experiences that are effective & enjoyable", domain: "learning" },
+            { concept: "Feedback loops", note: "Create mechanisms to learn & adapt quickly", domain: "systems" },
+            { concept: "First principles", note: "Break down complex problems into fundamental truths", domain: "systems" },
+            { concept: "Human-computer interaction (HCI)", note: "HCI research methods, fostering the community, pushing the boundary of how humans + tech co-exist", domain: "product" },
+            { concept: "Inversion", note: "Ask what could fail first, then design around it", domain: "design" },
+            { concept: "Learning how to learn", note: "Interleaving - learning efficiently", domain: "knowledge" },
+            { concept: "Leverage", note: "Build once, benefit repeatedly", domain: "building" },
+            { concept: "Mind", note: "Make systems feel like extensions of the mind", domain: "cognitive science" },
+            { concept: "Product", note: "Build impactful 0→1 products - the craft of making something from nothing", domain: "product" },
+            { concept: "Rest", note: "Prioritize scheduled recovery to maintain sustainable output", domain: "productivity" },
+            { concept: "Second-order thinking", note: "Analyze the long-term effects of actions instead of immediate results", domain: "productivity" },
+            { concept: "Space (Apollo Program)", note: "Proof that constraints foster extraordinary design", domain: "building" },
+            { concept: "Space (constraints)", note: "Space teaches that constraints aren't limitations, they're the design brief", domain: "building" },
+            { concept: "Space (HCI)", note: "Cognitive load in interfaces (HCI for astronaut interfaces) and designing for zero-gravity workflows", domain: "building" },
+            { concept: "Systems", note: "Build systems that stay useful at higher complexity", domain: "systems" },
+            { concept: "Tools", note: "You can tell a lot about how someone thinks by what tools they reach for", domain: "productivity" },
+            { concept: "UI/UX patterns", note: "Strategic & tactical design", domain: "design" },
+            { concept: "Writing", note: "Communicate ideas clearly & engagingly", domain: "communication" },
+          ].map((c) => (
+            <div key={c.concept} className="rounded-lg bg-secondary/30 border border-border/50 px-4 py-3 hover:border-primary/30 transition-colors">
+              <div className="flex items-start justify-between gap-2 mb-1">
+                <p className="text-sm font-semibold">{c.concept}</p>
+                <span className="shrink-0 px-2 py-0.5 rounded-full bg-primary/10 border border-primary/30 font-mono text-[10px] text-primary">{c.domain}</span>
+              </div>
+              <p className="font-mono text-xs text-muted-foreground">{c.note}</p>
+            </div>
+          ))}
+        </div>
+      ),
+    },
+
+    {
+      id: "fun-facts",
+      icon: <Sparkles className="h-4 w-4" />,
+      label: "Fun Facts",
+      content: (
+        <div className="grid gap-3 sm:grid-cols-2">
+          {funFacts.map((f) => (
+            <div key={f.id} className="group flex items-start gap-3 rounded-lg bg-secondary/30 border border-border/50 px-4 py-3 hover:border-primary/30 transition-colors">
+              <span className="text-xl select-none shrink-0 mt-0.5">{f.emoji}</span>
+              <div className="flex-1 min-w-0">
+                <p className="text-sm leading-relaxed text-foreground/80">{f.fact}</p>
+                <span className="mt-2 inline-block font-mono text-[10px] text-primary/60 bg-primary/8 border border-primary/20 px-2 py-0.5 rounded-full">
+                  #{f.tag}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      ),
+    },
+
+    {
+      id: "hobbies",
+      icon: <Puzzle className="h-4 w-4" />,
+      label: "Hobbies",
+      content: (
+        <div className="space-y-4">
+          {/* Tab switcher */}
+          <div className="grid grid-cols-3 gap-1 rounded-lg border border-border/50 bg-secondary/30 p-1">
+            {(["current", "past", "future"] as HobbyTab[]).map((tab) => (
+              <button
+                key={tab}
+                onClick={() => { setActiveHobbyTab(tab); setActiveHobbyLevel("all"); setExpandedHobbyId(null) }}
+                className={cn(
+                  "rounded-md px-3 py-1.5 font-mono text-xs transition-all duration-200",
+                  activeHobbyTab === tab
+                    ? "bg-primary/15 text-primary border border-primary/30"
+                    : "text-muted-foreground hover:text-foreground"
+                )}
+              >
+                {hobbyTabLabels[tab]}
+                <span className="ml-1.5 font-mono text-[10px] text-muted-foreground">({hobbyGroups[tab].length})</span>
+              </button>
+            ))}
+          </div>
+
+          {/* Level filters */}
+          <div className="flex flex-wrap gap-2">
+            {levelFilters.map((filter) => {
+              const count = filter === "all" ? tabHobbies.length : tabHobbies.filter((h) => h.level === filter).length
+              return (
+                <button
+                  key={filter}
+                  onClick={() => { setActiveHobbyLevel(filter); setExpandedHobbyId(null) }}
+                  className={cn(
+                    "rounded-lg border px-3 py-1.5 font-mono text-xs tracking-wide transition-all",
+                    activeHobbyLevel === filter
+                      ? levelFilterStyles[filter]
+                      : "border-border/50 bg-card/40 text-muted-foreground hover:border-primary/30 hover:text-foreground"
+                  )}
+                >
+                  {filter} ({count})
+                </button>
+              )
+            })}
+          </div>
+
+          {/* Cards */}
+          <div className="grid sm:grid-cols-2 gap-3">
+            {filteredHobbies.map((hobby) => (
+              <div
+                key={hobby.id}
+                className={cn(
+                  "rounded-xl border bg-card/40 overflow-hidden transition-colors",
+                  expandedHobbyId === hobby.id ? "border-primary/50 bg-primary/5" : "border-border/50 hover:border-primary/30"
+                )}
+              >
+                <button
+                  onClick={() => setExpandedHobbyId(expandedHobbyId === hobby.id ? null : hobby.id)}
+                  className="w-full p-4 text-left hover:bg-secondary/30 transition-colors"
+                >
+                  <div className="flex items-start gap-3 mb-3">
+                    <span className="text-xl select-none shrink-0 mt-0.5">{hobby.emoji}</span>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-start justify-between gap-2 mb-1">
+                        <p className="text-sm font-bold truncate">{hobby.title}</p>
+                        <div className="flex items-center gap-1.5 shrink-0">
+                          <span className={cn("px-2 py-0.5 rounded-full border font-mono text-[10px]", hobbyLevelConfig[hobby.level])}>
+                            {hobby.level}
+                          </span>
+                          <ChevronDown className={cn("h-3.5 w-3.5 text-muted-foreground transition-transform duration-200", expandedHobbyId === hobby.id && "rotate-180 text-primary")} />
+                        </div>
+                      </div>
+                      {hobby.description && <p className="font-mono text-xs text-muted-foreground">{hobby.description}</p>}
+                      <div className="flex flex-wrap gap-1.5 mt-2">
+                        <span className={cn("px-2 py-0.5 rounded-full border font-mono text-[10px]", hobbyCategoryColors[hobby.category])}>
+                          {hobby.category}
+                        </span>
+                        <span className={cn("px-2 py-0.5 rounded-full border font-mono text-[10px]", hobbyFrequencyColors[hobby.frequency])}>
+                          {hobby.frequency}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-secondary/80">
+                      <div
+                        className={cn(
+                          "h-full rounded-full transition-all duration-700 ease-out",
+                          hobby.progress === 100 ? "bg-emerald-300" :
+                          hobby.progress >= 75 ? "bg-lime-300" :
+                          hobby.progress >= 50 ? "bg-yellow-300" :
+                          hobby.progress >= 25 ? "bg-amber-300" :
+                          "bg-orange-300"
+                        )}
+                        style={{ width: `${Math.max(hobby.progress, 5)}%` }}
+                      />
+                    </div>
+                    <span className="w-8 shrink-0 font-mono text-xs text-muted-foreground">{hobby.progress}%</span>
+                  </div>
+                </button>
+
+                {expandedHobbyId === hobby.id && (
+                  <div className="px-4 pb-4 border-t border-border/50 pt-3 space-y-3">
+                    {hobby.startedYear && (
+                      <p className="font-mono text-[10px] text-muted-foreground">Started: {hobby.startedYear}</p>
+                    )}
+
+                    {hobby.notes.trim() && (
+                      <div className="rounded-lg bg-primary/5 border border-primary/20 p-3">
+                        <p className="font-mono text-[10px] tracking-widest text-primary mb-2 flex items-center gap-1">
+                          <Sparkles className="h-3 w-3" /> Notes
+                        </p>
+                        <div className="space-y-1.5">
+                          {hobby.notes.split("\n").map((n) => n.trim()).filter(Boolean).map((note, i) => (
+                            <div key={i} className="flex items-start gap-2">
+                              <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
+                              <span className="font-mono text-xs text-muted-foreground leading-relaxed">{note}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {hobby.milestones.some((m) => m.label) && (
+                      <div className="rounded-lg bg-primary/5 border border-primary/20 p-3">
+                        <div className="mb-2 flex items-center justify-between">
+                          <p className="font-mono text-[10px] tracking-widest text-primary flex items-center gap-1">
+                            <Sparkles className="h-3 w-3" /> Milestones
+                          </p>
+                          <span className="font-mono text-[10px] text-primary">
+                            {hobby.milestones.filter((m) => m.done).length}/{hobby.milestones.filter((m) => m.label).length} done
+                          </span>
+                        </div>
+                        <div className="space-y-1.5">
+                          {hobby.milestones.filter((m) => m.label).map((milestone, i) => (
+                            <div key={i} className="flex items-start gap-2">
+                              <div className={cn(
+                                "mt-0.5 w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0",
+                                milestone.done ? "border-primary bg-primary" : "border-muted-foreground/30"
+                              )}>
+                                {milestone.done && (
+                                  <svg className="w-2.5 h-2.5 text-primary-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                                  </svg>
+                                )}
+                              </div>
+                              <span className={cn("font-mono text-xs", milestone.done ? "text-muted-foreground line-through" : "text-foreground/80")}>
+                                {milestone.label}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                )}
               </div>
             ))}
+
+            {filteredHobbies.length === 0 && (
+              <div className="sm:col-span-2 rounded-xl border border-dashed border-border/50 bg-card/20 p-6 text-center">
+                <p className="font-mono text-xs text-muted-foreground">Nothing here yet.</p>
+              </div>
+            )}
           </div>
         </div>
       ),
     },
 
-    // Inspiration Board
     {
       id: "inspiration-board",
       icon: <Lightbulb className="h-4 w-4" />,
       label: "Inspiration Board",
       content: (
         <div className="space-y-4">
-          <p className="font-mono text-xs text-muted-foreground tracking-wider">Ideas, people, & quotes (words that stuck with me) that keep showing up in how I think & build</p>
-
           <div className="flex flex-wrap gap-2">
             <button
               onClick={() => setActiveInspirationCategory(null)}
               className={cn(
                 "flex items-center gap-1.5 px-3 py-1.5 rounded-lg border font-mono text-xs transition-all duration-200",
-                !activeInspirationCategory
-                  ? "border-primary bg-primary/15 text-primary"
-                  : "border-border text-muted-foreground hover:border-foreground/40 hover:text-foreground"
+                !activeInspirationCategory ? "border-primary bg-primary/15 text-primary" : "border-border text-muted-foreground hover:border-foreground/40 hover:text-foreground"
               )}
             >
               <Tag className="h-3 w-3" /> all
             </button>
-
             {allInspirationCategories.map((category) => (
               <button
                 key={category}
                 onClick={() => setActiveInspirationCategory(activeInspirationCategory === category ? null : category)}
                 className={cn(
                   "flex items-center gap-1.5 px-3 py-1.5 rounded-lg border font-mono text-xs transition-all duration-200",
-                  activeInspirationCategory === category
-                    ? inspirationCategoryConfig[category].color
-                    : "border-border text-muted-foreground hover:border-foreground/40 hover:text-foreground"
+                  activeInspirationCategory === category ? inspirationCategoryConfig[category].color : "border-border text-muted-foreground hover:border-foreground/40 hover:text-foreground"
                 )}
               >
                 {inspirationCategoryConfig[category].label}
               </button>
             ))}
           </div>
-
           <div className="columns-1 gap-3 sm:columns-2">
             {filteredInspirationItems.map((item) => (
-              <div
-                key={item.id}
-                className={cn(
-                  "mb-3 break-inside-avoid rounded-xl border border-l-4 border-border bg-card/40 p-5 transition-colors hover:border-primary/40",
-                  item.accentColor
-                )}
-              >
+              <div key={item.id} className={cn("mb-3 break-inside-avoid rounded-xl border border-l-4 border-border bg-card/40 p-5 transition-colors hover:border-primary/40", item.accentColor)}>
                 <span className={cn("mb-3 inline-flex items-center gap-1 rounded-full border px-2 py-0.5 font-mono text-[10px]", inspirationCategoryConfig[item.category].color)}>
                   {item.category === "quote" ? <Quote className="h-2.5 w-2.5" /> : <Tag className="h-2.5 w-2.5" />}
                   {inspirationCategoryConfig[item.category].label}
                 </span>
-
                 <h3 className={cn("mb-2 font-medium leading-snug", item.category === "quote" ? "text-base italic" : "text-sm")}>
                   {item.category === "quote" ? `"${item.title}"` : item.title}
                 </h3>
-
-                {item.source && (
-                  <p className="mb-2 font-mono text-xs text-primary">- {item.source}</p>
-                )}
-
+                {item.source && <p className="mb-2 font-mono text-xs text-primary">- {item.source}</p>}
                 <p className="text-xs leading-relaxed text-muted-foreground">{item.description}</p>
               </div>
             ))}
@@ -365,17 +723,13 @@ export function BookmarksFlipbook() {
       ),
     },
 
-    // Music & Playlists
     {
       id: "music-playlists",
       icon: <Music className="h-4 w-4" />,
       label: "Music & Playlists",
       content: (
         <div className="space-y-3">
-          <p className="font-mono text-xs text-muted-foreground tracking-wider mb-4">Curated for different modes</p>
-          {[
-            { name: "Deep Work", mood: "flow state", tracks: "Lo-fi, ambient, no lyrics", color: "bg-primary/10 text-primary border-primary/30" },
-          ].map((pl) => (
+          {[{ name: "Deep Work", mood: "flow state", tracks: "Lo-fi, ambient, no lyrics", color: "bg-primary/10 text-primary border-primary/30" }].map((pl) => (
             <div key={pl.name} className="rounded-lg bg-secondary/30 border border-border/50 px-4 py-3 hover:border-primary/30 transition-colors">
               <div className="flex items-start justify-between gap-2 mb-1">
                 <p className="text-sm font-semibold">{pl.name}</p>
@@ -388,14 +742,62 @@ export function BookmarksFlipbook() {
       ),
     },
 
-    // Reading Library
+    {
+      id: "nostalgia-whimsy",
+      icon: <Heart className="h-4 w-4" />,
+      label: "Nostalgia & Whimsy",
+      content: (
+        <div className="space-y-4">
+          <div className="flex flex-wrap gap-2">
+            <button
+              onClick={() => setActiveNostalgiaType(null)}
+              className={cn(
+                "flex items-center gap-1.5 px-3 py-1.5 rounded-lg border font-mono text-xs transition-all duration-200",
+                !activeNostalgiaType ? "border-primary bg-primary/15 text-primary" : "border-border text-muted-foreground hover:border-foreground/40 hover:text-foreground"
+              )}
+            >
+              <Tag className="h-3 w-3" /> all
+            </button>
+            {nostalgiaTypes.map((type) => (
+              <button
+                key={type}
+                onClick={() => setActiveNostalgiaType(activeNostalgiaType === type ? null : type)}
+                className={cn(
+                  "px-3 py-1.5 rounded-lg border font-mono text-xs transition-all duration-200",
+                  activeNostalgiaType === type ? typeColors[type] : "border-border text-muted-foreground hover:border-foreground/40 hover:text-foreground"
+                )}
+              >
+                {type}
+              </button>
+            ))}
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {filteredNostalgiaItems.map((item) => (
+              <div key={item.id} className="group rounded-lg bg-secondary/30 border border-border/50 px-4 py-3 hover:border-primary/30 transition-colors">
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl select-none mt-0.5">{item.emoji}</span>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 flex-wrap mb-1">
+                      <p className="text-sm font-semibold">{item.title}</p>
+                      <span className={cn("shrink-0 px-2 py-0.5 rounded-full border font-mono text-[10px]", typeColors[item.type])}>{item.type}</span>
+                    </div>
+                    <p className="font-mono text-xs text-muted-foreground leading-relaxed">{item.note}</p>
+                    <p className="font-mono text-[10px] text-muted-foreground/50 mt-1.5">{item.era}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ),
+    },
+
     {
       id: "reading",
       icon: <BookOpen className="h-4 w-4" />,
       label: "Reading Library",
       content: (
         <div className="space-y-3">
-          <p className="font-mono text-xs text-muted-foreground tracking-wider mb-4">Currently reading + notes & learnings</p>
           {readingBooks.map((book) => {
             const hasNotes = !!book.summary
             const isExpanded = expandedBookId === book.id
@@ -434,12 +836,9 @@ export function BookmarksFlipbook() {
                     )}>
                       {book.status === "queue" ? "antilibrary" : book.status}
                     </span>
-                    {hasNotes && (
-                      <ChevronDown className={cn("h-4 w-4 text-muted-foreground transition-transform", isExpanded && "rotate-180")} />
-                    )}
+                    {hasNotes && <ChevronDown className={cn("h-4 w-4 text-muted-foreground transition-transform", isExpanded && "rotate-180")} />}
                   </div>
                 </button>
-
                 {hasNotes && isExpanded && (
                   <div className="px-4 pb-4 border-t border-border/50 pt-3 space-y-4">
                     <div>
@@ -484,17 +883,13 @@ export function BookmarksFlipbook() {
       ),
     },
 
-    // Talks & Videos
     {
       id: "talks-videos",
       icon: <Video className="h-4 w-4" />,
       label: "Talks & Videos",
       content: (
         <div className="space-y-3">
-          <p className="font-mono text-xs text-muted-foreground tracking-wider mb-4">Talks worth watching twice</p>
-          {[
-            { title: "Why you keep rewatching the same TV show", speaker: "Michael Smith", event: "TEDx Talks" },
-          ].map((t) => (
+          {[{ title: "Why you keep rewatching the same TV show", speaker: "Michael Smith", event: "TEDx Talks" }].map((t) => (
             <div key={t.title} className="rounded-lg bg-secondary/30 border border-border/50 px-4 py-3 hover:border-primary/30 transition-colors">
               <p className="text-sm font-medium">{t.title}</p>
               <div className="flex items-center gap-2 mt-1">
@@ -508,17 +903,13 @@ export function BookmarksFlipbook() {
       ),
     },
 
-    // Tiny Experiments
     {
       id: "tiny-experiments",
       icon: <Atom className="h-4 w-4" />,
       label: "Tiny Experiments",
       content: (
         <div className="space-y-3">
-          <p className="font-mono text-xs text-muted-foreground tracking-wider mb-4">An extension of my lab & projects pages - small bets with clear outcomes</p>
-          {[
-            { experiment: "Daily design notes", notes: "Building consistency", status: "active" },
-          ].map((e) => (
+          {[{ experiment: "Daily design notes", notes: "Building consistency", status: "active" }].map((e) => (
             <div key={e.experiment} className="rounded-lg bg-secondary/30 border border-border/50 px-4 py-3 hover:border-primary/30 transition-colors">
               <div className="flex items-start justify-between gap-2 mb-1">
                 <p className="text-sm font-semibold">{e.experiment}</p>
@@ -531,40 +922,13 @@ export function BookmarksFlipbook() {
       ),
     },
 
-    // Tools
-    {
-      id: "tools",
-      icon: <Wrench className="h-4 w-4" />,
-      label: "Tools",
-      content: (
-        <div className="space-y-3">
-          <p className="font-mono text-xs text-muted-foreground tracking-wider mb-4">Toolkit by context (what I use for different modes) & useful tools I keep coming back to</p>
-          {[
-            { context: "Productivity", tools: "Notion, Obsidian" },
-            { context: "Building", tools: "GitHub" },
-            { context: "Thinking", tools: "Excalidraw" },
-            // { name: "Excalidraw", purpose: "Hand-drawn diagrams + wireframes", type: "design" },
-            // { name: "Notion", purpose: "Docs, wikis, project tracking", type: "productivity" },
-          ].map((t) => (
-            <div key={t.context} className="rounded-lg bg-secondary/30 border border-border/50 px-4 py-3 hover:border-primary/30 transition-colors">
-              <p className="text-sm font-semibold mb-1">{t.context}</p>
-              <p className="font-mono text-xs text-muted-foreground">{t.tools}</p>
-            </div>
-          ))}
-        </div>
-      ),
-    },
-
     {
       id: "writing",
       icon: <FileText className="h-4 w-4" />,
       label: "Writing & Research",
       content: (
         <div className="space-y-3">
-          <p className="font-mono text-xs text-muted-foreground tracking-wider mb-4">Articles, essays, & papers worth keeping</p>
-          {[
-            { title: "Cognitive Load Theory in HCI", source: "Research paper", type: "paper" },
-          ].map((w) => (
+          {[{ title: "Computer Human Interface Challenges in Space Exploration", source: "ntrs.nasa.gov/citations/20230009205 | Survey of interaction design for extreme environments core to my research", type: "paper" }].map((w) => (
             <div key={w.title} className="rounded-lg bg-secondary/30 border border-border/50 px-4 py-3 hover:border-primary/30 transition-colors">
               <div className="flex items-start justify-between gap-2">
                 <div>
@@ -584,87 +948,76 @@ export function BookmarksFlipbook() {
   const current = pages[currentPage]
 
   return (
-    <section ref={ref} className="relative px-4 sm:px-6 pt-16 sm:pt-16 pb-8 sm:pb-12">
+    <section ref={ref} className="relative px-4 sm:px-6 pt-4 sm:pt-6 pb-8 sm:pb-12">
       <div className="mx-auto max-w-7xl">
-      <div className={cn("space-y-3 mb-6 opacity-0", isVisible && "animate-fade-in-up")}>
-        <p className="font-mono text-xs tracking-[0.25em] text-primary flex items-center gap-2">
-            a bit of everything;
-          </p>
-        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Bookmarks</h2>
-        <p className="w-fit max-w-none text-base sm:text-lg text-muted-foreground leading-relaxed whitespace-nowrap">Mini flipbook that works like a small index of artifacts, ideas, and references I return to often.</p>
-      </div>
-
-      <div className={cn("opacity-0", isVisible && "animate-fade-in-up stagger-1")}>
-      <div className="grid lg:grid-cols-[220px_1fr] gap-6">
-        {/* Sidebar Nav */}
-        <div ref={navRef} className="rounded-xl border border-border bg-card/40 glass p-3 space-y-1 h-fit">
-          {pages.map((page, index) => (
-            <button
-              key={page.id}
-              onClick={() => setCurrentPage(index)}
-              className={cn(
-                "flex items-center gap-3 w-full px-3 py-2.5 rounded-lg font-mono text-xs transition-all duration-200",
-                currentPage === index
-                  ? "bg-primary/15 text-primary border border-primary/30"
-                  : "text-muted-foreground hover:bg-secondary/50 hover:text-foreground border border-transparent"
-              )}
-            >
-              <span className={cn(currentPage === index ? "text-primary" : "text-muted-foreground")}>
-                {page.icon}
-              </span>
-              {page.label}
-            </button>
-          ))}
+        <div className={cn("space-y-3 mb-6 opacity-0", isVisible && "animate-fade-in-up")}>
+          <p className="font-mono text-xs tracking-[0.25em] text-primary flex items-center gap-2">a bit of everything;</p>
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Bookmarks ‧₊˚♪ 𝄞₊˚⊹</h2>
+          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">Mini flipbook that works like a small index of artifacts, ideas, and references I return to often.</p>
         </div>
 
-        {/* Content Panel */}
-        <div className="rounded-xl border border-border bg-card/40 glass overflow-hidden flex flex-col lg:self-start" style={navHeight ? { height: `${navHeight}px` } : undefined}>
-          {/* Panel Header */}
-          <div className="flex items-center justify-between border-b border-border/50 bg-secondary/30 px-6 py-4">
-            <div className="flex items-center gap-2">
-              {current.icon}
-              <span className="font-mono text-sm font-medium">{current.label}</span>
-            </div>
-            <span className="font-mono text-xs text-muted-foreground">{currentPage + 1} / {totalPages}</span>
-          </div>
-
-          {/* Panel Content */}
-          <div className="p-6 flex-1 overflow-y-auto">
-            {current.content}
-          </div>
-
-          {/* Pagination */}
-          <div className="flex items-center justify-between border-t border-border/50 bg-secondary/30 px-6 py-4">
-            <button
-              onClick={() => setCurrentPage((p) => (p - 1 + totalPages) % totalPages)}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:border-foreground/50 transition-colors font-mono text-xs"
-            >
-              <ChevronLeft className="h-4 w-4" /> Prev
-            </button>
-
-            <div className="flex gap-1">
-              {pages.map((_, i) => (
+        <div className={cn("opacity-0", isVisible && "animate-fade-in-up stagger-1")}>
+          <div className="grid lg:grid-cols-[220px_1fr] gap-6">
+            <div ref={navRef} className="rounded-xl border border-border bg-card/40 glass p-3 space-y-1 h-fit">
+              {pages.map((page, index) => (
                 <button
-                  key={i}
-                  onClick={() => setCurrentPage(i)}
+                  key={page.id}
+                  onClick={() => setCurrentPage(index)}
                   className={cn(
-                    "h-2 rounded-full transition-all duration-200",
-                    currentPage === i ? "bg-primary w-6" : "bg-border hover:bg-muted-foreground w-2"
+                    "flex items-center gap-3 w-full px-3 py-2.5 rounded-lg font-mono text-xs transition-all duration-200",
+                    currentPage === index
+                      ? "bg-primary/15 text-primary border border-primary/30"
+                      : "text-muted-foreground hover:bg-secondary/50 hover:text-foreground border border-transparent"
                   )}
-                />
+                >
+                  <span className={cn(currentPage === index ? "text-primary" : "text-muted-foreground")}>{page.icon}</span>
+                  {page.label}
+                </button>
               ))}
             </div>
 
-            <button
-              onClick={() => setCurrentPage((p) => (p + 1) % totalPages)}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:border-foreground/50 transition-colors font-mono text-xs"
-            >
-              Next <ChevronRight className="h-4 w-4" />
-            </button>
+            <div className="rounded-xl border border-border bg-card/40 glass overflow-hidden flex flex-col lg:self-start" style={navHeight ? { height: `${navHeight}px` } : undefined}>
+              <div className="flex items-center justify-between border-b border-border/50 bg-secondary/30 px-6 py-4">
+                <div className="flex items-center gap-2">
+                  {current.icon}
+                  <span className="font-mono text-sm font-medium">{current.label}</span>
+                </div>
+                <span className="font-mono text-xs text-muted-foreground">{currentPage + 1} / {totalPages}</span>
+              </div>
+
+              <div className="p-6 flex-1 overflow-y-auto">
+                {pageNotes[current.id] && (
+                  <p className="font-mono text-xs text-muted-foreground tracking-wider mb-4">{pageNotes[current.id]}</p>
+                )}
+                {current.content}
+              </div>
+
+              <div className="flex items-center justify-between border-t border-border/50 bg-secondary/30 px-6 py-4">
+                <button
+                  onClick={() => setCurrentPage((p) => (p - 1 + totalPages) % totalPages)}
+                  className="flex items-center gap-2 px-4 py-2 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:border-foreground/50 transition-colors font-mono text-xs"
+                >
+                  <ChevronLeft className="h-4 w-4" /> Prev
+                </button>
+                <div className="flex gap-1">
+                  {pages.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setCurrentPage(i)}
+                      className={cn("h-2 rounded-full transition-all duration-200", currentPage === i ? "bg-primary w-6" : "bg-border hover:bg-muted-foreground w-2")}
+                    />
+                  ))}
+                </div>
+                <button
+                  onClick={() => setCurrentPage((p) => (p + 1) % totalPages)}
+                  className="flex items-center gap-2 px-4 py-2 rounded-lg border border-border text-muted-foreground hover:text-foreground hover:border-foreground/50 transition-colors font-mono text-xs"
+                >
+                  Next <ChevronRight className="h-4 w-4" />
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      </div>
       </div>
     </section>
   )

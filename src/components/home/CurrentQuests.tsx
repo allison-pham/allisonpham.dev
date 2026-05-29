@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react"
 import { cn } from "@/src/lib/utils"
 import { ArrowRight, Briefcase, Laptop, Satellite, Telescope } from "lucide-react"
 import Link from "next/link"
-import { FlipBook } from "./HomeBook"
+import { FlipBook } from "../collections/Book"
 
 const values = [
   {

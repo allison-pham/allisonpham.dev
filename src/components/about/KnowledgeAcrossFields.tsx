@@ -1,36 +1,36 @@
 "use client"
+
 import { useEffect, useRef, useState } from "react"
 import { cn } from "@/src/lib/utils"
-import { Brain, Briefcase, CheckSquare, FlaskConical, Sparkles } from "lucide-react"
-import { ToolIcons } from "@/src/components/ToolIcons"
- 
-const toolGroups = [
+import { Code2, Layers3, Wrench, Library, Cpu, Palette } from "lucide-react"
+
+const skillGroups = [
   {
-    category: "Productivity & Focus",
-    icon: CheckSquare,
-    tools: ["Notion", "Google Calendar", "Todoist", "Google Drive", "Google Sheets", "Taskade", "LifeAt", "Virtual Cottage"],
+    category: "Computer Science",
+    icon: Code2,
+    skills: ["Full-stack development", "System design", "AI & machine learning", "Data science", "NLP", "Computer vision", "Mobile development", "Databases", "Networks", "APIs"],
   },
 
   {
-    category: "Knowledge & Learning",
-    icon: FlaskConical,
-    tools: ["Obsidian", "NotebookLM", "Anki", "RemNote", "Google Keep", "Evernote", "Quizlet"],
+    category: "Electrical Engineering",
+    icon: Cpu,
+    skills: ["Signals & systems", "Spectral analysis", "Analog electronics", "Sensing & actuation", "Semiconductors", "Hardware design", "Register-transfer level (RTL) design", "Engineering simulation & testing", "Applied quantum mechanics"],
   },
 
   {
-    category: "Career & Projects",
-    icon: Briefcase,
-    tools: ["LinkedIn", "Jira", "Asana", "Trello"],
+    category: "Product (Design)",
+    icon: Palette,
+    skills: ["Design engineering", "Human-computer interaction (HCI)", "Cognitive UX", "Information architecture", "Interaction design", "Wireframing & prototyping", "UI/UX design", "Visual design", "Design systems"],
   },
 
   {
-    category: "Inspiration & Discovery",
-    icon: Sparkles,
-    tools: ["Raindrop", "Substack", "Pinterest", "Goodreads", "Spotify"],
+    category: "Product (Management)",
+    icon: Library,
+    skills: ["Product strategy", "User research & testing", "Usability testing", "Experimentation & iteration", "Impact evaluation", "Analytics & insight"],
   },
 ]
 
-export function AboutTools() {
+export function KnowledgeAcrossFields() {
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
 
@@ -49,19 +49,19 @@ export function AboutTools() {
     <section ref={sectionRef} className="border-t border-border/30 overflow-x-clip px-4 sm:px-6 py-16 sm:py-16">
       <div className="mx-auto max-w-7xl">
         <div className={cn("space-y-3 opacity-0", isVisible && "animate-fade-in-up")}>
-          <p className="font-mono text-xs tracking-[0.25em] sm:tracking-[0.35em] text-primary">toolkit;</p>
-          <h2 className="text-2xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Tools I Use</h2>
+          <p className="font-mono text-xs tracking-[0.25em] sm:tracking-[0.35em] text-primary">knowledge;</p>
+          <h2 className="text-2xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Knowledge Across Fields</h2>
           <p className="max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed">
-            Apps for thinking, building, and staying organized
+            CS • EE • Product (Design & Management)
           </p>
         </div>
 
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {toolGroups.map((group, groupIndex) => (
+          {skillGroups.map((group, groupIndex) => (
             <div
               key={group.category}
               className={cn(
-                "group relative overflow-visible rounded-xl border border-border/50 bg-card/40 glass p-6 hover-lift transition-all duration-400 hover:border-primary/40 opacity-0",
+                "group relative overflow-hidden rounded-xl border border-border/50 bg-card/40 glass p-6 hover-lift transition-all duration-400 hover:border-primary/40 opacity-0",
                 isVisible && "animate-fade-in-up",
               )}
               style={{ animationDelay: `${groupIndex * 100 + 200}ms` }}
@@ -76,10 +76,16 @@ export function AboutTools() {
                       {group.category}
                     </span>
                   </div>
+
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {group.tools.map((tool) => (
-                    <ToolIcons key={tool} name={tool} />
+                  {group.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="rounded-md border border-border/60 bg-secondary/40 px-2.5 py-1 font-mono text-xs text-secondary-foreground transition-colors hover:border-primary/50 hover:bg-primary/10 hover:text-primary"
+                    >
+                      {skill}
+                    </span>
                   ))}
                 </div>
               </div>

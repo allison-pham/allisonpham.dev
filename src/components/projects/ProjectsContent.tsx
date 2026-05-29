@@ -7,6 +7,16 @@ import { Input } from "@/src/components/ui/Input"
 import { allProjectTags, projectFilters, projects, getProjectCaseStudy, type Project, type ProjectFilter } from "@/src/lib/main-pages/projects-data"
 import { TechIcon } from "@/src/components/TechStackIcons"
 
+function renderPoint(point: string) {
+  return point.split(/\*\*(.*?)\*\*/g).map((part, j) =>
+    j % 2 === 1 ? (
+      <strong key={j} className="text-foreground">{part}</strong>
+    ) : (
+      <span key={j}>{part}</span>
+    )
+  )
+}
+
 function ProjectModal({ project, onClose }: { project: Project; onClose: () => void }) {
   const caseStudy = getProjectCaseStudy(project)
   const githubUrl = project.url.trim()
@@ -101,7 +111,33 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
               {caseStudy.sections.map((section) => (
                 <div key={section.id} className="rounded-lg border border-border/60 bg-secondary/20 p-4">
                   <h3 className="mb-1.5 text-sm font-semibold">{section.title}</h3>
-                  <p className="text-xs leading-relaxed text-muted-foreground">{section.description}</p>
+
+                  {Array.isArray(section.description) ? (
+                    <ul className="space-y-1.5">
+                      {section.description.map((point, i) => {
+                        const isSub = point.startsWith("→ ")
+                        const text = isSub ? point.slice(2) : point
+                        return (
+                          <li
+                            key={i}
+                            className={cn(
+                              "flex items-start gap-2 text-xs text-muted-foreground",
+                              isSub && "ml-4"
+                            )}
+                          >
+                            <span className={cn(
+                              "mt-1.5 shrink-0 rounded-full bg-primary/60",
+                              isSub ? "h-1 w-1" : "h-1.5 w-1.5"
+                            )} />
+                            <span>{renderPoint(text)}</span>
+                          </li>
+                        )
+                      })}
+                    </ul>
+                  ) : (
+                    <p className="text-xs leading-relaxed text-muted-foreground">{section.description}</p>
+                  )}
+
                   {section.images && section.images.length > 0 && (
                     <div className="mt-3 grid grid-cols-2 gap-2">
                       {section.images.map((img, i) => (
@@ -312,7 +348,6 @@ export function ProjectsPageContent() {
                   onMouseEnter={() => setHoveredProject(project.id)}
                   onMouseLeave={() => setHoveredProject(null)}
                 >
-
                   <div style={{
                     display: "flex",
                     flexDirection: "row",
@@ -425,7 +460,6 @@ export function ProjectsPageContent() {
               <p className="font-mono text-sm text-muted-foreground">No projects under this category.</p>
             </div>
           )}
-
         </div>
       </div>
     </div>

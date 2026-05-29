@@ -9,7 +9,7 @@ export type ProjectImage = {
 export type ProjectCaseStudySection = {
   id: string
   title: string
-  description: string
+  description: string | string[]
   images?: ProjectImage[]
 }
 
@@ -257,7 +257,7 @@ const projectSeeds: ProjectSeed[] = [
   {
     id: "hci-in-space",
     title: "HCI in Space",
-    description: "Cognitive load in environments and microgravity interaction design (HCI concepts adapted for astronaut workflows)",
+    description: "Cognitive load in environments and microgravity interaction design (HCI concepts adapted for astronaut workflows) + design interaction systems that reduce in zero-gravity workspaces (rapid concept validation with testing)",
     tags: ["React", "TypeScript", "Framer Motion", "Three.js", "Python", "Firebase"],
     status: "ideation",
     year: "2026",
@@ -265,7 +265,41 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: true,
+    caseStudy: {
+      role: "Product Designer",
+      duration: "Mar 2026 - Present",
+      specialization: "",
+      sections: [
+        {
+          id: "background-story",
+          title: "Background Story",
+          description: "",
+        },
+
+        {
+          id: "problem",
+          title: "Problem",
+          description: "",
+        },
+
+        {
+          id: "solution-prototype",
+          title: "Solution",
+          description: [
+            "**Latest iteration:** interaction design for astronauts",
+            "**Raw thinking:** started with \"How do astronauts interact with systems in microgravity?\"",
+            "Earlier design iterations didn't account for spatial interactions",
+              "→ **Breakthrough:** researching how hand-gesture communication works in zero-g training was groundbreaking",
+            "Haptic feedback > visual feedback in a pressurized suit",
+            "",
+          ],
+          images: [
+            { src: "/projects/metrosync/cover.jpg", alt: "MetroSync map view" },
+          ],
+        },
+      ],
+    },
   },
 
   {
@@ -369,7 +403,7 @@ const projectSeeds: ProjectSeed[] = [
   {
     id: "neurowell",
     title: "NeuroWell",
-    description: "Accessible platform for neuroscience",
+    description: "Accessible platform for healthcare learning (combining neuroscience education and wellness)",
     tags: ["Next.js", "TypeScript", "shadcn", "Radix UI", "Three.js", "PyTorch", "TensorFlow"],
     status: "ideation",
     year: "2025",
@@ -383,7 +417,7 @@ const projectSeeds: ProjectSeed[] = [
   {
     id: "missionsync",
     title: "MissionSync",
-    description: "Deep space communication",
+    description: "Deep space communication including async interfaces for mission planning (coordination system concept)",
     // Space asset directory and data exploration for orbital mission insights
     tags: ["React", "JavaScript", "Go", "Python", "PyTorch", "Kubernetes", "Redis"],
     status: "ideation",
@@ -398,7 +432,7 @@ const projectSeeds: ProjectSeed[] = [
   {
     id: "astrotrade",
     title: "AstroTrade",
-    description: "Enhancing space systems, 1 step at a time - space logistics and mission coordination",
+    description: "Enhancing space systems, 1 step at a time - space logistics and mission coordination (data exploration for orbital mission insights)",
     tags: ["Next.js", "TypeScript", "Python", "PostgreSQL", "PyTorch"],
     status: "ideation",
     year: "2025",
@@ -594,7 +628,7 @@ const projectSeeds: ProjectSeed[] = [
   {
     id: "youflow",
     title: "YouFlow",
-    description: "Data analyzer for healthcare research",
+    description: "Data analyzer experiments for healthcare research and structured workflow insight",
     tags: ["Python", "pandas", "Figma"],
     status: "shipped",
     year: "2024",

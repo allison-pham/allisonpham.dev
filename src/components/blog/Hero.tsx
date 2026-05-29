@@ -1,4 +1,4 @@
-export function BlogHero() {
+export function Hero() {
   return (
     <section className="overflow-x-clip px-4 sm:px-6 pt-28 pb-8 sm:pt-36 sm:pb-12">
       <div className="mx-auto max-w-7xl">
