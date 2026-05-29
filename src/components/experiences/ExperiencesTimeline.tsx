@@ -22,8 +22,8 @@ interface Experience {
 
 const experiences: Experience[] = [
   {
-    id: "research",
-    role: "Research",
+    id: "lab",
+    role: "Researcher",
     company: "Lab",
     companyUrl: "",
     logo: "",
@@ -38,7 +38,7 @@ const experiences: Experience[] = [
       "Conducting user research, designing experiments, and developing prototypes to explore human-robot interaction in microgravity environments"
     ],
     tags: ["HCI"],
-    hasReadMore: true,
+    hasReadMore: false,
   },
 
   {
@@ -74,7 +74,25 @@ const experiences: Experience[] = [
       "Empowering students to bring impact and project visions to life"
     ],
     tags: ["Productivity", "Community"],
-    hasReadMore: true,
+    hasReadMore: false,
+  },
+
+  {
+    id: "productembark",
+    role: "Product Designer",
+    company: "ProductEmbark",
+    logo: "",
+    companyUrl: "",
+    period: "Jun 2025 - Present",
+    type: "",
+    current: true,
+    description:
+      "",
+    highlights: [
+      "Product building, operations, etc."
+    ],
+    tags: [],
+    hasReadMore: false,
   },
 
   {
@@ -149,7 +167,43 @@ const experiences: Experience[] = [
       "Previous Project + Workshop Coordinator (Mar 2024 - Jun 2025) & Junior Officer (Dec 2023 - Mar 2024)"
     ],
     tags: [],
-    hasReadMore: true,
+    hasReadMore: false,
+  },
+
+  {
+    id: "drenith",
+    role: "Content & Writing",
+    company: "Drenith",
+    logo: "",
+    companyUrl: "",
+    period: "Sep 2024 - Present",
+    type: "",
+    current: true,
+    description:
+      "",
+    highlights: [
+      "Writing about tech"
+    ],
+    tags: [],
+    hasReadMore: false,
+  },
+
+  {
+    id: "daylyx",
+    role: "Engineer",
+    company: "Daylyx",
+    logo: "",
+    companyUrl: "",
+    period: "Jan 2024 - Present",
+    type: "",
+    current: true,
+    description:
+      "",
+    highlights: [
+      "Working on AI/ML models"
+    ],
+    tags: [],
+    hasReadMore: false,
   },
 
   {
@@ -184,7 +238,7 @@ const experiences: Experience[] = [
       "Previous Executive Fellow (Oct 2023 - Jun 2024), Senate Intern (Nov 2023 - Jun 2024), etc."
     ],
     tags: [],
-    hasReadMore: true,
+    hasReadMore: false,
   },
 
   {
