@@ -1,4 +1,5 @@
 import { CurrentQuests } from "@/src/components/home/CurrentQuests";
+import { ExplorationGlimpse } from "@/src/components/home/ExplorationGlimpse"
 import { FeaturedProjects } from "@/src/components/home/FeaturedProjects";
 import { generateWebsiteStructuredData, generatePersonStructuredData } from "@/src/lib/structured-data"
 import { Hero } from "@/src/components/home/Hero"
@@ -25,6 +26,7 @@ export default function Home() {
       <Hero />
       <CurrentQuests />
       <FeaturedProjects />
+      {/* <ExplorationGlimpse /> */}
     </>
   )
 }
