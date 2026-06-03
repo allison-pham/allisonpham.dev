@@ -205,7 +205,7 @@ function StatusDot({ status }: { status: string }) {
   )
 }
 
-export function ProjectsPageContent() {
+export function ProjectsContent() {
   const [activeFilter, setActiveFilter] = useState<ProjectFilter>("all")
   const [searchQuery, setSearchQuery] = useState("")
   const [selectedTags, setSelectedTags] = useState<string[]>([])
@@ -256,7 +256,7 @@ export function ProjectsPageContent() {
             </p>
             <h1 className="text-3xl font-bold tracking-tight sm:text-5xl lg:text-6xl">Projects ★</h1>
             <p className="max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Collection of projects across CS, engineering, and design
+              Collection of projects across CS • EE • Product (Design & Management)
             </p>
           </div>
 

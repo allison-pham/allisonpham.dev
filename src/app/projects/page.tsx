@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ProjectsPageContent } from "@/src/components/projects/ProjectsContent";
+import { ProjectsContent } from "@/src/components/projects/ProjectsContent";
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://allisonpham.dev';
 
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
 export default function ProjectsPage() {
   return (
     <div className="pt-24">
-      <ProjectsPageContent />
+      <ProjectsContent />
     </div>
   );
 }
