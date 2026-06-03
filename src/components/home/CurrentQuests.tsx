@@ -1,9 +1,9 @@
 "use client"
-import { useEffect, useRef, useState } from "react"
-import { cn } from "@/src/lib/utils"
-import { ArrowRight, Briefcase, Laptop, Satellite, Telescope, type LucideIcon } from "lucide-react"
 import Link from "next/link"
-import { FlipBook } from "./Book"
+import { ArrowRight, Briefcase, Laptop, Satellite, Telescope, type LucideIcon } from "lucide-react"
+import { cn } from "@/src/lib/utils"
+import { FlipBook } from "./CurrentQuestsBook"
+import { useEffect, useRef, useState } from "react"
 
 interface QuestCard {
   suit: string
@@ -233,12 +233,12 @@ export function CurrentQuests() {
               extends people. The best interfaces don't just respond to people, they think with them.
             </p>
 
-            <p>
+            {/* <p>
               Previously I've built at Nucleo, NASA, research labs for CS and HCI, etc. Currently I'm designing at
               the intersection of software, cognition, and product. I'm a researcher (located in the West Coast) and
               study computer engineering at UC Riverside through the intersection of computer science, electrical
               engineering, human-computer interaction, and product design.
-            </p>
+            </p> */}
 
             <p>
               I lead{" "}
@@ -281,11 +281,11 @@ export function CurrentQuests() {
               systems by designing interfaces that hold up in different environments.
             </p>
 
-            <p>
+            {/* <p>
               In my childhood, I explored as much as I could find just to understand how it worked. That instinct
               became a passion with how systems shape the way people think, decide, and act. My target is to build
               things that feel extensions of the mind - not obstacles to it.
-            </p>
+            </p> */}
 
             <p>
               My current rabbit holes: cognitive load in interface design, space systems, what it means to design for
