@@ -52,7 +52,7 @@ export function ToolsIUse() {
           <p className="font-mono text-xs tracking-[0.25em] sm:tracking-[0.35em] text-primary">toolkit;</p>
           <h2 className="text-2xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Tools I Use</h2>
           <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-            Toolkit by context (what I use for different modes - thinking, building, staying organized) and useful tools I keep coming back to
+            Toolkit by context (what I use for different modes - thinking, building, staying organized) and what I keep coming back to
           </p>
         </div>
 
