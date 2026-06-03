@@ -1,10 +1,10 @@
-import { ExperiencesTimeline } from "@/src/components/experiences/ExperiencesTimeline"
-import { PastLife } from "@/src/components/experiences/ExperiencesPastLife"
+import { ExperiencesContent } from "@/src/components/experiences/ExperiencesContent"
+import { PastLife } from "@/src/components/experiences/PastLife"
 
 export default function ExperiencesPage() {
   return (
     <>
-      <ExperiencesTimeline />
+      <ExperiencesContent />
       {/* <PastLife /> */}
     </>
   );

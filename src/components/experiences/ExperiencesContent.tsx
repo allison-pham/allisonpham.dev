@@ -28,7 +28,7 @@ function LogoBadge({ company, logo, size = "md" }: LogoBadgeProps) {
   )
 }
 
-export function ExperiencesTimeline() {
+export function ExperiencesContent() {
   const [isVisible, setIsVisible] = useState(false)
   const [expandedIds, setExpandedIds] = useState<string[]>([])
   const [activeFilters, setActiveFilters] = useState<string[]>(["all"])
@@ -59,7 +59,7 @@ export function ExperiencesTimeline() {
             Experiences ✩
           </h1>
           <p className="max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed">
-            CS • EE • Design • PM
+            Experiences across CS • EE • Product (Design & Management)
           </p>
         </div>
 
@@ -104,7 +104,7 @@ export function ExperiencesTimeline() {
               </div>
 
               <p className="w-full text-lg leading-relaxed text-foreground sm:text-xl">
-                Building across systems, tech, design, community, and research
+                Building across tech, engineering, design, systems, research, and community
               </p>
 
               <div className="mt-6 grid gap-3 sm:grid-cols-2 items-start">
