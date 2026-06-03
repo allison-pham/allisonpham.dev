@@ -12,10 +12,10 @@ const navItems = [
   { label: "projects", href: "/projects" },
   { label: "blog", href: "/blog" },
   { label: "lab", href: "/lab" },
+  { label: "collections", href: "/collections" },
 ]
 
 const moreNavItems = [
-  { label: "collections", href: "/collections" },
   { label: "playground", href: "/playground" },
   // { label: "timeline", href: "/timeline" },
 ]
