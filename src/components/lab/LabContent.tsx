@@ -165,7 +165,7 @@ export function LabContent() {
         </div>
 
         <div className="grid gap-8 lg:grid-cols-3">
-          {/* Main content — terminal boxes */}
+          {/* Main content - terminal boxes */}
           <div className="min-w-0 lg:col-span-2 space-y-6">
             {/* Current Pieces */}
             <TerminalBox
