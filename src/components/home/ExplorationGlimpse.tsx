@@ -345,7 +345,7 @@ export function ExplorationGlimpse() {
             <button
               key={icon.id}
               onDoubleClick={() => openApp(icon.id)}
-              onClick={() => {}} // single click = select (future)
+              onClick={() => {}} // Single click = select (future)
               className={cn(
                 "group flex flex-col items-center gap-1.5 rounded-lg p-2 transition-colors hover:bg-white/10 active:bg-white/15 w-16",
                 openWindowIds.includes(icon.id) && "bg-white/5",
