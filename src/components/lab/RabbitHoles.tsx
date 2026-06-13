@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import { ArrowRight, Compass, GitBranch, Rabbit, Search, Sparkles } from "lucide-react"
-import { cn } from "@/src/lib/utils"
+import { cn } from "@/src/lib/core-features/utils"
 
 interface RabbitHolePath {
   id: string

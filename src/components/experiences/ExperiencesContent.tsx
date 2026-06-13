@@ -1,6 +1,6 @@
 "use client"
 import { useEffect, useRef, useState } from "react"
-import { cn } from "@/src/lib/utils"
+import { cn } from "@/src/lib/core-features/utils"
 import { ChevronDown, ExternalLink, Sparkles } from "lucide-react"
 import { type Experience, experiences, filterTags, getFilterCount, filterExperiences, getSafeExternalUrl } from "@/src/lib/main-pages/experiences-data"
 

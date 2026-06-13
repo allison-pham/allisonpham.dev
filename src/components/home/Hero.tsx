@@ -1,6 +1,6 @@
 "use client";
 import { Clock, Image as ImageIcon, MessageSquare, Smile, Terminal } from "lucide-react";
-import { cn } from "@/src/lib/utils";
+import { cn } from "@/src/lib/core-features/utils";
 import { useEffect, useRef, useState } from "react";
 
 const roles = [

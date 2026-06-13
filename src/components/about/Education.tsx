@@ -1,5 +1,5 @@
 "use client"
-import { cn } from "@/src/lib/utils"
+import { cn } from "@/src/lib/core-features/utils"
 import { GraduationCap, Award } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 

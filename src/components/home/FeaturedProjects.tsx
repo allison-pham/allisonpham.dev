@@ -2,7 +2,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
-import { cn } from "@/src/lib/utils"
+import { cn } from "@/src/lib/core-features/utils"
 import { ExternalLink, Github, Sparkles } from "lucide-react"
 import { projects } from "@/src/lib/main-pages/projects-data"
 import { TechIcon } from "@/src/components/TechStackIcons"

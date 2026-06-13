@@ -1,6 +1,6 @@
 "use client"
 import { useMemo, useState } from "react"
-import { cn } from "@/src/lib/utils"
+import { cn } from "@/src/lib/core-features/utils"
 import { BookOpen, Compass, FolderGit2, Headphones, Lightbulb, Rocket, Star } from "lucide-react"
 
 type MemoryTone = "origin" | "craft" | "pivot" | "growth" | "future"

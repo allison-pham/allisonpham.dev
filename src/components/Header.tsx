@@ -2,7 +2,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { ChevronDown, Github, Linkedin, Mail, Menu, X } from "lucide-react"
-import { cn } from "@/src/lib/utils"
+import { cn } from "@/src/lib/core-features/utils"
 import { usePathname } from "next/navigation"
 import { useState, useEffect, useRef } from "react"
 

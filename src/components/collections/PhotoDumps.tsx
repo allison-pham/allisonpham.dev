@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import { cn } from "@/src/lib/utils"
+import { cn } from "@/src/lib/core-features/utils"
 import {
   Camera, Calendar, MapPin, X, ChevronLeft, ChevronRight,
   Heart, MessageCircle, Share2
@@ -87,9 +87,10 @@ export function PhotoDumps() {
     <section ref={ref} className="relative px-4 sm:px-6 pt-16 sm:pt-16 pb-8 sm:pb-12">
       <div className={cn("mx-auto w-full max-w-7xl opacity-0", isVisible && "animate-fade-in-up")}>
         <div className="space-y-2 mb-8">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Photo Dumps</h2>
+          <p className="font-mono text-xs tracking-[0.25em] text-primary flex items-center gap-2">group of memories;</p>
+          <h2 className="text-2xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Photo Dumps</h2>
           <p className="w-full text-base sm:text-lg text-muted-foreground leading-relaxed">
-            Moments from life captured through photos.
+            Moments from life captured through photos
           </p>
         </div>
 

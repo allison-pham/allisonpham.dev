@@ -2,7 +2,7 @@
 import { useEffect, useState, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { cn } from "@/src/lib/utils"
+import { cn } from "@/src/lib/core-features/utils"
 import { ArrowLeft, Calendar, Bookmark, Twitter, Linkedin, Link2, ChevronUp } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/src/components/ui/Avatar"
 import { Button } from "@/src/components/ui/Button"

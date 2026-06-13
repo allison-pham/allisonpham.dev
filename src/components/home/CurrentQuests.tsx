@@ -1,7 +1,7 @@
 "use client"
 import Link from "next/link"
 import { ArrowRight, Briefcase, Laptop, Satellite, Telescope, type LucideIcon } from "lucide-react"
-import { cn } from "@/src/lib/utils"
+import { cn } from "@/src/lib/core-features/utils"
 import { FlipBook } from "./CurrentQuestsBook"
 import { useEffect, useRef, useState } from "react"
 

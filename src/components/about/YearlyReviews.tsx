@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import { cn } from "@/src/lib/utils"
+import { cn } from "@/src/lib/core-features/utils"
 import {
   BookHeart, Sparkles, Calendar, TrendingUp, TrendingDown, Target, Heart,
   Code2, BookOpen, Plane, Music, ChevronDown, Trophy,

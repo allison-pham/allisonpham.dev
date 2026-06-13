@@ -1,7 +1,7 @@
 "use client"
 import { useState } from "react"
 import { ArrowLeft, ArrowRight, BarChart2, Book, BookOpen, Brain, Coffee, Compass, Cpu, FileText, Flag, Leaf, Hammer, Layers, Lightbulb, Rocket, Satellite, Smile, Target, TrendingUp, Trophy, Tv, Wrench, Zap } from "lucide-react"
-import { cn } from "@/src/lib/utils"
+import { cn } from "@/src/lib/core-features/utils"
 
 type PageItem = {
   icon: React.ElementType

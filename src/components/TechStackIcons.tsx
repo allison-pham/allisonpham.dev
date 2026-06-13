@@ -1,7 +1,7 @@
 "use client"
-import { getTechIcon } from "@/src/lib/tech-stack-icons"
+import { getTechIcon } from "@/src/lib/core-features/tech-stack-icons"
 import { useState } from "react"
-import { cn } from "@/src/lib/utils"
+import { cn } from "@/src/lib/core-features/utils"
 
 export function TechIcon({ tag }: { tag: string }) {
   const entry = getTechIcon(tag)

@@ -1,7 +1,7 @@
 "use client"
 import { useState, useEffect, useCallback } from "react"
 import Image from "next/image"
-import { cn } from "@/src/lib/utils"
+import { cn } from "@/src/lib/core-features/utils"
 import { Github, ExternalLink, Sparkles, Search, Filter, X } from "lucide-react"
 import { Input } from "@/src/components/ui/Input"
 import { allProjectTags, projectFilters, projects, getProjectCaseStudy, type Project, type ProjectFilter } from "@/src/lib/main-pages/projects-data"

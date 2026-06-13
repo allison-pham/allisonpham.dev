@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { cn } from "@/src/lib/utils"
+import { cn } from "@/src/lib/core-features/utils"
 
 const pastRoles = [
   { role: "Board (6x)", orgs: "", period: "", category: "orgs", featured: true },

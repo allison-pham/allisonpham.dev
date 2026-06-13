@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useRef, useEffect } from "react"
-import { cn } from "@/src/lib/utils"
+import { cn } from "@/src/lib/core-features/utils"
 import { X, Anchor, GitFork, Zap, Flame, Sparkles, Compass } from "lucide-react"
 import * as Dialog from "@radix-ui/react-dialog"
 

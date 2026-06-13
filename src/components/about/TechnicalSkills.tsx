@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { cn } from "@/src/lib/utils"
+import { cn } from "@/src/lib/core-features/utils"
 import { Code2, Layers3, Wrench, Library, Cpu, Palette } from "lucide-react"
 import { TechIcon } from "@/src/components/TechStackIcons"
 

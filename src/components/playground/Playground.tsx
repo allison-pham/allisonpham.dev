@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState, type MouseEvent as ReactMouseEvent } from "react"
 import { BrainCircuit, Dices, Sparkles, TimerReset, WandSparkles } from "lucide-react"
-import { cn } from "@/src/lib/utils"
+import { cn } from "@/src/lib/core-features/utils"
 
 const CHAOS_SYMBOLS = ["@", "#", "*", "~", "%", "&", "?", "+"]
 const BASE_PHRASE = "intentional weirdness as a playground for curiosity"

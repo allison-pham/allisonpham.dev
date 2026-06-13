@@ -1,6 +1,6 @@
 "use client"
 import { useState, useRef, useCallback, useEffect } from "react"
-import { cn } from "@/src/lib/utils"
+import { cn } from "@/src/lib/core-features/utils"
 
 type AppId = "articles" | "topics" | "about" | "terminal" | "projects"
 
@@ -85,7 +85,7 @@ const APP_CONTENT: Record<AppId, React.ReactNode> = {
     <div className="p-4 font-mono text-[11px] bg-[#0d0d0d] h-full text-green-400 rounded-b-lg overflow-auto">
       <p className="text-green-600 mb-2">allie@portfolio ~ %</p>
       <p><span className="text-green-600">→</span> whoami</p>
-      <p className="text-green-300 mb-2">allison pham — engineer, designer, builder</p>
+      <p className="text-green-300 mb-2">allison pham - engineer, designer, builder</p>
       <p><span className="text-green-600">→</span> ls interests/</p>
       <p className="text-green-300 mb-2">hci/  space-systems/  design/  research/  tea/</p>
       <p><span className="text-green-600">→</span> cat current-quest.txt</p>

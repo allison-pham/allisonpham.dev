@@ -1,6 +1,6 @@
 "use client"
 import { useEffect, useRef, useState } from "react"
-import { cn } from "@/src/lib/utils"
+import { cn } from "@/src/lib/core-features/utils"
 import { Brain, Briefcase, CheckSquare, FlaskConical, Sparkles } from "lucide-react"
 import { ToolIcons } from "@/src/components/ToolIcons"
  

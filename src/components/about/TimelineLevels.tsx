@@ -1,7 +1,7 @@
 "use client"
 
 import { useMemo, useState } from "react"
-import { cn } from "@/src/lib/utils"
+import { cn } from "@/src/lib/core-features/utils"
 import { ChevronRight, Lock, Trophy, Stars, Flag, Sparkles } from "lucide-react"
 
 type StageTone = "origin" | "craft" | "impact" | "edge" | "future"

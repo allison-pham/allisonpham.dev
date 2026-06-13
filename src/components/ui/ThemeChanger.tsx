@@ -3,8 +3,8 @@
 import { useEffect, useState, useRef } from "react"
 import { useTheme } from "next-themes"
 import { Palette } from "lucide-react"
-import { cn } from "@/src/lib/utils"
-import { themes, type ThemeColor } from "@/src/lib/themes"
+import { cn } from "@/src/lib/core-features/utils"
+import { themes, type ThemeColor } from "@/src/lib/core-features/themes"
 
 const STORAGE_KEY = "color-theme"
 
