@@ -236,6 +236,23 @@ export const experiences: Experience[] = [
   },
 
   {
+    id: "inkfuse",
+    role: "Engineer",
+    company: "InkFuse",
+    logo: "",
+    companyUrl: "",
+    period: "Aug 2024 - Mar 2025",
+    type: "Previous",
+    current: false,
+    description:
+      "",
+    highlights: [
+    ],
+    tags: [],
+    hasReadMore: false,
+  },
+
+  {
     id: "nasa-engineering",
     role: "Lead Systems Engineer (L'SPACE)",
     company: "NASA",
