@@ -45,6 +45,7 @@ export default function BlogPage() {
     <div>
       <DevAutoRefresh />
       <Hero />
+
       <section className="px-4 sm:px-6 py-8 sm:py-10 border-t border-border/30">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-12 lg:grid-cols-[1fr_320px]">

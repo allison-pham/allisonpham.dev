@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { cn } from "@/src/lib/utils"
+import { cn } from "@/src/lib/core-features/utils"
 import { Code2, Layers3, Wrench, Library, Cpu, Palette } from "lucide-react"
 import { TechIcon } from "@/src/components/TechStackIcons"
 
@@ -70,7 +70,7 @@ export function TechnicalSkills() {
           <p className="font-mono text-xs tracking-[0.25em] sm:tracking-[0.35em] text-primary">tools;</p>
           <h2 className="text-2xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Technical Skills ✧.*</h2>
           <p className="max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed">
-            Skills across CS • EE • Design • PM
+            Skills across CS • EE • Product (Design & Management)
           </p>
         </div>
 

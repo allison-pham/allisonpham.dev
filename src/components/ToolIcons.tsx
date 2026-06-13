@@ -1,7 +1,7 @@
 "use client"
-import { getToolIcon } from "@/src/lib/tool-icons-data"
+import { getToolIcon } from "@/src/lib/core-features/tool-icons-data"
 import { useState } from "react"
-import { cn } from "@/src/lib/utils"
+import { cn } from "@/src/lib/core-features/utils"
 
 export function ToolIcons({ name }: { name: string }) {
   const entry = getToolIcon(name)

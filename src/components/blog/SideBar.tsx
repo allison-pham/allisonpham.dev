@@ -1,7 +1,7 @@
 "use client"
 import type React from "react"
 import { useState, useEffect, useRef } from "react"
-import { cn } from "@/src/lib/utils"
+import { cn } from "@/src/lib/core-features/utils"
 import { Mail, Rss, Search, Tag, TrendingUp } from "lucide-react"
 import { Input } from "@/src/components/ui/Input"
 import { Button } from "@/src/components/ui/Button"

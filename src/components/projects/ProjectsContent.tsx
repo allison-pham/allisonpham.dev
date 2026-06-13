@@ -1,7 +1,7 @@
 "use client"
 import { useState, useEffect, useCallback } from "react"
 import Image from "next/image"
-import { cn } from "@/src/lib/utils"
+import { cn } from "@/src/lib/core-features/utils"
 import { Github, ExternalLink, Sparkles, Search, Filter, X } from "lucide-react"
 import { Input } from "@/src/components/ui/Input"
 import { allProjectTags, projectFilters, projects, getProjectCaseStudy, type Project, type ProjectFilter } from "@/src/lib/main-pages/projects-data"
@@ -205,7 +205,7 @@ function StatusDot({ status }: { status: string }) {
   )
 }
 
-export function ProjectsPageContent() {
+export function ProjectsContent() {
   const [activeFilter, setActiveFilter] = useState<ProjectFilter>("all")
   const [searchQuery, setSearchQuery] = useState("")
   const [selectedTags, setSelectedTags] = useState<string[]>([])
@@ -256,7 +256,7 @@ export function ProjectsPageContent() {
             </p>
             <h1 className="text-3xl font-bold tracking-tight sm:text-5xl lg:text-6xl">Projects ★</h1>
             <p className="max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Collection of projects across CS, engineering, and design
+              Collection of projects across CS • EE • Product (Design & Management)
             </p>
           </div>
 

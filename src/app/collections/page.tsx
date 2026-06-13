@@ -1,44 +1,50 @@
-import { AreasOfWork } from "@/src/components/collections/AreasOfWork";
-import { BookmarksFlipbook } from "@/src/components/collections/Bookmarks"
-import { CollectionsIntro } from "@/src/components/collections/CollectionsIntro"
-import { CollectionsMagazine } from "@/src/components/collections/Magazine"
-import { ExplorationGlimpse } from "@/src/components/collections/ExplorationGlimpse"
+"use client"
+import { AccessibilityNotes } from "@/src/components/collections/AccessibilityNotes"
+import { Bookmarks } from "@/src/components/collections/Bookmarks"
+import { Bookshelf } from "@/src/components/collections/Bookshelf"
+import { Calendar } from "@/src/components/collections/Calendar"
+import { CognitiveLoadMeter } from "@/src/components/collections/CognitiveLoadMeter"
+import { FavoriteThings } from "@/src/components/collections/FavoriteThings"
+import { HCIFieldNotes } from "@/src/components/collections/HCIFieldNotes"
+import { Hero } from "@/src/components/collections/Hero"
+import { InfluenceMap } from "@/src/components/collections/InfluenceMap"
+import { KnowledgeRepertoire } from "@/src/components/collections/KnowledgeRepertoire"
+import { LanguageLearning } from "@/src/components/collections/LanguageLearning"
+import { MicroInteractionMuseum } from "@/src/components/collections/MicroInteractionMuseum"
 import { PhotoDumps } from "@/src/components/collections/PhotoDumps"
-import { PiecesOfCuriosity } from "@/src/components/collections/PiecesOfCuriosity";
-import { RabbitHoles } from "@/src/components/collections/RabbitHoles"
-import { RabbitHoles2 } from "@/src/components/collections/RabbitHoles2";
-import { SecondBrain } from "@/src/components/collections/SecondBrain"
-import { Timeline } from "@/src/components/collections/Timeline";
-import { TimelineContent } from "@/src/components/collections/TimelineContent"
-import { TimelineDecisions } from "@/src/components/collections/TimelineDecisions"
-import { TimelineLevels } from "@/src/components/collections/TimelineLevels"
-import { TimelineMemoryMap } from "@/src/components/collections/TimelineMemoryMap"
-import { UsesSetup } from "@/src/components/collections/UsesSetup";
-import { WritingNotes } from "@/src/components/collections/WritingNotes";
-import { YearlyReviews } from "@/src/components/collections/ExperiencesYearlyReviews"
+import { ReadingTracker } from "@/src/components/collections/ReadingTracker"
+import { RubberDucky } from "@/src/components/collections/RubberDucky"
+import { SkillsDependencyMap } from "@/src/components/collections/SkillsDependencyMap"
+import { StreakTracker } from "@/src/components/collections/StreakTracker"
+import { TeaLog } from "@/src/components/collections/TeaLog"
+import { TeaTastingViz } from "@/src/components/collections/TeaTastingViz"
+import { ThinkingGraph } from "@/src/components/collections/ThinkingGraph"
+import { WhatIRead } from "@/src/components/collections/WhatIRead"
 
 export default function Loading() {
   return (
         <>
-            <CollectionsIntro />
-            <BookmarksFlipbook />
-            {/* <AreasOfWork />
-            <CollectionsMagazine />
-            <ExplorationGlimpse />
-            <PhotoDumps /> */}
-
-            {/* <PiecesOfCuriosity />
-            <RabbitHoles />
-            <RabbitHoles2 />
-            <SecondBrain />
-            <Timeline />
-            <TimelineContent />
-            <TimelineDecisions />
-            <TimelineLevels />
-            <TimelineMemoryMap />
-            <UsesSetup />
-            <WritingNotes />
-            <YearlyReviews /> */}
+          <Hero />
+          <Bookmarks />
+          {/* <PhotoDumps />
+          <KnowledgeRepertoire />
+          <AccessibilityNotes />
+          <Bookshelf />
+          <Calendar />
+          <CognitiveLoadMeter />
+          <FavoriteThings />
+          <HCIFieldNotes />
+          <InfluenceMap />
+          <LanguageLearning />
+          <MicroInteractionMuseum />
+          <ReadingTracker />
+          <RubberDucky />
+          <SkillsDependencyMap />
+          <StreakTracker />
+          <TeaLog />
+          <TeaTastingViz />
+          <ThinkingGraph />
+          <WhatIRead /> */}
         </>
   )
 }

@@ -3,7 +3,7 @@
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { Sun, Moon, Monitor } from "lucide-react";
-import { cn } from "@/src/lib/utils";
+import { cn } from "@/src/lib/core-features/utils";
 
 export function ThemeToggle() {
   const { theme, setTheme, resolvedTheme } = useTheme();

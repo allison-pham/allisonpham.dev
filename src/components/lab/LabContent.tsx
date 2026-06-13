@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { cn } from "@/src/lib/utils"
+import { cn } from "@/src/lib/core-features/utils"
 import { Github, ExternalLink, GitBranch, Archive, Sparkles, Lightbulb } from "lucide-react"
 import { currentPieces, previousIterations, ideasQueue, type LabItem } from "@/src/lib/main-pages/lab-data"
 
@@ -165,7 +165,7 @@ export function LabContent() {
         </div>
 
         <div className="grid gap-8 lg:grid-cols-3">
-          {/* Main content — terminal boxes */}
+          {/* Main content - terminal boxes */}
           <div className="min-w-0 lg:col-span-2 space-y-6">
             {/* Current Pieces */}
             <TerminalBox

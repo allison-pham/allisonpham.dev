@@ -1,20 +1,20 @@
 "use client"
-import { useState, useEffect, useRef } from "react"
-import { cn } from "@/src/lib/utils"
-import { Github, Linkedin, ChevronDown, Menu, X } from "lucide-react"
-import Link from "next/link"
 import Image from "next/image"
+import Link from "next/link"
+import { ChevronDown, Github, Linkedin, Mail, Menu, X } from "lucide-react"
+import { cn } from "@/src/lib/core-features/utils"
 import { usePathname } from "next/navigation"
+import { useState, useEffect, useRef } from "react"
 
 const navItems = [
   { label: "about", href: "/about" },
   { label: "experiences", href: "/experiences" },
   { label: "projects", href: "/projects" },
   { label: "blog", href: "/blog" },
-  { label: "lab", href: "/lab" },
 ]
 
 const moreNavItems = [
+  { label: "lab", href: "/lab" },
   { label: "collections", href: "/collections" },
   { label: "playground", href: "/playground" },
   // { label: "timeline", href: "/timeline" },
@@ -23,6 +23,7 @@ const moreNavItems = [
 const socialLinks = [
   { label: "LinkedIn", href: "https://linkedin.com/in/imallisonpham", handle: "imallisonpham", icon: Linkedin },
   { label: "GitHub", href: "https://github.com/allison-pham", handle: "@allison-pham", icon: Github },
+  { label: "Email", href: "mailto:apham206@ucr.edu", handle: "apham206@ucr.edu", icon: Mail },
 ]
 
 export function Header() {
@@ -116,7 +117,7 @@ export function Header() {
               )
             })}
 
-            {/* More Dropdown */}
+            {/* More dropdown */}
             <div
               className="relative"
               onMouseEnter={handleMoreEnter}

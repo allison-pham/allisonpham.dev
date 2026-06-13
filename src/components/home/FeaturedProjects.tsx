@@ -2,7 +2,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
-import { cn } from "@/src/lib/utils"
+import { cn } from "@/src/lib/core-features/utils"
 import { ExternalLink, Github, Sparkles } from "lucide-react"
 import { projects } from "@/src/lib/main-pages/projects-data"
 import { TechIcon } from "@/src/components/TechStackIcons"
@@ -29,7 +29,7 @@ export function FeaturedProjects() {
         <div className={cn("mb-10 sm:mb-14 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between opacity-0", isVisible && "animate-fade-in-up")}>
           <div className="space-y-3">
             <p className="font-mono text-xs tracking-[0.25em] sm:tracking-[0.35em] text-primary">spotlight;</p>
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Featured Builds ★</h2>
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Featured Project Builds ★</h2>
           </div>
           <Link
             href="/projects"

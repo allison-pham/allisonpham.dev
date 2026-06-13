@@ -1,4 +1,4 @@
-import { PlayWithMyBrain } from "@/src/components/collections/PlayWithMyBrain"
+import { PlayWithMyBrain } from "@/src/components/playground/Playground"
 
 export default function Loading() {
   return (
