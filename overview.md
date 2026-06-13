@@ -29,7 +29,7 @@
 - Other
 - lib/
 
-## Bookmarks
+<!-- ## Bookmarks
 notes on HCI, building, cognition, and whatever ends up at the bottom of a good cup of tea
 
 const FUN_FACTS = [
@@ -63,4 +63,4 @@ const CURIOSITIES = [
     q: "How much of what we call intuition is just pattern recognition at speed?",
     field: "Cognition",
   },
-];
+]; -->
