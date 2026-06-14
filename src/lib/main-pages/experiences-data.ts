@@ -99,12 +99,15 @@ export const experiences: Experience[] = [
     type: "",
     current: true,
     description:
-      "",
-    highlights: [
       "Previous UI/UX Design & Operations Lead (Dec 2024 - Jun 2025)",
+    highlights: [
       "Lead hackathon organizers to plan the Inland Empire's largest and oldest student-run hackathon (by ACM at UCR) with 300+ participants and 45 projects submitted",
+      "Coordinated an 80% increase in project submissions (45 projects in [Citrus Hack 2026](https://citrus-hack-2026.devpost.com/) vs. 26 projects in [Citrus Hack 2025](https://citrus-hack-2025.devpost.com/))",
       "Manage teams and processes across operations, finance, marketing, UI/UX design, and software engineering",
-      "Coordinate total of 25 industry professionals (Amazon, Google, Salesforce, Visa, etc.), 20 sponsors and partners (secure 15+), 15+ tracks and prizes, and 10+ mini events"
+      "Coordinate total of 25 industry professionals, 20 sponsors and partners, 15+ tracks and prizes, and 10+ mini events",
+        "→ Industry: Google, Cisco, Amazon, Salesforce, Visa, etc.",
+        "→ Sponsors + partners: Major League Hacking (MLH), UCR Department of CSE, Snapchat, O'Reilly Media, Global Career Accelerator (GCA), DoorDash, Happy Hacking Keyboards (HHKB), etc.",
+      "Build alumni relations, industry professionals, and mentors to create a strong support system for students across California and other parts of the U.S."
     ],
     tags: ["Hackathon"],
     hasReadMore: true,
