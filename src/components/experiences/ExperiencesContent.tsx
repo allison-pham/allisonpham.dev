@@ -28,6 +28,21 @@ function LogoBadge({ company, logo, size = "md" }: LogoBadgeProps) {
   )
 }
 
+function renderHighlight(text: string) {
+  const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g)
+  return parts.map((part, i) => {
+    const match = part.match(/\[([^\]]+)\]\(([^)]+)\)/)
+    if (match) return (
+      <a key={i} href={match[2]} target="_blank" rel="noopener noreferrer"
+        onClick={(e) => e.stopPropagation()}
+        className="underline decoration-wavy decoration-current/45 underline-offset-3 transition-colors hover:decoration-current/80">
+        {match[1]}
+      </a>
+    )
+    return <span key={i}>{part}</span>
+  })
+}
+
 export function ExperiencesContent() {
   const [isVisible, setIsVisible] = useState(false)
   const [expandedIds, setExpandedIds] = useState<string[]>([])
@@ -181,7 +196,7 @@ export function ExperiencesContent() {
                               {exp.highlights.map((highlight: string) => (
                                 <li key={highlight} className="flex items-start gap-2 text-sm text-muted-foreground">
                                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary/60" />
-                                  {highlight}
+                                  <span>{renderHighlight(highlight)}</span>
                                 </li>
                               ))}
                             </ul>
