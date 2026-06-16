@@ -72,9 +72,9 @@ export const experiences: Experience[] = [
   },
 
   {
-    id: "productembark",
+    id: "prodE",
     role: "Product Designer",
-    company: "ProductEmbark",
+    company: "ProdE",
     logo: "",
     companyUrl: "",
     period: "Jun 2025 - Present",
@@ -174,7 +174,7 @@ export const experiences: Experience[] = [
     logo: "",
     companyUrl: "",
     period: "Sep 2024 - Present",
-    type: "",
+    type: "Current",
     current: true,
     description:
       "",
@@ -192,12 +192,44 @@ export const experiences: Experience[] = [
     logo: "",
     companyUrl: "",
     period: "Jan 2024 - Present",
-    type: "",
+    type: "Current",
     current: true,
     description:
       "",
     highlights: [
       "Working on AI/ML models"
+    ],
+    tags: [],
+    hasReadMore: false,
+  },
+
+  {
+    id: "detester",
+    role: "Executive (Prev Director)",
+    company: "Detester",
+    logo: "",
+    companyUrl: "",
+    period: "Dec 2023 - Present",
+    type: "",
+    current: true,
+    description: "Previous Director (Mar 2023 - Dec 2023)",
+    highlights: [
+    ],
+    tags: [],
+    hasReadMore: false,
+  },
+
+  {
+    id: "cosmic-us",
+    role: "Software Engineer & Director of Events",
+    company: "Cosmic-us",
+    logo: "",
+    companyUrl: "",
+    period: "May 2023 - Present",
+    type: "Current",
+    current: true,
+    description: "",
+    highlights: [
     ],
     tags: [],
     hasReadMore: false,
@@ -210,7 +242,7 @@ export const experiences: Experience[] = [
     companyUrl: "https://nasa.gov",
     logo: "/experiences/nasa.svg",
     period: "Jan 2026 - May 2026",
-    type: "",
+    type: "Previous",
     current: false,
     description:
       "",
@@ -240,7 +272,7 @@ export const experiences: Experience[] = [
 
   {
     id: "inkfuse",
-    role: "Engineer",
+    role: "Lead Engineer",
     company: "InkFuse",
     logo: "",
     companyUrl: "",
