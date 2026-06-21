@@ -191,16 +191,22 @@ export function ExperiencesContent() {
                           {exp.description && (
                             <p className="text-sm text-muted-foreground">{exp.description}</p>
                           )}
-                          {exp.highlights.length > 0 && (
-                            <ul className="space-y-2">
-                              {exp.highlights.map((highlight: string) => (
-                                <li key={highlight} className="flex items-start gap-2 text-sm text-muted-foreground">
-                                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary/60" />
-                                  <span>{renderHighlight(highlight)}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          )}
+                          {exp.highlights.map((highlight: string) => {
+                            const isSub = highlight.startsWith("→")
+                            const text = isSub ? highlight.slice(1).trim() : highlight
+                            return (
+                              <li key={highlight} className={cn(
+                                "flex items-start gap-2 text-sm text-muted-foreground",
+                                isSub ? "ml-4 -mt-1" : "mt-0"
+                              )}>
+                                <span className={cn(
+                                  "mt-1.5 shrink-0 rounded-full bg-primary/60",
+                                  isSub ? "h-1 w-1" : "h-1.5 w-1.5"
+                                )} />
+                                <span>{renderHighlight(text)}</span>
+                              </li>
+                            )
+                          })}
                           {exp.tags.length > 0 && (
                             <div className="flex flex-wrap gap-2">
                               {exp.tags.map((tag: string) => (
