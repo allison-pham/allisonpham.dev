@@ -1,18 +1,20 @@
-import "@/src/styles/globals.css"
-import type React from "react"
-import type { Metadata } from "next"
-import { Analytics } from "@vercel/analytics/next"
-import { Geist, Geist_Mono, Space_Grotesk } from "next/font/google"
-import { ThemeProvider } from "@/src/components/ui/ThemeProvider"
-import { Header } from "@/src/components/Header"
-import { Footer } from "@/src/components/Footer"
+import "@/src/styles/globals.css";
+import type React from "react";
+import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
+import { CustomCursor } from "@/src/components/CustomCursor";
+import { Footer } from "@/src/components/Footer";
+import { Geist, Geist_Mono, Space_Grotesk } from "next/font/google";
+import { Header } from "@/src/components/Header";
+import { SpiritOrb } from "@/src/components/SpiritOrb";
+import { ThemeProvider } from "@/src/components/ui/ThemeProvider";
 
-const geist = Geist({ subsets: ["latin"], variable: "--font-geist", display: "swap" })
-const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono", display: "swap" })
-const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space-grotesk", display: "swap" })
+const geist = Geist({ subsets: ["latin"], variable: "--font-geist", display: "swap" });
+const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono", display: "swap" });
+const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space-grotesk", display: "swap" });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://allisonpham.dev"
-const siteDescription = "Where design meets curiosity."
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://allisonpham.dev";
+const siteDescription = "Where design meets curiosity.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -62,7 +64,7 @@ export const metadata: Metadata = {
     apple: "/apple-icon.png",
   },
   manifest: "/site.webmanifest",
-}
+};
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
@@ -73,12 +75,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     >
       <body className="font-sans antialiased">
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem storageKey="theme-mode">
+          {/* <CustomCursor /> */}
+          <SpiritOrb />
           <main className="relative min-h-screen overflow-hidden scanlines">
             <div className="relative z-10 flex min-h-screen flex-col">
               <Header />
-              <div className="flex-1">
-                {children}
-              </div>
+              <div className="flex-1">{children}</div>
               <Footer />
             </div>
           </main>
@@ -86,5 +88,5 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Analytics />
       </body>
     </html>
-  )
+  );
 }
