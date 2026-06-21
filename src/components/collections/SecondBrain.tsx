@@ -1,41 +1,31 @@
-"use client"
-
-import { useEffect, useRef, useState } from "react"
-import { cn } from "@/src/lib/core-features/utils"
-import {
-  Brain,
-  FolderOpen,
-  Sprout,
-  Leaf,
-  Trees,
-  Link2,
-  FileText,
-  Sparkles,
-} from "lucide-react"
+"use client";
+import { Brain, FolderOpen, Sprout, Leaf, Trees, Link2, FileText, Sparkles } from "lucide-react";
+import { cn } from "@/src/lib/core-features/utils";
+import { useEffect, useRef, useState } from "react";
 
 interface CoreNode {
-  id: string
-  title: string
-  summary: string
+  id: string;
+  title: string;
+  summary: string;
 }
 
 interface GardenNote {
-  id: string
-  title: string
-  kind: "note" | "idea" | "concept" | "half-finished"
-  status: "seed" | "growing" | "rooted"
-  lastUpdated: string
-  connections: string[]
-  preview: string
+  id: string;
+  title: string;
+  kind: "note" | "idea" | "concept" | "half-finished";
+  status: "seed" | "growing" | "rooted";
+  lastUpdated: string;
+  connections: string[];
+  preview: string;
 }
 
-type FolderName = "thinking" | "design" | "life"
+type FolderName = "thinking" | "design" | "life";
 
 interface GardenFolder {
-  id: FolderName
-  path: string
-  blurb: string
-  notes: GardenNote[]
+  id: FolderName;
+  path: string;
+  blurb: string;
+  notes: GardenNote[];
 }
 
 const coreNodes: CoreNode[] = [
@@ -50,7 +40,7 @@ const coreNodes: CoreNode[] = [
     title: "Notes",
     summary: "Raw observations, references, & scratch thoughts",
   },
-  
+
   {
     id: "thoughts",
     title: "Thoughts",
@@ -62,7 +52,7 @@ const coreNodes: CoreNode[] = [
     title: "Ideas",
     summary: "Early sparks worth revisiting before they fade",
   },
-]
+];
 
 const gardenFolders: GardenFolder[] = [
   {
@@ -140,14 +130,14 @@ const gardenFolders: GardenFolder[] = [
       },
     ],
   },
-]
+];
 
 const kindStyles = {
   note: "bg-secondary text-muted-foreground border-border",
   idea: "bg-primary/10 text-primary border-primary/30",
   concept: "bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/30",
   "half-finished": "bg-orange-500/10 text-orange-600 dark:text-orange-400 border-orange-500/30",
-}
+};
 
 const growthStyles = {
   seed: {
@@ -165,37 +155,35 @@ const growthStyles = {
     className: "bg-primary/10 text-primary border-primary/30",
     icon: Trees,
   },
-}
+};
 
 export function SecondBrain() {
-  const [isVisible, setIsVisible] = useState(false)
-  const [activeFolder, setActiveFolder] = useState<FolderName>("thinking")
-  const ref = useRef<HTMLElement>(null)
+  const [isVisible, setIsVisible] = useState(false);
+  const [activeFolder, setActiveFolder] = useState<FolderName>("thinking");
+  const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) setIsVisible(true)
-    }, { threshold: 0.1 })
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setIsVisible(true);
+      },
+      { threshold: 0.1 },
+    );
 
-    if (ref.current) observer.observe(ref.current)
-    return () => observer.disconnect()
-  }, [])
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
 
-  const currentFolder = gardenFolders.find((folder) => folder.id === activeFolder) ?? gardenFolders[0]
+  const currentFolder = gardenFolders.find((folder) => folder.id === activeFolder) ?? gardenFolders[0];
 
   return (
     <section ref={ref} className="relative px-4 sm:px-6 pt-16 sm:pt-16 pb-8 sm:pb-12">
-      <div className={cn("mx-auto w-full max-w-7xl opacity-0", isVisible && "animate-fade-in-up")}
-      >
+      <div className={cn("mx-auto w-full max-w-7xl opacity-0", isVisible && "animate-fade-in-up")}>
         <div className="space-y-2 mb-8">
-          <p className="font-mono text-xs tracking-[0.25em] text-primary flex items-center gap-2">
-            thinking systems;
-          </p>
+          <p className="font-mono text-xs tracking-[0.25em] text-primary flex items-center gap-2">thinking systems;</p>
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Brain System</h2>
-          <p className="w-full whitespace-normal text-base sm:text-lg text-muted-foreground leading-relaxed">
-            A digital garden of where my thoughts grow over time. 
-            A collection of ongoing thoughts: half-formed ideas, small notes, etc.
-            
+          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+            A digital garden of where my thoughts grow over time (a collection of ongoing thoughts: half-formed ideas, small notes, etc.)
             {/* 2nd brain (store & organize) x digital garden (where my thoughts grow over time). 
             A collection of ongoing thoughts: half-formed ideas, small notes, etc. */}
           </p>
@@ -203,14 +191,7 @@ export function SecondBrain() {
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 mb-6">
           {coreNodes.map((node, index) => (
-            <article
-              key={node.id}
-              className={cn(
-                "rounded-xl border border-border bg-card/40 glass p-5 space-y-3 opacity-0",
-                isVisible && "animate-fade-in-up"
-              )}
-              style={{ animationDelay: `${index * 90 + 100}ms` }}
-            >
+            <article key={node.id} className={cn("rounded-xl border border-border bg-card/40 glass p-5 space-y-3 opacity-0", isVisible && "animate-fade-in-up")} style={{ animationDelay: `${index * 90 + 100}ms` }}>
               <p className="font-semibold">{node.title}</p>
               <p className="text-sm text-muted-foreground leading-relaxed">{node.summary}</p>
               {/* <div className="rounded-lg border border-border/50 bg-secondary/30 px-3 py-2">
@@ -221,21 +202,13 @@ export function SecondBrain() {
         </div>
 
         <div className="grid gap-4 lg:grid-cols-[240px_1fr]">
-          <div className={cn(
-            "rounded-xl border border-border bg-card/40 glass p-4 space-y-2 opacity-0",
-            isVisible && "animate-fade-in-up"
-          )} style={{ animationDelay: "380ms" }}>
+          <div className={cn("rounded-xl border border-border bg-card/40 glass p-4 space-y-2 opacity-0", isVisible && "animate-fade-in-up")} style={{ animationDelay: "380ms" }}>
             <p className="font-mono text-[10px] tracking-[0.22em] text-primary px-2 py-1">open folders;</p>
             {gardenFolders.map((folder) => (
               <button
                 key={folder.id}
                 onClick={() => setActiveFolder(folder.id)}
-                className={cn(
-                  "w-full rounded-lg border px-3 py-2.5 text-left transition-all duration-200",
-                  activeFolder === folder.id
-                    ? "border-primary/50 bg-primary/10"
-                    : "border-border/50 bg-secondary/30 hover:border-primary/30"
-                )}
+                className={cn("w-full rounded-lg border px-3 py-2.5 text-left transition-all duration-200", activeFolder === folder.id ? "border-primary/50 bg-primary/10" : "border-border/50 bg-secondary/30 hover:border-primary/30")}
               >
                 <p className="font-mono text-xs tracking-widest text-foreground flex items-center gap-2">
                   <FolderOpen className={cn("h-3.5 w-3.5", activeFolder === folder.id ? "text-primary" : "text-muted-foreground")} />
@@ -249,10 +222,7 @@ export function SecondBrain() {
             </div>
           </div>
 
-          <div className={cn(
-            "rounded-xl border border-border bg-card/40 glass p-5 space-y-4 opacity-0",
-            isVisible && "animate-fade-in-up"
-          )} style={{ animationDelay: "460ms" }}>
+          <div className={cn("rounded-xl border border-border bg-card/40 glass p-5 space-y-4 opacity-0", isVisible && "animate-fade-in-up")} style={{ animationDelay: "460ms" }}>
             <div className="flex items-center justify-between gap-3 border-b border-border/50 pb-3">
               <div>
                 <p className="font-mono text-xs text-primary tracking-widest">{currentFolder.path}</p>
@@ -263,8 +233,8 @@ export function SecondBrain() {
 
             <div className="space-y-3">
               {currentFolder.notes.map((note) => {
-                const growth = growthStyles[note.status]
-                const GrowthIcon = growth.icon
+                const growth = growthStyles[note.status];
+                const GrowthIcon = growth.icon;
                 return (
                   <article key={note.id} className="rounded-lg border border-border/50 bg-secondary/30 px-4 py-3 space-y-3">
                     <div className="flex items-start justify-between gap-3">
@@ -272,9 +242,7 @@ export function SecondBrain() {
                         <h4 className="text-sm font-semibold">{note.title}</h4>
                         <p className="text-xs text-muted-foreground mt-1 leading-relaxed">{note.preview}</p>
                       </div>
-                      <span className={cn("shrink-0 rounded-full border px-2 py-0.5 font-mono text-[10px]", kindStyles[note.kind])}>
-                        {note.kind}
-                      </span>
+                      <span className={cn("shrink-0 rounded-full border px-2 py-0.5 font-mono text-[10px]", kindStyles[note.kind])}>{note.kind}</span>
                     </div>
 
                     <div className="flex items-center gap-2 flex-wrap">
@@ -296,7 +264,7 @@ export function SecondBrain() {
                       </div>
                     </div>
                   </article>
-                )
+                );
               })}
             </div>
 
@@ -305,13 +273,11 @@ export function SecondBrain() {
                 <Sparkles className="h-3 w-3" />
                 not a blog
               </p>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                Small notes, half-formed ideas, and ongoing thoughts. More organic, less polished.
-              </p>
+              <p className="text-sm text-muted-foreground leading-relaxed">Small notes, half-formed ideas, and ongoing thoughts. More organic, less polished.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
