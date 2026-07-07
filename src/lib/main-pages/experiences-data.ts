@@ -50,21 +50,6 @@ export const experiences: Experience[] = [
   },
 
   {
-    id: "notion",
-    role: "Campus Leader",
-    company: "Notion",
-    logo: "/experiences/notion.svg",
-    companyUrl: "https://notion.so",
-    period: "Sep 2025 - Present",
-    type: "",
-    current: true,
-    description: "",
-    highlights: ["Building community and reaching students across campus via productivity tools", "Empowering students to bring impact and project visions to life"],
-    tags: ["Productivity", "Community"],
-    hasReadMore: false,
-  },
-
-  {
     id: "prodE",
     role: "Product Designer",
     company: "ProdE",
@@ -204,6 +189,21 @@ export const experiences: Experience[] = [
     description: "",
     highlights: [],
     tags: [],
+    hasReadMore: false,
+  },
+
+  {
+    id: "notion",
+    role: "Campus Leader",
+    company: "Notion",
+    logo: "/experiences/notion.svg",
+    companyUrl: "https://notion.so",
+    period: "Sep 2025 - Jun 2026",
+    type: "",
+    current: false,
+    description: "",
+    highlights: ["Building community and reaching students across campus via productivity tools", "Empowering students to bring impact and project visions to life"],
+    tags: ["Productivity", "Community"],
     hasReadMore: false,
   },
 
