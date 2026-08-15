@@ -768,7 +768,7 @@ type ModalType = "about" | "letter" | "story" | "notes" | null;
 
 const linkCn = "underline decoration-wavy decoration-current/45 underline-offset-3 transition-colors hover:decoration-current/80";
 
-const modalContent: Record<NonNullable<ModalType>, { title: string; subtitle: string; icon: typeof User; wide?: boolean; body: React.ReactNode }> = {
+const modalContent: Record<NonNullable<ModalType>, { title: string; subtitle: string; icon: typeof User; body: React.ReactNode }> = {
   about: {
     title: "Full About",
     subtitle: "who i am;",
@@ -797,15 +797,15 @@ const modalContent: Record<NonNullable<ModalType>, { title: string; subtitle: st
           <a href="https://www.cutiehack.com" target="_blank" rel="noopener noreferrer" className={linkCn}>
             Cutie Hack
           </a>
-          , while externally building campus and international initiatives. I led{" "}
-          <a href="https://acm.cs.ucr.edu" target="_blank" rel="noopener noreferrer" className={linkCn}>
-            ACM at UCR
-          </a>{" "}
-          as President and served as a Campus Leader at{" "}
+          , while serving as a Campus Leader at{" "}
           <a href="https://notion.so" target="_blank" rel="noopener noreferrer" className={linkCn}>
             Notion
           </a>
-          . I'm currently researching HCI for systems by designing interfaces that hold up in different environments.
+          . Outside of that, I'm externally building campus and international initiatives. I led{" "}
+          <a href="https://acm.cs.ucr.edu" target="_blank" rel="noopener noreferrer" className={linkCn}>
+            ACM at UCR
+          </a>{" "}
+          as President. I'm currently researching HCI for systems by designing interfaces that hold up in different environments.
         </p>
         <p>
           In my childhood, I explored as much as I could find just to understand how it worked. That instinct became a passion with how systems shape the way people think, decide, and act. My target is to build things that feel like extensions of the
@@ -868,7 +868,6 @@ const modalContent: Record<NonNullable<ModalType>, { title: string; subtitle: st
     title: "My Story",
     subtitle: "origin;",
     icon: BookOpen,
-    wide: true,
     body: <OriginStoryPanel />,
   },
 
@@ -876,7 +875,6 @@ const modalContent: Record<NonNullable<ModalType>, { title: string; subtitle: st
     title: "Notes Jar",
     subtitle: "collective thoughts;",
     icon: BookOpen,
-    wide: true,
     body: <NotesJarPanel />,
   },
 };
@@ -891,7 +889,6 @@ const buttons: { type: NonNullable<ModalType>; label: string }[] = [
 function AboutModal({ type, onClose, onSwitch }: { type: NonNullable<ModalType>; onClose: () => void; onSwitch: (t: NonNullable<ModalType>) => void }) {
   const content = modalContent[type];
   const Icon = content.icon;
-  const isWide = !!content.wide;
 
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
@@ -913,7 +910,7 @@ function AboutModal({ type, onClose, onSwitch }: { type: NonNullable<ModalType>;
       }}
     >
       <div className="absolute inset-0 bg-background/80 backdrop-blur-sm pointer-events-none" />
-      <div className={cn("relative z-10 flex w-full flex-col rounded-2xl border border-border/60 bg-card/95 shadow-xl animate-in fade-in slide-in-from-bottom-4 duration-300", isWide ? "max-w-3xl" : "max-w-lg")} style={{ maxHeight: "85vh" }}>
+      <div className="relative z-10 flex w-full max-w-3xl flex-col rounded-2xl border border-border/60 bg-card/95 shadow-xl animate-in fade-in slide-in-from-bottom-4 duration-300" style={{ height: "85vh", maxHeight: "60vh" }}>
         <div className="flex shrink-0 items-center justify-between border-b border-border/40 px-6 py-4">
           <div className="flex items-center gap-3">
             <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-primary/30 bg-primary/10 text-primary">
@@ -929,8 +926,8 @@ function AboutModal({ type, onClose, onSwitch }: { type: NonNullable<ModalType>;
           </button>
         </div>
 
-        <div className={cn("min-h-0 flex-1 px-6 py-5", !isWide && "overflow-y-auto")} style={{ minHeight: 380, ...(isWide && { overflowY: "auto" }) }}>
-          {isWide ? <div className="h-full">{content.body}</div> : <div className="space-y-4 text-sm leading-relaxed text-muted-foreground">{content.body}</div>}
+        <div className="min-h-0 flex-1 overflow-y-auto px-6 py-5" style={{ minHeight: 380 }}>
+          <div className="space-y-4 text-sm leading-relaxed text-muted-foreground">{content.body}</div>
         </div>
 
         <div className="flex shrink-0 gap-2 border-t border-border/40 px-6 py-4">
