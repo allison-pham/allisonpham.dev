@@ -1,16 +1,16 @@
-"use client"
-import { useEffect, useRef, useState } from "react"
-import { cn } from "@/src/lib/core-features/utils"
-import { ExternalLink } from "lucide-react"
+"use client";
+import { cn } from "@/src/lib/core-features/utils";
+import { ExternalLink } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 type RabbitHole = {
-  id: string
-  title: string
-  description: string
-  type: "concept" | "paper" | "tool" | "question"
-  link?: string
-  hot?: boolean // currently most active
-}
+  id: string;
+  title: string;
+  description: string;
+  type: "concept" | "paper" | "tool" | "question";
+  link?: string;
+  hot?: boolean; // Currently most active
+};
 
 const rabbitHoles: RabbitHole[] = [
   {
@@ -52,45 +52,44 @@ const rabbitHoles: RabbitHole[] = [
     type: "question",
     hot: false,
   },
-]
+];
 
 const typeConfig = {
   concept: { label: "concept", style: "border-primary/40 bg-primary/10 text-primary" },
   paper: { label: "paper", style: "border-yellow-500/40 bg-yellow-500/10 text-yellow-600 dark:text-yellow-400" },
   tool: { label: "tool", style: "border-blue-500/40 bg-blue-500/10 text-blue-600 dark:text-blue-400" },
   question: { label: "question", style: "border-border/80 bg-secondary/60 text-secondary-foreground" },
-}
+};
 
 export function RabbitHoles2() {
-  const [isVisible, setIsVisible] = useState(false)
-  const sectionRef = useRef<HTMLElement>(null)
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setIsVisible(true) },
-      { threshold: 0.1 }
-    )
-    if (sectionRef.current) observer.observe(sectionRef.current)
-    return () => observer.disconnect()
-  }, [])
+      ([entry]) => {
+        if (entry.isIntersecting) setIsVisible(true);
+      },
+      { threshold: 0.1 },
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section ref={sectionRef} className="border-t border-border/30 px-4 sm:px-6 pt-16 sm:pt-20 pb-8 sm:pb-12">
       <div className="mx-auto max-w-7xl">
-
         <div className={cn("mb-10 sm:mb-14 opacity-0", isVisible && "animate-fade-in-up")}>
           <div className="space-y-3">
-            <p className="font-mono text-xs tracking-[0.25em] sm:tracking-[0.35em] text-primary">current obsessions;</p>
+            <p className="font-mono text-xs tracking-[0.25em] text-primary flex items-center gap-2">current obsessions;</p>
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Rabbit Holes ↓</h2>
-            <p className="max-w-xl text-sm leading-relaxed text-muted-foreground">
-              Things I'm actively thinking about, reading into, or unable to stop asking questions about.
-            </p>
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">Things I'm actively thinking about, reading into, or unable to stop asking questions about</p>
           </div>
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {rabbitHoles.map((hole, index) => {
-            const type = typeConfig[hole.type]
+            const type = typeConfig[hole.type];
             return (
               <div
                 key={hole.id}
@@ -109,32 +108,15 @@ export function RabbitHoles2() {
                   </div>
                 )}
 
-                <span className={cn(
-                  "w-fit rounded-md border px-2 py-0.5 font-mono text-[10px]",
-                  type.style
-                )}>
-                  {type.label}
-                </span>
+                <span className={cn("w-fit rounded-md border px-2 py-0.5 font-mono text-[10px]", type.style)}>{type.label}</span>
 
                 <div className="flex-1 space-y-2">
-                  <h3 className={cn(
-                    "font-bold tracking-tight text-sm leading-snug transition-colors group-hover:text-primary",
-                    hole.hot && "pr-14",
-                  )}>
-                    {hole.title}
-                  </h3>
-                  <p className="text-xs leading-relaxed text-muted-foreground">
-                    {hole.description}
-                  </p>
+                  <h3 className={cn("font-bold tracking-tight text-sm leading-snug transition-colors group-hover:text-primary", hole.hot && "pr-14")}>{hole.title}</h3>
+                  <p className="text-xs leading-relaxed text-muted-foreground">{hole.description}</p>
                 </div>
 
                 {hole.link && (
-                  <a
-                    href={hole.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 font-mono text-[10px] text-muted-foreground transition-colors hover:text-primary"
-                  >
+                  <a href={hole.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 font-mono text-[10px] text-muted-foreground transition-colors hover:text-primary">
                     <ExternalLink className="h-3 w-3" />
                     source
                   </a>
@@ -142,10 +124,10 @@ export function RabbitHoles2() {
 
                 <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-gradient-to-r from-primary via-primary/80 to-transparent transition-all duration-500 group-hover:w-full rounded-b-xl" />
               </div>
-            )
+            );
           })}
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { useEffect, useRef, useState } from "react"
-import { cn } from "@/src/lib/core-features/utils"
-import { Code2, Layers3, Wrench, Library, Cpu, Palette } from "lucide-react"
-import { TechIcon } from "@/src/components/TechStackIcons"
+import { useEffect, useRef, useState } from "react";
+import { cn } from "@/src/lib/core-features/utils";
+import { Code2, Layers3, Wrench, Library, Cpu, Palette } from "lucide-react";
+import { TechIcon } from "@/src/components/TechStackIcons";
 
 const skillGroups = [
   {
@@ -46,22 +46,22 @@ const skillGroups = [
     icon: Palette,
     skills: ["Figma", "Framer", "Spline", "Canva", "Adobe"],
   },
-]
+];
 
 export function TechnicalSkills() {
-  const [isVisible, setIsVisible] = useState(false)
-  const sectionRef = useRef<HTMLElement>(null)
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) setIsVisible(true)
+        if (entry.isIntersecting) setIsVisible(true);
       },
       { threshold: 0.1 },
-    )
-    if (sectionRef.current) observer.observe(sectionRef.current)
-    return () => observer.disconnect()
-  }, [])
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section ref={sectionRef} className="border-t border-border/30 overflow-x-clip px-4 sm:px-6 py-16 sm:py-16">
@@ -107,5 +107,5 @@ export function TechnicalSkills() {
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -1,49 +1,77 @@
-export type ProjectStatus = "shipped" | "in progress" | "ideation" | "archived"
+export type ProjectStatus = "shipped" | "in progress" | "ideation" | "archived";
 
 export type ProjectImage = {
-  src: string
-  alt: string
-  caption?: string
-}
+  src: string;
+  alt: string;
+  caption?: string;
+};
 
 export type ProjectCaseStudySection = {
-  id: string
-  title: string
-  description: string | string[]
-  images?: ProjectImage[]
-}
+  id: string;
+  title: string;
+  description: string | string[];
+  images?: ProjectImage[];
+};
 
 export type ProjectCaseStudy = {
-  role: string
-  duration: string
-  specialization: string
-  oneSentence: string
-  quickAction: string
-  sections: ProjectCaseStudySection[]
-}
+  role: string;
+  duration: string;
+  specialization: string;
+  oneSentence: string;
+  quickAction: string;
+  sections: ProjectCaseStudySection[];
+};
 
 export type ProjectSeed = {
-  id: string
-  title: string
-  description: string
-  tags: string[]
-  status: ProjectStatus
-  year: string
-  url: string
-  homepage: string
-  featured: boolean
-  highlight: boolean
-  hasCaseStudy?: boolean
-  thumbnailSrc?: string
-  thumbnailAlt?: string
-  caseStudy?: Partial<ProjectCaseStudy>
-}
+  id: string;
+  title: string;
+  description: string;
+  tags: string[];
+  status: ProjectStatus;
+  year: string;
+  url: string;
+  homepage: string;
+  featured: boolean;
+  highlight: boolean;
+  hasCaseStudy?: boolean;
+  thumbnailSrc?: string;
+  thumbnailAlt?: string;
+  caseStudy?: Partial<ProjectCaseStudy>;
+};
 
 export type Project = ProjectSeed & {
-  slug: string
-}
+  slug: string;
+};
 
 const projectSeeds: ProjectSeed[] = [
+  {
+    id: "fluid",
+    title: "Fluid",
+    description: "",
+    tags: [],
+    status: "ideation",
+    year: "2026",
+    url: "",
+    homepage: "",
+    featured: false,
+    highlight: false,
+    hasCaseStudy: false,
+  },
+
+  {
+    id: "calendar-compass",
+    title: "Calendar Compass",
+    description: "Plan and organize time more effectively.",
+    tags: [],
+    status: "ideation",
+    year: "2026",
+    url: "",
+    homepage: "",
+    featured: false,
+    highlight: false,
+    hasCaseStudy: false,
+  },
+
   {
     id: "metrosync",
     title: "MetroSync",
@@ -96,7 +124,7 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: false,
   },
 
   {
@@ -110,7 +138,7 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: false,
   },
 
   {
@@ -124,7 +152,7 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: false,
   },
 
   {
@@ -139,7 +167,7 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: false,
   },
 
   {
@@ -153,7 +181,7 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: false,
   },
 
   {
@@ -167,7 +195,7 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: false,
   },
 
   {
@@ -181,7 +209,7 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: false,
   },
 
   {
@@ -195,7 +223,7 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: false,
   },
 
   {
@@ -209,7 +237,7 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: false,
   },
 
   {
@@ -223,7 +251,7 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: false,
   },
 
   {
@@ -237,7 +265,7 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: false,
   },
 
   {
@@ -251,7 +279,7 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: false,
   },
 
   {
@@ -288,14 +316,12 @@ const projectSeeds: ProjectSeed[] = [
           title: "Solution",
           description: [
             "**Latest iteration:** interaction design for astronauts",
-            "**Raw thinking:** started with \"How do astronauts interact with systems in microgravity?\"",
+            '**Raw thinking:** started with "How do astronauts interact with systems in microgravity?"',
             "Earlier design iterations didn't account for spatial interactions",
-              "→ **Breakthrough:** researching how hand-gesture communication works in zero-g training was groundbreaking",
+            "→ **Breakthrough:** researching how hand-gesture communication works in zero-g training was groundbreaking",
             "Haptic feedback > visual feedback in a pressurized suit",
           ],
-          images: [
-            { src: "/projects/metrosync/cover.jpg", alt: "MetroSync map view" },
-          ],
+          images: [{ src: "/projects/metrosync/cover.jpg", alt: "MetroSync map view" }],
         },
       ],
     },
@@ -312,7 +338,7 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: false,
   },
 
   {
@@ -326,7 +352,7 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: false,
   },
 
   {
@@ -340,7 +366,7 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: false,
   },
 
   {
@@ -354,7 +380,7 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: true,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: false,
   },
 
   {
@@ -368,7 +394,7 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: false,
   },
 
   {
@@ -382,7 +408,7 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: false,
   },
 
   {
@@ -396,7 +422,7 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: false,
   },
 
   {
@@ -410,7 +436,7 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: false,
   },
 
   {
@@ -425,7 +451,7 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: false,
   },
 
   {
@@ -439,7 +465,7 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: false,
   },
 
   {
@@ -453,7 +479,7 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: false,
   },
 
   {
@@ -467,12 +493,12 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: false,
   },
 
   {
-    id: "productembark-website",
-    title: "ProductEmbark: Website",
+    id: "product-embark-website",
+    title: "Product Embark: Website",
     description: "",
     tags: ["Next.js", "TypeScript"],
     status: "ideation",
@@ -481,7 +507,7 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: false,
   },
 
   {
@@ -495,7 +521,7 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: false,
   },
 
   {
@@ -509,7 +535,7 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: false,
   },
 
   {
@@ -523,7 +549,7 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: false,
   },
 
   {
@@ -537,7 +563,7 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: false,
   },
 
   {
@@ -551,7 +577,7 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: false,
   },
 
   {
@@ -565,7 +591,7 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: false,
   },
 
   {
@@ -579,7 +605,7 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: false,
   },
 
   {
@@ -593,7 +619,7 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: false,
   },
 
   {
@@ -607,7 +633,7 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: false,
   },
 
   {
@@ -621,7 +647,7 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: false,
   },
 
   {
@@ -728,7 +754,7 @@ const projectSeeds: ProjectSeed[] = [
     year: "2024",
     url: "https://github.com/allison-pham/pantrypilot",
     homepage: "",
-    featured: true,
+    featured: false,
     highlight: false,
     hasCaseStudy: true,
     caseStudy: {
@@ -794,7 +820,7 @@ const projectSeeds: ProjectSeed[] = [
       specialization: "Automation",
     },
     thumbnailSrc: "/projects/weatherwise.svg",
-    thumbnailAlt: "WeatherWise cover"
+    thumbnailAlt: "WeatherWise cover",
   },
 
   {
@@ -806,7 +832,7 @@ const projectSeeds: ProjectSeed[] = [
     year: "2023",
     url: "https://github.com/allison-pham/shelf-sense",
     homepage: "",
-    featured: true,
+    featured: false,
     highlight: false,
     hasCaseStudy: true,
     caseStudy: {
@@ -834,7 +860,7 @@ const projectSeeds: ProjectSeed[] = [
       specialization: "CLI (Command-Line Interface)",
     },
     thumbnailSrc: "/projects/qr-connect.svg",
-    thumbnailAlt: "QR Connect cover"
+    thumbnailAlt: "QR Connect cover",
   },
 
   {
@@ -894,7 +920,7 @@ const projectSeeds: ProjectSeed[] = [
       specialization: "Game Development",
     },
     thumbnailSrc: "/projects/flappy-bird.svg",
-    thumbnailAlt: "Flappy Bird cover"
+    thumbnailAlt: "Flappy Bird cover",
   },
 
   {
@@ -915,7 +941,7 @@ const projectSeeds: ProjectSeed[] = [
       specialization: "Game Development",
     },
     thumbnailSrc: "/projects/thin-ice.svg",
-    thumbnailAlt: "Thin Ice cover"
+    thumbnailAlt: "Thin Ice cover",
   },
 
   {
@@ -929,34 +955,36 @@ const projectSeeds: ProjectSeed[] = [
     homepage: "",
     featured: false,
     highlight: false,
-    hasCaseStudy: false
+    hasCaseStudy: false,
   },
-]
+];
 
 function slugify(value: string): string {
   return value
     .toLowerCase()
     .replace(/[^a-z0-9\s-]/g, "")
     .trim()
-    .replace(/\s+/g, "-")
+    .replace(/\s+/g, "-");
 }
 
 export const projects: Project[] = projectSeeds.map((project) => ({
   ...project,
   slug: slugify(project.title),
-}))
+}));
 
-export const projectFilters = ["all", "shipped", "in progress", "ideation", "archived"] as const
-export type ProjectFilter = (typeof projectFilters)[number]
+export const projectFilters = ["all", "shipped", "in progress", "ideation", "archived"] as const;
+export type ProjectFilter = (typeof projectFilters)[number];
 
 export const allProjectTags = Object.entries(
-  projects.flatMap((p) => p.tags).reduce<Record<string, number>>((acc, tag) => {
-    acc[tag] = (acc[tag] ?? 0) + 1
-    return acc
-  }, {})
+  projects
+    .flatMap((p) => p.tags)
+    .reduce<Record<string, number>>((acc, tag) => {
+      acc[tag] = (acc[tag] ?? 0) + 1;
+      return acc;
+    }, {}),
 )
   .sort((a, b) => b[1] - a[1])
-  .map(([tag]) => tag)
+  .map(([tag]) => tag);
 
 // export const allProjectTags = [...new Set(projects.flatMap((project) => project.tags))]
 
@@ -970,36 +998,28 @@ const defaultSectionTitles: Array<{ id: string; title: string }> = [
   { id: "architecture-design", title: "Architecture / Design" },
   { id: "solution-prototype", title: "Solution (with Prototype)" },
   { id: "reflection", title: "Reflection" },
-]
+];
 
 export function getProjectCaseStudy(project: Project): ProjectCaseStudy {
-  const fallbackRole = "Position"
-  const fallbackDuration = "Month + year"
-  const fallbackSpecialization = "Specialization areas"
+  const fallbackRole = "Position";
+  const fallbackDuration = "Month + year";
+  const fallbackSpecialization = "Specialization areas";
   // const fallbackSpecialization = project.tags[0] || "Technical skills"
 
   return {
     role: project.caseStudy?.role || fallbackRole,
     duration: project.caseStudy?.duration || fallbackDuration,
     specialization: project.caseStudy?.specialization || fallbackSpecialization,
-    oneSentence:
-      project.caseStudy?.oneSentence ||
-      project.description ||
-      `A case study for ${project.title}.`,
-    quickAction:
-      project.caseStudy?.quickAction ||
-      "Add your key action or outcome here.",
-    sections:
-      project.caseStudy?.sections && project.caseStudy.sections.length > 0
-        ? project.caseStudy.sections
-        : [],
-  }
+    oneSentence: project.caseStudy?.oneSentence || project.description || `A case study for ${project.title}.`,
+    quickAction: project.caseStudy?.quickAction || "Add your key action or outcome here.",
+    sections: project.caseStudy?.sections && project.caseStudy.sections.length > 0 ? project.caseStudy.sections : [],
+  };
 }
 
 export function getProjectBySlug(slug: string): Project | undefined {
-  return projects.find((project) => project.slug === slug)
+  return projects.find((project) => project.slug === slug);
 }
 
 export function getRelatedProjects(currentSlug: string, limit = 3): Project[] {
-  return projects.filter((project) => project.slug !== currentSlug).slice(0, limit)
+  return projects.filter((project) => project.slug !== currentSlug).slice(0, limit);
 }

@@ -1,17 +1,17 @@
-"use client"
-import Link from "next/link"
-import { ArrowRight, Briefcase, Laptop, Satellite, Telescope, type LucideIcon } from "lucide-react"
-import { cn } from "@/src/lib/core-features/utils"
-import { FlipBook } from "./CurrentQuestsBook"
-import { useEffect, useRef, useState } from "react"
+"use client";
+import Link from "next/link";
+import { ArrowRight, Briefcase, Laptop, Satellite, Telescope, type LucideIcon } from "lucide-react";
+import { cn } from "@/src/lib/core-features/utils";
+import { FlipBook } from "./CurrentQuestsBook";
+import { useEffect, useRef, useState } from "react";
 
 interface QuestCard {
-  suit: string
-  value: string
-  suitColor: string
-  icon: LucideIcon
-  title: string
-  description: string
+  suit: string;
+  value: string;
+  suitColor: string;
+  icon: LucideIcon;
+  title: string;
+  description: string;
 }
 
 const questCards: QuestCard[] = [
@@ -50,22 +50,15 @@ const questCards: QuestCard[] = [
     title: "Research",
     description: "Machine learning, HCI, and 0→1 systems",
   },
-]
+];
 
 function QuestPlayingCard({ card, index, isVisible }: { card: QuestCard; index: number; isVisible: boolean }) {
-  const [flipped, setFlipped] = useState(false)
-  const Icon = card.icon
+  const [flipped, setFlipped] = useState(false);
+  const Icon = card.icon;
 
   return (
-    <div
-      className={cn("opacity-0", isVisible && "animate-fade-in-up")}
-      style={{ animationDelay: `${index * 100 + 200}ms` }}
-    >
-      <div
-        onClick={() => setFlipped((f) => !f)}
-        style={{ width: 140, height: 210, cursor: "pointer", perspective: 700 }}
-        className="mx-auto"
-      >
+    <div className={cn("opacity-0", isVisible && "animate-fade-in-up")} style={{ animationDelay: `${index * 100 + 200}ms` }}>
+      <div onClick={() => setFlipped((f) => !f)} style={{ width: 140, height: 210, cursor: "pointer", perspective: 700 }} className="mx-auto">
         <div
           style={{
             width: "100%",
@@ -159,7 +152,7 @@ function QuestPlayingCard({ card, index, isVisible }: { card: QuestCard; index: 
               display: "flex",
               flexDirection: "column",
               justifyContent: "space-between",
-              boxShadow: `0 2px 6px ${card.suitColor}0d`
+              boxShadow: `0 2px 6px ${card.suitColor}0d`,
             }}
           >
             <div>
@@ -174,64 +167,45 @@ function QuestPlayingCard({ card, index, isVisible }: { card: QuestCard; index: 
         </div>
       </div>
 
-      <p
-        className="mt-2 text-center font-mono text-[10px] text-muted-foreground"
-        style={{ opacity: flipped ? 0 : 0.6, transition: "opacity 0.3s" }}
-      >
+      <p className="mt-2 text-center font-mono text-[10px] text-muted-foreground" style={{ opacity: flipped ? 0 : 0.6, transition: "opacity 0.3s" }}>
         flip ↺
       </p>
     </div>
-  )
+  );
 }
 
 export function CurrentQuests() {
-  const [isVisible, setIsVisible] = useState(false)
-  const sectionRef = useRef<HTMLElement>(null)
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) setIsVisible(true)
+        if (entry.isIntersecting) setIsVisible(true);
       },
       { threshold: 0.1 },
-    )
-    if (sectionRef.current) observer.observe(sectionRef.current)
-    return () => observer.disconnect()
-  }, [])
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section ref={sectionRef} className="border-t border-border/30 px-4 sm:px-6 pt-16 sm:pt-20 pb-8 sm:pb-12">
       <div className="mx-auto max-w-7xl">
-        <div
-          className={cn(
-            "mb-10 sm:mb-14 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between opacity-0",
-            isVisible && "animate-fade-in-up",
-          )}
-        >
+        <div className={cn("mb-10 sm:mb-14 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between opacity-0", isVisible && "animate-fade-in-up")}>
           <div className="space-y-3 sm:flex-1 sm:min-w-0">
             <p className="font-mono text-xs tracking-[0.25em] sm:tracking-[0.35em] text-primary">missions;</p>
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Current Quests ⋆｡°</h2>
           </div>
-          <Link
-            href="/about"
-            className="flex items-center gap-2 font-mono text-sm text-muted-foreground hover:text-primary transition-colors group"
-          >
+          <Link href="/about" className="flex items-center gap-2 font-mono text-sm text-muted-foreground hover:text-primary transition-colors group">
             Explore more @ about
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
         </div>
 
-        <div
-          className={cn(
-            "mb-12 sm:mb-16 grid gap-12 lg:grid-cols-2 lg:items-start opacity-0",
-            isVisible && "animate-fade-in-up",
-          )}
-        >
+        <div className={cn("mb-12 sm:mb-16 grid gap-12 lg:grid-cols-2 lg:items-start opacity-0", isVisible && "animate-fade-in-up")}>
           <div className="space-y-5 text-base sm:text-lg leading-relaxed text-muted-foreground">
-            <p>
-              Good design is sometimes invisible. It signifies the difference between a system that constrains and
-              extends people. The best interfaces don't just respond to people, they think with them.
-            </p>
+            <p>Good design is sometimes invisible. It signifies the difference between a system that constrains and extends people. The best interfaces don't just respond to people, they think with them.</p>
 
             {/* <p>
               Previously I've built at Nucleo, NASA, research labs for CS and HCI, etc. Currently I'm designing at
@@ -242,43 +216,18 @@ export function CurrentQuests() {
 
             <p>
               I lead{" "}
-              <a
-                href="https://acm.cs.ucr.edu"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline decoration-wavy decoration-current/45 underline-offset-3 transition-colors hover:decoration-current/80"
-              >
-                ACM
-              </a>{" "}
-              as President, direct{" "}
-              <a
-                href="https://www.citrushack.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline decoration-wavy decoration-current/45 underline-offset-3 transition-colors hover:decoration-current/80"
-              >
+              <a href="https://www.citrushack.com" target="_blank" rel="noopener noreferrer" className="underline decoration-wavy decoration-current/45 underline-offset-3 transition-colors hover:decoration-current/80">
                 Citrus Hack
               </a>{" "}
               and{" "}
-              <a
-                href="https://www.cutiehack.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline decoration-wavy decoration-current/45 underline-offset-3 transition-colors hover:decoration-current/80"
-              >
+              <a href="https://www.cutiehack.com" target="_blank" rel="noopener noreferrer" className="underline decoration-wavy decoration-current/45 underline-offset-3 transition-colors hover:decoration-current/80">
                 Cutie Hack
-              </a>
-              , serve as a Campus Leader at{" "}
-              <a
-                href="https://notion.so"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline decoration-wavy decoration-current/45 underline-offset-3 transition-colors hover:decoration-current/80"
-              >
+              </a>{" "}
+              as Director, serve as a Campus Leader at{" "}
+              <a href="https://notion.so" target="_blank" rel="noopener noreferrer" className="underline decoration-wavy decoration-current/45 underline-offset-3 transition-colors hover:decoration-current/80">
                 Notion
               </a>
-              , and engage further through campus and international initiatives. I'm currently researching HCI for
-              systems by designing interfaces that hold up in different environments.
+              , and engage further through campus and international initiatives. I'm currently researching HCI for systems by designing interfaces that hold up in different environments.
             </p>
 
             {/* <p>
@@ -287,10 +236,7 @@ export function CurrentQuests() {
               things that feel extensions of the mind - not obstacles to it.
             </p> */}
 
-            <p>
-              My current rabbit holes: cognitive load in interface design, space systems, what it means to design for
-              cognition under pressure, and whatever I find at the bottom of a good cup of tea.
-            </p>
+            <p>My current rabbit holes: cognitive load in interface design, space systems, what it means to design for cognition under pressure, and whatever I find at the bottom of a good cup of tea.</p>
           </div>
 
           <div className="flex justify-center lg:justify-start lg:pt-2">
@@ -305,5 +251,5 @@ export function CurrentQuests() {
         </div>
       </div>
     </section>
-  )
+  );
 }

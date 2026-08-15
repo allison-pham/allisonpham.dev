@@ -1,17 +1,17 @@
 export interface Experience {
-  id: string
-  role: string
-  company: string
-  companyUrl?: string
-  logo?: string
-  period: string
-  type: string
-  current: boolean
-  description: string
-  highlights: string[]
-  tags: string[]
-  labels?: string[]
-  hasReadMore?: boolean
+  id: string;
+  role: string;
+  company: string;
+  companyUrl?: string;
+  logo?: string;
+  period: string;
+  type: string;
+  current: boolean;
+  description: string;
+  highlights: string[];
+  tags: string[];
+  labels?: string[];
+  hasReadMore?: boolean;
 }
 
 export const experiences: Experience[] = [
@@ -24,12 +24,11 @@ export const experiences: Experience[] = [
     period: "Mar 2026 - Present",
     type: "",
     current: true,
-    description:
-      "",
+    description: "",
     highlights: [
       "Research projects and initiatives in the context of HCI in space and neurotech",
       "Interaction in microgravity environments",
-      "Conducting user research, designing experiments, and developing prototypes to explore human-robot interaction in microgravity environments"
+      "Conducting user research, designing experiments, and developing prototypes to explore human-robot interaction in microgravity environments",
     ],
     tags: ["HCI"],
     hasReadMore: false,
@@ -44,30 +43,9 @@ export const experiences: Experience[] = [
     period: "Jan 2026 - Present",
     type: "",
     current: true,
-    description:
-      "",
-    highlights: [
-    ],
+    description: "",
+    highlights: [],
     tags: [],
-    hasReadMore: false,
-  },
-
-  {
-    id: "notion",
-    role: "Campus Leader",
-    company: "Notion",
-    logo: "/experiences/notion.svg",
-    companyUrl: "https://notion.so",
-    period: "Sep 2025 - Present",
-    type: "",
-    current: true,
-    description:
-      "",
-    highlights: [
-      "Building community and reaching students across campus via productivity tools",
-      "Empowering students to bring impact and project visions to life"
-    ],
-    tags: ["Productivity", "Community"],
     hasReadMore: false,
   },
 
@@ -80,11 +58,8 @@ export const experiences: Experience[] = [
     period: "Jun 2025 - Present",
     type: "",
     current: true,
-    description:
-      "",
-    highlights: [
-      "Product building, operations, etc."
-    ],
+    description: "",
+    highlights: ["Product building, operations, etc."],
     tags: [],
     hasReadMore: false,
   },
@@ -98,16 +73,15 @@ export const experiences: Experience[] = [
     period: "May 2025 - Present",
     type: "",
     current: true,
-    description:
-      "Previous UI/UX Design & Operations Lead (Dec 2024 - Jun 2025)",
+    description: "Previous UI/UX Design & Operations Lead (Dec 2024 - Jun 2025)",
     highlights: [
       "Lead hackathon organizers to plan the Inland Empire's largest and oldest student-run hackathon (by ACM at UCR) with 300+ participants and 45 projects submitted",
       "Coordinated an 80% increase in project submissions (45 projects in [Citrus Hack 2026](https://citrus-hack-2026.devpost.com/) vs. 26 projects in [Citrus Hack 2025](https://citrus-hack-2025.devpost.com/))",
       "Manage teams and processes across operations, finance, marketing, UI/UX design, and software engineering",
       "Coordinate total of 25 industry professionals, 20 sponsors and partners, 15+ tracks and prizes, and 10+ mini events",
-        "→ Industry: Google, Cisco, Amazon, Salesforce, Visa, etc.",
-        "→ Sponsors + partners: Major League Hacking (MLH), UCR Department of CSE, Snapchat, O'Reilly Media, Global Career Accelerator (GCA), DoorDash, Happy Hacking Keyboards (HHKB), etc.",
-      "Build alumni relations, industry professionals, and mentors to create a strong support system for students across California and other parts of the U.S."
+      "→ Industry: Google, Cisco, Amazon, Salesforce, Visa, etc.",
+      "→ Sponsors + partners: Major League Hacking (MLH), UCR Department of CSE, Snapchat, O'Reilly Media, Global Career Accelerator (GCA), DoorDash, Happy Hacking Keyboards (HHKB), etc.",
+      "Build alumni relations, industry professionals, and mentors to create a strong support system for students across California and other parts of the U.S.",
     ],
     tags: ["Hackathon"],
     hasReadMore: true,
@@ -122,49 +96,10 @@ export const experiences: Experience[] = [
     period: "May 2025 - Present",
     type: "",
     current: true,
-    description:
-      "",
-    highlights: [
-      "Previous Operations Lead (Jun 2024 - Jun 2025) & Operations Committee (Oct 2023 - May 2024)"
-    ],
+    description: "",
+    highlights: ["Previous Operations Lead (Jun 2024 - Jun 2025) and Operations Committee (Oct 2023 - May 2024)"],
     tags: ["Hackathon"],
     hasReadMore: true,
-  },
-
-  {
-    id: "acm",
-    role: "President (Prev Events)",
-    company: "ACM at UCR",
-    logo: "/experiences/acm.svg",
-    companyUrl: "https://acm.cs.ucr.edu",
-    period: "Apr 2025 - Present",
-    type: "",
-    current: true,
-    description:
-      "ACM = Association for Computing Machinery",
-    highlights: [
-      "Previous Event Chair (Feb 2024 - Jun 2025) & Board Intern (Oct 2023 - Mar 2024)"
-    ],
-    tags: ["Computer Science", "Engineering"],
-    hasReadMore: true,
-  },
-
-  {
-    id: "gamespawn",
-    role: "Treasurer (Prev Projects & Workshops)",
-    company: "Gamespawn",
-    logo: "/experiences/gamespawn.svg",
-    companyUrl: "https://gamespawn.cs.ucr.edu",
-    period: "Mar 2025 - Present",
-    type: "",
-    current: true,
-    description:
-      "",
-    highlights: [
-      "Previous Project + Workshop Coordinator (Mar 2024 - Jun 2025) & Junior Officer (Dec 2023 - Mar 2024)"
-    ],
-    tags: [],
-    hasReadMore: false,
   },
 
   {
@@ -176,11 +111,8 @@ export const experiences: Experience[] = [
     period: "Sep 2024 - Present",
     type: "Current",
     current: true,
-    description:
-      "",
-    highlights: [
-      "Writing about tech"
-    ],
+    description: "",
+    highlights: ["Writing about tech"],
     tags: [],
     hasReadMore: false,
   },
@@ -194,45 +126,115 @@ export const experiences: Experience[] = [
     period: "Jan 2024 - Present",
     type: "Current",
     current: true,
-    description:
-      "",
-    highlights: [
-      "Working on AI/ML models"
-    ],
+    description: "",
+    highlights: ["Working on AI/ML models"],
     tags: [],
     hasReadMore: false,
   },
 
   {
     id: "detester",
-    role: "Executive (Prev Director)",
+    role: "Executive (Prev Content Director)",
     company: "Detester",
-    logo: "",
+    logo: "/experiences/detester.svg",
     companyUrl: "",
     period: "Dec 2023 - Present",
     type: "",
     current: true,
     description: "Previous Director (Mar 2023 - Dec 2023)",
-    highlights: [
-    ],
+    highlights: [],
     tags: [],
     hasReadMore: false,
   },
 
   {
     id: "cosmic-us",
-    role: "Software Engineer & Director of Events",
+    role: "Director of Events/Community Management & Developer",
     company: "Cosmic-us",
-    logo: "",
-    companyUrl: "",
+    logo: "/experiences/cosmic-us.svg",
+    companyUrl: "https://cosmic-us.vercel.app",
     period: "May 2023 - Present",
     type: "Current",
     current: true,
     description: "",
-    highlights: [
-    ],
+    highlights: ["Led Global Cross Intern Program (with The Kaleidoscope), Research Program, etc."],
     tags: [],
     hasReadMore: false,
+  },
+
+  {
+    id: "the-cleverly-creatives",
+    role: "Events",
+    company: "The Cleverly Creatives",
+    logo: "/experiences/the-cleverly-creatives.svg",
+    companyUrl: "https://thecleverlycreatives.wixsite.com/thecleverlycreatives",
+    period: "Mar 2023 - Present",
+    type: "Current",
+    current: true,
+    description: "",
+    highlights: [],
+    tags: [],
+    hasReadMore: false,
+  },
+
+  {
+    id: "h-awareness",
+    role: "Executive",
+    company: "H-Awareness",
+    logo: "/experiences/h-awareness.svg",
+    companyUrl: "",
+    period: "Apr 2022 - Present",
+    type: "Current",
+    current: true,
+    description: "",
+    highlights: [],
+    tags: [],
+    hasReadMore: false,
+  },
+
+  {
+    id: "notion",
+    role: "Campus Leader",
+    company: "Notion",
+    logo: "/experiences/notion.svg",
+    companyUrl: "https://notion.so",
+    period: "Sep 2025 - Jun 2026",
+    type: "",
+    current: false,
+    description: "",
+    highlights: ["Building community and reaching students across campus via productivity tools", "Empowering students to bring impact and project visions to life"],
+    tags: ["Productivity", "Community"],
+    hasReadMore: false,
+  },
+
+  {
+    id: "gamespawn",
+    role: "Treasurer • Project & Workshop Coordinator • Junior Officer",
+    company: "Gamespawn",
+    logo: "/experiences/gamespawn.svg",
+    companyUrl: "https://gamespawn.cs.ucr.edu",
+    period: "Dec 2023 - Jun 2026",
+    type: "",
+    current: false,
+    description: "",
+    highlights: ["Previous Treasurer (Mar 2025 - Jun 2026), Project & Workshop Coordinator (Mar 2024 - Jun 2025), and Junior Officer (Dec 2023 - Mar 2024)"],
+    tags: [],
+    hasReadMore: false,
+  },
+
+  {
+    id: "acm",
+    role: "President • Event Chair • Board Intern",
+    company: "ACM at UCR",
+    logo: "/experiences/acm.svg",
+    companyUrl: "https://acm.cs.ucr.edu",
+    period: "Oct 2023 - Jun 2026",
+    type: "",
+    current: false,
+    description: "ACM = Association for Computing Machinery",
+    highlights: ["Previous President (Apr 2025 - Jun 2026), Event Chair (Feb 2024 - Jun 2025), and Board Intern (Oct 2023 - Mar 2024)"],
+    tags: ["Computer Science", "Engineering"],
+    hasReadMore: true,
   },
 
   {
@@ -244,10 +246,8 @@ export const experiences: Experience[] = [
     period: "Jan 2026 - May 2026",
     type: "Previous",
     current: false,
-    description:
-      "",
-    highlights: [
-    ],
+    description: "",
+    highlights: [],
     tags: ["Space"],
     hasReadMore: false,
   },
@@ -261,11 +261,8 @@ export const experiences: Experience[] = [
     period: "May 2024 - Apr 2025",
     type: "Previous",
     current: false,
-    description:
-      "Full title: Bourns College of Engineering (BCOE) Senator",
-    highlights: [
-      "Previous Executive Fellow (Oct 2023 - Jun 2024), Senate Intern (Nov 2023 - Jun 2024), etc."
-    ],
+    description: "Full title: Bourns College of Engineering (BCOE) Senator",
+    highlights: ["Previous Executive Fellow (Oct 2023 - Jun 2024), Senate Intern (Nov 2023 - Jun 2024), etc."],
     tags: [],
     hasReadMore: false,
   },
@@ -274,15 +271,28 @@ export const experiences: Experience[] = [
     id: "inkfuse",
     role: "Lead Engineer",
     company: "InkFuse",
-    logo: "",
+    logo: "/experiences/inkfuse.svg",
     companyUrl: "",
     period: "Aug 2024 - Mar 2025",
     type: "Previous",
     current: false,
-    description:
-      "",
-    highlights: [
-    ],
+    description: "",
+    highlights: [],
+    tags: [],
+    hasReadMore: false,
+  },
+
+  {
+    id: "the-kaleidoscope",
+    role: "Chief Operations Officer",
+    company: "The Kaleidoscope",
+    logo: "/experiences/the-kaleidoscope.svg",
+    companyUrl: "https://thekaleidoscopeorg.weebly.com",
+    period: "Sep 2024 - Jan 2025",
+    type: "Previous",
+    current: false,
+    description: "",
+    highlights: [],
     tags: [],
     hasReadMore: false,
   },
@@ -296,10 +306,8 @@ export const experiences: Experience[] = [
     period: "Sep 2024 - Nov 2024",
     type: "Previous",
     current: false,
-    description:
-      "",
-    highlights: [
-    ],
+    description: "",
+    highlights: [],
     tags: ["Space"],
     hasReadMore: false,
   },
@@ -313,10 +321,8 @@ export const experiences: Experience[] = [
     period: "Aug 2024 - Sep 2024",
     type: "Previous",
     current: false,
-    description:
-      "Full title: Software Engineer & Research Development Intern",
-    highlights: [
-    ],
+    description: "Full title: Software Engineer & Research Development Intern",
+    highlights: [],
     tags: ["Neurotech"],
     hasReadMore: false,
   },
@@ -330,45 +336,42 @@ export const experiences: Experience[] = [
     period: "Jan 2024 - Mar 2024",
     type: "Previous",
     current: false,
-    description:
-      "",
-    highlights: [
-      "Department of CS & Engineering",
-    ],
+    description: "",
+    highlights: ["Department of CS & Engineering"],
     tags: ["Computer Science", "Education"],
     hasReadMore: false,
   },
-]
+];
 
-export const filterTags = ["all", "current", "previous"] as const
-export type FilterTag = (typeof filterTags)[number]
- 
+export const filterTags = ["all", "current", "previous"] as const;
+export type FilterTag = (typeof filterTags)[number];
+
 export function getFilterCount(filter: string, exps: Experience[]): number {
-  if (filter === "all") return exps.length
-  if (filter === "current") return exps.filter((e) => e.current).length
-  if (filter === "previous") return exps.filter((e) => !e.current).length
-  return exps.filter((e) => e.tags.includes(filter)).length
+  if (filter === "all") return exps.length;
+  if (filter === "current") return exps.filter((e) => e.current).length;
+  if (filter === "previous") return exps.filter((e) => !e.current).length;
+  return exps.filter((e) => e.tags.includes(filter)).length;
 }
- 
+
 export function filterExperiences(activeFilters: string[], exps: Experience[]): Experience[] {
-  if (activeFilters.includes("all")) return exps
+  if (activeFilters.includes("all")) return exps;
   return exps.filter((exp) =>
     activeFilters.some((f) => {
-      if (f === "current") return exp.current
-      if (f === "previous") return !exp.current
-      return exp.tags.includes(f)
-    })
-  )
+      if (f === "current") return exp.current;
+      if (f === "previous") return !exp.current;
+      return exp.tags.includes(f);
+    }),
+  );
 }
- 
+
 export function getSafeExternalUrl(url?: string): string | undefined {
-  if (!url) return undefined
-  const normalized = /^https?:\/\//i.test(url) ? url : `https://${url}`
+  if (!url) return undefined;
+  const normalized = /^https?:\/\//i.test(url) ? url : `https://${url}`;
   try {
-    const parsed = new URL(normalized)
-    if (parsed.protocol !== "http:" && parsed.protocol !== "https:") return undefined
-    return parsed.toString()
+    const parsed = new URL(normalized);
+    if (parsed.protocol !== "http:" && parsed.protocol !== "https:") return undefined;
+    return parsed.toString();
   } catch {
-    return undefined
+    return undefined;
   }
 }
