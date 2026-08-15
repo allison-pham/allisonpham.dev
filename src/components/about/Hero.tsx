@@ -131,8 +131,8 @@ const chapters: Chapter[] = [
     tag: "leadership",
     content: `Becoming President of ACM was something I didn't plan for. 
     I joined as a Board Intern, then Event Chair.
-    I eventually ended up running for President since I saw things that could be continued and improved on.
-    I had ideas about how to make them better.
+    I eventually ended up aiming for President since I realized I had ideas, goals, and a plan to improve ACM as an organization.
+    I viewed my time in ACM as a chance to further build a community of students with continuous opportunities to learn, grow, and improve.
     
     What I learned from directing Citrus Hack and Cutie Hack - with hundreds of participants, several sponsors, tight timelines, budgets, etc. is that leadership is mostly a design problem.
     It's designing systems for people (except people are less predictable than pixels).
@@ -171,21 +171,11 @@ function OriginStoryPanel() {
           <button
             key={ch.id}
             onClick={() => setActiveId(ch.id)}
-            className={cn(
-              "flex shrink-0 flex-col rounded-lg border px-3 py-2 text-left transition-all duration-150 sm:shrink",
-              activeId !== ch.id && "border-transparent text-muted-foreground hover:bg-secondary/40",
-            )}
+            className={cn("flex shrink-0 flex-col rounded-lg border px-3 py-2 text-left transition-all duration-150 sm:shrink", activeId !== ch.id && "border-transparent text-muted-foreground hover:bg-secondary/40")}
             style={activeId === ch.id ? { background: ch.color + "50", borderColor: ch.color } : {}}
           >
             <span className="font-mono text-[9px] text-muted-foreground">{ch.year}</span>
-            <span
-              className={cn(
-                "mt-0.5 whitespace-nowrap text-xs leading-tight sm:whitespace-normal",
-                activeId === ch.id ? "font-semibold text-foreground" : "text-muted-foreground",
-              )}
-            >
-              {ch.title}
-            </span>
+            <span className={cn("mt-0.5 whitespace-nowrap text-xs leading-tight sm:whitespace-normal", activeId === ch.id ? "font-semibold text-foreground" : "text-muted-foreground")}>{ch.title}</span>
           </button>
         ))}
       </div>
@@ -195,10 +185,7 @@ function OriginStoryPanel() {
         <div className="flex flex-col overflow-y-auto p-5" style={{ height: 320 }}>
           <div className="mb-3 flex items-center gap-2">
             <span className="font-mono text-xs text-muted-foreground">{chapter.year}</span>
-            <span
-              className="rounded-full px-2.5 py-0.5 font-mono text-[10px] text-foreground/70"
-              style={{ background: chapter.color + "55" }}
-            >
+            <span className="rounded-full px-2.5 py-0.5 font-mono text-[10px] text-foreground/70" style={{ background: chapter.color + "55" }}>
               {chapter.tag}
             </span>
           </div>
@@ -209,11 +196,7 @@ function OriginStoryPanel() {
             ))}
           </div>
           <div className="mt-6 flex shrink-0 items-center justify-between border-t border-border/40 pt-4">
-            <button
-              onClick={() => activeIdx > 0 && setActiveId(chapters[activeIdx - 1].id)}
-              disabled={activeIdx === 0}
-              className="font-mono text-xs text-muted-foreground transition-colors hover:text-primary disabled:opacity-30"
-            >
+            <button onClick={() => activeIdx > 0 && setActiveId(chapters[activeIdx - 1].id)} disabled={activeIdx === 0} className="font-mono text-xs text-muted-foreground transition-colors hover:text-primary disabled:opacity-30">
               ← prev
             </button>
             <span className="font-mono text-[10px] text-muted-foreground">
@@ -310,47 +293,24 @@ const MOODS: MoodConfig[] = [
 
 function JarSVG({ noteCount, animating }: { noteCount: number; animating: boolean }) {
   return (
-    <svg
-      viewBox="0 0 200 280"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      style={{ width: "100%", maxWidth: 200, filter: "drop-shadow(0 8px 32px rgba(124,58,237,0.15))" }}
-    >
+    <svg viewBox="0 0 200 280" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", maxWidth: 200, filter: "drop-shadow(0 8px 32px rgba(124,58,237,0.15))" }}>
       <rect x="52" y="18" width="96" height="22" rx="6" fill="#c4b5fd" opacity="0.9" />
       <rect x="60" y="14" width="80" height="12" rx="4" fill="#a78bfa" opacity="0.8" />
       <rect x="64" y="16" width="72" height="3" rx="1.5" fill="rgba(255,255,255,0.4)" />
-      <path
-        d="M48 40 C44 40 38 48 36 60 L28 220 C26 235 36 252 50 252 L150 252 C164 252 174 235 172 220 L164 60 C162 48 156 40 152 40 Z"
-        fill="rgba(248,247,255,0.95)"
-        stroke="#e2d9f3"
-        strokeWidth="2"
-      />
-      <path
-        d="M56 48 C54 48 50 54 48 64 L44 120"
-        stroke="rgba(255,255,255,0.7)"
-        strokeWidth="4"
-        strokeLinecap="round"
-      />
+      <path d="M48 40 C44 40 38 48 36 60 L28 220 C26 235 36 252 50 252 L150 252 C164 252 174 235 172 220 L164 60 C162 48 156 40 152 40 Z" fill="rgba(248,247,255,0.95)" stroke="#e2d9f3" strokeWidth="2" />
+      <path d="M56 48 C54 48 50 54 48 64 L44 120" stroke="rgba(255,255,255,0.7)" strokeWidth="4" strokeLinecap="round" />
       {INITIAL_NOTES.slice(0, Math.min(noteCount, 6)).map((note, i) => {
         const nx = 45 + (note.x / 100) * 110;
         const ny = 80 + (note.y / 100) * 140;
         return (
-          <g
-            key={note.id}
-            transform={`translate(${nx}, ${ny}) rotate(${note.rotation})`}
-            style={{ animation: animating ? `notefall 0.5s ${i * 0.08}s ease-out both` : "none" }}
-          >
+          <g key={note.id} transform={`translate(${nx}, ${ny}) rotate(${note.rotation})`} style={{ animation: animating ? `notefall 0.5s ${i * 0.08}s ease-out both` : "none" }}>
             <rect x="-18" y="-10" width="36" height="22" rx="3" fill={note.color} opacity="0.85" />
             <line x1="-10" y1="-3" x2="10" y2="-3" stroke="rgba(0,0,0,0.15)" strokeWidth="1" />
             <line x1="-10" y1="2" x2="8" y2="2" stroke="rgba(0,0,0,0.1)" strokeWidth="1" />
           </g>
         );
       })}
-      <path
-        d="M48 40 C44 40 38 48 36 60 L28 220 C26 235 36 252 50 252 L150 252 C164 252 174 235 172 220 L164 60 C162 48 156 40 152 40 Z"
-        fill="url(#jarGlass)"
-        stroke="none"
-      />
+      <path d="M48 40 C44 40 38 48 36 60 L28 220 C26 235 36 252 50 252 L150 252 C164 252 174 235 172 220 L164 60 C162 48 156 40 152 40 Z" fill="url(#jarGlass)" stroke="none" />
       <defs>
         <linearGradient id="jarGlass" x1="0" y1="0" x2="1" y2="0">
           <stop offset="0%" stopColor="rgba(255,255,255,0.15)" />
@@ -393,9 +353,7 @@ function NoteCard({ note, onClick, featured = false }: { note: NoteItem; onClick
       <p style={{ fontSize: featured ? 14 : 13, color: "#374151", lineHeight: 1.6, marginBottom: 8 }}>{note.text}</p>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <span style={{ fontSize: 10, fontFamily: "monospace", color: "rgba(0,0,0,0.35)" }}>{note.mood}</span>
-        {note.time && (
-          <span style={{ fontSize: 10, fontFamily: "monospace", color: "rgba(0,0,0,0.25)" }}>{note.time}</span>
-        )}
+        {note.time && <span style={{ fontSize: 10, fontFamily: "monospace", color: "rgba(0,0,0,0.25)" }}>{note.time}</span>}
       </div>
     </div>
   );
@@ -677,15 +635,11 @@ function NotesJarPanel() {
             <div style={{ textAlign: "center", padding: "32px 20px" }}>
               <div style={{ fontSize: 48, marginBottom: 12, animation: "dropin 0.5s ease" }}>🫙</div>
               <p style={{ fontWeight: 600, fontSize: 16, marginBottom: 6 }}>Note dropped into the jar.</p>
-              <p style={{ fontFamily: "monospace", fontSize: 12, color: "#9ca3af" }}>
-                Anyone can find it now. Thank you.
-              </p>
+              <p style={{ fontFamily: "monospace", fontSize: 12, color: "#9ca3af" }}>Anyone can find it now. Thank you.</p>
             </div>
           ) : (
             <div>
-              <p style={{ fontFamily: "monospace", fontSize: 11, color: "#9ca3af", marginBottom: 16 }}>
-                One thought. Anonymous. It goes into the jar and anyone can read it.
-              </p>
+              <p style={{ fontFamily: "monospace", fontSize: 11, color: "#9ca3af", marginBottom: 16 }}>One thought. Anonymous. It goes into the jar and anyone can read it.</p>
               <form onSubmit={handleDrop} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
                 <div style={{ position: "relative" }}>
                   <textarea
@@ -780,9 +734,7 @@ function NotesJarPanel() {
                       PREVIEW
                     </p>
                     <p style={{ fontSize: 13, color: "#374151", lineHeight: 1.6 }}>{draft.text}</p>
-                    <p style={{ fontSize: 10, fontFamily: "monospace", color: "rgba(0,0,0,0.3)", marginTop: 6 }}>
-                      {draft.mood}
-                    </p>
+                    <p style={{ fontSize: 10, fontFamily: "monospace", color: "rgba(0,0,0,0.3)", marginTop: 6 }}>{draft.mood}</p>
                   </div>
                 )}
                 <button
@@ -814,23 +766,16 @@ function NotesJarPanel() {
 
 type ModalType = "about" | "letter" | "story" | "notes" | null;
 
-const linkCn =
-  "underline decoration-wavy decoration-current/45 underline-offset-3 transition-colors hover:decoration-current/80";
+const linkCn = "underline decoration-wavy decoration-current/45 underline-offset-3 transition-colors hover:decoration-current/80";
 
-const modalContent: Record<
-  NonNullable<ModalType>,
-  { title: string; subtitle: string; icon: typeof User; wide?: boolean; body: React.ReactNode }
-> = {
+const modalContent: Record<NonNullable<ModalType>, { title: string; subtitle: string; icon: typeof User; wide?: boolean; body: React.ReactNode }> = {
   about: {
     title: "Full About",
     subtitle: "who i am;",
     icon: User,
     body: (
       <>
-        <p>
-          Good design is sometimes invisible. It signifies the difference between a system that constrains and extends
-          people. The best interfaces don't just respond to people, they think with them.
-        </p>
+        <p>Good design is sometimes invisible. It signifies the difference between a system that constrains and extends people. The best interfaces don't just respond to people, they think with them.</p>
         <p>
           Previously I've built at research labs for CS and HCI,{" "}
           <a href="https://nasa.gov" target="_blank" rel="noopener noreferrer" className={linkCn}>
@@ -840,9 +785,8 @@ const modalContent: Record<
           <a href="https://nucleo.com" target="_blank" rel="noopener noreferrer" className={linkCn}>
             Nucleo
           </a>
-          , etc. Currently I'm designing at the intersection of software, cognition, and product. I'm a researcher
-          (located in the West Coast) and study computer engineering at UC Riverside through the intersection of
-          computer science, electrical engineering, human-computer interaction, and product design.
+          , etc. Currently I'm designing at the intersection of software, cognition, and product. I'm a researcher (located in the West Coast) and study computer engineering at UC Riverside through the intersection of computer science, electrical
+          engineering, human-computer interaction, and product design.
         </p>
         <p>
           I currently direct{" "}
@@ -864,14 +808,10 @@ const modalContent: Record<
           . I'm currently researching HCI for systems by designing interfaces that hold up in different environments.
         </p>
         <p>
-          In my childhood, I explored as much as I could find just to understand how it worked. That instinct became a
-          passion with how systems shape the way people think, decide, and act. My target is to build things that feel
-          like extensions of the mind - not obstacles to it.
+          In my childhood, I explored as much as I could find just to understand how it worked. That instinct became a passion with how systems shape the way people think, decide, and act. My target is to build things that feel like extensions of the
+          mind - not obstacles to it.
         </p>
-        <p>
-          My current rabbit holes: cognitive load in interface design, space systems, what it means to design for
-          cognition under pressure, and whatever I find at the bottom of a good cup of tea.
-        </p>
+        <p>My current rabbit holes: cognitive load in interface design, space systems, what it means to design for cognition under pressure, and whatever I find at the bottom of a good cup of tea.</p>
       </>
     ),
   },
@@ -884,31 +824,21 @@ const modalContent: Record<
       <>
         <p>Hey!</p>
         <p>
-          If you're reading this, you probably found your way here out of curiosity (that's already something we have in
-          common!). Maybe you were searching about tech, human-computer interaction (HCI), space interfaces, or just
-          want to dip your toes into exploration.
+          If you're reading this, you probably found your way here out of curiosity (that's already something we have in common!). Maybe you were searching about tech, human-computer interaction (HCI), space interfaces, or just want to dip your toes
+          into exploration.
         </p>
         <p>
-          Regardless of how you ended up here, welcome to my website / corner of the internet and I'm glad you're here!
-          To introduce myself:{" "}
-          <strong className="font-semibold text-foreground">I'm Allison and I build things.</strong> Mostly software and
-          systems, but I also design and work with hardware.
+          Regardless of how you ended up here, welcome to my website / corner of the internet and I'm glad you're here! To introduce myself: <strong className="font-semibold text-foreground">I'm Allison and I build things.</strong> Mostly software
+          and systems, but I also design and work with hardware.
         </p>
         <p>
-          I build structures for how people think. My direction in life is toward things that make people feel more
-          capable, more clear, and a little less lost in figuring it all out. I study and research human-computer
-          interaction (HCI) because I'm obsessed with the question of why some things feel effortless and others feel a
-          bit more complex.
+          I build structures for how people think. My direction in life is toward things that make people feel more capable, more clear, and a little less lost in figuring it all out. I study and research human-computer interaction (HCI) because I'm
+          obsessed with the question of why some things feel effortless and others feel a bit more complex.
         </p>
+        <p>I love researching HCI in the context of space! Sounds a bit much, but it's really the in depth version of my #1 question: what does it take to make technology feel effortless and human?</p>
         <p>
-          I love researching HCI in the context of space! Sounds a bit much, but it's really the in depth version of my
-          #1 question: what does it take to make technology feel effortless and human?
-        </p>
-        <p>
-          I built my personal website the same way I approach most things: by asking what I actually want to say, then
-          building around it. I have all these sections, rabbit holes, and interactive pieces because I wanted to make
-          something that felt like having a mini coffee chat with a person. From all the versions of my personal
-          website, I have learned that iteration takes many steps and that there is always room for improvement.
+          I built my personal website the same way I approach most things: by asking what I actually want to say, then building around it. I have all these sections, rabbit holes, and interactive pieces because I wanted to make something that felt
+          like having a mini coffee chat with a person. From all the versions of my personal website, I have learned that iteration takes many steps and that there is always room for improvement.
         </p>
         <div>
           Here's what I want you to know (if you made it this far and in case you only read this page):
@@ -920,15 +850,11 @@ const modalContent: Record<
           </ul>
         </div>
         <p>
-          If something on this website made you think, made you want to build something, or just made you feel like the
-          internet can still be a weird and genuine place, then that's everything I was hoping for.
+          If something on this website made you think, made you want to build something, or just made you feel like the internet can still be a weird and genuine place, then that's everything I was hoping for.
           <ul className="mt-1 list-disc space-y-1 pl-5">
             <li>If you want to leave a note, there's a jar for that</li>
             <li>If you have a question, there's a box for that too</li>
-            <li>
-              And if you just want to wander around, feel free to do so (there are a ton of different spots in my
-              website)!
-            </li>
+            <li>And if you just want to wander around, feel free to do so (there are a ton of different spots in my website)!</li>
           </ul>
         </p>
         <p>Thanks for stopping by and being curious enough to end up here!</p>
@@ -962,15 +888,7 @@ const buttons: { type: NonNullable<ModalType>; label: string }[] = [
   { type: "notes", label: "notes jar" },
 ];
 
-function AboutModal({
-  type,
-  onClose,
-  onSwitch,
-}: {
-  type: NonNullable<ModalType>;
-  onClose: () => void;
-  onSwitch: (t: NonNullable<ModalType>) => void;
-}) {
+function AboutModal({ type, onClose, onSwitch }: { type: NonNullable<ModalType>; onClose: () => void; onSwitch: (t: NonNullable<ModalType>) => void }) {
   const content = modalContent[type];
   const Icon = content.icon;
   const isWide = !!content.wide;
@@ -995,13 +913,7 @@ function AboutModal({
       }}
     >
       <div className="absolute inset-0 bg-background/80 backdrop-blur-sm pointer-events-none" />
-      <div
-        className={cn(
-          "relative z-10 flex w-full flex-col rounded-2xl border border-border/60 bg-card/95 shadow-xl animate-in fade-in slide-in-from-bottom-4 duration-300",
-          isWide ? "max-w-3xl" : "max-w-lg",
-        )}
-        style={{ maxHeight: "85vh" }}
-      >
+      <div className={cn("relative z-10 flex w-full flex-col rounded-2xl border border-border/60 bg-card/95 shadow-xl animate-in fade-in slide-in-from-bottom-4 duration-300", isWide ? "max-w-3xl" : "max-w-lg")} style={{ maxHeight: "85vh" }}>
         <div className="flex shrink-0 items-center justify-between border-b border-border/40 px-6 py-4">
           <div className="flex items-center gap-3">
             <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-primary/30 bg-primary/10 text-primary">
@@ -1012,24 +924,13 @@ function AboutModal({
               <h3 className="text-sm font-semibold">{content.title}</h3>
             </div>
           </div>
-          <button
-            onClick={onClose}
-            className="flex h-7 w-7 items-center justify-center rounded-full border border-border/60 text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground"
-            aria-label="Close"
-          >
+          <button onClick={onClose} className="flex h-7 w-7 items-center justify-center rounded-full border border-border/60 text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground" aria-label="Close">
             <X className="h-3.5 w-3.5" />
           </button>
         </div>
 
-        <div
-          className={cn("min-h-0 flex-1 px-6 py-5", !isWide && "overflow-y-auto")}
-          style={{ minHeight: 380, ...(isWide && { overflowY: "auto" }) }}
-        >
-          {isWide ? (
-            <div className="h-full">{content.body}</div>
-          ) : (
-            <div className="space-y-4 text-sm leading-relaxed text-muted-foreground">{content.body}</div>
-          )}
+        <div className={cn("min-h-0 flex-1 px-6 py-5", !isWide && "overflow-y-auto")} style={{ minHeight: 380, ...(isWide && { overflowY: "auto" }) }}>
+          {isWide ? <div className="h-full">{content.body}</div> : <div className="space-y-4 text-sm leading-relaxed text-muted-foreground">{content.body}</div>}
         </div>
 
         <div className="flex shrink-0 gap-2 border-t border-border/40 px-6 py-4">
@@ -1039,9 +940,7 @@ function AboutModal({
               onClick={() => btn.type !== type && onSwitch(btn.type)}
               className={cn(
                 "rounded-lg border px-3 py-1.5 font-mono text-xs transition-all duration-200",
-                btn.type === type
-                  ? "border-primary/50 bg-primary/10 text-primary"
-                  : "border-border/50 text-muted-foreground hover:border-primary/30 hover:text-foreground",
+                btn.type === type ? "border-primary/50 bg-primary/10 text-primary" : "border-border/50 text-muted-foreground hover:border-primary/30 hover:text-foreground",
               )}
             >
               {btn.label}
@@ -1079,9 +978,7 @@ export function Hero() {
               <h1 className="text-3xl font-bold tracking-tight sm:text-5xl lg:text-6xl text-balance">Allison Pham ✦</h1>
             </div>
 
-            <div
-              className={cn("flex flex-wrap items-center gap-3 opacity-0", isVisible && "animate-fade-in-up stagger-2")}
-            >
+            <div className={cn("flex flex-wrap items-center gap-3 opacity-0", isVisible && "animate-fade-in-up stagger-2")}>
               <span className="flex items-center gap-1.5 rounded-full border border-border/60 bg-secondary/50 px-3 py-1.5 font-mono text-xs text-muted-foreground">
                 <Terminal className="h-3 w-3 text-primary" />
                 Engineering & design
@@ -1092,27 +989,15 @@ export function Hero() {
               </span>
             </div>
 
-            <div
-              className={cn(
-                "space-y-4 text-base sm:text-lg leading-relaxed text-muted-foreground opacity-0",
-                isVisible && "animate-fade-in-up stagger-3",
-              )}
-            >
+            <div className={cn("space-y-4 text-base sm:text-lg leading-relaxed text-muted-foreground opacity-0", isVisible && "animate-fade-in-up stagger-3")}>
               <p>
-                I build through the intersection of tech, engineering, and{" "}
-                <span className="font-bold italic underline decoration-wavy">product</span> to develop projects and
-                initiatives geared towards impact from the ground up.
+                I build through the intersection of tech, engineering, and <span className="font-bold italic underline decoration-wavy">product</span> to develop projects and initiatives geared towards impact from the ground up.
               </p>
               <p>
-                I work on designing products that target the architecture behind how others think, decide, and act. I'm
-                driven by the desire to ensure every system feeling like an{" "}
-                <span className="font-bold italic underline decoration-wavy">extension</span> of the{" "}
-                <span className="font-bold italic underline decoration-wavy">mind</span>, not a constraint on it.
+                I work on designing products that target the architecture behind how others think, decide, and act. I'm driven by the desire to ensure every system feeling like an{" "}
+                <span className="font-bold italic underline decoration-wavy">extension</span> of the <span className="font-bold italic underline decoration-wavy">mind</span>, not a constraint on it.
               </p>
-              <p>
-                Productivity mixed in with resilient serendipity and serenity are my current targets. Thoughtful design
-                and product engineering are a constant passion of mine.
-              </p>
+              <p>Productivity mixed in with resilient serendipity and serenity are my current targets. Thoughtful design and product engineering are a constant passion of mine.</p>
             </div>
 
             {/* 4 modal buttons */}
@@ -1129,17 +1014,9 @@ export function Hero() {
             </div>
 
             {/* Stats */}
-            <div
-              className={cn(
-                "grid grid-cols-1 gap-4 min-[420px]:grid-cols-2 sm:grid-cols-4 opacity-0",
-                isVisible && "animate-fade-in-up stagger-4",
-              )}
-            >
+            <div className={cn("grid grid-cols-1 gap-4 min-[420px]:grid-cols-2 sm:grid-cols-4 opacity-0", isVisible && "animate-fade-in-up stagger-4")}>
               {stats.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="rounded-xl border border-border/50 bg-card/50 glass p-4 text-center hover-lift transition-all duration-300 hover:border-primary/40"
-                >
+                <div key={stat.label} className="rounded-xl border border-border/50 bg-card/50 glass p-4 text-center hover-lift transition-all duration-300 hover:border-primary/40">
                   {stat.value}
                   <div className="mt-1 font-mono text-xs text-muted-foreground">{stat.label}</div>
                 </div>
@@ -1155,9 +1032,7 @@ export function Hero() {
                 <div className="h-3 w-3 rounded-full bg-yellow-500/60" />
                 <div className="h-3 w-3 rounded-full bg-primary/60" />
               </div>
-              <div className="absolute top-3.5 left-1/2 hidden -translate-x-1/2 rounded-md bg-background/50 px-3 py-1 font-mono text-xs text-muted-foreground sm:block">
-                about-allison.json
-              </div>
+              <div className="absolute top-3.5 left-1/2 hidden -translate-x-1/2 rounded-md bg-background/50 px-3 py-1 font-mono text-xs text-muted-foreground sm:block">about-allison.json</div>
               <pre className="mt-6 max-w-full overflow-x-auto font-mono text-xs leading-6 text-foreground/80 sm:mt-8">
                 <code className="block min-w-max">{`
 {
@@ -1172,10 +1047,9 @@ export function Hero() {
   ],
 
   "involvement": [
-    "President @ ACM",
+    "Campus Leader @ Notion",
     "Director @ Citrus Hack",
     "Director @ Cutie Hack",
-    "Campus Leader @ Notion",
     "etc."
   ],
 
