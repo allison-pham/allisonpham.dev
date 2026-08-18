@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { cn } from "@/src/lib/core-features/utils";
-import { Coffee, Terminal, X, User, Mail, BookOpen } from "lucide-react";
+import { Coffee, ExternalLink, Heart, MapPin, Terminal, X, User, Mail, BookOpen } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 // Stats
@@ -764,7 +764,368 @@ function NotesJarPanel() {
   );
 }
 
-type ModalType = "about" | "letter" | "story" | "notes" | null;
+// Favorite things
+const AESTHETIC_TAGS = [
+  { tag: "cottagecore", description: "soft, botanical, hand-crafted, unhurried" },
+  { tag: "dark academia", description: "libraries, candlelight, marginalia, pursuit of knowledge" },
+  { tag: "lo-fi", description: "warm grain, imperfect loops, focus by ambient sound" },
+  { tag: "space age", description: "clean geometry, constraint-driven design, vast scale" },
+  { tag: "witchcore", description: "old books, dried herbs, moon phases, gathered things" },
+  { tag: "solarpunk", description: "technology in harmony with nature, optimistic futures" },
+  { tag: "quiet luxury", description: "no logos, good materials, everything earning its place" },
+  { tag: "brutalist web", description: "honest structure, nothing decorative, raw function" },
+];
+
+const IF_I_WERE = [
+  { category: "a season", answer: "late autumn", emoji: "🍂" },
+  { category: "a time of day", answer: "2am", emoji: "🌙" },
+  { category: "a weather", answer: "overcast with soft rain", emoji: "🌧️" },
+  { category: "a font", answer: "Garamond italic", emoji: "𝑓" },
+  { category: "a place", answer: "a quiet library corner", emoji: "📚" },
+  { category: "a plant", answer: "a fern in indirect light", emoji: "🌿" },
+  { category: "a drink", answer: "jasmine green tea", emoji: "🍵" },
+  { category: "a material", answer: "aged paper", emoji: "📜" },
+];
+
+const MOOD_TILES = [
+  { label: "soft morning light", gradient: "from-amber-100/60 via-rose-100/40 to-amber-50/60", emoji: "☀️" },
+  { label: "deep focus", gradient: "from-slate-900/80 via-primary/20 to-slate-800/60", emoji: "🌌" },
+  { label: "cottagecore", gradient: "from-green-100/60 via-emerald-50/40 to-lime-100/60", emoji: "🌿" },
+  { label: "rain window", gradient: "from-slate-300/50 via-blue-100/30 to-slate-200/50", emoji: "🌧️" },
+  { label: "late night", gradient: "from-violet-900/60 via-primary/30 to-indigo-900/60", emoji: "🌙" },
+  { label: "library afternoon", gradient: "from-amber-200/50 via-orange-100/30 to-yellow-100/50", emoji: "📚" },
+];
+
+const SCENTS = [
+  { name: "jasmine", note: "the one that means it's time to focus", emoji: "🌸" },
+  { name: "old books", note: "bibliosmia - the smell of accumulated time", emoji: "📚" },
+  { name: "rain on concrete", note: "petrichor. best smell on earth, actually", emoji: "🌧️" },
+  { name: "cedar", note: "forest in a library", emoji: "🌲" },
+  { name: "hojicha", note: "roasted and warm and calming", emoji: "🍵" },
+  { name: "night air", note: "cold and wide and full of ideas", emoji: "🌙" },
+];
+
+const SOUNDS = [
+  { name: "rain on a window", emoji: "🌧️" },
+  { name: "kettle coming to boil", emoji: "♨️" },
+  { name: "library ambience", emoji: "📖" },
+  { name: "lo-fi at low volume", emoji: "🎵" },
+  { name: "pages turning", emoji: "📄" },
+  { name: "distant thunder", emoji: "⛈️" },
+  { name: "keyboard typing", emoji: "⌨️" },
+  { name: "wind through leaves", emoji: "🍃" },
+];
+
+const COLLECTIONS = [
+  { name: "loose-leaf teas", type: "physical", emoji: "🍵", note: "currently 14 varieties" },
+  { name: "pressed flowers", type: "physical", emoji: "🌸", note: "in notebooks and between pages" },
+  { name: "interesting bookmarks", type: "physical", emoji: "🔖", note: "the stranger the better" },
+  { name: "font specimens", type: "digital", emoji: "𝒻", note: "obsessive about type" },
+  { name: "SVG icons", type: "digital", emoji: "◈", note: "custom and from the wild" },
+  { name: "HCI field notes", type: "digital", emoji: "📓", note: "observations from daily life" },
+  { name: "half-finished notebooks", type: "physical", emoji: "📔", note: "always start a new one before finishing" },
+  { name: "tea tins", type: "physical", emoji: "🫙", note: "repurposed for everything" },
+];
+
+const WANT_TO_LEARN = [
+  { thing: "bookbinding", emoji: "📖", status: "someday" },
+  { thing: "letterpress printing", emoji: "🖨️", status: "someday" },
+  { thing: "Japanese to N3", emoji: "🇯🇵", status: "in progress" },
+  { thing: "zero-g interface design", emoji: "🛰️", status: "in progress" },
+  { thing: "Korean", emoji: "🇰🇷", status: "started" },
+  { thing: "circuit bending", emoji: "⚡", status: "someday" },
+  { thing: "calligraphy", emoji: "✒️", status: "someday" },
+  { thing: "formal logic", emoji: "∴", status: "in progress" },
+  { thing: "Rust", emoji: "🦀", status: "someday" },
+  { thing: "celestial navigation", emoji: "🧭", status: "someday" },
+];
+const STATUS_STYLE: Record<string, string> = {
+  "in progress": "border-green-500/30 bg-green-500/10 text-green-500",
+  started: "border-amber-500/30 bg-amber-500/10 text-amber-500",
+  someday: "border-border/50 bg-secondary/30 text-muted-foreground",
+};
+
+const COMFORT_MEDIA = [
+  { title: "Studio Ghibli films", type: "film", emoji: "🎬", note: "Howl's Moving Castle specifically - watch yearly without fail" },
+  { title: "Nagi no Asukara", type: "show", emoji: "📺", note: "most beautiful thing I've seen. I still think about it." },
+  { title: "The Design of Everyday Things", type: "book", emoji: "📖", note: "re-read when I forget why design matters" },
+  { title: "lo-fi hip hop radio", type: "music", emoji: "🎵", note: "in the background of more late nights than I can count" },
+  { title: "Stardew Valley", type: "game", emoji: "🎮", note: "for when the world is too much and I need a simpler one" },
+];
+const MEDIA_PILL: Record<string, string> = {
+  film: "border-pink-500/30 bg-pink-500/10 text-pink-500",
+  show: "border-blue-500/30 bg-blue-500/10 text-blue-500",
+  book: "border-amber-500/30 bg-amber-500/10 text-amber-500",
+  music: "border-green-500/30 bg-green-500/10 text-green-500",
+  game: "border-primary/30 bg-primary/10 text-primary",
+};
+
+const PLACES = [
+  { name: "Kyoto, Japan", emoji: "⛩️", note: "old city energy. want to walk the philosopher's path in autumn" },
+  { name: "Edinburgh, Scotland", emoji: "🏰", note: "dark academia in physical form" },
+  { name: "Hallstatt, Austria", emoji: "🏔️", note: "looks like a painting. have to verify it's real" },
+  { name: "Tromsø, Norway", emoji: "🌌", note: "for the northern lights. and the silence" },
+  { name: "Lisbon, Portugal", emoji: "🚋", note: "tiled buildings and good pastries and the Atlantic" },
+  { name: "Chiang Mai, Thailand", emoji: "🌸", note: "temples and night markets and jasmine everywhere" },
+  { name: "The ISS", emoji: "🛰️", note: "obviously. for the interface design research, obviously." },
+];
+
+const FAVORITES = [
+  { category: "animal", items: [{ name: "raven", emoji: "🐦‍⬛", note: "intelligent, mysterious, collector of shiny things - relatable" }] },
+  {
+    category: "flowers",
+    items: [
+      { name: "lily", emoji: "🌷", note: "clean lines, quiet elegance" },
+      { name: "tulip", emoji: "🌸", note: "soft geometry, good color range" },
+    ],
+  },
+];
+
+function FavoritesPanel() {
+  const [activeAesthetic, setActiveAesthetic] = useState<string | null>(null);
+  const activeDesc = AESTHETIC_TAGS.find((a) => a.tag === activeAesthetic)?.description;
+
+  return (
+    <div className="grid grid-cols-2 gap-4">
+      <div className="space-y-4">
+        {/* Favorites grid */}
+        <div className="space-y-3">
+          <p className="font-mono text-[10px] tracking-[0.25em] text-primary">favorite things;</p>
+          {FAVORITES.map((group) => (
+            <div key={group.category} className="space-y-2">
+              <p className="font-mono text-[10px] tracking-[0.25em] text-muted-foreground">{group.category}</p>
+              {group.items.map((item) => (
+                <div key={item.name} className="group flex items-center gap-4 rounded-xl border border-border/50 bg-card/40 glass px-4 py-3 hover:border-primary/30 transition-all duration-300">
+                  <span className="text-2xl group-hover:scale-110 transition-transform duration-200 select-none">{item.emoji}</span>
+                  <div className="space-y-0.5 min-w-0">
+                    <p className="font-mono text-sm font-semibold text-foreground group-hover:text-primary transition-colors">{item.name}</p>
+                    <p className="text-xs text-muted-foreground leading-snug">{item.note}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+
+        {/* Quiz link */}
+        <a href="/quiz" className="group relative flex items-center justify-between gap-4 overflow-hidden rounded-xl border border-primary/25 bg-primary/5 px-5 py-4 transition-all duration-300 hover:border-primary/50 hover:bg-primary/10">
+          <div className="pointer-events-none absolute right-4 top-0 bottom-0 flex items-center gap-2 opacity-20 group-hover:opacity-40 transition-opacity duration-300">
+            {["🌿", "🌸", "✦", "🌙"].map((e, i) => (
+              <span key={i} className="text-sm" style={{ transform: `rotate(${i * 15 - 20}deg)` }}>
+                {e}
+              </span>
+            ))}
+          </div>
+          <div className="space-y-0.5">
+            <p className="font-mono text-[10px] tracking-[0.25em] text-primary">personality quiz;</p>
+            <p className="font-mono text-sm font-semibold text-foreground group-hover:text-primary transition-colors">which type of person are you?</p>
+            <p className="text-xs text-muted-foreground">a quiz i made - find out if we're the same kind of weird</p>
+          </div>
+          <ExternalLink className="h-4 w-4 shrink-0 text-primary/60 transition-all duration-300 group-hover:text-primary group-hover:scale-110 group-hover:rotate-12" />
+        </a>
+      </div>
+
+      <div>
+        {/* Character card */}
+        <div className="relative overflow-hidden rounded-xl border border-border/50 bg-linear-to-br from-card/80 via-card/60 to-primary/5 p-5 space-y-4">
+          {/* Avatar */}
+          <div className="flex items-center gap-3 mb-2">
+            <div className="relative w-12 h-12 rounded-full border-2 border-primary/30 bg-primary/10 flex items-center justify-center overflow-hidden shrink-0">
+              {/* Orb-style avatar */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-primary/10 to-violet-400/20 rounded-full" />
+              <span className="text-xl relative z-10">🐦‍⬛</span>
+              {/* Animated glow on hover */}
+              <div className="absolute inset-0 rounded-full bg-primary/20 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 blur-sm" />
+            </div>
+            <div>
+              <p className="font-mono text-xs font-bold text-foreground">design engineer</p>
+              <p className="font-mono text-[10px] text-primary/60">lvl: ∞ ✦ prestige: curious</p>
+            </div>
+          </div>
+
+          {/* Floating emotes */}
+          <div className="pointer-events-none absolute inset-0 opacity-20">
+            {["🌿", "🌸", "✦", "🍄", "🌙", "🌾", "🦋", "🌻"].map((s, i) => (
+              <span key={i} className="absolute text-xs" style={{ left: `${((i * 127) % 90) + 5}%`, top: `${((i * 83) % 80) + 5}%` }}>
+                {s}
+              </span>
+            ))}
+          </div>
+          <div className="relative space-y-1">
+            <p className="font-mono text-[10px] tracking-[0.25em] text-primary">character sheet;</p>
+            <h3 className="text-base font-bold tracking-tight">if i was a character…</h3>
+            <p className="font-mono text-xs text-muted-foreground">the cottagecore engineer</p>
+          </div>
+          <div className="relative grid grid-cols-2 gap-x-6 gap-y-1.5">
+            {[
+              ["class", "herbalist-engineer"],
+              ["habitat", "libraries & late nights"],
+              ["weapon", "a half-filled notebook"],
+              ["familiar", "a raven named after a star"],
+              ["quest", "building interfaces for minds"],
+              ["weakness", "good tea & interesting problems"],
+            ].map(([label, value]) => (
+              <div key={label} className="flex gap-2 items-baseline">
+                <span className="font-mono text-[9px] tracking-widest text-muted-foreground w-14 shrink-0">{label}</span>
+                <span className="font-mono text-[11px] text-foreground">{value}</span>
+              </div>
+            ))}
+          </div>
+          <p className="font-mono text-[10px] text-primary/60 italic relative">✦ probably has a pressed flower collection</p>
+        </div>
+      </div>
+
+      {/* If I were */}
+      <div className="space-y-3">
+        <p className="font-mono text-[10px] tracking-[0.25em] text-primary">if i were a…</p>
+        <div className="grid grid-cols-2 gap-2">
+          {IF_I_WERE.map(({ category, answer, emoji }) => (
+            <div key={category} className="group flex items-start gap-2.5 rounded-lg border border-border/40 bg-secondary/20 px-3 py-2.5 hover:border-primary/30 transition-colors">
+              <span className="text-base select-none shrink-0">{emoji}</span>
+              <div className="min-w-0 space-y-0.5">
+                <p className="font-mono text-[9px] tracking-widest text-muted-foreground">{category}</p>
+                <p className="font-mono text-xs font-semibold text-foreground group-hover:text-primary transition-colors leading-tight">{answer}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Mood board */}
+      <div className="space-y-3">
+        <p className="font-mono text-[10px] tracking-[0.25em] text-primary">mood board;</p>
+        <div className="grid grid-cols-3 gap-2">
+          {MOOD_TILES.map(({ label, gradient, emoji }) => (
+            <div key={label} className={cn("group relative flex aspect-square items-end overflow-hidden rounded-xl bg-gradient-to-br p-2 transition-transform duration-300 hover:scale-[1.04] cursor-default", gradient)}>
+              <span className="absolute top-2 right-2 text-lg select-none">{emoji}</span>
+              <p className="font-mono text-[9px] font-semibold text-foreground/80 leading-tight">{label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Aesthetics */}
+      <div className="space-y-3">
+        <p className="font-mono text-[10px] tracking-[0.25em] text-primary">aesthetics;</p>
+        <div className="flex flex-wrap gap-2">
+          {AESTHETIC_TAGS.map(({ tag }) => (
+            <button
+              key={tag}
+              onClick={() => setActiveAesthetic(activeAesthetic === tag ? null : tag)}
+              className={cn(
+                "rounded-full border px-3 py-1.5 font-mono text-[10px] tracking-wider transition-all duration-200 active:scale-[0.98]",
+                activeAesthetic === tag ? "border-primary bg-primary/15 text-primary shadow-sm shadow-primary/20" : "border-border/60 bg-secondary/30 text-muted-foreground hover:border-primary/30 hover:text-foreground",
+              )}
+            >
+              {tag}
+            </button>
+          ))}
+        </div>
+        <div className={cn("overflow-hidden transition-all duration-300", activeDesc ? "max-h-12 opacity-100" : "max-h-0 opacity-0")}>
+          <p className="font-mono text-xs text-muted-foreground border-l-2 border-primary/30 pl-3 italic">{activeDesc}</p>
+        </div>
+      </div>
+
+      {/* Scents */}
+      <div className="space-y-3">
+        <p className="font-mono text-[10px] tracking-[0.25em] text-primary">scents;</p>
+        <div className="space-y-2">
+          {SCENTS.map(({ name, note, emoji }) => (
+            <div key={name} className="group flex items-center gap-3 rounded-lg border border-border/40 bg-secondary/20 px-3 py-2.5 hover:border-primary/30 transition-colors">
+              <span className="text-base select-none shrink-0">{emoji}</span>
+              <div className="min-w-0">
+                <p className="font-mono text-xs font-semibold text-foreground group-hover:text-primary transition-colors">{name}</p>
+                <p className="font-mono text-[10px] text-muted-foreground leading-snug">{note}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Sounds */}
+      <div className="space-y-3">
+        <p className="font-mono text-[10px] tracking-[0.25em] text-primary">sounds i find calming;</p>
+        <div className="flex flex-wrap gap-2">
+          {SOUNDS.map(({ name, emoji }) => (
+            <div key={name} className="flex items-center gap-1.5 rounded-full border border-border/50 bg-secondary/30 px-3 py-1.5 hover:border-primary/30 hover:bg-primary/5 transition-colors">
+              <span className="text-sm select-none">{emoji}</span>
+              <span className="font-mono text-[10px] text-foreground/80">{name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Things I collect */}
+      <div className="space-y-3">
+        <p className="font-mono text-[10px] tracking-[0.25em] text-primary">things i collect;</p>
+        <div className="space-y-2">
+          {COLLECTIONS.map(({ name, type, emoji, note }) => (
+            <div key={name} className="group flex items-center gap-3 rounded-lg border border-border/40 bg-secondary/20 px-3 py-2 hover:border-primary/30 transition-colors">
+              <span className="text-base select-none shrink-0">{emoji}</span>
+              <div className="flex-1 min-w-0">
+                <p className="font-mono text-xs font-semibold text-foreground group-hover:text-primary transition-colors">{name}</p>
+                <p className="font-mono text-[10px] text-muted-foreground">{note}</p>
+              </div>
+              <span className={cn("shrink-0 rounded-full border px-2 py-0.5 font-mono text-[9px]", type === "physical" ? "border-amber-500/30 bg-amber-500/10 text-amber-500" : "border-primary/30 bg-primary/10 text-primary")}>{type}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Want to learn */}
+      <div className="space-y-3">
+        <p className="font-mono text-[10px] tracking-[0.25em] text-primary">things i want to learn;</p>
+        <div className="flex flex-wrap gap-2">
+          {WANT_TO_LEARN.map(({ thing, emoji, status }) => (
+            <div key={thing} className="flex items-center gap-1.5 rounded-full border border-border/50 bg-secondary/20 px-3 py-1.5 hover:border-primary/30 transition-colors">
+              <span className="text-sm select-none">{emoji}</span>
+              <span className="font-mono text-[10px] text-foreground/80">{thing}</span>
+              <span className={cn("rounded-full border px-1.5 py-0.5 font-mono text-[8px]", STATUS_STYLE[status])}>{status}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Comfort media */}
+      <div className="space-y-3">
+        <p className="font-mono text-[10px] tracking-[0.25em] text-primary">comfort media;</p>
+        <div className="space-y-2">
+          {COMFORT_MEDIA.map(({ title, type, emoji, note }) => (
+            <div key={title} className="group flex items-start gap-3 rounded-lg border border-border/40 bg-secondary/20 px-3 py-2.5 hover:border-primary/30 transition-colors">
+              <span className="text-base select-none shrink-0 mt-0.5">{emoji}</span>
+              <div className="flex-1 min-w-0 space-y-0.5">
+                <p className="font-mono text-xs font-semibold text-foreground group-hover:text-primary transition-colors">{title}</p>
+                <p className="font-mono text-[10px] text-muted-foreground leading-relaxed">{note}</p>
+              </div>
+              <span className={cn("shrink-0 rounded-full border px-2 py-0.5 font-mono text-[9px] mt-0.5", MEDIA_PILL[type])}>{type}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Places */}
+      <div className="space-y-3">
+        <p className="font-mono text-[10px] tracking-[0.25em] text-primary">places i want to go;</p>
+        <div className="space-y-2">
+          {PLACES.map(({ name, emoji, note }) => (
+            <div key={name} className="group flex items-start gap-3 rounded-lg border border-border/40 bg-secondary/20 px-3 py-2.5 hover:border-primary/30 transition-colors">
+              <span className="text-base select-none shrink-0 mt-0.5">{emoji}</span>
+              <div className="min-w-0 space-y-0.5">
+                <div className="flex items-center gap-1.5">
+                  <MapPin className="h-3 w-3 text-muted-foreground shrink-0" />
+                  <p className="font-mono text-xs font-semibold text-foreground group-hover:text-primary transition-colors">{name}</p>
+                </div>
+                <p className="font-mono text-[10px] text-muted-foreground leading-relaxed">{note}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+type ModalType = "about" | "letter" | "story" | "notes" | "favorites" | null;
 
 const linkCn = "underline decoration-wavy decoration-current/45 underline-offset-3 transition-colors hover:decoration-current/80";
 
@@ -877,6 +1238,13 @@ const modalContent: Record<NonNullable<ModalType>, { title: string; subtitle: st
     icon: BookOpen,
     body: <NotesJarPanel />,
   },
+
+  favorites: {
+    title: "Soft Things",
+    subtitle: "favorite things;",
+    icon: Heart,
+    body: <FavoritesPanel />,
+  },
 };
 
 const buttons: { type: NonNullable<ModalType>; label: string }[] = [
@@ -884,6 +1252,7 @@ const buttons: { type: NonNullable<ModalType>; label: string }[] = [
   { type: "letter", label: "letter" },
   { type: "story", label: "my story" },
   { type: "notes", label: "notes jar" },
+  { type: "favorites", label: "favorite things" },
 ];
 
 function AboutModal({ type, onClose, onSwitch }: { type: NonNullable<ModalType>; onClose: () => void; onSwitch: (t: NonNullable<ModalType>) => void }) {

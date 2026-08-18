@@ -1,38 +1,38 @@
-"use client"
-import Link from "next/link"
-import { useEffect, useState } from "react"
+"use client";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
-const roles = ["human cognition", "interface systems", "user interactions", "space interfaces", "cohesive actions"]
+const roles = ["human cognition", "interface systems", "user interactions", "space interfaces", "cohesive actions"];
 // Other: design interactions, design systems, HCI, material design
 
 export function Hero() {
-  const [currentRole, setCurrentRole] = useState(0)
-  const [displayText, setDisplayText] = useState("")
-  const [isDeleting, setIsDeleting] = useState(false)
+  const [currentRole, setCurrentRole] = useState(0);
+  const [displayText, setDisplayText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    const targetText = roles[currentRole]
+    const targetText = roles[currentRole];
     const timeout = setTimeout(
       () => {
         if (!isDeleting) {
           if (displayText.length < targetText.length) {
-            setDisplayText(targetText.slice(0, displayText.length + 1))
+            setDisplayText(targetText.slice(0, displayText.length + 1));
           } else {
-            setTimeout(() => setIsDeleting(true), 2000)
+            setTimeout(() => setIsDeleting(true), 2000);
           }
         } else {
           if (displayText.length > 0) {
-            setDisplayText(displayText.slice(0, -1))
+            setDisplayText(displayText.slice(0, -1));
           } else {
-            setIsDeleting(false)
-            setCurrentRole((prev) => (prev + 1) % roles.length)
+            setIsDeleting(false);
+            setCurrentRole((prev) => (prev + 1) % roles.length);
           }
         }
       },
       isDeleting ? 50 : 100,
-    )
-    return () => clearTimeout(timeout)
-  }, [displayText, isDeleting, currentRole])
+    );
+    return () => clearTimeout(timeout);
+  }, [displayText, isDeleting, currentRole]);
 
   return (
     <section className="relative px-4 sm:px-6 pt-28 sm:pt-36 pb-16 sm:pb-24">
@@ -41,23 +41,16 @@ export function Hero() {
           {/* Left column - Text */}
           <div className="space-y-8 sm:space-y-10">
             <div className="space-y-3 animate-fade-in-up">
-              <p className="font-mono text-xs tracking-[0.25em] sm:tracking-[0.35em] text-primary">
-                Allison Pham
-              </p>
+              <p className="font-mono text-xs tracking-[0.25em] sm:tracking-[0.35em] text-primary">Allison Pham</p>
               <h1 className="text-4xl font-bold tracking-tight sm:text-4xl lg:text-5xl xl:text-6xl text-balance">
                 Design engineering
                 <br />
-                <span
-                  className="bg-linear-to-l from-primary/50 to-accent text-transparent bg-clip-text typing-cursor"
-                >
-                  {displayText}
-                </span>
+                <span className="bg-linear-to-l from-primary/50 to-accent text-transparent bg-clip-text typing-cursor">{displayText}</span>
               </h1>
             </div>
 
             <p className="m-0 max-w-lg text-base sm:text-lg leading-relaxed text-muted-foreground">
-              <span className="font-bold italic underline decoration-wavy">Human-centered</span> systems for{" "}
-              <span className="italic">cognition & productivity</span>
+              <span className="font-bold italic underline decoration-wavy">Human-centered</span> systems for <span className="italic">cognition & productivity</span>
             </p>
 
             {/* <p className="m-0 max-w-lg text-base sm:text-lg leading-relaxed text-muted-foreground">
@@ -68,32 +61,15 @@ export function Hero() {
 
             <p className="m-0 max-w-lg text-base sm:text-lg leading-relaxed text-muted-foreground">
               ✦ Campus Leader @{" "}
-              <a
-                href="https://notion.so"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline decoration-wavy decoration-current/45 underline-offset-3 transition-colors hover:decoration-current/80"
-              >
+              <a href="https://notion.so" target="_blank" rel="noopener noreferrer" className="underline decoration-wavy decoration-current/45 underline-offset-3 transition-colors hover:decoration-current/80">
                 Notion
               </a>{" "}
-
               & Leading{" "}
-              <a
-                href="https://acm.cs.ucr.edu"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline decoration-wavy decoration-current/45 underline-offset-3 transition-colors hover:decoration-current/80"
-              >
+              <a href="https://acm.cs.ucr.edu" target="_blank" rel="noopener noreferrer" className="underline decoration-wavy decoration-current/45 underline-offset-3 transition-colors hover:decoration-current/80">
                 ACM
               </a>{" "}
-              
-              + {" "}
-              <a
-                href="https://www.citrushack.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline decoration-wavy decoration-current/45 underline-offset-3 transition-colors hover:decoration-current/80"
-              >
+              +{" "}
+              <a href="https://www.citrushack.com" target="_blank" rel="noopener noreferrer" className="underline decoration-wavy decoration-current/45 underline-offset-3 transition-colors hover:decoration-current/80">
                 Hackathons
               </a>
             </p>
@@ -102,17 +78,11 @@ export function Hero() {
               ✦ Campus Leader @ Notion & Leading ACM + Hackathons
             </p> */}
 
-            <p className="m-0 max-w-lg text-base sm:text-lg leading-relaxed text-muted-foreground">
-              ✦ Researching HCI in space
-            </p>
+            <p className="m-0 max-w-lg text-base sm:text-lg leading-relaxed text-muted-foreground">✦ Researching HCI in space</p>
 
-            <p className="m-0 max-w-lg text-base sm:text-lg leading-relaxed text-muted-foreground">
-              ✦ Computer Engineering @ UC Riverside
-            </p>
+            <p className="m-0 max-w-lg text-base sm:text-lg leading-relaxed text-muted-foreground">✦ Computer Engineering @ UC Riverside</p>
 
-            <p className="max-w-lg text-base sm:text-lg leading-relaxed text-muted-foreground">
-              ✦ CS • EE • Design • PM
-            </p>
+            <p className="max-w-lg text-base sm:text-lg leading-relaxed text-muted-foreground">✦ CS • EE • Design • PM</p>
 
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up stagger-3">
               <a
@@ -136,9 +106,7 @@ export function Hero() {
                 <div className="h-3 w-3 rounded-full bg-yellow-500/60 transition-colors hover:bg-yellow-500" />
                 <div className="h-3 w-3 rounded-full bg-primary/60 transition-colors hover:bg-primary" />
               </div>
-              <div className="absolute top-3.5 left-1/2 -translate-x-1/2 bg-background/50 rounded-md px-3 py-1 font-mono text-xs text-muted-foreground">
-                terminal://allison
-              </div>
+              <div className="absolute top-3.5 left-1/2 -translate-x-1/2 bg-background/50 rounded-md px-3 py-1 font-mono text-xs text-muted-foreground">terminal://allison</div>
 
               <pre className="mt-6 overflow-hidden font-mono text-[10px] leading-relaxed text-primary/80 sm:text-xs md:text-sm">
                 <span className="sm:hidden">{`┌───────────────────────┐
@@ -167,10 +135,7 @@ export function Hero() {
                 mission in progress (v1.0)
               </span>
             </div>
-            <div
-              className="absolute -bottom-3 sm:-bottom-6 -left-2 sm:-left-6 rounded-lg border border-border bg-card glass px-3 sm:px-4 py-1.5 font-mono text-[11px] sm:text-xs text-muted-foreground animate-float"
-              style={{ animationDelay: "1s" }}
-            >
+            <div className="absolute -bottom-3 sm:-bottom-6 -left-2 sm:-left-6 rounded-lg border border-border bg-card glass px-3 sm:px-4 py-1.5 font-mono text-[11px] sm:text-xs text-muted-foreground animate-float" style={{ animationDelay: "1s" }}>
               curiositea
             </div>
 
@@ -184,5 +149,5 @@ export function Hero() {
         <div className="w-px h-12 bg-gradient-to-b from-primary/50 to-transparent animate-pulse" />
       </div>
     </section>
-  )
+  );
 }

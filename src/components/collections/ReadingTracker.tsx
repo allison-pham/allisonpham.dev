@@ -617,13 +617,13 @@ export function ReadingTracker({ books: booksProp }: ReadingTrackerProps) {
   const queue = books.filter((b) => b.status === "queue");
 
   const rated = finished.filter((b) => b.rating);
-  const avgRating = rated.length > 0 ? (rated.reduce((a, b) => a + (b.rating ?? 0), 0) / rated.length).toFixed(1) + "★" : "—";
+  const avgRating = rated.length > 0 ? (rated.reduce((a, b) => a + (b.rating ?? 0), 0) / rated.length).toFixed(1) + "★" : "-";
   const pagesThisWeek = Math.round(currentlyReading.reduce((a, b) => a + b.progress * 3, 0));
   const genreCounts: Record<string, number> = {};
   finished.forEach((b) => {
     genreCounts[b.category] = (genreCounts[b.category] ?? 0) + 1;
   });
-  const topGenre = Object.entries(genreCounts).sort((a, b) => b[1] - a[1])[0]?.[0] ?? "—";
+  const topGenre = Object.entries(genreCounts).sort((a, b) => b[1] - a[1])[0]?.[0] ?? "-";
 
   const stats = [
     { label: "books this year", value: finished.length },
@@ -638,7 +638,7 @@ export function ReadingTracker({ books: booksProp }: ReadingTrackerProps) {
   return (
     <section ref={ref} className="relative px-4 sm:px-6 pt-16 sm:pt-16 pb-8 sm:pb-12">
       <div className={cn("mx-auto w-full max-w-7xl opacity-0", isVisible && "animate-fade-in-up")}>
-        {/* Header — matches PhotoDumps exactly */}
+        {/* Header - matches PhotoDumps exactly */}
         <div className="space-y-2 mb-8">
           <p className="font-mono text-xs tracking-[0.25em] text-primary flex items-center gap-2">currently reading;</p>
           <div className="flex items-center gap-3">
@@ -746,7 +746,7 @@ export function ReadingTracker({ books: booksProp }: ReadingTrackerProps) {
 
         {tab === "up next" && (
           <div className="flex flex-col gap-3">
-            <p className="font-mono text-xs text-muted-foreground mb-1">antilibrary — books queued up</p>
+            <p className="font-mono text-xs text-muted-foreground mb-1">antilibrary - books queued up</p>
             {queue.map((book, i) => (
               <div key={book.id} className={cn("rounded-xl border border-border/60 bg-card/40 glass p-4 flex items-center gap-4 opacity-0", isVisible && "animate-fade-in-up")} style={{ animationDelay: `${i * 60}ms` }}>
                 <span className="font-mono text-xl font-bold text-primary/20 w-7 flex-shrink-0">{String(i + 1).padStart(2, "0")}</span>
