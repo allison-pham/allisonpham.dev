@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronDown, Figma, Github, Linkedin, Mail, Menu, X } from "lucide-react";
 import { cn } from "@/src/lib/core-features/utils";
-import { SiSubstack } from "react-icons/si";
+import { SiLinktree, SiSubstack } from "react-icons/si";
 import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 
@@ -26,6 +26,7 @@ const socialLinks = [
   { label: "GitHub", href: "https://github.com/allison-pham", handle: "@allison-pham", icon: Github },
   { label: "Figma", href: "https://www.figma.com/@allisonpham", handle: "@allisonpham", icon: Figma },
   { label: "Substack", href: "https://allisonpham.substack.com", handle: "@allisonpham", icon: SiSubstack },
+  { label: "Linktree", href: "https://linktr.ee/allisonpham", handle: "@allisonpham", icon: SiLinktree },
   { label: "Email", href: "mailto:apham206@ucr.edu", handle: "apham206@ucr.edu", icon: Mail },
 ];
 

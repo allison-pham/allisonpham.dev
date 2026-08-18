@@ -1,12 +1,13 @@
 import Link from "next/link";
 import { Github, Figma, Linkedin, Mail, ExternalLink, Heart } from "lucide-react";
-import { SiSubstack } from "react-icons/si";
+import { SiLinktree, SiSubstack } from "react-icons/si";
 
 const socialLinks = [
   { label: "LinkedIn", href: "https://linkedin.com/in/imallisonpham", handle: "imallisonpham", icon: Linkedin },
   { label: "GitHub", href: "https://github.com/allison-pham", handle: "@allison-pham", icon: Github },
   { label: "Figma", href: "https://www.figma.com/@allisonpham", handle: "@allisonpham", icon: Figma },
   { label: "Substack", href: "https://allisonpham.substack.com", handle: "@allisonpham", icon: SiSubstack },
+  { label: "Linktree", href: "https://linktr.ee/allisonpham", handle: "@allisonpham", icon: SiLinktree },
   { label: "Email", href: "mailto:apham206@ucr.edu", handle: "apham206@ucr.edu", icon: Mail },
 ];
 
