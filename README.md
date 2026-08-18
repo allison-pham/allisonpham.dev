@@ -34,6 +34,6 @@
 ## Getting Started
 | **Step** | **Instructions** |
 |---|---|
-| Git + GitHub Setup | • Ensure Git is installed ([download](https://git-scm.com/install/windows) based on OS)<br>• Clone [this GitHub repository](https://github.com/allison-pham/allisonpham.dev) using an IDE (e.g. Visual Studio Code)<br>&nbsp;&nbsp;&nbsp;&nbsp;• Click "Code" (green button) > HTTPS > copy the link<br>• Run `git clone "https://github.com/allison-pham/allisonpham.dev"` |
+| Git + GitHub Setup | • Ensure Git is installed ([download](https://git-scm.com/install/windows) based on OS)<br>• Clone this GitHub repository using an IDE (e.g. Visual Studio Code)<br>&nbsp;&nbsp;&nbsp;&nbsp;• Click "Code" (green button) > HTTPS > copy the link<br>• Run `git clone "https://github.com/allison-pham/allisonpham.dev"` |
 | Installation | • Run `npm install` |
 | Frontend | • Open up terminal: `npm run dev`<br>• Open http://localhost:3000 |
