@@ -97,20 +97,11 @@ function EntryCard({ entry, index, isVisible }: { entry: GuestbookEntry; index: 
 
   return (
     <div
-      className={cn(
-        "group relative rounded-2xl border border-border/60 bg-card/50 p-5 transition-all duration-300 opacity-0",
-        "hover:border-primary/20 hover:bg-card/80 hover:-translate-y-0.5",
-        isVisible && "animate-fade-in-up",
-      )}
+      className={cn("group relative rounded-2xl border border-border/60 bg-card/50 p-5 transition-all duration-300 opacity-0", "hover:border-primary/20 hover:bg-card/80 hover:-translate-y-0.5", isVisible && "animate-fade-in-up")}
       style={{ animationDelay: `${(index % 12) * 50 + 100}ms` }}
     >
       {/* Stamp */}
-      <div
-        className={cn(
-          "absolute -top-3 -right-3 w-10 h-10 rounded-full border-2 flex items-center justify-center text-lg shadow-sm bg-card transition-transform duration-200 group-hover:scale-110 group-hover:rotate-6",
-          stampBorder,
-        )}
-      >
+      <div className={cn("absolute -top-3 -right-3 w-10 h-10 rounded-full border-2 flex items-center justify-center text-lg shadow-sm bg-card transition-transform duration-200 group-hover:scale-110 group-hover:rotate-6", stampBorder)}>
         {entry.sticker}
       </div>
 
@@ -163,10 +154,7 @@ function GuestbookForm({ onSuccess }: { onSuccess: (entry: GuestbookEntry) => vo
         <p className="text-2xl">{sticker.emoji}</p>
         <p className="font-mono text-sm text-primary">stamped & saved ✦</p>
         <p className="text-xs text-muted-foreground">thanks for signing the guestbook!</p>
-        <button
-          onClick={() => setDone(false)}
-          className="mt-2 font-mono text-xs text-muted-foreground hover:text-primary transition-colors underline-offset-4 hover:underline"
-        >
+        <button onClick={() => setDone(false)} className="mt-2 font-mono text-xs text-muted-foreground hover:text-primary transition-colors underline-offset-4 hover:underline">
           leave another note
         </button>
       </div>
@@ -215,21 +203,14 @@ function GuestbookForm({ onSuccess }: { onSuccess: (entry: GuestbookEntry) => vo
               title={s.label}
               className={cn(
                 "w-9 h-9 rounded-xl border-2 flex items-center justify-center text-base transition-all duration-150 hover:scale-110 active:scale-95",
-                sticker.emoji === s.emoji
-                  ? cn("scale-110 shadow-sm", s.color)
-                  : "border-border/50 bg-secondary/30 hover:border-primary/30",
+                sticker.emoji === s.emoji ? cn("scale-110 shadow-sm", s.color) : "border-border/50 bg-secondary/30 hover:border-primary/30",
               )}
             >
               {s.emoji}
             </button>
           ))}
         </div>
-        <div
-          className={cn(
-            "inline-flex items-center gap-2 rounded-full border px-3 py-1 font-mono text-xs",
-            sticker.color,
-          )}
-        >
+        <div className={cn("inline-flex items-center gap-2 rounded-full border px-3 py-1 font-mono text-xs", sticker.color)}>
           <span>{sticker.emoji}</span>
           <span>{sticker.label}</span>
           <span className="text-muted-foreground/60">selected</span>
@@ -279,18 +260,11 @@ export function Guestbook() {
     <section ref={ref} className="border-t border-border/30 px-4 sm:px-6 pt-16 sm:pt-20 pb-12 sm:pb-16">
       <div className="mx-auto max-w-7xl">
         {/* Header */}
-        <div
-          className={cn(
-            "mb-10 sm:mb-14 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 opacity-0",
-            isVisible && "animate-fade-in-up",
-          )}
-        >
+        <div className={cn("mb-10 sm:mb-14 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 opacity-0", isVisible && "animate-fade-in-up")}>
           <div className="space-y-3">
             <p className="font-mono text-xs tracking-[0.25em] text-primary flex items-center gap-2">visitors;</p>
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Guestbook ✉</h2>
-            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-              You found it - leave a note and pick a stamp (I read every one)
-            </p>
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">You found it - leave a note and pick a stamp (I read every one).</p>
           </div>
           <span className="font-mono text-sm text-muted-foreground">{entries.length} notes</span>
         </div>

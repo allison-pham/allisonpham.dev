@@ -1,32 +1,11 @@
 "use client";
-import {
-  allEntryTags,
-  entries,
-  getDatesWithEntries,
-  getEntriesForDate,
-  type CalendarEntry,
-  type EntryType,
-  typeConfig,
-} from "@/src/lib/calendar-data";
+import { allEntryTags, entries, getDatesWithEntries, getEntriesForDate, type CalendarEntry, type EntryType, typeConfig } from "@/src/lib/calendar-data";
 import { ChevronLeft, ChevronRight, ExternalLink, MapPin } from "lucide-react";
 import { cn } from "@/src/lib/core-features/utils";
 import { useEffect, useRef, useState, useMemo } from "react";
 
 const DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-const MONTHS = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
+const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 const TYPE_FILTERS: Array<EntryType | "all"> = ["all", "event", "schedule", "daily"];
 
@@ -44,13 +23,7 @@ function formatTime(t: string) {
 function EntryCard({ entry, compact = false }: { entry: CalendarEntry; compact?: boolean }) {
   const cfg = typeConfig[entry.type];
   return (
-    <div
-      className={cn(
-        "group relative overflow-hidden rounded-xl border bg-card/40 glass transition-all duration-300 hover:border-primary/30",
-        compact ? "p-3" : "p-5",
-        "border-border/50",
-      )}
-    >
+    <div className={cn("group relative overflow-hidden rounded-xl border bg-card/40 glass transition-all duration-300 hover:border-primary/30", compact ? "p-3" : "p-5", "border-border/50")}>
       <div className={cn("absolute inset-0 bg-linear-to-br opacity-40", cfg.bg)} />
       <div className="relative space-y-2">
         {/* Header row */}
@@ -58,33 +31,19 @@ function EntryCard({ entry, compact = false }: { entry: CalendarEntry; compact?:
           <div className="flex items-center gap-2.5">
             <span className="text-xl select-none">{entry.emoji}</span>
             <div className="space-y-0.5 min-w-0">
-              <p
-                className={cn(
-                  "font-bold tracking-tight text-foreground transition-colors group-hover:text-primary leading-tight",
-                  compact ? "text-xs" : "text-sm",
-                )}
-              >
-                {entry.title}
-              </p>
-              {entry.time && (
+              <p className={cn("font-bold tracking-tight text-foreground transition-colors group-hover:text-primary leading-tight", compact ? "text-xs" : "text-sm")}>{entry.title}</p>
+              {entry.startTime && (
                 <p className="font-mono text-[10px] text-muted-foreground">
-                  {formatTime(entry.time)}
+                  {formatTime(entry.startTime)}
                   {entry.endTime ? ` → ${formatTime(entry.endTime)}` : ""}
                 </p>
               )}
             </div>
           </div>
           <div className="flex shrink-0 items-center gap-1.5">
-            <span className={cn("rounded-full border px-2 py-0.5 font-mono text-[9px] tracking-wider", cfg.pill)}>
-              {entry.tag}
-            </span>
+            <span className={cn("rounded-full border px-2 py-0.5 font-mono text-[9px] tracking-wider", cfg.pill)}>{entry.tag}</span>
             {entry.url && (
-              <a
-                href={entry.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
+              <a href={entry.url} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                 <ExternalLink className="h-3 w-3" />
               </a>
             )}
@@ -92,11 +51,7 @@ function EntryCard({ entry, compact = false }: { entry: CalendarEntry; compact?:
         </div>
 
         {/* Description */}
-        {!compact && entry.description && (
-          <p className="text-xs leading-relaxed text-muted-foreground border-l-2 border-primary/20 pl-3">
-            {entry.description}
-          </p>
-        )}
+        {!compact && entry.description && <p className="text-xs leading-relaxed text-muted-foreground border-l-2 border-primary/20 pl-3">{entry.description}</p>}
 
         {/* Location */}
         {!compact && entry.location && (
@@ -111,21 +66,7 @@ function EntryCard({ entry, compact = false }: { entry: CalendarEntry; compact?:
   );
 }
 
-function MiniCalendar({
-  year,
-  month,
-  selectedDate,
-  onSelectDate,
-  onPrevMonth,
-  onNextMonth,
-}: {
-  year: number;
-  month: number;
-  selectedDate: string | null;
-  onSelectDate: (d: string) => void;
-  onPrevMonth: () => void;
-  onNextMonth: () => void;
-}) {
+function MiniCalendar({ year, month, selectedDate, onSelectDate, onPrevMonth, onNextMonth }: { year: number; month: number; selectedDate: string | null; onSelectDate: (d: string) => void; onPrevMonth: () => void; onNextMonth: () => void }) {
   const datesWithEntries = useMemo(() => getDatesWithEntries(year, month), [year, month]);
   const firstDay = new Date(year, month - 1, 1).getDay();
   const daysInMonth = new Date(year, month, 0).getDate();
@@ -136,19 +77,13 @@ function MiniCalendar({
     <div className="rounded-xl border border-border/50 bg-card/40 glass p-5">
       {/* Month nav */}
       <div className="mb-4 flex items-center justify-between">
-        <button
-          onClick={onPrevMonth}
-          className="flex h-7 w-7 items-center justify-center rounded-lg border border-border/50 text-muted-foreground hover:border-primary/40 hover:text-primary transition-colors"
-        >
+        <button onClick={onPrevMonth} className="flex h-7 w-7 items-center justify-center rounded-lg border border-border/50 text-muted-foreground hover:border-primary/40 hover:text-primary transition-colors">
           <ChevronLeft className="h-3.5 w-3.5" />
         </button>
         <p className="font-mono text-sm font-semibold text-foreground">
           {MONTHS[month - 1]} {year}
         </p>
-        <button
-          onClick={onNextMonth}
-          className="flex h-7 w-7 items-center justify-center rounded-lg border border-border/50 text-muted-foreground hover:border-primary/40 hover:text-primary transition-colors"
-        >
+        <button onClick={onNextMonth} className="flex h-7 w-7 items-center justify-center rounded-lg border border-border/50 text-muted-foreground hover:border-primary/40 hover:text-primary transition-colors">
           <ChevronRight className="h-3.5 w-3.5" />
         </button>
       </div>
@@ -182,9 +117,7 @@ function MiniCalendar({
               )}
             >
               {day}
-              {hasEntries && !isSelected && (
-                <span className="absolute bottom-0.5 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-primary" />
-              )}
+              {hasEntries && !isSelected && <span className="absolute bottom-0.5 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-primary" />}
             </button>
           );
         })}
@@ -194,41 +127,37 @@ function MiniCalendar({
 }
 
 function DayRoutine() {
-  const dailies = entries.filter((e) => e.type === "daily" && e.time).sort((a, b) => (a.time! > b.time! ? 1 : -1));
+  const dailies = entries.filter((e) => e.type === "daily" && e.startTime).sort((a, b) => (a.startTime! > b.startTime! ? 1 : -1));
 
   return (
     <div className="rounded-xl border border-border/50 bg-card/40 glass p-5 space-y-4">
       <div className="space-y-1">
         <p className="font-mono text-[10px] tracking-[0.25em] text-primary">a typical day;</p>
-        <p className="font-mono text-xs text-muted-foreground">what most days look like</p>
+        <p className="font-mono text-xs text-muted-foreground">What most days look like</p>
       </div>
       <div className="relative space-y-0">
         {/* Timeline line */}
-        <div className="absolute left-13 top-0 bottom-0 w-px bg-border/40" />
+        <div className="absolute left-25 top-0 bottom-0 w-px bg-border/40" />
         {dailies.map((entry, i) => (
           <div key={entry.id} className="relative flex items-start gap-3 py-2.5 group">
             {/* Time */}
-            <span className="w-12 shrink-0 font-mono text-[10px] text-muted-foreground text-right leading-none mt-0.5">
-              {entry.time ? formatTime(entry.time).replace(":00", "") : ""}
+            <span className="w-24 shrink-0 font-mono text-[10px] text-muted-foreground text-right leading-none mt-0.5">
+              {entry.startTime && (
+                <>
+                  {formatTime(entry.startTime).replace(":00", "")}
+                  {entry.endTime && <> - {formatTime(entry.endTime).replace(":00", "")}</>}
+                </>
+              )}
             </span>
             {/* Dot */}
-            <div
-              className={cn(
-                "relative z-10 mt-0.5 h-3 w-3 shrink-0 rounded-full border-2 border-background transition-transform group-hover:scale-125",
-                typeConfig.daily.dot,
-              )}
-            />
+            <div className={cn("relative z-10 mt-0.5 h-3 w-3 shrink-0 rounded-full border-2 border-background transition-transform group-hover:scale-125", typeConfig.daily.dot)} />
             {/* Content */}
             <div className="min-w-0 space-y-0.5">
               <div className="flex items-center gap-1.5">
                 <span className="text-sm">{entry.emoji}</span>
-                <p className="font-mono text-xs font-semibold text-foreground group-hover:text-primary transition-colors">
-                  {entry.title}
-                </p>
+                <p className="font-mono text-xs font-semibold text-foreground group-hover:text-primary transition-colors">{entry.title}</p>
               </div>
-              {entry.description && (
-                <p className="font-mono text-[10px] text-muted-foreground leading-relaxed">{entry.description}</p>
-              )}
+              {entry.description && <p className="font-mono text-[10px] text-muted-foreground leading-relaxed">{entry.description}</p>}
             </div>
           </div>
         ))}
@@ -243,27 +172,16 @@ function CurrentlyUpTo() {
     <div className="rounded-xl border border-border/50 bg-card/40 glass p-5 space-y-4">
       <div className="space-y-1">
         <p className="font-mono text-[10px] tracking-[0.25em] text-primary">currently;</p>
-        <p className="font-mono text-xs text-muted-foreground">what I'm up to right now</p>
+        <p className="font-mono text-xs text-muted-foreground">What I'm up to right now</p>
       </div>
       <div className="space-y-3">
         {scheduleItems.map((entry) => (
           <div key={entry.id} className="group flex items-start gap-3">
             <span className="text-base select-none mt-0.5">{entry.emoji}</span>
             <div className="space-y-0.5 min-w-0">
-              <p className="font-mono text-xs font-semibold text-foreground group-hover:text-primary transition-colors">
-                {entry.title}
-              </p>
-              {entry.description && (
-                <p className="font-mono text-[10px] text-muted-foreground leading-relaxed">{entry.description}</p>
-              )}
-              <span
-                className={cn(
-                  "inline-flex rounded-full border px-2 py-0.5 font-mono text-[9px]",
-                  typeConfig.schedule.pill,
-                )}
-              >
-                {entry.tag}
-              </span>
+              <p className="font-mono text-xs font-semibold text-foreground group-hover:text-primary transition-colors">{entry.title}</p>
+              {entry.description && <p className="font-mono text-[10px] text-muted-foreground leading-relaxed">{entry.description}</p>}
+              <span className={cn("inline-flex rounded-full border px-2 py-0.5 font-mono text-[9px]", typeConfig.schedule.pill)}>{entry.tag}</span>
             </div>
           </div>
         ))}
@@ -328,30 +246,21 @@ export function Calendar() {
     <section ref={sectionRef} className="overflow-x-clip px-4 pt-10 pb-12 sm:px-6 sm:pt-16 sm:pb-20">
       <div className="mx-auto max-w-7xl">
         {/* Header */}
-        <div className={cn("mb-12 space-y-4 opacity-0", isVisible && "animate-fade-in-up")}>
+        <div className={cn("space-y-3 mb-6 opacity-0", isVisible && "animate-fade-in-up")}>
           <p className="font-mono text-xs tracking-[0.25em] text-primary flex items-center gap-2">in the world;</p>
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Calendar</h2>
-          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-            Events I've been at, what I'm building, and what a typical day looks like (slice of how I spend my time)
-          </p>
+          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">Events I've been at, what I'm building, and what a typical day looks like (slice of how I spend my startTime)</p>
         </div>
 
         {/* Filters */}
-        <div
-          className={cn("mb-8 flex flex-wrap gap-2 opacity-0", isVisible && "animate-fade-in-up")}
-          style={{ animationDelay: "80ms" }}
-        >
+        <div className={cn("mb-8 flex flex-wrap gap-2 opacity-0", isVisible && "animate-fade-in-up")} style={{ animationDelay: "80ms" }}>
           {TYPE_FILTERS.map((t) => (
             <button
               key={t}
               onClick={() => setTypeFilter(t)}
               className={cn(
                 "flex items-center gap-2 rounded-full border px-3 py-1.5 font-mono text-[10px] tracking-wider transition-all active:scale-[0.98]",
-                typeFilter === t
-                  ? t === "all"
-                    ? "border-primary bg-primary/15 text-primary"
-                    : typeConfig[t as EntryType].pill
-                  : "border-border text-muted-foreground hover:border-foreground/40",
+                typeFilter === t ? (t === "all" ? "border-primary bg-primary/15 text-primary" : typeConfig[t as EntryType].pill) : "border-border text-muted-foreground hover:border-foreground/40",
               )}
             >
               {t !== "all" && <span className={cn("h-1.5 w-1.5 rounded-full", typeConfig[t as EntryType].dot)} />}
@@ -365,9 +274,7 @@ export function Calendar() {
               onClick={() => setTagFilter(tagFilter === tag ? null : tag)}
               className={cn(
                 "rounded-full border px-3 py-1.5 font-mono text-[10px] tracking-wider transition-all",
-                tagFilter === tag
-                  ? "border-primary/50 bg-primary/10 text-primary"
-                  : "border-border/60 bg-secondary/30 text-muted-foreground hover:border-primary/30",
+                tagFilter === tag ? "border-primary/50 bg-primary/10 text-primary" : "border-border/60 bg-secondary/30 text-muted-foreground hover:border-primary/30",
               )}
             >
               {tag}
@@ -376,30 +283,17 @@ export function Calendar() {
         </div>
 
         {/* Main grid */}
-        <div
-          className={cn("grid gap-6 lg:grid-cols-3 opacity-0", isVisible && "animate-fade-in-up")}
-          style={{ animationDelay: "140ms" }}
-        >
+        <div className={cn("grid gap-6 lg:grid-cols-3 opacity-0", isVisible && "animate-fade-in-up")} style={{ animationDelay: "140ms" }}>
           {/* Left col - calendar + selected day */}
           <div className="space-y-5">
-            <MiniCalendar
-              year={year}
-              month={month}
-              selectedDate={selectedDate}
-              onSelectDate={setSelectedDate}
-              onPrevMonth={prevMonth}
-              onNextMonth={nextMonth}
-            />
+            <MiniCalendar year={year} month={month} selectedDate={selectedDate} onSelectDate={setSelectedDate} onPrevMonth={prevMonth} onNextMonth={nextMonth} />
 
             {/* Selected date panel */}
             {selectedDate && (
               <div className="rounded-xl border border-primary/30 bg-card/40 glass p-5 space-y-4 animate-fade-in-up">
                 <div className="flex items-center justify-between">
                   <p className="font-mono text-xs font-semibold text-foreground">{formatDisplayDate(selectedDate)}</p>
-                  <button
-                    onClick={() => setSelectedDate("")}
-                    className="font-mono text-xs text-muted-foreground hover:text-primary transition-colors"
-                  >
+                  <button onClick={() => setSelectedDate("")} className="font-mono text-xs text-muted-foreground hover:text-primary transition-colors">
                     ×
                   </button>
                 </div>
@@ -423,15 +317,11 @@ export function Calendar() {
           <div className="lg:col-span-2 space-y-6">
             {/* Upcoming events */}
             <div className="space-y-3">
-              <p className="font-mono text-[10px] tracking-[0.25em] text-muted-foreground">upcoming events</p>
+              <p className="font-mono text-[10px] tracking-[0.25em] text-muted-foreground">Upcoming Events</p>
               {upcoming.length > 0 ? (
                 <div className="space-y-3">
                   {upcoming.map((entry, i) => (
-                    <div
-                      key={entry.id}
-                      className={cn("opacity-0", isVisible && "animate-fade-in-up")}
-                      style={{ animationDelay: `${i * 60 + 200}ms` }}
-                    >
+                    <div key={entry.id} className={cn("opacity-0", isVisible && "animate-fade-in-up")} style={{ animationDelay: `${i * 60 + 200}ms` }}>
                       <div className="mb-1.5 flex items-center gap-2">
                         <span className="font-mono text-[10px] text-muted-foreground">
                           {new Date(entry.date + "T12:00:00").toLocaleDateString("en-US", {
