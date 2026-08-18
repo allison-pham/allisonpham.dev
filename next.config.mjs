@@ -5,7 +5,13 @@ const nextConfig = {
   },
   images: {
     unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "covers.openlibrary.org",
+      },
+    ],
   },
-}
+};
 
-export default nextConfig
+export default nextConfig;

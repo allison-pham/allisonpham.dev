@@ -1,5 +1,8 @@
 "use client";
+import Image from "next/image";
 import { Atom, BookOpen, Brain, ChevronDown, ChevronLeft, ChevronRight, FileText, Heart, Lightbulb, Music, Palette, Quote, Sparkles, Star, Tag, Video, Puzzle } from "lucide-react";
+import { books, allBookTags, statusConfig, coverUrl, type ReadingStatus } from "@/src/lib/books";
+import { BooksContent } from "@/src/components/collections/BookmarksBooks";
 import { cn } from "@/src/lib/core-features/utils";
 import { useState, useEffect, useRef, useCallback } from "react";
 
@@ -71,141 +74,6 @@ interface ReadingBook {
   keyTakeaways?: string[];
   favoriteQuotes?: string[];
 }
-
-const readingBooks: ReadingBook[] = [
-  {
-    id: "atomic-habits",
-    title: "Atomic Habits",
-    author: "James Clear",
-    status: "queue",
-    category: "self-improvement",
-    coverColor: "bg-yellow-300",
-    summary: "N/A",
-    keyTakeaways: ["N/A"],
-    favoriteQuotes: ["N/A"],
-  },
-  {
-    id: "envelope-poems",
-    title: "Envelope Poems",
-    author: "Emily Dickinson",
-    status: "done",
-    category: "self-improvement",
-    coverColor: "bg-gray-300",
-    summary: "N/A",
-    keyTakeaways: ["N/A"],
-    favoriteQuotes: ["N/A"],
-  },
-  {
-    id: "envisioning-information",
-    title: "Envisioning Information",
-    author: "Edward R. Tufte",
-    status: "queue",
-    category: "",
-    coverColor: "bg-gray-300",
-    summary: "The density and precision of information design. Every page is a lesson.",
-    keyTakeaways: [""],
-    favoriteQuotes: ["N/A"],
-  },
-  {
-    id: "flow",
-    title: "Flow: The Psychology of Optimal Experience",
-    author: "Mihály Csíkszentmihályi",
-    status: "queue",
-    category: "",
-    coverColor: "bg-gray-300",
-    summary: "The psychology of optimal experience and how design can get out of the way.",
-    keyTakeaways: [""],
-    favoriteQuotes: ["N/A"],
-  },
-  {
-    id: "mastery",
-    title: "Mastery",
-    author: "Robert Greene",
-    status: "queue",
-    category: "",
-    coverColor: "bg-orange-300",
-    summary: "N/A",
-    keyTakeaways: ["N/A"],
-    favoriteQuotes: ["N/A"],
-  },
-  {
-    id: "the-alchemist",
-    title: "The Alchemist",
-    author: "Paulo Coelho",
-    status: "done",
-    category: "",
-    coverColor: "bg-gray-300",
-    summary: "",
-    keyTakeaways: ["N/A"],
-    favoriteQuotes: ["N/A"],
-  },
-  {
-    id: "the-design-of-everyday-things",
-    title: "The Design of Everyday Things",
-    author: "Donald A. Norman",
-    status: "queue",
-    category: "",
-    coverColor: "bg-pink-300",
-    summary: "Norman on affordances and feedback.",
-    keyTakeaways: ["N/A"],
-    favoriteQuotes: ["N/A"],
-  },
-  {
-    id: "great-gatsby",
-    title: "The Great Gatsby",
-    author: "F. Scott Fitzgerald",
-    status: "done",
-    category: "literary-fiction",
-    coverColor: "bg-emerald-300",
-    summary: "N/A",
-    keyTakeaways: ["N/A"],
-    favoriteQuotes: ["N/A"],
-  },
-  {
-    id: "earnest",
-    title: "The Importance of Being Earnest",
-    author: "Oscar Wilde",
-    status: "done",
-    category: "satirical-play",
-    coverColor: "bg-purple-300",
-    summary: "N/A",
-    keyTakeaways: ["N/A"],
-    favoriteQuotes: ["N/A"],
-  },
-  {
-    id: "dorian-gray",
-    title: "The Picture of Dorian Gray",
-    author: "Oscar Wilde",
-    status: "done",
-    category: "gothic-fiction",
-    coverColor: "bg-blue-300",
-    summary: "As Dorian Gray sinks into a worse life, his body retains his youth, while his painted portrait decays to reflect his inner self.",
-    keyTakeaways: ["N/A"],
-    favoriteQuotes: ["N/A"],
-  },
-  {
-    id: "thinking-fast-and-slow",
-    title: "Thinking, Fast and Slow",
-    author: "Daniel Kahneman",
-    status: "queue",
-    category: "",
-    coverColor: "bg-gray-300",
-    summary: "How System 1 and System 2 shape every decision and interface.",
-    keyTakeaways: [""],
-    favoriteQuotes: ["N/A"],
-  },
-  {
-    id: "zero-to-one",
-    title: "Zero to One: Notes on Startups, or How to Build the Future",
-    author: "Peter Thiel",
-    status: "queue",
-    category: "",
-    coverColor: "bg-red-300",
-    summary: "Thiel on creating unique value, building successful startups, and innovating things that didn't exist before.",
-    keyTakeaways: ["Changed how I think about 0→1."],
-    favoriteQuotes: ["N/A"],
-  },
-];
 
 type NostalgiaItem = {
   id: string;
@@ -287,51 +155,107 @@ const typeColors: Record<NostalgiaItem["type"], string> = {
 type FunFact = { id: string; emoji: string; fact: string; tag: string };
 
 const funFacts: FunFact[] = [
+  { id: "chess", emoji: "♟️", fact: "Chess is the hobby that most directly shows up in how I build things.", tag: "hobbies" },
+  { id: "club-penguin", emoji: "🐧", fact: "Club Penguin taught me that computers could be a place where other people were.", tag: "games" },
+  { id: "design", emoji: "✏️", fact: "I always layout interfaces in Figma before I write code!", tag: "building" },
+  { id: "space-constraints", emoji: "🛰️", fact: "I find space constraints more interesting than space itself - what do you build when everything is limited?", tag: "space" },
+  { id: "organized", emoji: "🗂️", fact: "I have a folder and system for everything. Color-coded, cross-linked, probably over-engineered.", tag: "organization" },
+  { id: "typing", emoji: "📐", fact: "I learned to type faster specifically so I could think faster.", tag: "productivity" },
+  { id: "builder", emoji: "🧩", fact: "I take things apart to understand how they work. This started with legos and puzzles as a kid, to software, systems, and organizations in later years.", tag: "curiosity" },
   { id: "tea", emoji: "🍵", fact: "I think better with tea, specifically jasmine green tea.", tag: "daily ritual" },
-  { id: "design", emoji: "✏️", fact: "I always sketch interfaces before I write code!", tag: "building" },
-  {
-    id: "space-design",
-    emoji: "🌌",
-    fact: "I've been designing for space longer than I've been to space (which is 0 times).",
-    tag: "space",
-  },
-  {
-    id: "personal-website",
-    emoji: "💻",
-    fact: "I've built several versions of my personal portfolio website, reflecting my desire to always iterate and make improvements. Each version taught me something the last one couldn't.",
-    tag: "building",
-  },
-  {
-    id: "builder",
-    emoji: "🧩",
-    fact: "I take things apart to understand how they work. This started with legos and puzzles as a kid, to software, systems, and organizations in later years.",
-    tag: "curiosity",
-  },
+  { id: "writing", emoji: "✍️", fact: "I write to understand since it makes thinking visible.", tag: "writing" },
+  { id: "sunrise", emoji: "🌅", fact: "I'm not a morning person but I am a sunrise person (yes there's a difference) :)", tag: "personality" },
+  { id: "space-design", emoji: "🌌", fact: "I've been designing for space longer than I've been to space (which is 0 times).", tag: "space" },
+  { id: "personal-website", emoji: "💻", fact: "I've built several versions of my personal portfolio website, reflecting my desire to always iterate and make improvements. Each version taught me something the last one couldn't.", tag: "building" },
+  { id: "keyboards", emoji: "⌨️", fact: "Keyboards are one of my favorite interface designs. Chunky, tactile, constraint-first.", tag: "tech" },
   { id: "night-ideas", emoji: "🌙", fact: "Most of my best ideas show up after midnight.", tag: "habits" },
-  {
-    id: "typing",
-    emoji: "📐",
-    fact: "I learned to type faster specifically so I could think faster.",
-    tag: "productivity",
-  },
-  {
-    id: "sunrise",
-    emoji: "🌅",
-    fact: "I'm not a morning person but I am a sunrise person (yes there's a difference).",
-    tag: "personality",
-  },
-  {
-    id: "organized",
-    emoji: "🗂️",
-    fact: "I have a folder and system for everything. Color-coded, cross-linked, probably over-engineered.",
-    tag: "organization",
-  },
-  {
-    id: "space-constraints",
-    emoji: "🛰️",
-    fact: "I find space constraints more interesting than space itself - what do you build when everything is limited?",
-    tag: "space",
-  },
+
+  { id: "journal-scrapbook", emoji: "📙", fact: "I journal and scrapbook to physically archive ideas and moments.", tag: "hobbies" },
+  { id: "", emoji: "", fact: "", tag: "" },
+  { id: "", emoji: "", fact: "", tag: "" },
+  { id: "", emoji: "", fact: "", tag: "" },
+  { id: "", emoji: "", fact: "", tag: "" },
+  { id: "", emoji: "", fact: "", tag: "" },
+  { id: "", emoji: "", fact: "", tag: "" },
+  { id: "", emoji: "", fact: "", tag: "" },
+  { id: "", emoji: "", fact: "", tag: "" },
+  { id: "", emoji: "", fact: "", tag: "" },
+  { id: "", emoji: "", fact: "", tag: "" },
+  { id: "", emoji: "", fact: "", tag: "" },
+
+  // { n: 22, text: "I annotate books. The marginalia is sometimes more valuable than the text." },
+  // { n: 23, text: "I got into HCI by asking: what's the hardest version of this problem?" },
+  // { n: 24, text: "I believe rest is part of the system, not a reward for finishing." },
+  // { n: 25, text: "The second cup of tea is always better than the first." },
+  // { n: 26, text: "I am partially made of the tools I've used. Notion changed how I organize. Chess changed how I plan." },
+  // { n: 27, text: "I have strong opinions about font sizes. Nothing below 11px." },
+  // { n: 28, text: "I directed hackathons before I felt ready to. That's the only way to do it." },
+  // { n: 29, text: "I believe the process matters as much as the output. Maybe more." },
+  // { n: 30, text: "I've read The Picture of Dorian Gray twice and will probably read it again." },
+  // { n: 31, text: "I think keyboard shortcuts are underrated as a sign of respect for the user's time." },
+  // { n: 32, text: "The gap between what you imagine and what you produce is where all the work lives." },
+  // { n: 33, text: "I believe documentation is compounding interest on your past thinking." },
+  // { n: 34, text: "I've tried to learn to be comfortable with things that are finished but imperfect." },
+  // { n: 35, text: "Hojicha is the underrated tea. Jasmine gets all the credit." },
+  // { n: 36, text: "I think about cognitive load more than most people think is normal." },
+  // { n: 37, text: "I believe most good interfaces are invisible." },
+  // { n: 38, text: "I prefer monospace for metadata. It communicates 'this is a different kind of information'." },
+  // { n: 39, text: "I get unreasonably excited when a force-directed graph settles into its final state." },
+  // { n: 40, text: "I believe constraints are secretly gifts. The design brief disguised as a limitation." },
+  // { n: 41, text: "The first interface I remember was a beige desktop with an off-blue screen." },
+  // { n: 42, text: "I have a bias toward building things that didn't exist before." },
+  // { n: 43, text: "I believe that what you're procrastinating on is usually the most important thing." },
+  // { n: 44, text: "I color-code my calendar. It's the only way I can see my time at a glance." },
+  // { n: 45, text: "Chess endgames are about pawn structure. Everything else is tactics." },
+  // { n: 46, text: "I believe asking 'why' one more time than feels comfortable is always worth it." },
+  // { n: 47, text: "I find it harder to name things well than to build them." },
+  // { n: 48, text: "I believe in building in public, even when the thing isn't ready." },
+  // { n: 49, text: "My favorite design principle is: details matter → start with why." },
+  // { n: 51, text: "I believe you can tell a lot about how someone thinks by what tools they reach for." },
+  // { n: 52, text: "I'm more interested in why something feels effortless than in how it looks." },
+  // { n: 53, text: "The best meetings I've ever been in ended early because we figured it out." },
+  // { n: 54, text: "I believe communities built around shared curiosity are better than those built around shared identity." },
+  // { n: 55, text: "I reread the same few books every few years. They mean different things each time." },
+  // { n: 56, text: "I believe haptic feedback is the most underused high-bandwidth channel in interface design." },
+  // { n: 57, text: "I lose track of time when I'm mapping a complex system." },
+  // { n: 58, text: "I think the map is not the territory, and forgetting this causes most design mistakes." },
+  // { n: 59, text: "I believe that dead ends are research, not failure." },
+  // { n: 60, text: "I have a theory that the best ideas come from the space between two disciplines." },
+  // { n: 61, text: "Pokémon is the first system I ever tried to fully understand. Still working on it." },
+  // { n: 62, text: "I learned more from the things I built that failed than from the ones that succeeded." },
+  // { n: 63, text: "I believe that making something is different from understanding something, and both matter." },
+  // { n: 64, text: "I think stargazing and systems thinking are the same impulse at different scales." },
+  // { n: 65, text: "I am very particular about the weight of a pen." },
+  // { n: 66, text: "I believe that second-order thinking is the most underused tool in product decisions." },
+  // { n: 67, text: "I'd rather ship something that embarrasses me slightly than not ship at all." },
+  // { n: 68, text: "I think the reason interfaces feel like fighting is that they were designed in the wrong context." },
+  // { n: 69, text: "I believe that what you're avoiding is usually what most needs your attention." },
+  // { n: 70, text: "I've been the person who stayed to clean up after the event. I think that matters." },
+  // { n: 71, text: "I believe feedback loops are the mechanism of everything. No loop, no learning." },
+  // { n: 74, text: "I believe that cognitive load in EVA suits and cognitive load in checkout flows are the same problem at different stakes." },
+  // { n: 75, text: "I keep a running list of things I don't understand yet." },
+  // { n: 76, text: "I think the ceramics section of a thrift store is always worth checking." },
+  // { n: 78, text: "The specific sound of a kettle at exactly the right temperature is one of my favorite sounds." },
+  // { n: 79, text: "I believe most systems fail at the edges, and the edges are where you should design first." },
+  // { n: 80, text: "I have a bias toward purple. It wasn't intentional. It just kept showing up." },
+  // { n: 81, text: "I believe the interface you're avoiding designing is the one that needs the most thought." },
+  // { n: 82, text: "I think libraries are one of the best things humans have built." },
+  // { n: 83, text: "I believe that what makes something feel effortless took a lot of effort." },
+  // { n: 84, text: "I get genuinely excited about information architecture." },
+  // { n: 85, text: "I think Tufte is right that information design is a moral act." },
+  // { n: 86, text: "I believe that the best communities I've been part of were built on generosity." },
+  // { n: 87, text: "I keep a physical sketchbook even when I'm working entirely digitally." },
+  // { n: 88, text: "I believe that most product decisions look different when you ask who they're actually for." },
+  // { n: 89, text: "I think inversion - asking what would guarantee failure - is underrated as a design tool." },
+  // { n: 90, text: "I believe that every interface has a designer behind it who made choices. Good or bad." },
+  // { n: 91, text: "I am very susceptible to a well-designed loading state." },
+  // { n: 92, text: "I believe that building with constraints is more interesting than building without them." },
+  // { n: 93, text: "I've been told I ask too many questions. I consider this a feature." },
+  // { n: 94, text: "I think the fact that you're reading this means something about who you are." },
+  // { n: 95, text: "I believe that the best personal websites feel like actually spending time with a person." },
+  // { n: 96, text: "I'm still figuring most of this out. That feels like the point." },
+  // { n: 97, text: "I believe that making the tea before making the decision is almost always the right call." },
+  // { n: 98, text: "I think the gap between understanding and mastery is where all the interesting work happens." },
 ];
 
 type HobbyLevel = "emerging" | "growing" | "thriving";
@@ -953,14 +877,13 @@ function HobbyGardenView({ onSelect, selected, nodes }: { onSelect: (n: GardenNo
 const pageNotes: Record<string, string> = {
   overview: "Each tab captures a different kind of bookmark (always tinkering - this list updates as things ship or new rabbit holes appear).",
   art: "Visual references, creative influences, and makers whose work I keep studying.",
-  "concepts-library":
-    "Core ideas I revisit often, frameworks I use to think clearly, lessons learned, and questions I'm exploring. Reusable principles connected across projects and seasons. Fragments and field notes (shorter than essays).",
+  books: "Bookshelf/reading library of current books, learnings, and notes that shape how I think about building, design, and systems.",
+  "concepts-library": "Core ideas I revisit often, frameworks I use to think clearly, lessons learned, and questions I'm exploring. Reusable principles connected across projects and seasons. Fragments and field notes (shorter than essays).",
   "fun-facts": "Random things about me - the kind of stuff that doesn't fit anywhere else.",
   hobbies: "Things I do for the joy of it - what I reach for when there's no deadline.",
   "inspiration-board": "Ideas, people, and quotes that keep showing up in how I think and build.",
   "music-playlists": "Curated for different modes.",
   "nostalgia-whimsy": "A playful childhood collection of games, memories, shows, stories, toys, and things that still live rent-free in my head - what shaped my early years and made me, me.",
-  reading: "Current books, learnings, and notes that shape how I think about building, design, and systems.",
   "talks-videos": "Talks worth watching twice.",
   "tiny-experiments": "An extension of my lab and projects pages - small bets with clear outcomes.",
   writing: "Articles, essays, and papers worth keeping.",
@@ -968,13 +891,13 @@ const pageNotes: Record<string, string> = {
 
 const overviewItems = [
   { icon: <Palette className="h-4 w-4" />, label: "Art", id: "art" },
+  { icon: <BookOpen className="h-4 w-4" />, label: "Books", id: "books" },
   { icon: <Brain className="h-4 w-4" />, label: "Concepts & Models", id: "concepts-library" },
   { icon: <Sparkles className="h-4 w-4" />, label: "Fun Facts", id: "fun-facts" },
   { icon: <Puzzle className="h-4 w-4" />, label: "Hobbies", id: "hobbies" },
   { icon: <Lightbulb className="h-4 w-4" />, label: "Inspiration Board", id: "inspiration-board" },
   { icon: <Music className="h-4 w-4" />, label: "Music & Playlists", id: "music-playlists" },
   { icon: <Heart className="h-4 w-4" />, label: "Nostalgia & Whimsy", id: "nostalgia-whimsy" },
-  { icon: <BookOpen className="h-4 w-4" />, label: "Reading Library", id: "reading" },
   { icon: <Video className="h-4 w-4" />, label: "Talks & Videos", id: "talks-videos" },
   { icon: <Atom className="h-4 w-4" />, label: "Tiny Experiments", id: "tiny-experiments" },
   { icon: <FileText className="h-4 w-4" />, label: "Writing & Research", id: "writing" },
@@ -1059,6 +982,13 @@ export function Bookmarks() {
     },
 
     {
+      id: "books",
+      icon: <BookOpen className="h-4 w-4" />,
+      label: "Books",
+      content: <BooksContent />,
+    },
+
+    {
       id: "concepts-library",
       icon: <Brain className="h-4 w-4" />,
       label: "Concepts & Models",
@@ -1070,173 +1000,219 @@ export function Bookmarks() {
               note: "The hardest transition in building - getting from nothing to something is different than scaling from something to something bigger. Getting from nothing to something is a different skill than scaling. Starting projects, building conviction, and knowing when to ship.",
               domain: "buildling",
             },
+
             {
               concept: "2nd brain",
               note: "Personal knowledge management (PKM) system to capture and organize info (files, ideas, notes, etc.).",
               domain: "productivity",
             },
+
             {
               concept: "Affordance",
-              note: "The properties of an object that suggest how it should be used. A button affords pressing, while a handle affords pulling.",
+              note: "[Gibson → Norman] The properties of an object that suggest how it should be used. A button affords pressing, while a handle affords pulling.",
               domain: "design",
             },
+
             {
               concept: "Architect",
               note: "Build something that didn't exist before and trust the blueprint in your mind.",
               domain: "",
             },
+
             {
               concept: "Artifact",
               note: "What you make outlasts the making. Build with the future reader in mind.",
               domain: "",
             },
+
             {
               concept: "Autotelic experience",
               note: "An activity done for its own sake, where the reward is in the doing. Flow states are almost always autotelic.",
               domain: "psychology",
             },
+
             {
               concept: "Building",
               note: "Shipping something imperfect is almost always better than not shipping something perfect.",
               domain: "building",
             },
+
             {
               concept: "Clarity",
               note: "The goal of both good writing and good design. Remove until nothing remains to remove.",
               domain: "",
             },
+
             {
               concept: "Cognitive and neuroscience",
               note: "Research on how the brain processes information and its applications in design.",
               domain: "knowledge",
             },
+
             {
               concept: "Cognitive load and interface design",
-              note: "The total amount of mental effort being used in working memory. The best interfaces minimize it. Why the best interfaces feel effortless (and what happens when they don't). Mental models, working memory, and the hidden cost of a complex UI.",
+              note: "[Sweller, 1988] Why the best interfaces feel effortless (and what happens when they don't). Mental models, working memory, and the hidden cost of a complex UI. The total amount of mental effort being used in working memory (working memory has limited capacity). Every interface spends capacity. The goal is to spend it on the task (not the interface).",
               domain: "hci",
             },
+
             {
               concept: "Constraints",
               note: "The creative brief disguised as a limitation. Work within them first. Limitations are not obstacles. They are the brief. Work within them, not around them.",
               domain: "",
             },
+
             {
               concept: "Curiosity",
               note: "The engine of everything. Ask why one more time than feels comfortable.",
               domain: "",
             },
+
             { concept: "Deep work", note: "Focus without distraction for productivity.", domain: "productivity" },
+
             {
               concept: "Design interfaces",
               note: "The best interfaces don't respond to people, they think with them.",
               domain: "design",
             },
+
             {
               concept: "Design principles",
               note: "My working design philosophy: details matter → start with why.",
               domain: "product",
             },
+
             { concept: "Documentation", note: "Document everything.", domain: "building" },
+
             {
               concept: "Education",
               note: "Design learning experiences that are effective and enjoyable.",
               domain: "learning",
             },
+
             { concept: "Feedback loops", note: "Create mechanisms to learn and adapt quickly.", domain: "systems" },
+
             {
-              concept: "First principles",
-              note: "Break down complex problems into fundamental truths and every assumption down to its base truth. Build back up from there.",
+              concept: "First principles thinking",
+              note: "[Aristotle] Break down complex problems into fundamental truths and every assumption down to its base truth. Build back up from there.",
               domain: "systems",
             },
+
             {
               concept: "Flow",
               note: "Resistance is information. Find where effort dissolves into motion.",
               domain: "",
             },
+
             {
               concept: "Human-computer interaction (HCI)",
               note: "HCI research methods, fostering the community, pushing the boundary of how humans + tech co-exist.",
               domain: "product",
             },
+
             {
               concept: "Inversion",
               note: "Instead of asking how to achieve a goal, ask what would guarantee failure. Then avoid that. Ask what could fail first, then design around it.",
               domain: "design",
             },
+
             {
               concept: "Iteration",
               note: "Ship, learn, repeat. The first version is never the real version.",
               domain: "",
             },
+
             { concept: "Learning how to learn", note: "Interleaving - learning efficiently.", domain: "knowledge" },
+
             { concept: "Leverage", note: "Build once, benefit repeatedly.", domain: "building" },
+
             {
               concept: "Mastery",
               note: "Years of deliberate practice compressed into intuition. The master makes it look effortless.",
               domain: "",
             },
+
             { concept: "Mind", note: "Make systems feel like extensions of the mind.", domain: "cognitive science" },
+
             {
               concept: "Observe",
               note: "Step back because the pattern you may be looking for is only visible from a distance.",
               domain: "",
             },
+
             {
               concept: "Product",
               note: "Build impactful 0→1 products - the craft of making something from nothing.",
               domain: "product",
             },
+
             {
               concept: "Rest",
               note: "Prioritize scheduled recovery to maintain sustainable output.",
               domain: "productivity",
             },
+
             {
               concept: "Second-order thinking",
-              note: 'Analyze the long-term effects of actions instead of immediate results. Ask not just "What happens if I do this?" but "What happens next, and then what?" Most stop at first-order.',
+              note: '[Howard Marks] Analyze the long-term effects of actions instead of immediate results. Ask not just "What happens if I do this?" but "What happens next, and then what?" Most stop at first-order. Product decisions, research design, interface changes with side effects.',
               domain: "productivity",
             },
+
             {
               concept: "Signal",
               note: "In the noise of input, one thing keeps returning. That's the one worth following.",
               domain: "",
             },
+
             {
               concept: "Space (Apollo Program)",
               note: "Proof that constraints foster extraordinary design.",
               domain: "building",
             },
+
             {
               concept: "Space (constraints)",
               note: "Space teaches that constraints aren't limitations, they're the design brief.",
               domain: "building",
             },
+
             {
               concept: "Space (HCI)",
               note: "Cognitive load in interfaces (HCI for astronaut interfaces) and designing for zero-gravity workflows. Design under pressure. What astronaut UX teaches us about designing for high-stakes and time-constrained environments. It overlaps with everyday product design.",
               domain: "building",
             },
+
             {
               concept: "Synthesis",
               note: "The ability to connect ideas across domains. Reading widely is how you get here.",
               domain: "",
             },
+
+            {
+              concept: "System 1 / system 2",
+              note: "[Kahneman] System 1 is fast, automatic, intuitive. System 2 is slow, deliberate, effortful. Most interfaces assume system 2, while most users are in system 1. Design for real use, not idealized use. Things can be rushed, distracted, and tired.",
+              domain: "systems",
+            },
+
             {
               concept: "Systems",
               note: "Build systems that stay useful at higher complexity. Everything is connected. The edge case ignored is where the failure will begin. Design the system, not just the output. The container shapes what's inside it.",
               domain: "systems",
             },
+
             {
               concept: "Threshold",
               note: "The decision you keep postponing is the one that matters most right now.",
               domain: "",
             },
+
             {
               concept: "Tools",
               note: "You can tell a lot about how someone thinks by what tools they reach for.",
               domain: "productivity",
             },
+
             { concept: "UI/UX patterns", note: "Strategic and tactical design.", domain: "design" },
+
             { concept: "Writing", note: "Communicate ideas clearly and engagingly.", domain: "communication" },
           ].map((c) => (
             <div key={c.concept} className="rounded-lg bg-secondary/30 border border-border/50 px-4 py-3 hover:border-primary/30 transition-colors">
@@ -1283,10 +1259,7 @@ export function Bookmarks() {
                 <button
                   key={v}
                   onClick={() => setHobbyView(v)}
-                  className={cn(
-                    "px-3 py-1.5 rounded-md font-mono text-xs transition-all duration-200",
-                    hobbyView === v ? "bg-primary/15 text-primary border border-primary/30" : "text-muted-foreground hover:text-foreground",
-                  )}
+                  className={cn("px-3 py-1.5 rounded-md font-mono text-xs transition-all duration-200", hobbyView === v ? "bg-primary/15 text-primary border border-primary/30" : "text-muted-foreground hover:text-foreground")}
                 >
                   {v === "garden" ? "🌱 garden" : "☰ cards"}
                 </button>
@@ -1304,10 +1277,7 @@ export function Bookmarks() {
                       setActiveHobbyLevel("all");
                       setExpandedHobbyId(null);
                     }}
-                    className={cn(
-                      "px-3 py-1.5 rounded-md font-mono text-xs transition-all duration-200",
-                      activeHobbyTab === tab ? "bg-primary/15 text-primary border border-primary/30" : "text-muted-foreground hover:text-foreground",
-                    )}
+                    className={cn("px-3 py-1.5 rounded-md font-mono text-xs transition-all duration-200", activeHobbyTab === tab ? "bg-primary/15 text-primary border border-primary/30" : "text-muted-foreground hover:text-foreground")}
                   >
                     {hobbyTabLabels[tab]}
                     <span className="ml-1 font-mono text-[10px] text-muted-foreground">({hobbyGroups[tab].length})</span>
@@ -1343,13 +1313,7 @@ export function Bookmarks() {
 
               <div className="grid sm:grid-cols-2 gap-3">
                 {filteredHobbies.map((hobby) => (
-                  <div
-                    key={hobby.id}
-                    className={cn(
-                      "rounded-xl border bg-card/40 overflow-hidden transition-colors",
-                      expandedHobbyId === hobby.id ? "border-primary/50 bg-primary/5" : "border-border/50 hover:border-primary/30",
-                    )}
-                  >
+                  <div key={hobby.id} className={cn("rounded-xl border bg-card/40 overflow-hidden transition-colors", expandedHobbyId === hobby.id ? "border-primary/50 bg-primary/5" : "border-border/50 hover:border-primary/30")}>
                     <button onClick={() => setExpandedHobbyId(expandedHobbyId === hobby.id ? null : hobby.id)} className="w-full p-4 text-left hover:bg-secondary/30 transition-colors">
                       <div className="flex items-start gap-3 mb-3">
                         <span className="text-xl select-none shrink-0 mt-0.5">{hobby.emoji}</span>
@@ -1373,15 +1337,7 @@ export function Bookmarks() {
                           <div
                             className={cn(
                               "h-full rounded-full transition-all duration-700 ease-out",
-                              hobby.progress === 100
-                                ? "bg-emerald-300"
-                                : hobby.progress >= 75
-                                  ? "bg-lime-300"
-                                  : hobby.progress >= 50
-                                    ? "bg-yellow-300"
-                                    : hobby.progress >= 25
-                                      ? "bg-amber-300"
-                                      : "bg-orange-300",
+                              hobby.progress === 100 ? "bg-emerald-300" : hobby.progress >= 75 ? "bg-lime-300" : hobby.progress >= 50 ? "bg-yellow-300" : hobby.progress >= 25 ? "bg-amber-300" : "bg-orange-300",
                             )}
                             style={{ width: `${Math.max(hobby.progress, 5)}%` }}
                           />
@@ -1442,12 +1398,7 @@ export function Bookmarks() {
                                 .filter((m) => m.label)
                                 .map((milestone, i) => (
                                   <div key={i} className="flex items-start gap-2">
-                                    <div
-                                      className={cn(
-                                        "mt-0.5 w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0",
-                                        milestone.done ? "border-primary bg-primary" : "border-muted-foreground/30",
-                                      )}
-                                    >
+                                    <div className={cn("mt-0.5 w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0", milestone.done ? "border-primary bg-primary" : "border-muted-foreground/30")}>
                                       {milestone.done && (
                                         <svg className="w-2.5 h-2.5 text-primary-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                                           <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -1658,10 +1609,7 @@ export function Bookmarks() {
               <button
                 key={type}
                 onClick={() => setActiveNostalgiaType(activeNostalgiaType === type ? null : type)}
-                className={cn(
-                  "px-3 py-1.5 rounded-lg border font-mono text-xs transition-all duration-200",
-                  activeNostalgiaType === type ? typeColors[type] : "border-border text-muted-foreground hover:border-foreground/40 hover:text-foreground",
-                )}
+                className={cn("px-3 py-1.5 rounded-lg border font-mono text-xs transition-all duration-200", activeNostalgiaType === type ? typeColors[type] : "border-border text-muted-foreground hover:border-foreground/40 hover:text-foreground")}
               >
                 {type}
               </button>
@@ -1684,105 +1632,6 @@ export function Bookmarks() {
               </div>
             ))}
           </div>
-        </div>
-      ),
-    },
-
-    {
-      id: "reading",
-      icon: <BookOpen className="h-4 w-4" />,
-      label: "Reading Library",
-      content: (
-        <div className="space-y-3">
-          {readingBooks.map((book) => {
-            const hasNotes = !!book.summary;
-            const isExpanded = expandedBookId === book.id;
-            return (
-              <div key={book.id} className="rounded-lg bg-secondary/30 border border-border/50 hover:border-primary/30 transition-colors overflow-hidden">
-                <button
-                  onClick={() => hasNotes && setExpandedBookId(isExpanded ? null : book.id)}
-                  className={cn("w-full flex items-center gap-3 px-4 py-3 text-left", hasNotes ? "cursor-pointer" : "cursor-default")}
-                >
-                  <div className={cn("w-3 h-16 rounded-sm shrink-0", book.coverColor ?? "bg-secondary")} />
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 flex-wrap">
-                      <p className="text-sm font-medium truncate">{book.title}</p>
-                      {book.rating && (
-                        <div className="flex gap-0.5">
-                          {[1, 2, 3, 4, 5].map((star) => (
-                            <Star key={star} className={cn("h-3 w-3", star <= book.rating! ? "fill-primary text-primary" : "text-muted-foreground/30")} />
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                    <div className="flex items-center gap-2 mt-0.5 flex-wrap">
-                      <p className="font-mono text-xs text-muted-foreground">{book.author}</p>
-                      {book.category && (
-                        <span className="flex items-center gap-1 font-mono text-[10px] text-muted-foreground">
-                          <Tag className="h-3 w-3" />
-                          {book.category}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2 shrink-0">
-                    <span
-                      className={cn(
-                        "px-2 py-0.5 rounded-full border font-mono text-[10px]",
-                        book.status === "reading"
-                          ? "bg-primary/10 text-primary border-primary/30"
-                          : book.status === "done"
-                            ? "bg-secondary text-muted-foreground border-border"
-                            : "bg-yellow-500/10 text-yellow-600 dark:text-yellow-400 border-yellow-500/30",
-                      )}
-                    >
-                      {book.status === "queue" ? "antilibrary" : book.status}
-                    </span>
-                    {hasNotes && <ChevronDown className={cn("h-4 w-4 text-muted-foreground transition-transform", isExpanded && "rotate-180")} />}
-                  </div>
-                </button>
-                {hasNotes && isExpanded && (
-                  <div className="px-4 pb-4 border-t border-border/50 pt-3 space-y-4">
-                    <div>
-                      <h4 className="font-mono text-[10px] tracking-widest text-muted-foreground mb-1">Summary</h4>
-                      <p className="text-sm text-muted-foreground leading-relaxed">{book.summary}</p>
-                    </div>
-                    {book.keyTakeaways && book.keyTakeaways.length > 0 && (
-                      <div>
-                        <h4 className="font-mono text-[10px] tracking-widest text-muted-foreground mb-2 flex items-center gap-1.5">
-                          <Lightbulb className="h-3 w-3 text-primary" />
-                          Key Takeaways
-                        </h4>
-                        <ul className="space-y-1.5">
-                          {book.keyTakeaways.map((t, idx) => (
-                            <li key={idx} className="flex items-start gap-2 text-sm">
-                              <span className="text-primary font-mono text-xs mt-0.5">{idx + 1}.</span>
-                              <span>{t}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-                    {book.favoriteQuotes && book.favoriteQuotes.length > 0 && (
-                      <div>
-                        <h4 className="font-mono text-[10px] tracking-widest text-muted-foreground mb-2 flex items-center gap-1.5">
-                          <Quote className="h-3 w-3 text-primary" />
-                          Favorite Quotes
-                        </h4>
-                        <div className="space-y-2">
-                          {book.favoriteQuotes.map((q, idx) => (
-                            <blockquote key={idx} className="pl-3 border-l-2 border-primary/50 text-sm italic text-muted-foreground">
-                              &ldquo;{q}&rdquo;
-                            </blockquote>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                )}
-              </div>
-            );
-          })}
         </div>
       ),
     },
@@ -1869,7 +1718,7 @@ export function Bookmarks() {
         <div className={cn("space-y-3 mb-6 opacity-0", isVisible && "animate-fade-in-up")}>
           <p className="font-mono text-xs tracking-[0.25em] text-primary flex items-center gap-2">a bit of everything;</p>
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Bookmarks ‧₊˚♪ 𝄞₊˚⊹</h2>
-          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">Mini flipbook that works like a small index of artifacts, ideas, and references I return to often</p>
+          <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">Mini flipbook that works like a small index of artifacts, ideas, and references I return to often.</p>
         </div>
 
         <div className={cn("opacity-0", isVisible && "animate-fade-in-up stagger-1")}>
@@ -1915,11 +1764,7 @@ export function Bookmarks() {
                 </button>
                 <div className="flex gap-1">
                   {pages.map((_, i) => (
-                    <button
-                      key={i}
-                      onClick={() => setCurrentPage(i)}
-                      className={cn("h-2 rounded-full transition-all duration-200", currentPage === i ? "bg-primary w-6" : "bg-border hover:bg-muted-foreground w-2")}
-                    />
+                    <button key={i} onClick={() => setCurrentPage(i)} className={cn("h-2 rounded-full transition-all duration-200", currentPage === i ? "bg-primary w-6" : "bg-border hover:bg-muted-foreground w-2")} />
                   ))}
                 </div>
                 <button
